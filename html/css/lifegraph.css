@@ -1,3 +1,7 @@
+body {
+    height: 100%;
+}
+
 .upper_row {
     height:50%;
 }
@@ -18,7 +22,7 @@
     height:100%;
 }
 
-#card_container {
+#page_container {
     padding-left: 240px;
     height: calc(100% - 65px);
 }
