@@ -2,7 +2,7 @@ body {
     height: 100%;
 }
 
-.upper_row {
+#upper_row {
     height:50%;
 }
 
@@ -14,7 +14,7 @@ body {
     height:100%;
 }
 
-.lower_row {
+#lower_row {
     height: 50%;
 }  
 
