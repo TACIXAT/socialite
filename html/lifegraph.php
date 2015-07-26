@@ -84,7 +84,7 @@ sec_session_start();
                     </ul>
                 </div>
             </header>
-            <div id="page_container" class="container">
+            <div id="page_container">
                 <!--upper row-->
                 <div id="upper_row" class="row">
                     <div class="col l4 s12 center card_col">

@@ -24,7 +24,7 @@ body {
 
 #page_container {
     padding-left: 240px;
-    height: calc(100% - 65px);
+    height: calc(100vh - 65px);
 }
 
 /*a, body, input, button, select { font-family: monospace; }
