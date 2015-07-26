@@ -18,7 +18,7 @@ sec_session_start();
         </script>
         <!-- end Mixpanel -->
         
-        <!--link rel="stylesheet" href="styles/lifegraph.css" /-->
+        <!--script type="text/javascript" src="js/graph.js"></script-->
         <!--link rel="stylesheet" href="styles/d3.css" /-->
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5Sh0t7Zp9DeZOfbOfE2-KBgEe9YUoryM"></script>
         <script type="text/javascript" src="js/lib/jquery-2.1.3.min.js"></script>
@@ -26,8 +26,10 @@ sec_session_start();
         <script type="text/javascript" src="js/lib/jquery-ui-1.11.3/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/lib/d3.v3.min.js"></script>
         <script type="text/javascript" src="js/lib/underscore-min.js"></script>
-        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        
         <script type="text/javascript" src="js/materialize.min.js"></script>
+        <link rel="stylesheet" href="css/lifegraph.css" />
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
         <?php
             if(isset($_GET['apiKey'])) {
@@ -41,7 +43,6 @@ sec_session_start();
                 echo "        <script type=\"text/javascript\" alert(\"ERROR: NO API KEY!\");";
             }
         ?>
-        <!--script type="text/javascript" src="js/graph.js"></script-->
     </head>
     <body class="red">
         <?php
@@ -80,33 +81,52 @@ sec_session_start();
                         <li class="bold">
                             <a id="about_button">About</a>
                         </li>
-                        <li class="bold">
-                            <a id="pricing_button">Pricing</a>
-                        </li>
-                        <li class="bold">
-                            <a id="contact_button">Contact</a>
-                        </li>
                     </ul>
                 </div>
             </header>
-            <div class="container">
-                <div class="row upper_row">
-                    <div class="col l4 s12 center">
-                        <div class="card">
+            <div id="page_container" class="container">
+                <!--upper row-->
+                <div id="upper_row" class="row">
+                    <div class="col l4 s12 center card_col">
+                        <div class="card upper_card">
                             <i class="large mdi-social-person"></i>
                             <br />
                             People
                         </div>
                     </div> 
-                    <div class="col l4 s0 center">
-                        <div class="card">
+                    <div class="col l4 s0 center card_col">
+                        <div class="card upper_card">
                             <i class="large mdi-action-schedule"></i>
                             <br />
                             Events
                         </div>
                     </div> 
-                    <div class="col l4 s0 center">
-                        <div class="card">
+                    <div class="col l4 s0 center card_col">
+                        <div class="card upper_card">
+                            <i class="large mdi-maps-place"></i>
+                            <br />
+                            Locations
+                        </div>
+                    </div> 
+                </div>
+                <!--lower row-->
+                <div id="lower_row" class="row">
+                    <div class="col l4 s12 center card_col">
+                        <div class="card lower_card">
+                            <i class="large mdi-social-person"></i>
+                            <br />
+                            People
+                        </div>
+                    </div> 
+                    <div class="col l4 s0 center card_col">
+                        <div class="card lower_card">
+                            <i class="large mdi-action-schedule"></i>
+                            <br />
+                            Events
+                        </div>
+                    </div> 
+                    <div class="col l4 s0 center card_col">
+                        <div class="card lower_card">
                             <i class="large mdi-maps-place"></i>
                             <br />
                             Locations

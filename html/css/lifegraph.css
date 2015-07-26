@@ -1,4 +1,29 @@
-a, body, input, button, select { font-family: monospace; }
+.upper_row {
+    height:50%;
+}
+
+.card_col {
+    height:100%;
+}
+
+.upper_card {
+    height:100%;
+}
+
+.lower_row {
+    height: 50%;
+}  
+
+.lower_card {
+    height:100%;
+}
+
+#card_container {
+    padding-left: 240px;
+    height: calc(100% - 65px);
+}
+
+/*a, body, input, button, select { font-family: monospace; }
 
 p { 
     font-family: monospace; 
@@ -234,3 +259,4 @@ textarea.td_display {
     display:none;
 }
 
+*/
