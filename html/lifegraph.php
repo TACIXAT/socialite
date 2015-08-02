@@ -88,48 +88,36 @@ sec_session_start();
                 <!--upper row-->
                 <div id="upper_row" class="row">
                     <div class="col l4 s12 center card_col">
-                        <div class="card upper_card">
-                            <i class="large mdi-social-person"></i>
-                            <br />
-                            People
+                        <div id= "#person_display_div" class="card upper_card">
+                            
                         </div>
                     </div> 
                     <div class="col l4 s0 center card_col">
-                        <div class="card upper_card">
-                            <i class="large mdi-action-schedule"></i>
-                            <br />
-                            Events
+                        <div id= "#event_display_div" class="card upper_card">
+                            
                         </div>
                     </div> 
                     <div class="col l4 s0 center card_col">
-                        <div class="card upper_card">
-                            <i class="large mdi-maps-place"></i>
-                            <br />
-                            Locations
+                        <div id= "#location_display_div" class="card upper_card">
+                            
                         </div>
                     </div> 
                 </div>
                 <!--lower row-->
                 <div id="lower_row" class="row">
                     <div class="col l4 s12 center card_col">
-                        <div class="card lower_card">
-                            <i class="large mdi-social-person"></i>
-                            <br />
-                            People
+                        <div id="person_list_div" class="card lower_card">
+                            
                         </div>
                     </div> 
                     <div class="col l4 s0 center card_col">
-                        <div class="card lower_card">
-                            <i class="large mdi-action-schedule"></i>
-                            <br />
-                            Events
+                        <div id="event_list_div" class="card lower_card">
+                            
                         </div>
                     </div> 
                     <div class="col l4 s0 center card_col">
-                        <div class="card lower_card">
-                            <i class="large mdi-maps-place"></i>
-                            <br />
-                            Locations
+                        <div id="location_list_div" class="card lower_card">
+                            
                         </div>
                     </div> 
                 </div>
