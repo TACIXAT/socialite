@@ -18,7 +18,7 @@ sec_session_start();
         </script>
         <!-- end Mixpanel -->
         
-        <!--script type="text/javascript" src="js/graph.js"></script-->
+        <!--script type="text/javascript" src="js/lifegraph.js"></script-->
         <!--link rel="stylesheet" href="styles/d3.css" /-->
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5Sh0t7Zp9DeZOfbOfE2-KBgEe9YUoryM"></script>
         <script type="text/javascript" src="js/lib/jquery-2.1.3.min.js"></script>
