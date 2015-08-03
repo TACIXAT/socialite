@@ -20,13 +20,28 @@ Socialite.UI['buildPersonForms'] = function () {
     // var createForm = buildCreateForm('person');
 }
 
+Socialite.UI['onClickDisplayInit'] = function(form) {
+    return function(event) {
+        event.preventDefault();
+        var clicked = form.data('clicked');
+        switch(clicked) {
+            case 'update':
+                updateVertex(form);
+                break;
+            case 'delete':
+                deleteVertex(form);
+                break;
+        }
+    }
+}
+
 Socialite.UI['buildDisplayForm'] = function(vertexType) {
     var displayForm = $('<form></form>');
     var formId = vertexType + '_display_form';
     displayForm.attr('id', formId);
     displayForm.addClass('table_display');
     
-    var submit = onClickDisplayInit(displayForm);
+    var submit = Socialite.UI.onClickDisplayInit(displayForm);
     displayForm.submit(submit);
     $('#' + vertexType + '_display_div').append(displayForm);
 
@@ -35,7 +50,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
         
     var nameIndex = keys.indexOf("name");
     if(nameIndex != -1)
-        arraymove(keys, nameIndex, 0);
+        Socialite.util.arraymove(keys, nameIndex, 0);
 
     var updateButton = $('<button></button>');
     updateButton.attr('type', 'submit');

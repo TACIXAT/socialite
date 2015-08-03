@@ -13,6 +13,13 @@ Socialite.util['genericError'] = function(xhr, status, error) {
     }
 }
 
+Socialite.util['arrayMove'] = function(arr, fromIndex, toIndex) {
+    var element = arr[fromIndex]
+    arr.splice(fromIndex, 1);
+    arr.splice(toIndex, 0, element);
+}
+
+
 Socialite.API['propertiesSuccessInit'] = function(type) {
     var callback;
     switch(type) {
@@ -51,7 +58,7 @@ Socialite.API['getTypeProperties'] = function(type) {
 
 Socialite.API['getVertexTypes'] = function() {
     Socialite.API.getTypeProperties('person');
-    Socialite.API.getTypeProperties('event');
-    Socialite.API.getTypeProperties('location');
+    // Socialite.API.getTypeProperties('event');
+    // Socialite.API.getTypeProperties('location');
 }
 
