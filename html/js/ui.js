@@ -30,7 +30,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     displayForm.submit(submit);
     $('#' + vertexType + '_display_div').append(displayForm);
 
-    var properties = typeCache[vertexType];
+    var properties = Socialite.util.typeCache[vertexType];
     var keys = Object.keys(properties);
         
     var nameIndex = keys.indexOf("name");

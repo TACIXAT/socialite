@@ -1,6 +1,7 @@
 var Socialite = Socialite || {};
 Socialite.API = {};
 Socialite.util = {};
+Socialite.util.typeCache = {};
 
 Socialite.util['genericError'] = function(xhr, status, error) {
     console.log(xhr);
@@ -31,7 +32,7 @@ Socialite.API['propertiesSuccessInit'] = function(type) {
         if(properties['ERROR'] !== undefined) {
             alert(properties['ERROR']);
         } else {
-            typeCache[type] = properties;
+            Socialite.util.typeCache[type] = properties;
             callback();
         }
     }
