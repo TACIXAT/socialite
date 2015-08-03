@@ -50,7 +50,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
         
     var nameIndex = keys.indexOf("name");
     if(nameIndex != -1)
-        Socialite.util.arraymove(keys, nameIndex, 0);
+        Socialite.util.arrayMove(keys, nameIndex, 0);
 
     var updateButton = $('<button></button>');
     updateButton.attr('type', 'submit');
