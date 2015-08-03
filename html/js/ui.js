@@ -1,4 +1,4 @@
-Socialite = Socialite || {};
+var Socialite = Socialite || {};
 Socialite.UI = {};
 
 Socialite.UI['buildEventForms'] = function() {
