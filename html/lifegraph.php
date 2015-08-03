@@ -88,17 +88,17 @@ sec_session_start();
                 <!--upper row-->
                 <div id="upper_row" class="row">
                     <div class="col l4 s12 center card_col">
-                        <div id= "#person_display_div" class="card upper_card">
+                        <div id= "person_display_div" class="card upper_card">
                             
                         </div>
                     </div> 
                     <div class="col l4 s0 center card_col">
-                        <div id= "#event_display_div" class="card upper_card">
+                        <div id= "event_display_div" class="card upper_card">
                             
                         </div>
                     </div> 
                     <div class="col l4 s0 center card_col">
-                        <div id= "#location_display_div" class="card upper_card">
+                        <div id= "location_display_div" class="card upper_card">
                             
                         </div>
                     </div> 
