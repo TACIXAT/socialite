@@ -102,6 +102,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
         var key = keys[idx];
         var row = $('<div></div>');
         row.addClass('tr_display');
+        row.addClass('input-field');
 
         var label = $('<label></label>');
         label.addClass('td_display');
