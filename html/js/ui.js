@@ -86,7 +86,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     var idLabel = $('<label></label>');
     var idDisplay = $('<input></input>');
 
-    idLabel.text('id');
+    idLabel.text('ID ');
     idRow.addClass('tr_display');
     idLabel.addClass('td_display');
     idDisplay.addClass('td_display');
@@ -105,6 +105,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
 
         var label = $('<label></label>');
         label.addClass('td_display');
+        label.attr('for', key + '_' + vertexType + '_attribute');
         label.text(key);
 
         var input = key == 'notes' ? $('<textarea rows=5></textarea>') : $('<input></input>');

@@ -3,6 +3,10 @@ Socialite.API = {};
 Socialite.util = {};
 Socialite.util.typeCache = {};
 
+$(document).ready(function() {
+    Socialite.API.getVertexTypes();
+});
+
 Socialite.util['genericError'] = function(xhr, status, error) {
     console.log(xhr);
     var error = $.parseJSON(xhr.responseText);
