@@ -13,6 +13,7 @@ body {
 
 .upper_card {
     height:100%;
+    overflow: scroll;
 }
 
 #lower_row {
