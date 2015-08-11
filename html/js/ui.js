@@ -132,7 +132,10 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
 
         if(type == 'date') {
             input.addClass('datepicker');
-            label.addClass('active');
+            input.pickadate({
+                selectMonths: true,
+                selectYears: 150
+            });
         }
 
         row.append(input); 

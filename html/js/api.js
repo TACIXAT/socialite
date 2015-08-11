@@ -45,7 +45,6 @@ Socialite.API['propertiesSuccessInit'] = function(type) {
         } else {
             Socialite.util.typeCache[type] = properties;
             callback();
-            $(".datepicker").pickadate();
         }
     }
 }
