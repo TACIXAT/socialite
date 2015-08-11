@@ -149,7 +149,10 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     
     $(".datepicker").pickadate({
         selectMonths: true,
-        selectYears: 150
+        selectYears: 150,
+        onClose: function() {
+            $(".datepicker").blur();
+        },
     });
 
     return displayForm;
