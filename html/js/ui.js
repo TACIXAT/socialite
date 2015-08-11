@@ -130,6 +130,10 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             div.append(mapDiv);
         }
 
+        if(type == 'date') {
+            input.addClass('datepicker');
+        }
+
         row.append(label); 
         row.append(input); 
         buttonRow.before(row);

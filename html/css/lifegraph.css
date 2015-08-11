@@ -13,8 +13,8 @@ body {
 
 .upper_card {
     height:100%;
-    overflow: scroll !important;
-    overflow-y: hidden !important;
+    overflow: hidden !important;
+    overflow-y: scroll !important;
 }
 
 #lower_row {
