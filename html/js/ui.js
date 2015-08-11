@@ -57,7 +57,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     // updateButton.addClass('td_display');
     updateButton.html('UPDATE');
     updateButton.attr('name', 'update');
-    updateButton.id(vertexType + '_update_button');
+    updateButton.attr("id", vertexType + '_update_button');
     updateButton.click(function() {
         displayForm.data('clicked', this.name);
     });
