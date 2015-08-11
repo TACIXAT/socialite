@@ -54,7 +54,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
 
     var updateButton = $('<button></button>');
     updateButton.attr('type', 'submit');
-    updateButton.addClass('td_display');
+    // updateButton.addClass('td_display');
     updateButton.html('UPDATE');
     updateButton.attr('name', 'update');
     updateButton.click(function() {
@@ -63,7 +63,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
 
     var deleteButton = $('<button></button>');
     deleteButton.attr('type', 'submit');
-    deleteButton.addClass('td_display');
+    // deleteButton.addClass('td_display');
     deleteButton.html('DELETE');
     deleteButton.attr('name', 'delete');
     deleteButton.click(function() {
@@ -88,8 +88,8 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
 
     idLabel.text('ID ');
     idRow.addClass('tr_display');
-    idLabel.addClass('td_display');
-    idDisplay.addClass('td_display');
+    // idLabel.addClass('td_display');
+    // idDisplay.addClass('td_display');
     idDisplay.attr('id', 'id_' + vertexType + '_attribute');
     idDisplay.attr('readonly', true);
     idDisplay.attr('name', 'id');
@@ -105,12 +105,12 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
         row.addClass('input-field');
 
         var label = $('<label></label>');
-        label.addClass('td_display');
+        // label.addClass('td_display');
         label.attr('for', key + '_' + vertexType + '_attribute');
         label.text(key);
 
         var input = key == 'notes' ? $('<textarea rows=5></textarea>') : $('<input></input>');
-        input.addClass('td_display');
+        // input.addClass('td_display');
         var type = properties[key];
         input.attr('type', type);
         input.attr('name', key);
@@ -122,7 +122,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             input.attr("type", "hidden");
             input.attr("id", key + '_' + vertexType + "_attribute");
             div = $('<div></div>');
-            div.addClass('td_display');
+            // div.addClass('td_display');
 
             mapDiv = $('<div></div>');
             mapDiv.attr('id', vertexType + '_display_map');
@@ -134,8 +134,8 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             input.addClass('datepicker');
         }
 
-        row.append(label); 
         row.append(input); 
+        row.append(label); 
         buttonRow.before(row);
         
         if(type == 'geopoint') {
