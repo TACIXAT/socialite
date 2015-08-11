@@ -62,7 +62,7 @@ Socialite.API['getTypeProperties'] = function(type) {
 
 Socialite.API['getVertexTypes'] = function() {
     Socialite.API.getTypeProperties('person');
-    // Socialite.API.getTypeProperties('event');
-    // Socialite.API.getTypeProperties('location');
+    Socialite.API.getTypeProperties('event');
+    Socialite.API.getTypeProperties('location');
 }
 
