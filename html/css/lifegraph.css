@@ -17,6 +17,10 @@ body {
     overflow-y: scroll !important;
 }
 
+.display_form {
+    padding: 10px;
+}
+
 #lower_row {
     height: 50%;
 }  

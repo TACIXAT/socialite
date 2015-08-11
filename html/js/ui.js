@@ -39,7 +39,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     var displayForm = $('<form></form>');
     var formId = vertexType + '_display_form';
     displayForm.attr('id', formId);
-    displayForm.addClass('table_display');
+    displayForm.addClass('display_form');
     
     var submit = Socialite.UI.onClickDisplayInit(displayForm);
     displayForm.submit(submit);
