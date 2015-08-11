@@ -57,6 +57,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     // updateButton.addClass('td_display');
     updateButton.html('UPDATE');
     updateButton.attr('name', 'update');
+    updateButton.id(vertexType + '_update_button');
     updateButton.click(function() {
         displayForm.data('clicked', this.name);
     });
@@ -151,7 +152,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
         selectMonths: true,
         selectYears: 150,
         onClose: function() {
-            $(".datepicker").blur();
+            $("#" + vertexType + "_update_button").focus();
             console.log("on close caled!");
         },
     });
