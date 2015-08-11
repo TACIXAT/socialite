@@ -5,6 +5,7 @@ Socialite.util.typeCache = {};
 
 $(document).ready(function() {
     Socialite.API.getVertexTypes();
+    $(".datepicker").pickadate();
 });
 
 Socialite.util['genericError'] = function(xhr, status, error) {
