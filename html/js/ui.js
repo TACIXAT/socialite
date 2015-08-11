@@ -110,7 +110,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
         label.attr('for', key + '_' + vertexType + '_attribute');
         label.text(key);
 
-        var input = key == 'notes' ? $('<textarea rows=5></textarea>') : $('<input></input>');
+        var input = key == 'notes' ? $('<textarea class="materialize-textarea"></textarea>') : $('<input></input>');
         // input.addClass('td_display');
         var type = properties[key];
         input.attr('type', type);
