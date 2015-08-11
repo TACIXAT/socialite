@@ -146,7 +146,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
         selectMonths: true,
         selectYears: 150,
         onClose: function() {
-            $("#id_" + vertexType + "_attribute").focus();
+            $("#" + vertexType + "_update_button").focus();
         },
     });
 
