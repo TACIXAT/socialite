@@ -88,6 +88,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     idLabel.attr('for', 'id_' + vertexType + '_attribute');
     idDisplay.attr('id', 'id_' + vertexType + '_attribute');
     idDisplay.attr('disabled', true);
+    idDisplay.attr('type', 'text');
     idDisplay.attr('name', 'id');
 
     idRow.addClass('input-field');
