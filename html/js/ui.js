@@ -152,6 +152,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
         selectYears: 150,
         onClose: function() {
             $(".datepicker").blur();
+            console.log("on close caled!");
         },
     });
 
