@@ -198,7 +198,7 @@ Socialite.UI['addMap'] = function(div, inputId, slider) {
         draggable: true
     });
 
-    maps.push(map);
+    // maps.push(map);
     input.data('map', map);
     input.data('marker', marker);
 
