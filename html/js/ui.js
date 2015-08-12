@@ -115,9 +115,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
         var div;
         var mapDiv;
         if(type == 'geopoint') {
-            input.attr("disabled", true);
-            input.attr("type", "text");
-            input.attr("placeholder", "34.0086,-118.4949");
+            input.attr("type", "hidden");
             input.attr("id", key + '_' + vertexType + "_attribute");
             div = $('<div></div>');
 
@@ -125,6 +123,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             mapDiv.attr('id', vertexType + '_display_map');
             mapDiv.height(150);
             div.append(mapDiv);
+            label.attr("for", mapDiv.attr('id'));
         }
 
         if(type == 'date') {
@@ -184,9 +183,7 @@ Socialite.UI['addMap'] = function(div, inputId, slider) {
                 lng = temp;
             }
         }
-    } 
-
-    input.val(lat + "," + lng)
+    }
 
     var latLng = new google.maps.LatLng(lat, lng);
     var map = new google.maps.Map(div[0], {
