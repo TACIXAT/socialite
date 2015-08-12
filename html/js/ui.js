@@ -136,7 +136,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
         if(type == 'geopoint') {
             row.append(div);
             input.data('div', div);
-            addMap(mapDiv, input.attr("id"));
+            Socialite.UI.addMap(mapDiv, input.attr("id"));
 
             label.click(labelClickInit(input, div));
         }
