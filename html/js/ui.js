@@ -115,6 +115,8 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
         var div;
         var mapDiv;
         if(type == 'geopoint') {
+            label.addClass("active");
+            label.css("padding-bottom", "5px");
             input.attr("type", "hidden");
             input.attr("id", key + '_' + vertexType + "_attribute");
             div = $('<div></div>');
@@ -123,7 +125,6 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             mapDiv.attr('id', vertexType + '_display_map');
             mapDiv.height(150);
             div.append(mapDiv);
-            label.attr("for", mapDiv.attr('id'));
         }
 
         if(type == 'date') {
