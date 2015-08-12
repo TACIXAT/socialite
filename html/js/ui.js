@@ -14,7 +14,7 @@ Socialite.UI['buildLocationForms'] = function() {
     // navigator.geolocation.getCurrentPosition(centerMaps);
 }
 
-Socialite.UI['buildPersonForms'] = function () {
+Socialite.UI['buildPersonForms'] = function() {
     // var searchForm = buildSearchForm('person');
     var displayForm = Socialite.UI.buildDisplayForm('person');
     // var createForm = buildCreateForm('person');
@@ -151,4 +151,104 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     });
 
     return displayForm;
+}
+
+Socialite.UI['addMap'] = function(div, inputId, slider) {
+    var searchMap = false;
+    var input = $('#' + inputId);
+
+    if(/_map_search_input$/.test(inputId)) {
+        searchMap = true;
+    }
+
+    var lat = 34.0086;
+    var lng = -118.4949;
+    var value = input.val();
+
+    if(value != "" && value != undefined) {
+        var split = value.split(",");
+        if(split.length == 2) {
+            if(split[0].indexOf("point") != -1) {
+                split[0] = split[0].replace("point[", "");
+                split[1] = split[1].replace("]", "");
+            }
+            var temp = parseFloat(split[0]);
+            if(!isNaN(temp)) {
+                lat = temp;
+            }
+            
+            temp = parseFloat(split[1]);
+            if(!isNaN(temp)) {
+                lng = temp;
+            }
+        }
+    }
+
+    var latLng = new google.maps.LatLng(lat, lng);
+    var map = new google.maps.Map(div[0], {
+        center: latLng,
+        zoom: 11,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var marker = new google.maps.Marker({
+        position: latLng,
+        map: map,
+        title: 'Choose a location',
+        draggable: true
+    });
+
+    maps.push(map);
+    input.data('map', map);
+    input.data('marker', marker);
+
+    var dragendFunction = Socialite.UI.mapFunctionInit("#" + inputId);
+    google.maps.event.addListener(marker, 'dragend', dragendFunction);
+
+    if(searchMap) {
+        var radius = parseInt(slider.val());
+        input.val(lat + ',' + lng + ',' + radius / 1000);
+        var circle = new google.maps.Circle({
+                center: latLng,
+                map:map,
+                radius: radius,
+                strokeColor: "red",
+                strokeOpacity:0.6,
+                strokeWeight: 1,
+                fillColor: "red"
+            });
+        circle.bindTo('center',marker,'position');  
+        slider.on('input', Socialite.UI.sliderFunctionInit(circle, inputId, slider));
+    }
+}
+
+Socialite.UI['sliderFunctionInit'] = function(circle, inputId, slider) {
+    return function() {
+        var radius = parseInt(slider.val());
+        circle.setRadius(radius);
+
+        var val = $('#' + inputId).val();
+        val = val.split(',');
+        if(val.length == 2 || val.length == 3) {
+            coords = [val[0], val[1], radius / 1000].join(',');
+            $('#' + inputId).val(coords);
+        }
+
+    }
+}
+
+Socialite.UI['mapFunctionInit'] = function(id) {
+    return function (a) {
+        var coords = a.latLng.lat().toFixed(4) + ',' + a.latLng.lng().toFixed(4);
+        
+        if(/_map_search_input$/.test(id)) {
+            var val = $(id).val();
+            val = val.split(',');
+            if(val.length == 3) 
+                coords = [coords, val[2]].join(',');
+            // move circle?
+        }
+
+        $(id).val(coords);
+    }
 }
