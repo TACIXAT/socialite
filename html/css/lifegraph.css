@@ -8,6 +8,10 @@ body {
     border-bottom: 1px solid #ddd;
 }
 
+.logo:hover {
+    background-color:#fff !important;
+}
+
 #upper_row {
     height:50%;
 }

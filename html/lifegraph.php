@@ -76,10 +76,10 @@ sec_session_start();
                             <!-- Logo designed by @mlgs -->
                         </li>
                         <li class="bold">
-                            <a id="signup_button">Sign Up</a>
+                            <a id="add_button">Add</a>
                         </li>
                         <li class="bold">
-                            <a id="about_button">About</a>
+                            <a id="search_button">Search</a>
                         </li>
                     </ul>
                 </div>
