@@ -2,6 +2,12 @@ body {
     height: 100%;
 }
 
+.logo {
+    height: 310px;
+    margin-bottom: 0px;
+    border-bottom: 1px solid #ddd;
+}
+
 #upper_row {
     height:50%;
 }
