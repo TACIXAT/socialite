@@ -163,9 +163,9 @@ sec_session_start();
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a id="clear_button" class="modal-action">Clear</a>
-                    <button id="create_button" class="modal-action modal-close modal_right_button">Create</button>
-                    <a id="cancel_button" class="modal-action modal-close modal_right_button">Cancel</a>
+                    <a id="clear_button" class="modal-action waves-effect waves-green btn-flat">Clear</a>
+                    <button id="create_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Create</button>
+                    <a id="cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Cancel</a>
                 </div>
             </div>
 
