@@ -13,13 +13,13 @@ body {
 }
 
 .modal_right_button {
-    float: right;
+    float: right !important;
     margin-right: 10px;
     margin-left: 10px;
 }
 
 .modal_left_button {
-    float: left;
+    float: left !important;
     margin-right: 10px;
     margin-left: 10px;
 }
