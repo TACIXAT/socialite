@@ -5,6 +5,10 @@ Socialite.util.typeCache = {};
 
 $(document).ready(function() {
     Socialite.API.getVertexTypes();
+    $('ul.tabs').tabs();
+    $("#add_button").click(function() {
+        $('#add_modal').openModal();
+    });
 });
 
 Socialite.util['genericError'] = function(xhr, status, error) {
