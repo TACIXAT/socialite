@@ -12,6 +12,10 @@ body {
     background-color:#fff !important;
 }
 
+.float-right {
+    float: right;
+}
+
 #upper_row {
     height:50%;
 }
