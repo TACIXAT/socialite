@@ -12,8 +12,10 @@ body {
     background-color:#fff !important;
 }
 
-.float-right {
+.modal_right_button {
     float: right;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 #upper_row {
