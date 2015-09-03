@@ -146,7 +146,7 @@ sec_session_start();
                     <div class="row">
                         <div class="col s12">
                             <ul class="tabs">
-                                <li class="tab col s3"><a class="active" href="#create_person_div">Person</a></li>
+                                <li class="tab col s3"><a href="#create_person_div" id="create_person_tab" class="active">Person</a></li>
                                 <li class="tab col s3"><a href="#create_event_div">Event</a></li>
                                 <li class="tab col s3"><a href="#create_location_div">Location</a></li>
                             </ul>

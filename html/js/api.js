@@ -8,6 +8,7 @@ $(document).ready(function() {
     $('ul.tabs').tabs();
     $("#add_button").click(function() {
         $('#add_modal').openModal();
+        $('ul.tabs').tabs();
     });
 });
 
