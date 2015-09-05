@@ -9,6 +9,12 @@ $(document).ready(function() {
     $("#add_button").click(function() {
         $('#add_modal').openModal();
         $('ul.tabs').tabs();
+        for(var idx in Socialite.UI.maps) {
+            var map = Socialite.UI.maps[idx];
+            var center = map.getCenter();
+            google.maps.event.trigger(map, 'resize');
+            map.setCenter(center);
+        }
     });
 });
 

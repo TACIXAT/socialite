@@ -1,5 +1,6 @@
 var Socialite = Socialite || {};
 Socialite.UI = {};
+Socialite.UI.maps = [];
 
 Socialite.UI['buildEventForms'] = function() {
     // var searchForm = buildSearchForm('event');
@@ -369,7 +370,7 @@ Socialite.UI['addMap'] = function(div, inputId, slider) {
         draggable: true
     });
 
-    // maps.push(map);
+    Socialite.UI.maps.push(map);
     input.data('map', map);
     input.data('marker', marker);
 
@@ -410,7 +411,6 @@ Socialite.UI['centerMaps'] = function(position) {
     marker.setPosition(latLng);
     map.setCenter(latLng);
     google.maps.event.trigger(marker, 'dragend', {latLng: latLng});
-    google.maps.event.trigger(map, 'resize');
 }
 
 Socialite.UI['sliderFunctionInit'] = function(circle, inputId, slider) {
