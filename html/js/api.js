@@ -15,8 +15,9 @@ $(document).ready(function() {
         var time = 0;
 
         var interval = setInterval(function () {
-          if($('#element').is(':visible')) {
+          if($('#location_create_div').is(':visible')) {
             for(var idx in Socialite.UI.maps) {
+                console.log('resized!');
                 var map = Socialite.UI.maps[idx];
                 var center = map.getCenter();
                 google.maps.event.trigger(map, 'resize');
