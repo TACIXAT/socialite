@@ -35,6 +35,13 @@ Socialite.UI['onClickDisplayInit'] = function(form) {
     }
 }
 
+function onClickCreateInit(form) {
+    return function(event) {
+        event.preventDefault();
+        Socialite.API.createVertex(form);
+    }
+}
+
 Socialite.UI['buildCreateForm'] = function(vertexType) {
     var createForm = $('<form></form>');
     var formId = vertexType + '_create_form';

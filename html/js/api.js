@@ -71,3 +71,31 @@ Socialite.API['getVertexTypes'] = function() {
     Socialite.API.getTypeProperties('location');
 }
 
+Socialite.API['createVertex'] = function(form) {
+    var type = form[0]['type'].value;
+    var data = {"action":"create_vertex", "apiKey": apiKey, "type":type};
+    mixpanel.track("Create (" + type + ")");
+
+    var schema = Socialite.util.typeCache[type];
+    var schemaKeys = Object.keys(schema);
+    for(var idx in schemaKeys) {
+        var key = schemaKeys[idx];
+        var value = form[0][key].value;
+        if((key == 'date' || key == 'born') && value.split('-').length == 3) {
+            var split = value.split('-');
+            value = Date.UTC(split[0], split[1]-1, split[2]);
+        }
+        if(value !== '')
+            data[key] = value;
+    }
+    
+    console.log($.param(data));
+    $.ajax({
+        'type': 'POST',
+        'url': 'api/proxy.php', 
+        'data': $.param(data),
+        'success': createSuccess,
+        'error': genericError });
+    
+    return false; 
+ }
