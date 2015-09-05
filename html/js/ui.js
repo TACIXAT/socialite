@@ -405,11 +405,12 @@ Socialite.UI['centerMaps'] = function(position) {
     // google.maps.event.trigger(marker, 'dragend', {latLng: latLng});
     // // google.maps.event.trigger(map, 'resize');
 
-    map = $('#location_map_create_input').data('map');
-    marker = $('#location_map_create_input').data('marker');
+    var map = $('#location_map_create_input').data('map');
+    var marker = $('#location_map_create_input').data('marker');
     marker.setPosition(latLng);
     map.setCenter(latLng);
     google.maps.event.trigger(marker, 'dragend', {latLng: latLng});
+    google.maps.event.trigger(map, 'resize');
 }
 
 Socialite.UI['sliderFunctionInit'] = function(circle, inputId, slider) {
