@@ -11,13 +11,28 @@ $(document).ready(function() {
         $('ul.tabs').tabs();
     });
     $("#location_create_tab").click(function() {
-        for(var idx in Socialite.UI.maps) {
-            console.log('resize!');
-            var map = Socialite.UI.maps[idx];
-            var center = map.getCenter();
-            google.maps.event.trigger(map, 'resize');
-            map.setCenter(center);
-        }
+        var maxTime = 1000; 
+        var time = 0;
+
+        var interval = setInterval(function () {
+          if($('#element').is(':visible')) {
+            for(var idx in Socialite.UI.maps) {
+                var map = Socialite.UI.maps[idx];
+                var center = map.getCenter();
+                google.maps.event.trigger(map, 'resize');
+                map.setCenter(center);
+            }
+            clearInterval(interval);
+          } else {
+            if (time > maxTime) {
+              clearInterval(interval);
+              return;
+            }
+
+            // not visible yet, do something
+            time += 100;
+          }
+        }, 200);
     });
 });
 
