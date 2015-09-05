@@ -9,29 +9,11 @@ $(document).ready(function() {
     $("#add_button").click(function() {
         $('#add_modal').openModal();
         $('ul.tabs').tabs();
+        if($("#location_create_tab").hasClass('active'))
+            Socialite.UI.refreshCreateMap();
     });
     $("#location_create_tab").click(function() {
-        var maxTime = 1000; 
-        var time = 0;
-
-        var interval = setInterval(function () {
-          if($('#location_create_div').is(':visible')) {
-            for(var idx in Socialite.UI.maps) {
-                var map = Socialite.UI.maps[idx];
-                var center = map.getCenter();
-                google.maps.event.trigger(map, 'resize');
-                map.setCenter(center);
-            }
-            clearInterval(interval);
-          } else {
-            if (time > maxTime) {
-              clearInterval(interval);
-              return;
-            }
-
-            time += 200;
-          }
-        }, 200);
+        Socialite.UI.refreshCreateMap();
     });
 });
 

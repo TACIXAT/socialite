@@ -56,6 +56,10 @@ body {
     height: calc(100vh - 110px);
 }
 
+.modal-content {
+    height: 100%;
+}
+
 /*a, body, input, button, select { font-family: monospace; }
 
 p { 
