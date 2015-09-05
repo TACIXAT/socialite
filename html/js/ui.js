@@ -103,7 +103,7 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
             label.addClass("active");
             label.css("padding-bottom", "5px");
             input.attr("type", "hidden");
-            input.attr("id", key + '_' + vertexType + "_attribute");
+            input.attr("id", vertexType + "_map_create_input");
             div = $('<div></div>');
 
             mapDiv = $('<div></div>');
