@@ -65,22 +65,6 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
     typeInput.val(vertexType);
     createForm.append(typeInput);
 
-    // var idRow = $('<div></div>');
-    // var idLabel = $('<label></label>');
-    // var idCreate = $('<input></input>');
-
-    // idLabel.text('ID ');
-    // idLabel.attr('for', 'id_' + vertexType + '_attribute');
-    // idCreate.attr('id', 'id_' + vertexType + '_attribute');
-    // idCreate.attr('disabled', true);
-    // idCreate.attr('type', 'text');
-    // idCreate.attr('name', 'id');
-
-    // idRow.addClass('input-field');
-    // idRow.append(idLabel);
-    // idRow.append(idCreate);
-    // typeInput.before(idRow);
-
     for(var idx in keys) {
         var key = keys[idx];
         var row = $('<div></div>');
@@ -414,12 +398,12 @@ Socialite.UI['centerMaps'] = function(position) {
     var lng = position.coords.longitude;
     var latLng = new google.maps.LatLng(lat, lng);
 
-    var map = $('#location_map_search_input').data('map');
-    var marker = $('#location_map_search_input').data('marker');
-    marker.setPosition(latLng);
-    map.setCenter(latLng);
-    google.maps.event.trigger(marker, 'dragend', {latLng: latLng});
-    // google.maps.event.trigger(map, 'resize');
+    // var map = $('#location_map_search_input').data('map');
+    // var marker = $('#location_map_search_input').data('marker');
+    // marker.setPosition(latLng);
+    // map.setCenter(latLng);
+    // google.maps.event.trigger(marker, 'dragend', {latLng: latLng});
+    // // google.maps.event.trigger(map, 'resize');
 
     map = $('#location_map_create_input').data('map');
     marker = $('#location_map_create_input').data('marker');
