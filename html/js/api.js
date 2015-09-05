@@ -119,8 +119,19 @@ Socialite.API['createVertex'] = function(form) {
         'type': 'POST',
         'url': 'api/proxy.php', 
         'data': $.param(data),
-        'success': createSuccess,
+        'success': Socialite.API.createSuccess,
         'error': genericError });
     
     return false; 
- }
+}
+
+Socialite.API['createSuccess'] = function(data, status, xhr) {
+    var vertex = $.parseJSON(data);
+    console.log(vertex);
+    // if(vertex['_id'] == -1) {
+    //     alert(vertex['properties']['error']);
+    // } else {
+    //     resetForm(vertex['properties']['type'], 'create'); 
+    //     listVertices([vertex]);
+    // }
+}
