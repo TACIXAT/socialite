@@ -9,7 +9,10 @@ $(document).ready(function() {
     $("#add_button").click(function() {
         $('#add_modal').openModal();
         $('ul.tabs').tabs();
+    });
+    $("#location_create_tab").click(function() {
         for(var idx in Socialite.UI.maps) {
+            console.log('resize!');
             var map = Socialite.UI.maps[idx];
             var center = map.getCenter();
             google.maps.event.trigger(map, 'resize');
