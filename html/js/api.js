@@ -17,7 +17,6 @@ $(document).ready(function() {
         var interval = setInterval(function () {
           if($('#location_create_div').is(':visible')) {
             for(var idx in Socialite.UI.maps) {
-                console.log('resized!');
                 var map = Socialite.UI.maps[idx];
                 var center = map.getCenter();
                 google.maps.event.trigger(map, 'resize');
@@ -30,8 +29,7 @@ $(document).ready(function() {
               return;
             }
 
-            // not visible yet, do something
-            time += 100;
+            time += 200;
           }
         }, 200);
     });
