@@ -98,14 +98,7 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
         }
 
         if(type == 'date') {
-            // input.addClass('datepicker');
-            // input.pickadate({
-            //     selectMonths: true,
-            //     selectYears: 150,
-            //     onClose: function() {
-            //         $("#create_button").focus();
-            //     },
-            // });
+            input.addClass('datepicker');
         }
 
         row.append(input); 
@@ -119,6 +112,17 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
 
             // label.click(labelClickInit(input, div));
         }
+
+        if(type == 'date') {
+            input.pickadate({
+                selectMonths: true,
+                selectYears: 150,
+                onClose: function() {
+                    $("#create_button").focus();
+                },
+            });
+        }
+
     }
     
     return createForm;
