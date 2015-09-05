@@ -6,14 +6,34 @@ Socialite.util.typeCache = {};
 $(document).ready(function() {
     Socialite.API.getVertexTypes();
     $('ul.tabs').tabs();
+    
     $("#add_button").click(function() {
         $('#add_modal').openModal();
         $('ul.tabs').tabs();
         if($("#location_create_tab").hasClass('active'))
             Socialite.UI.refreshCreateMap();
     });
+    
     $("#location_create_tab").click(function() {
         Socialite.UI.refreshCreateMap();
+    });
+
+    $("#create_button").click(function() {
+        var visibleType = undefined;
+        if($("#person_create_tab").hasClass("active")) {
+            visibleType = "person";
+        } else if($("#event_create_tab").hasClass("active")) {
+            visibleType = "event";
+        } else if($("#location_create_tab").hasClass("active")) {
+            visibleType = "location";
+        } 
+
+        if(visibleType == undefined) {
+            return;
+        }
+
+        var formId = visibleType + "_create_form";
+        $("#" + formId).submit();
     });
 });
 
