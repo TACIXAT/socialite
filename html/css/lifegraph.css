@@ -57,7 +57,7 @@ body {
 }
 
 .modal-content {
-    height: 100%;
+    height: 100% !important;
 }
 
 /*a, body, input, button, select { font-family: monospace; }
