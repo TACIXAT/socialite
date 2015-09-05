@@ -146,19 +146,16 @@ sec_session_start();
                     <div class="row">
                         <div class="col s12">
                             <ul class="tabs">
-                                <li class="tab col s3"><a href="#create_person_div" id="create_person_tab" class="active">Person</a></li>
-                                <li class="tab col s3"><a href="#create_event_div">Event</a></li>
-                                <li class="tab col s3"><a href="#create_location_div">Location</a></li>
+                                <li class="tab col s3"><a href="#person_create_div" id="person_create_tab" class="active">Person</a></li>
+                                <li class="tab col s3"><a href="#event_create_div">Event</a></li>
+                                <li class="tab col s3"><a href="#location_create_div">Location</a></li>
                             </ul>
                         </div>
-                        <div id="create_person_div" class="col s12">
-                            PERSON
+                        <div id="person_create_div" class="col s12">
                         </div>
-                        <div id="create_event_div" class="col s12">
-                            EVENT
+                        <div id="event_create_div" class="col s12">
                         </div>
-                        <div id="create_location_div" class="col s12">
-                            LOCATION
+                        <div id="location_create_div" class="col s12">
                         </div>
                     </div>
                 </div>

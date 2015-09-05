@@ -35,6 +35,184 @@ Socialite.UI['onClickDisplayInit'] = function(form) {
     }
 }
 
+Socialite.UI['buildCreateForm'] = function(vertexType) {
+    var createForm = $('<form></form>');
+    var formId = vertexType + '_create_form';
+    createForm.attr('id', formId);
+    createForm.addClass('create_form');
+    
+    var submit = Socialite.UI.onClickCreateInit(createForm);
+    createForm.submit(submit);
+    $('#' + vertexType + '_create_div').append(createForm);
+
+    var properties = Socialite.util.typeCache[vertexType];
+    var keys = Object.keys(properties);
+        
+    var nameIndex = keys.indexOf("name");
+    if(nameIndex != -1)
+        Socialite.util.arrayMove(keys, nameIndex, 0);
+
+    var typeInput = $('<input></input>');
+    typeInput.attr('type', 'hidden');
+    typeInput.attr('name', 'type');
+    typeInput.val(vertexType);
+    createForm.append(typeInput);
+
+    var idRow = $('<div></div>');
+    var idLabel = $('<label></label>');
+    var idCreate = $('<input></input>');
+
+    idLabel.text('ID ');
+    idLabel.attr('for', 'id_' + vertexType + '_attribute');
+    idCreate.attr('id', 'id_' + vertexType + '_attribute');
+    idCreate.attr('disabled', true);
+    idCreate.attr('type', 'text');
+    idCreate.attr('name', 'id');
+
+    idRow.addClass('input-field');
+    idRow.append(idLabel);
+    idRow.append(idCreate);
+    typeInput.before(idRow);
+
+    for(var idx in keys) {
+        var key = keys[idx];
+        var row = $('<div></div>');
+        row.addClass('tr_create');
+        row.addClass('input-field');
+
+        var label = $('<label></label>');
+        label.attr('for', key + '_' + vertexType + '_attribute');
+        label.text(key);
+
+        var input = key == 'notes' ? $('<textarea class="materialize-textarea"></textarea>') : $('<input></input>');
+        var type = properties[key];
+        input.attr('type', type);
+        input.attr('name', key);
+        input.attr('id', key + '_' + vertexType + '_attribute');
+
+        var div;
+        var mapDiv;
+        if(type == 'geopoint') {
+            label.addClass("active");
+            label.css("padding-bottom", "5px");
+            input.attr("type", "hidden");
+            input.attr("id", key + '_' + vertexType + "_attribute");
+            div = $('<div></div>');
+
+            mapDiv = $('<div></div>');
+            mapDiv.attr('id', vertexType + '_create_map');
+            mapDiv.height(150);
+            div.append(mapDiv);
+        }
+
+        if(type == 'date') {
+            input.addClass('datepicker');
+        }
+
+        row.append(input); 
+        row.append(label); 
+        typeInput.before(row);
+        
+        if(type == 'geopoint') {
+            row.append(div);
+            input.data('div', div);
+            Socialite.UI.addMap(mapDiv, input.attr("id"));
+
+            // label.click(labelClickInit(input, div));
+        }
+    }
+    
+    $(".datepicker").pickadate({
+        selectMonths: true,
+        selectYears: 150,
+        onClose: function() {
+            $("#" + vertexType + "_update_button").focus();
+        },
+    });
+
+    return createForm;
+}
+
+/*
+function buildCreateForm(vertexType) {
+    var createForm = $('<form></form>');
+    var formId = vertexType + '_create_form';
+    createForm.attr('id', formId);
+    createForm.addClass('table_display');
+
+    var submit = onClickCreateInit(createForm);
+    createForm.submit(submit);
+    $('#' + vertexType + '_create_div').append(createForm);
+
+    var properties = typeCache[vertexType];
+    var keys = Object.keys(properties);
+        
+    var nameIndex = keys.indexOf("name");
+    if(nameIndex != -1)
+        arraymove(keys, nameIndex, 0);
+
+    var submitButton = $('<button></button>');
+    submitButton.attr('type', 'submit');
+    submitButton.addClass('td_display');
+    submitButton.html('CREATE');
+
+    var buttonRow = $('<div></div>');
+    buttonRow.addClass('tr_display');
+    buttonRow.append(submitButton);
+    createForm.append(buttonRow);
+
+    var typeInput = $('<input></input>');
+    typeInput.attr('type', 'hidden');
+    typeInput.attr('name', 'type');
+    typeInput.val(vertexType);
+    createForm.append(typeInput);
+
+
+    for(var idx in keys) {
+        var key = keys[idx];
+        var row = $('<div></div>');
+        row.addClass('tr_display');
+
+        var label = $('<label></label>');
+        label.addClass('td_display');
+        label.text(key);
+
+        var input = key == 'notes' ? $('<textarea rows=5></textarea>') : $('<input></input>');
+        input.addClass('td_display');
+        var type = properties[key];
+        input.attr('type', type);
+        input.attr('name', key);
+
+        var div;
+        var mapDiv;
+        if(type == 'geopoint') {
+            input.attr("type", "hidden");
+            input.attr("id", vertexType + "_map_create_input");
+            div = $('<div></div>');
+            div.addClass('td_display');
+
+            mapDiv = $('<div></div>');
+            mapDiv.attr('id', 'create_map');
+            mapDiv.height(150);
+            div.append(mapDiv);
+        }
+
+        row.append(label); 
+        row.append(input); 
+        buttonRow.before(row);
+        
+        if(type == 'geopoint') {
+            row.append(div);
+            input.data('div', div);
+            addMap(mapDiv, input.attr("id"));
+
+            label.click(labelClickInit(input, div));
+        }
+    }
+
+    return createForm;
+} */
+
 Socialite.UI['buildDisplayForm'] = function(vertexType) {
     var displayForm = $('<form></form>');
     var formId = vertexType + '_display_form';
