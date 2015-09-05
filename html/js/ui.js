@@ -117,6 +117,7 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
             input.pickadate({
                 selectMonths: true,
                 selectYears: 150,
+                container: '#page_container',
                 onClose: function() {
                     $("#create_button").focus();
                 },
@@ -319,6 +320,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             input.pickadate({
                 selectMonths: true,
                 selectYears: 150,
+                container: '#page_container',
                 onClose: function() {
                     $("#" + vertexType + "_update_button").focus();
                 },
