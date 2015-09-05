@@ -4,20 +4,20 @@ Socialite.UI = {};
 Socialite.UI['buildEventForms'] = function() {
     // var searchForm = buildSearchForm('event');
     var displayForm = Socialite.UI.buildDisplayForm('event');
-    // var createForm = buildCreateForm('event');
+    var createForm = Socialite.UI.buildCreateForm('event');
 }
 
 Socialite.UI['buildLocationForms'] = function() {
     // var searchForm = buildSearchForm('location');
     var displayForm = Socialite.UI.buildDisplayForm('location');
-    // var createForm = buildCreateForm('location');
-    // navigator.geolocation.getCurrentPosition(centerMaps);
+    var createForm = Socialite.UI.buildCreateForm('location');
+    navigator.geolocation.getCurrentPosition(Socialite.UI.centerMaps);
 }
 
 Socialite.UI['buildPersonForms'] = function() {
     // var searchForm = buildSearchForm('person');
     var displayForm = Socialite.UI.buildDisplayForm('person');
-    // var createForm = buildCreateForm('person');
+    var createForm = Socialite.UI.buildCreateForm('person');
 }
 
 Socialite.UI['onClickDisplayInit'] = function(form) {
@@ -35,7 +35,7 @@ Socialite.UI['onClickDisplayInit'] = function(form) {
     }
 }
 
-function onClickCreateInit(form) {
+Socialite.UI['onClickCreateInit'] = function(form) {
     return function(event) {
         event.preventDefault();
         Socialite.API.createVertex(form);
@@ -65,21 +65,21 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
     typeInput.val(vertexType);
     createForm.append(typeInput);
 
-    var idRow = $('<div></div>');
-    var idLabel = $('<label></label>');
-    var idCreate = $('<input></input>');
+    // var idRow = $('<div></div>');
+    // var idLabel = $('<label></label>');
+    // var idCreate = $('<input></input>');
 
-    idLabel.text('ID ');
-    idLabel.attr('for', 'id_' + vertexType + '_attribute');
-    idCreate.attr('id', 'id_' + vertexType + '_attribute');
-    idCreate.attr('disabled', true);
-    idCreate.attr('type', 'text');
-    idCreate.attr('name', 'id');
+    // idLabel.text('ID ');
+    // idLabel.attr('for', 'id_' + vertexType + '_attribute');
+    // idCreate.attr('id', 'id_' + vertexType + '_attribute');
+    // idCreate.attr('disabled', true);
+    // idCreate.attr('type', 'text');
+    // idCreate.attr('name', 'id');
 
-    idRow.addClass('input-field');
-    idRow.append(idLabel);
-    idRow.append(idCreate);
-    typeInput.before(idRow);
+    // idRow.addClass('input-field');
+    // idRow.append(idLabel);
+    // idRow.append(idCreate);
+    // typeInput.before(idRow);
 
     for(var idx in keys) {
         var key = keys[idx];
@@ -407,6 +407,25 @@ Socialite.UI['addMap'] = function(div, inputId, slider) {
         circle.bindTo('center',marker,'position');  
         slider.on('input', Socialite.UI.sliderFunctionInit(circle, inputId, slider));
     }
+}
+
+Socialite.UI['centerMaps'] = function(position) {
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+    var latLng = new google.maps.LatLng(lat, lng);
+
+    var map = $('#location_map_search_input').data('map');
+    var marker = $('#location_map_search_input').data('marker');
+    marker.setPosition(latLng);
+    map.setCenter(latLng);
+    google.maps.event.trigger(marker, 'dragend', {latLng: latLng});
+    // google.maps.event.trigger(map, 'resize');
+
+    map = $('#location_map_create_input').data('map');
+    marker = $('#location_map_create_input').data('marker');
+    marker.setPosition(latLng);
+    map.setCenter(latLng);
+    google.maps.event.trigger(marker, 'dragend', {latLng: latLng});
 }
 
 Socialite.UI['sliderFunctionInit'] = function(circle, inputId, slider) {
