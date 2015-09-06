@@ -118,6 +118,7 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
                 selectMonths: true,
                 selectYears: 150,
                 container: '#page_container',
+                formatSubmit: 'yyyy-mm-dd',
                 onClose: function() {
                     $("#create_button").focus();
                 },
@@ -252,6 +253,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
                 selectMonths: true,
                 selectYears: 150,
                 container: '#page_container',
+                formatSubmit: 'yyyy-mm-dd',
                 onClose: function() {
                     $("#" + vertexType + "_update_button").focus();
                 },
