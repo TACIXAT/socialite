@@ -37,6 +37,28 @@ $(document).ready(function() {
     });
 });
 
+Socialite.util['dateToUTC'] = function(date) {
+    var months = {
+        'January': 0,
+        'February': 1,
+        'March': 2,
+        'April': 3,
+        'May': 4,
+        'June': 5,
+        'July': 6,
+        'August': 7,
+        'September': 8,
+        'October': 9,
+        'November': 10,
+        'December': 11
+    };
+    date = date.replace(',', '').split(' ');
+    var day = date[0];
+    var month = months[date[1]];
+    var year = date[2];
+    return Date.UTC(year, month, day);
+}
+
 Socialite.util['genericError'] = function(xhr, status, error) {
     console.log(xhr);
     var error = $.parseJSON(xhr.responseText);
@@ -106,9 +128,8 @@ Socialite.API['createVertex'] = function(form) {
     for(var idx in schemaKeys) {
         var key = schemaKeys[idx];
         var value = form[0][key].value;
-        if((key == 'date' || key == 'born') && value.split('-').length == 3) {
-            var split = value.split('-');
-            value = Date.UTC(split[0], split[1]-1, split[2]);
+        if((key == 'date' || key == 'born') && value.split(' ').length == 3) {
+            value = Socialite.util.dateToUTC(value);
         }
         if(value !== '')
             data[key] = value;
