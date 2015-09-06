@@ -138,14 +138,15 @@ Socialite.UI['listVertices'] = function(vertices) {
     for(var idx in vertices) {
         console.log(vertices[idx]);
         var vertex = vertices[idx];
-        var vertexType = vertex['properties']['type'];
+        var vertexProperties = vertex['properties'];
+        var vertexType = vertexProperties['type'];
         var id = vertex['_id'];
 
         var item = $("<li></li>");
         item.attr('id', vertexType + '_' + id);
         item.attr('draggable', true);
         // item.on('dragstart', dragStart);
-        item.text(properties['name']);
+        item.text(vertexProperties['name']);
         item.data('vertex', vertex);
 
         $("#" + vertexType + "_list").append(item);
