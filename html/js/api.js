@@ -120,18 +120,18 @@ Socialite.API['createVertex'] = function(form) {
         'url': 'api/proxy.php', 
         'data': $.param(data),
         'success': Socialite.API.createSuccess,
-        'error': genericError });
+        'error': Socialite.API.genericError });
     
     return false; 
 }
 
 Socialite.API['createSuccess'] = function(data, status, xhr) {
     var vertex = $.parseJSON(data);
-    console.log(vertex);
-    // if(vertex['_id'] == -1) {
-    //     alert(vertex['properties']['error']);
-    // } else {
-    //     resetForm(vertex['properties']['type'], 'create'); 
-    //     listVertices([vertex]);
-    // }
+    // console.log(vertex);
+    if(vertex['_id'] == -1) {
+        alert(vertex['properties']['error']);
+    } else {
+        Socialite.UI.resetForm(vertex['properties']['type'], 'create'); 
+        Socialite.UI.listVertices([vertex]);
+    }
 }

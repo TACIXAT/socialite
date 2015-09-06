@@ -129,85 +129,16 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
     return createForm;
 }
 
-/*
-function buildCreateForm(vertexType) {
-    var createForm = $('<form></form>');
-    var formId = vertexType + '_create_form';
-    createForm.attr('id', formId);
-    createForm.addClass('table_display');
+Socialite.UI['resetForm'] = function(id, show) {
+    console.log("#" + id + "_" + show + "_form");
+    $("#" + id + "_" + show + "_form")[0].reset();
+}
 
-    var submit = onClickCreateInit(createForm);
-    createForm.submit(submit);
-    $('#' + vertexType + '_create_div').append(createForm);
-
-    var properties = typeCache[vertexType];
-    var keys = Object.keys(properties);
-        
-    var nameIndex = keys.indexOf("name");
-    if(nameIndex != -1)
-        arraymove(keys, nameIndex, 0);
-
-    var submitButton = $('<button></button>');
-    submitButton.attr('type', 'submit');
-    submitButton.addClass('td_display');
-    submitButton.html('CREATE');
-
-    var buttonRow = $('<div></div>');
-    buttonRow.addClass('tr_display');
-    buttonRow.append(submitButton);
-    createForm.append(buttonRow);
-
-    var typeInput = $('<input></input>');
-    typeInput.attr('type', 'hidden');
-    typeInput.attr('name', 'type');
-    typeInput.val(vertexType);
-    createForm.append(typeInput);
-
-
-    for(var idx in keys) {
-        var key = keys[idx];
-        var row = $('<div></div>');
-        row.addClass('tr_display');
-
-        var label = $('<label></label>');
-        label.addClass('td_display');
-        label.text(key);
-
-        var input = key == 'notes' ? $('<textarea rows=5></textarea>') : $('<input></input>');
-        input.addClass('td_display');
-        var type = properties[key];
-        input.attr('type', type);
-        input.attr('name', key);
-
-        var div;
-        var mapDiv;
-        if(type == 'geopoint') {
-            input.attr("type", "hidden");
-            input.attr("id", vertexType + "_map_create_input");
-            div = $('<div></div>');
-            div.addClass('td_display');
-
-            mapDiv = $('<div></div>');
-            mapDiv.attr('id', 'create_map');
-            mapDiv.height(150);
-            div.append(mapDiv);
-        }
-
-        row.append(label); 
-        row.append(input); 
-        buttonRow.before(row);
-        
-        if(type == 'geopoint') {
-            row.append(div);
-            input.data('div', div);
-            addMap(mapDiv, input.attr("id"));
-
-            label.click(labelClickInit(input, div));
-        }
+Socialite.UI['listVertices'] = function(vertices) {
+    for(var idx in vertices) {
+        console.log(vertices[idx]);
     }
-
-    return createForm;
-} */
+}
 
 Socialite.UI['buildDisplayForm'] = function(vertexType) {
     var displayForm = $('<form></form>');
