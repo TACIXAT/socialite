@@ -142,7 +142,7 @@ Socialite.UI['listVertices'] = function(vertices) {
         var id = vertex['_id'];
 
         var item = $("<li></li>");
-        item.attr('id', type + '_' + id);
+        item.attr('id', vertexType + '_' + id);
         item.attr('draggable', true);
         // item.on('dragstart', dragStart);
         item.text(properties['name']);
