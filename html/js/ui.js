@@ -118,7 +118,6 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
                 selectMonths: true,
                 selectYears: 150,
                 container: '#page_container',
-                formatSubmit: 'yyyy-mm-dd',
                 onClose: function() {
                     $("#create_button").focus();
                 },
@@ -138,6 +137,18 @@ Socialite.UI['resetForm'] = function(id, show) {
 Socialite.UI['listVertices'] = function(vertices) {
     for(var idx in vertices) {
         console.log(vertices[idx]);
+        var vertex = vertices[idx];
+        var vertexType = vertex['properties']['type'];
+        var id = vertex['_id'];
+
+        var item = $("<li></li>");
+        item.attr('id', type + '_' + id);
+        item.attr('draggable', true);
+        // item.on('dragstart', dragStart);
+        item.text(properties['name']);
+        item.data('vertex', vertex);
+
+        $("#" + vertexType + "_list").append(item);
     }
 }
 
@@ -253,7 +264,6 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
                 selectMonths: true,
                 selectYears: 150,
                 container: '#page_container',
-                formatSubmit: 'yyyy-mm-dd',
                 onClose: function() {
                     $("#" + vertexType + "_update_button").focus();
                 },
