@@ -60,6 +60,10 @@ body {
     height: 100% !important;
 }
 
+.list_item {
+    text-align: left;
+}
+
 /*a, body, input, button, select { font-family: monospace; }
 
 p { 

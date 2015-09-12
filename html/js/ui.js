@@ -145,6 +145,8 @@ Socialite.UI['listVertices'] = function(vertices) {
         var item = $("<li></li>");
         item.attr('id', vertexType + '_' + id);
         item.attr('draggable', true);
+        item.addClass('list_item');
+        item.addClass('collection-item');
         // item.on('dragstart', dragStart);
         item.text(vertexProperties['name']);
         item.data('vertex', vertex);
@@ -288,7 +290,7 @@ Socialite.UI['refreshCreateMap'] = function() {
     var time = 0;
 
     var interval = setInterval(function () {
-      if($('#location_create_div').is(':visible')) {
+      if($('#create_location_div').is(':visible')) {
         for(var idx in Socialite.UI.maps) {
             var map = Socialite.UI.maps[idx];
             var center = map.getCenter();

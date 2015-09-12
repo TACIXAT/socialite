@@ -152,26 +152,52 @@ sec_session_start();
                     <div class="row">
                         <div class="col s12">
                             <ul class="tabs">
-                                <li class="tab col s3"><a href="#person_create_div" id="person_create_tab" class="active">Person</a></li>
-                                <li class="tab col s3"><a href="#event_create_div" id="event_create_tab">Event</a></li>
-                                <li class="tab col s3"><a href="#location_create_div" id="location_create_tab">Location</a></li>
+                                <li class="tab col s3"><a href="#create_person_div" id="create_person_tab" class="active">Person</a></li>
+                                <li class="tab col s3"><a href="#create_event_div" id="create_event_tab">Event</a></li>
+                                <li class="tab col s3"><a href="#create_location_div" id="create_location_tab">Location</a></li>
                             </ul>
                         </div>
-                        <div id="person_create_div" class="col s12">
+                        <div id="create_person_div" class="col s12">
                         </div>
-                        <div id="event_create_div" class="col s12">
+                        <div id="create_event_div" class="col s12">
                         </div>
-                        <div id="location_create_div" class="col s12">
+                        <div id="create_location_div" class="col s12">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <a id="clear_button" class="modal-action waves-effect waves-green btn-flat modal_left_button">Clear</a>
-                    <button id="create_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Create</button>
-                    <a id="cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Cancel</a>
+                    <button id="create_submit_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Create</button>
+                    <a id="create_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Cancel</a>
                 </div>
             </div>
-
+            <div id="search_modal" class="modal modal-fixed-footer">
+                <div class="modal-content">
+                    <div class="row">
+                        <div class="col s12">
+                            <ul class="tabs">
+                                <li class="tab col s3"><a href="#search_person_div" id="search_person_tab" class="active">Person</a></li>
+                                <li class="tab col s3"><a href="#search_event_div" id="search_event_tab">Event</a></li>
+                                <li class="tab col s3"><a href="#search_location_div" id="search_location_tab">Location</a></li>
+                            </ul>
+                        </div>
+                        <div id="search_person_div" class="col s12">
+                        </div>
+                        <div id="search_event_div" class="col s12">
+                        </div>
+                        <div id="search_location_div" class="col s12">
+                        </div>
+                    </div>
+                    <div class="row" id="connected_to_div">
+                        CONNECTED TO
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a id="search_clear_button" class="modal-action waves-effect waves-green btn-flat modal_left_button">Clear</a>
+                    <button id="search_submit_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Create</button>
+                    <a id="search_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Cancel</a>
+                </div>
+            </div>
 
 
 
@@ -201,8 +227,8 @@ sec_session_start();
                                 </button>
                             </div>
                             <div class="form_row" ondrop="personDrop(event)" ondragover="allowDrop(event)">
-                                <div id="person_search_div"></div>
-                                <div id="person_create_div"></div>
+                                <div id="search_person_div"></div>
+                                <div id="create_person_div"></div>
                                 <div id="person_display_div"></div>
                             </div>
                         </div>
@@ -219,8 +245,8 @@ sec_session_start();
                                 </button>
                             </div>
                             <div class="form_row" ondrop="eventDrop(event)" ondragover="allowDrop(event)">
-                                <div id="event_search_div"></div>
-                                <div id="event_create_div"></div>
+                                <div id="search_event_div"></div>
+                                <div id="create_event_div"></div>
                                 <div id="event_display_div"></div>
                             </div>
                         </div>
@@ -237,8 +263,8 @@ sec_session_start();
                                 </button>
                             </div>
                             <div class="form_row" ondrop="locationDrop(event)" ondragover="allowDrop(event)">
-                                <div id="location_search_div"></div>
-                                <div id="location_create_div"></div>
+                                <div id="search_location_div"></div>
+                                <div id="create_location_div"></div>
                                 <div id="location_display_div"></div>
                             </div>
                         </div>

@@ -10,21 +10,28 @@ $(document).ready(function() {
     $("#add_button").click(function() {
         $('#add_modal').openModal();
         $('ul.tabs').tabs();
-        if($("#location_create_tab").hasClass('active'))
+        if($("#create_location_tab").hasClass('active'))
             Socialite.UI.refreshCreateMap();
     });
+
+    $("#search_button").click(function() {
+        $('#search_modal').openModal();
+        $('ul.tabs').tabs();
+        if($("#search_location_tab").hasClass('active'))
+            Socialite.UI.refreshSearchMap();
+    });
     
-    $("#location_create_tab").click(function() {
+    $("#create_location_tab").click(function() {
         Socialite.UI.refreshCreateMap();
     });
 
-    $("#create_button").click(function() {
+    $("#create_submit_button").click(function() {
         var visibleType = undefined;
-        if($("#person_create_tab").hasClass("active")) {
+        if($("#create_person_tab").hasClass("active")) {
             visibleType = "person";
-        } else if($("#event_create_tab").hasClass("active")) {
+        } else if($("#create_event_tab").hasClass("active")) {
             visibleType = "event";
-        } else if($("#location_create_tab").hasClass("active")) {
+        } else if($("#create_location_tab").hasClass("active")) {
             visibleType = "location";
         } 
 
