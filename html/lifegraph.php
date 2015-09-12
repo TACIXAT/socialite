@@ -189,7 +189,12 @@ sec_session_start();
                         </div>
                     </div>
                     <div class="row" id="connected_to_div">
-                        CONNECTED TO
+                        <ul class="collapsible" data-collapsible="accordion">
+                            <li>
+                              <div class="collapsible-header">Connected To</div>
+                              <div class="collapsible-body">CONNECTED NODES HERE</div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="modal-footer">
