@@ -383,7 +383,7 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
 }
 
 Socialite.UI['refreshCreateMap'] = function() {
-    Socialite.UI.refreshMap('##create_location_div');
+    Socialite.UI.refreshMap('#create_location_div');
 }
 
 Socialite.UI['refreshSearchMap'] = function() {

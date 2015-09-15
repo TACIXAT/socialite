@@ -25,6 +25,10 @@ $(document).ready(function() {
         Socialite.UI.refreshCreateMap();
     });
 
+    $("#search_location_tab").click(function() {
+        Socialite.UI.refreshSearchMap();
+    });
+
     $("#create_submit_button").click(function() {
         var visibleType = undefined;
         if($("#create_person_tab").hasClass("active")) {
