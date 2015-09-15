@@ -273,16 +273,102 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             });
         }
     }
-    
-    // $(".datepicker").pickadate({
-    //     selectMonths: true,
-    //     selectYears: 150,
-    //     onClose: function() {
-    //         $("#" + vertexType + "_update_button").focus();
-    //     },
-    // });
 
     return displayForm;
+}
+
+
+Socialite.UI['onClickSearchInit'](form) {
+    return function(event) {
+        event.preventDefault();
+        Socialite.API.searchVertices(form);
+    }
+}
+
+Socialite.UI['buildSearchForm'] = function(vertexType) {
+    var searchForm = $('<form></form>');
+    var formId = vertexType + '_search_form';
+    searchForm.attr('id', formId);
+    searchForm.addClass('search_form');
+    
+    var submit = Socialite.UI.onClickSearchInit(searchForm);
+    searchForm.submit(submit);
+    $('#' + vertexType + '_search_div').append(searchForm);
+
+    var properties = Socialite.util.typeCache[vertexType];
+    var keys = Object.keys(properties);
+        
+    var nameIndex = keys.indexOf("name");
+    if(nameIndex != -1)
+        Socialite.util.arrayMove(keys, nameIndex, 0);
+
+    var typeInput = $('<input></input>');
+    typeInput.attr('type', 'hidden');
+    typeInput.attr('name', 'type');
+    typeInput.val(vertexType);
+    searchForm.append(typeInput);
+
+    for(var idx in keys) {
+        var key = keys[idx];
+        var row = $('<div></div>');
+        row.addClass('tr_search');
+        row.addClass('input-field');
+
+        var label = $('<label></label>');
+        label.attr('for', key + '_' + vertexType + '_attribute');
+        label.text(key);
+
+        var input = key == 'notes' ? $('<textarea class="materialize-textarea"></textarea>') : $('<input></input>');
+        var type = properties[key];
+        input.attr('type', type);
+        input.attr('name', key);
+        input.attr('id', key + '_' + vertexType + '_attribute');
+
+        var div;
+        var mapDiv;
+        if(type == 'geopoint') {
+            label.addClass("active");
+            label.css("padding-bottom", "5px");
+            input.attr("type", "hidden");
+            input.attr("id", vertexType + "_map_search_input");
+            div = $('<div></div>');
+
+            mapDiv = $('<div></div>');
+            mapDiv.attr('id', vertexType + '_search_map');
+            mapDiv.height(150);
+            div.append(mapDiv);
+        }
+
+        if(type == 'date') {
+            input.addClass('datepicker');
+        }
+
+        row.append(input); 
+        row.append(label); 
+        typeInput.before(row);
+        
+        if(type == 'geopoint') {
+            row.append(div);
+            input.data('div', div);
+            Socialite.UI.addMap(mapDiv, input.attr("id"));
+
+            // label.click(labelClickInit(input, div));
+        }
+
+        if(type == 'date') {
+            input.pickadate({
+                selectMonths: true,
+                selectYears: 150,
+                container: '#page_container',
+                onClose: function() {
+                    $("#search_button").focus();
+                },
+            });
+        }
+
+    }
+    
+    return searchForm;
 }
 
 Socialite.UI['refreshCreateMap'] = function() {

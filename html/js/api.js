@@ -135,9 +135,11 @@ Socialite.API['createVertex'] = function(form) {
     for(var idx in schemaKeys) {
         var key = schemaKeys[idx];
         var value = form[0][key].value;
+
         if((key == 'date' || key == 'born') && value.split(' ').length == 3) {
             value = Socialite.util.dateToUTC(value);
         }
+
         if(value !== '')
             data[key] = value;
     }
@@ -151,6 +153,76 @@ Socialite.API['createVertex'] = function(form) {
         'error': Socialite.API.genericError });
     
     return false; 
+}
+
+Socialite.API['searchVertices'] = function(form) {
+    if(form[0]['connected_to'].value != '') {
+        Socialite.API.searchNeighbors(form);
+        return false;
+    }
+
+    var type = form[0]['type'].value;
+    var data = {"action":"search_vertices", "apiKey": apiKey, "type":type};
+    mixpanel.track("Search (" + type + ")");
+
+    var schema = typeCache[type];
+    var schemaKeys = Object.keys(schema);
+    for(var idx in schemaKeys) {
+        var key = schemaKeys[idx];
+        var value = form[0][key].value;
+        
+        if((key == 'date' || key == 'born') && value.split(' ').length == 3) {
+            value = Socialite.util.dateToUTC(value);
+        }
+
+        if(value !== '')
+            data[key] = value;
+    }
+
+    $.ajax({
+        'type': 'POST',
+        'url': 'api/proxy.php',
+        'data': $.param(data),
+        'success': Socialite.API.searchSuccess,
+        'error': Socialite.API.genericError });
+}
+
+Socialite.API['searchNeighbors'] = function(form) {
+    var type = form[0]['type'].value;
+    var vertex = form[0]['connected_to'].value;
+    var data = {"action":"search_neighbors", "apiKey": apiKey, "type":type, "vertex": vertex};
+    mixpanel.track("SearchNeighbors (" + type + ")");
+
+    var schema = typeCache[type];
+    var schemaKeys = Object.keys(schema);
+    for(var idx in schemaKeys) {
+        var key = schemaKeys[idx];
+        var value = form[0][key].value;
+        
+        if((key == 'date' || key == 'born') && value.split(' ').length == 3) {
+            value = Socialite.util.dateToUTC(value);
+        }
+
+        if(value !== '')
+            data[key] = value;
+    }
+
+    $.ajax({
+        'type': 'POST',
+        'url': 'api/proxy.php',
+        'data': $.param(data),
+        'success': Socialite.API.searchSuccess,
+        'error': Socialite.API.genericError });
+}
+
+Socialite.API['searchSuccess'] = function(data, status, xhr) {
+    var vertices = $.parseJSON(data);
+    if(vertices.length == 1 && vertices[0]['_id'] == -1) {
+        alert(vertices[0]['properties']['error']);
+    } else {
+        Socialite.UI.resetForm(vertices[0]['properties']['type'], 'search'); 
+        Socialite.UI.listVertices(vertices);
+    }
 }
 
 Socialite.API['createSuccess'] = function(data, status, xhr) {
