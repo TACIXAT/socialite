@@ -326,6 +326,7 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
 
         var div;
         var mapDiv;
+        var slider;
         if(type == 'geopoint') {
             label.addClass("active");
             label.css("padding-bottom", "5px");
@@ -337,6 +338,16 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
             mapDiv.attr('id', vertexType + '_search_map');
             mapDiv.height(150);
             div.append(mapDiv);
+
+            slider = $('<input></input>');
+            slider.attr('type', 'range');
+            slider.attr('min', '25');
+            slider.attr('max', '25000');
+            slider.attr('value', '25');
+            slider.attr('id', 'search_map_slider');
+            slider.val(100);
+
+            div.append(slider);
         }
 
         if(type == 'date') {
@@ -350,7 +361,7 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
         if(type == 'geopoint') {
             row.append(div);
             input.data('div', div);
-            Socialite.UI.addMap(mapDiv, input.attr("id"));
+            Socialite.UI.addMap(mapDiv, input.attr("id"), slider);
 
             // label.click(labelClickInit(input, div));
         }
