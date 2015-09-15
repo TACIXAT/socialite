@@ -278,7 +278,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
 }
 
 
-Socialite.UI['onClickSearchInit'](form) {
+Socialite.UI['onClickSearchInit'] = function(form) {
     return function(event) {
         event.preventDefault();
         Socialite.API.searchVertices(form);
