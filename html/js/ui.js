@@ -3,20 +3,20 @@ Socialite.UI = {};
 Socialite.UI.maps = [];
 
 Socialite.UI['buildEventForms'] = function() {
-    // var searchForm = buildSearchForm('event');
+    // var searchForm = Socialite.UI.buildSearchForm('event');
     var displayForm = Socialite.UI.buildDisplayForm('event');
     var createForm = Socialite.UI.buildCreateForm('event');
 }
 
 Socialite.UI['buildLocationForms'] = function() {
-    // var searchForm = buildSearchForm('location');
+    // var searchForm = Socialite.UI.buildSearchForm('location');
     var displayForm = Socialite.UI.buildDisplayForm('location');
     var createForm = Socialite.UI.buildCreateForm('location');
     navigator.geolocation.getCurrentPosition(Socialite.UI.centerMaps);
 }
 
 Socialite.UI['buildPersonForms'] = function() {
-    // var searchForm = buildSearchForm('person');
+    // var searchForm = Socialite.UI.buildSearchForm('person');
     var displayForm = Socialite.UI.buildDisplayForm('person');
     var createForm = Socialite.UI.buildCreateForm('person');
 }
@@ -51,7 +51,7 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
     
     var submit = Socialite.UI.onClickCreateInit(createForm);
     createForm.submit(submit);
-    $('#' + vertexType + '_create_div').append(createForm);
+    $('#create_' + vertexType + '_div').append(createForm);
 
     var properties = Socialite.util.typeCache[vertexType];
     var keys = Object.keys(properties);
@@ -293,7 +293,7 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
     
     var submit = Socialite.UI.onClickSearchInit(searchForm);
     searchForm.submit(submit);
-    $('#' + vertexType + '_search_div').append(searchForm);
+    $('#search_' + vertexType + '_div').append(searchForm);
 
     var properties = Socialite.util.typeCache[vertexType];
     var keys = Object.keys(properties);
