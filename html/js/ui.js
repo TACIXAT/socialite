@@ -3,20 +3,20 @@ Socialite.UI = {};
 Socialite.UI.maps = [];
 
 Socialite.UI['buildEventForms'] = function() {
-    // var searchForm = Socialite.UI.buildSearchForm('event');
+    var searchForm = Socialite.UI.buildSearchForm('event');
     var displayForm = Socialite.UI.buildDisplayForm('event');
     var createForm = Socialite.UI.buildCreateForm('event');
 }
 
 Socialite.UI['buildLocationForms'] = function() {
-    // var searchForm = Socialite.UI.buildSearchForm('location');
+    var searchForm = Socialite.UI.buildSearchForm('location');
     var displayForm = Socialite.UI.buildDisplayForm('location');
     var createForm = Socialite.UI.buildCreateForm('location');
     navigator.geolocation.getCurrentPosition(Socialite.UI.centerMaps);
 }
 
 Socialite.UI['buildPersonForms'] = function() {
-    // var searchForm = Socialite.UI.buildSearchForm('person');
+    var searchForm = Socialite.UI.buildSearchForm('person');
     var displayForm = Socialite.UI.buildDisplayForm('person');
     var createForm = Socialite.UI.buildCreateForm('person');
 }
@@ -383,11 +383,19 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
 }
 
 Socialite.UI['refreshCreateMap'] = function() {
+    Socialite.UI.refreshMap('##create_location_div');
+}
+
+Socialite.UI['refreshSearchMap'] = function() {
+    Socialite.UI.refreshMap('#search_location_div');
+}
+
+Socialite.UI['refreshMap'] = function(id) {
     var maxTime = 1000; 
     var time = 0;
 
     var interval = setInterval(function () {
-      if($('#create_location_div').is(':visible')) {
+      if($(id).is(':visible')) {
         for(var idx in Socialite.UI.maps) {
             var map = Socialite.UI.maps[idx];
             var center = map.getCenter();
