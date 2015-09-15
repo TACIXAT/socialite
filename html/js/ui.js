@@ -488,12 +488,12 @@ Socialite.UI['centerMaps'] = function(position) {
     var lng = position.coords.longitude;
     var latLng = new google.maps.LatLng(lat, lng);
 
-    // var map = $('#location_map_search_input').data('map');
-    // var marker = $('#location_map_search_input').data('marker');
-    // marker.setPosition(latLng);
-    // map.setCenter(latLng);
-    // google.maps.event.trigger(marker, 'dragend', {latLng: latLng});
-    // // google.maps.event.trigger(map, 'resize');
+    var map = $('#location_map_search_input').data('map');
+    var marker = $('#location_map_search_input').data('marker');
+    marker.setPosition(latLng);
+    map.setCenter(latLng);
+    google.maps.event.trigger(marker, 'dragend', {latLng: latLng});
+    // google.maps.event.trigger(map, 'resize');
 
     var map = $('#location_map_create_input').data('map');
     var marker = $('#location_map_create_input').data('marker');
