@@ -199,7 +199,7 @@ sec_session_start();
                 </div>
                 <div class="modal-footer">
                     <a id="search_clear_button" class="modal-action waves-effect waves-green btn-flat modal_left_button">Clear</a>
-                    <button id="search_submit_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Create</button>
+                    <button id="search_submit_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Search</button>
                     <a id="search_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Cancel</a>
                 </div>
             </div>
