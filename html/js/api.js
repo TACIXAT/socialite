@@ -187,7 +187,7 @@ Socialite.API['searchVertices'] = function(form) {
     var data = {"action":"search_vertices", "apiKey": apiKey, "type":type};
     mixpanel.track("Search (" + type + ")");
 
-    var schema = typeCache[type];
+    var schema = Socialite.util.typeCache[type];
     var schemaKeys = Object.keys(schema);
     for(var idx in schemaKeys) {
         var key = schemaKeys[idx];
