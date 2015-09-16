@@ -378,7 +378,15 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
         }
 
     }
-    
+
+    var connectedInput = $('<input></input>');
+    connectedInput.addClass('td_display');
+    connectedInput.attr('type', 'hidden');
+    connectedInput.attr('name', 'connected_to');
+    connectedInput.attr('id', vertexType + '_connected_search_input');
+    row.append(connectedInput);
+
+
     return searchForm;
 }
 
