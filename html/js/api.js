@@ -43,8 +43,26 @@ $(document).ready(function() {
             return;
         }
 
-        var formId = visibleType + "_create_form";
-        $("#" + formId).submit();
+        var formId = "#create_" + visibleType + "_form";
+        $(formId).submit();
+    });
+
+    $("#search_submit_button").click(function() {
+        var visibleType = undefined;
+        if($("#search_person_tab").hasClass("active")) {
+            visibleType = "person";
+        } else if($("#search_event_tab").hasClass("active")) {
+            visibleType = "event";
+        } else if($("#search_location_tab").hasClass("active")) {
+            visibleType = "location";
+        } 
+
+        if(visibleType == undefined) {
+            return;
+        }
+
+        var formId = "#search_" + visibleType + "_form";
+        $(formId).submit();
     });
 });
 

@@ -45,7 +45,7 @@ Socialite.UI['onClickCreateInit'] = function(form) {
 
 Socialite.UI['buildCreateForm'] = function(vertexType) {
     var createForm = $('<form></form>');
-    var formId = vertexType + '_create_form';
+    var formId = 'create_' + vertexType + '_form';
     createForm.attr('id', formId);
     createForm.addClass('create_form');
     
@@ -287,7 +287,7 @@ Socialite.UI['onClickSearchInit'] = function(form) {
 
 Socialite.UI['buildSearchForm'] = function(vertexType) {
     var searchForm = $('<form></form>');
-    var formId = vertexType + '_search_form';
+    var formId = 'search_' + vertexType + '_form';
     searchForm.attr('id', formId);
     searchForm.addClass('search_form');
     
