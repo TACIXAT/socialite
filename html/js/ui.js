@@ -130,8 +130,8 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
 }
 
 Socialite.UI['resetForm'] = function(id, show) {
-    console.log("#" + id + "_" + show + "_form");
-    $("#" + id + "_" + show + "_form")[0].reset();
+    console.log("#" + show + "_" + id + "_form");
+    $("#" + show + "_" + id + "_form")[0].reset();
 }
 
 Socialite.UI['listVertices'] = function(vertices) {
