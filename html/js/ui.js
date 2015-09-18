@@ -129,6 +129,83 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
     return createForm;
 }
 
+Socialite.UI['displayVertex'] = function(vertex) {
+    mixpanel.track("Display");
+    var properties = vertex['properties'];
+    var keys = Object.keys(properties);
+    var type = properties['type'];
+    var typeProperties = Socialite.util.typeCache[type];
+
+    var idDisplay = $('#id_' + type + '_attribute');
+    idDisplay.val(vertex['_id']);
+
+    console.log(typeProperties);
+    console.log(properties);
+    if(typeProperties['geoloc'] !== undefined) {
+        var input = $('#geoloc_' + type + '_attribute');
+        var map = input.data('map');
+        var div = input.data('div');
+        if(properties['geoloc'] === undefined) {
+            if(!input.hasClass('map_hidden')) {
+                var val = input.val();
+                input.val('');
+                input.data('center', map.getCenter());
+                input.data('value', val);
+                div.hide();
+                input.addClass('map_hidden');
+            }
+        } else {
+            if(input.hasClass('map_hidden')) {
+                input.removeClass('map_hidden');
+                var center = input.data('center');
+                var value = input.data('value');
+                div.show();
+                google.maps.event.trigger(map, 'resize');
+                map.setCenter(center);
+                input.val(value);
+            }
+        } 
+    }
+
+    for(var idx in keys) {
+        var key = keys[idx];
+        var value = properties[key];
+        var dataType = typeProperties[key];
+        var element = $('#' + key + '_' + type + '_attribute');
+
+        if(dataType == 'date') {
+            value = getYYYYMMDD(new Date(parseInt(value)));
+        } else if(dataType == 'geopoint') {
+            var split = value.split(",");
+            if(split.length == 2) {
+                if(split[0].indexOf("point") != -1) {
+                    split[0] = split[0].replace("point[", "");
+                    split[1] = split[1].replace("]", "");
+                }
+                var temp = parseFloat(split[0]);
+                if(!isNaN(temp)) {
+                    lat = temp;
+                }
+                
+                temp = parseFloat(split[1]);
+                if(!isNaN(temp)) {
+                    lng = temp;
+                }
+            }
+
+            value = lat + ',' + lng;
+            var latLng = new google.maps.LatLng(lat, lng);
+            var map = element.data('map');
+            var marker = element.data('marker');
+            marker.setPosition(latLng);
+            map.setCenter(latLng);
+        }
+
+        element.val(value);
+    }   
+}
+
+
 Socialite.UI['resetForm'] = function(id, show) {
     console.log("#" + show + "_" + id + "_form");
     $("#" + show + "_" + id + "_form")[0].reset();
@@ -137,9 +214,8 @@ Socialite.UI['resetForm'] = function(id, show) {
 Socialite.UI['itemClick'] = function(event) {
     var vertex = $(this).data('vertex');
     console.log(vertex);
-    // toggleForm(vertex['properties']['type'], 'display');
-    // resetForm(vertex['properties']['type'], 'display');
-    // displayVertex(vertex);
+    Socialite.UI.resetForm(vertex['properties']['type'], 'display');
+    Socialite.UI.displayVertex(vertex);
 }
 
 Socialite.UI['listVertices'] = function(vertices) {
