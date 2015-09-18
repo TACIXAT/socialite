@@ -242,13 +242,13 @@ Socialite.UI['listVertices'] = function(vertices) {
 
 Socialite.UI['buildDisplayForm'] = function(vertexType) {
     var displayForm = $('<form></form>');
-    var formId = vertexType + '_display_form';
+    var formId = "display_" + vertexType + '_form';
     displayForm.attr('id', formId);
     displayForm.addClass('display_form');
     
     var submit = Socialite.UI.onClickDisplayInit(displayForm);
     displayForm.submit(submit);
-    $('#' + vertexType + '_display_div').append(displayForm);
+    $('#display_' + vertexType + '_div').append(displayForm);
 
     var properties = Socialite.util.typeCache[vertexType];
     var keys = Object.keys(properties);
