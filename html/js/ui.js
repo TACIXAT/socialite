@@ -187,7 +187,7 @@ Socialite.UI['displayVertex'] = function(vertex) {
         if(dataType == 'date') {
             value = Socialite.util.getYYYYMMDD(new Date(parseInt(value)));
             var picker = element.data('picker');
-            picker.set('view', value);
+            picker.set('view', value, {'format': 'yyyy-mm-dd'});
         } else if(dataType == 'geopoint') {
             var split = value.split(",");
             if(split.length == 2) {
@@ -362,7 +362,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             // label.click(labelClickInit(input, div));
         }
         if(type == 'date') {
-            var picker = input.pickadate({
+            var pick = input.pickadate({
                 selectMonths: true,
                 selectYears: 150,
                 container: '#page_container',
@@ -371,7 +371,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
                     $("#" + vertexType + "_update_button").focus();
                 },
             });
-            input.data('picker', picker);
+            input.data('picker', pick.pickadate('picker'));
         }
     }
 
