@@ -131,7 +131,6 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
                     $("#create_button").focus();
                 },
             });
-            input.data('picker', input.pickadate('picker'));
         }
 
     }
@@ -187,8 +186,7 @@ Socialite.UI['displayVertex'] = function(vertex) {
         if(dataType == 'date') {
             value = Socialite.util.getYYYYMMDD(new Date(parseInt(value)));
             console.log('DATE', value);
-            var picker = element.data('picker');
-            picker.set('view', value, {'format': 'yyyy-mm-dd'});
+            element.pickadate('picker').set('select', value, {'format': 'yyyy-mm-dd'});
         } else if(dataType == 'geopoint') {
             var split = value.split(",");
             if(split.length == 2) {
@@ -372,7 +370,6 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
                     $("#" + vertexType + "_update_button").focus();
                 },
             });
-            input.data('picker', input.pickadate('picker'));
         }
     }
 
@@ -478,7 +475,6 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
                     $("#search_button").focus();
                 },
             });
-            input.data('picker', input.pickadate('picker'));
         }
 
     }
