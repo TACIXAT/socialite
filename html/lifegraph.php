@@ -107,17 +107,17 @@ sec_session_start();
                 <!--upper row-->
                 <div id="upper_row" class="row">
                     <div class="col l4 s12 center card_col">
-                        <div id= "person_display_div" class="card upper_card">
+                        <div id= "display_person_div" class="card upper_card">
                             
                         </div>
                     </div> 
                     <div class="col l4 s0 center card_col">
-                        <div id= "event_display_div" class="card upper_card">
+                        <div id= "display_event_div" class="card upper_card">
                             
                         </div>
                     </div> 
                     <div class="col l4 s0 center card_col">
-                        <div id= "location_display_div" class="card upper_card">
+                        <div id= "display_location_div" class="card upper_card">
                             
                         </div>
                     </div> 
@@ -125,21 +125,21 @@ sec_session_start();
                 <!--lower row-->
                 <div id="lower_row" class="row">
                     <div class="col l4 s12 center card_col">
-                        <div id="person_list_div" class="card lower_card">
+                        <div id="list_person_div" class="card lower_card">
                             <ul id="person_list" class="collection">
 
                             </ul>
                         </div>
                     </div> 
                     <div class="col l4 s0 center card_col">
-                        <div id="event_list_div" class="card lower_card">
+                        <div id="list_event_div" class="card lower_card">
                             <ul id="event_list" class="collection">
                                 
                             </ul>
                         </div>
                     </div> 
                     <div class="col l4 s0 center card_col">
-                        <div id="location_list_div" class="card lower_card">
+                        <div id="list_location_div" class="card lower_card">
                             <ul id="location_list" class="collection">
 
                             </ul>
@@ -234,7 +234,7 @@ sec_session_start();
                             <div class="form_row" ondrop="personDrop(event)" ondragover="allowDrop(event)">
                                 <div id="search_person_div"></div>
                                 <div id="create_person_div"></div>
-                                <div id="person_display_div"></div>
+                                <div id="display_person_div"></div>
                             </div>
                         </div>
                         <div class="upper">
@@ -252,7 +252,7 @@ sec_session_start();
                             <div class="form_row" ondrop="eventDrop(event)" ondragover="allowDrop(event)">
                                 <div id="search_event_div"></div>
                                 <div id="create_event_div"></div>
-                                <div id="event_display_div"></div>
+                                <div id="display_event_div"></div>
                             </div>
                         </div>
                         <div class="upper">
@@ -270,7 +270,7 @@ sec_session_start();
                             <div class="form_row" ondrop="locationDrop(event)" ondragover="allowDrop(event)">
                                 <div id="search_location_div"></div>
                                 <div id="create_location_div"></div>
-                                <div id="location_display_div"></div>
+                                <div id="display_location_div"></div>
                             </div>
                         </div>
                     </div>
