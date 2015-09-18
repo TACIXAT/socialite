@@ -43,6 +43,14 @@ Socialite.UI['onClickCreateInit'] = function(form) {
     }
 }
 
+Socialite.util.['getYYYYMMDD'] = function(date) {
+    var yyyy = date.getUTCFullYear().toString();                                    
+    var mm = (date.getUTCMonth()+1).toString(); //getMonth() is zero-based         
+    var dd  = date.getUTCDate().toString();             
+                            
+    return yyyy + '-' + (mm[1]?mm:"0"+mm[0]) + '-' + (dd[1]?dd:"0"+dd[0]);
+}
+
 Socialite.UI['buildCreateForm'] = function(vertexType) {
     var createForm = $('<form></form>');
     var formId = 'create_' + vertexType + '_form';
@@ -174,7 +182,7 @@ Socialite.UI['displayVertex'] = function(vertex) {
         var element = $('#' + key + '_' + type + '_attribute');
 
         if(dataType == 'date') {
-            value = getYYYYMMDD(new Date(parseInt(value)));
+            value = Socialite.util.getYYYYMMDD(new Date(parseInt(value)));
         } else if(dataType == 'geopoint') {
             var split = value.split(",");
             if(split.length == 2) {
@@ -202,6 +210,7 @@ Socialite.UI['displayVertex'] = function(vertex) {
         }
 
         element.val(value);
+        element.siblings().addClass('active')
     }   
 }
 
