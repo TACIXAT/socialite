@@ -207,8 +207,8 @@ Socialite.UI['displayVertex'] = function(vertex) {
 
 
 Socialite.UI['resetForm'] = function(id, show) {
-    console.log("#" + show + "_" + id + "_form");
-    $("#" + show + "_" + id + "_form")[0].reset();
+    console.log("#" + id + "_" + show + "_form");
+    $("#" + id + "_" + show + "_form")[0].reset();
 }
 
 Socialite.UI['itemClick'] = function(event) {
