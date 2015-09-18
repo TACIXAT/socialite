@@ -210,7 +210,7 @@ Socialite.UI['displayVertex'] = function(vertex) {
         }
 
         element.val(value);
-        element.siblings().addClass('active')
+        element.siblings().addClass('active');
     }   
 }
 
