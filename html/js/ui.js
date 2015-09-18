@@ -122,7 +122,7 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
         }
 
         if(type == 'date') {
-            var pick = input.pickadate({
+            input.pickadate({
                 selectMonths: true,
                 selectYears: 150,
                 container: '#page_container',
@@ -131,7 +131,7 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
                     $("#create_button").focus();
                 },
             });
-            input.data('picker', pick.pickadate('picker'));
+            input.data('picker', input.pickadate('picker'));
         }
 
     }
@@ -186,7 +186,7 @@ Socialite.UI['displayVertex'] = function(vertex) {
 
         if(dataType == 'date') {
             value = Socialite.util.getYYYYMMDD(new Date(parseInt(value)));
-            console.log(value);
+            console.log('DATE', value);
             var picker = element.data('picker');
             picker.set('view', value, {'format': 'yyyy-mm-dd'});
         } else if(dataType == 'geopoint') {
@@ -363,7 +363,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             // label.click(labelClickInit(input, div));
         }
         if(type == 'date') {
-            var pick = input.pickadate({
+            input.pickadate({
                 selectMonths: true,
                 selectYears: 150,
                 container: '#page_container',
@@ -372,8 +372,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
                     $("#" + vertexType + "_update_button").focus();
                 },
             });
-            console.log('pick == input', pick == input);
-            input.data('picker', pick.pickadate('picker'));
+            input.data('picker', input.pickadate('picker'));
         }
     }
 
@@ -470,7 +469,7 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
         }
 
         if(type == 'date') {
-            var pick = input.pickadate({
+            input.pickadate({
                 selectMonths: true,
                 selectYears: 150,
                 container: '#page_container',
@@ -479,7 +478,7 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
                     $("#search_button").focus();
                 },
             });
-            input.data('picker', pick.pickadate('picker'));
+            input.data('picker', input.pickadate('picker'));
         }
 
     }
