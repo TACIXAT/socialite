@@ -43,7 +43,7 @@ Socialite.UI['onClickCreateInit'] = function(form) {
     }
 }
 
-Socialite.util.['getYYYYMMDD'] = function(date) {
+Socialite.util['getYYYYMMDD'] = function(date) {
     var yyyy = date.getUTCFullYear().toString();                                    
     var mm = (date.getUTCMonth()+1).toString(); //getMonth() is zero-based         
     var dd  = date.getUTCDate().toString();             
