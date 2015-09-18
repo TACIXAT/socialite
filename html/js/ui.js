@@ -122,15 +122,16 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
         }
 
         if(type == 'date') {
-            input.pickadate({
+            var picker = input.pickadate({
                 selectMonths: true,
                 selectYears: 150,
                 container: '#page_container',
-                format: 'dd-mm-yyyy',
+                format: 'yyyy-mm-dd',
                 onClose: function() {
                     $("#create_button").focus();
                 },
             });
+            input.data('picker', picker);
         }
 
     }
@@ -185,6 +186,8 @@ Socialite.UI['displayVertex'] = function(vertex) {
 
         if(dataType == 'date') {
             value = Socialite.util.getYYYYMMDD(new Date(parseInt(value)));
+            var picker = element.data('picker');
+            picker.set('view', value);
         } else if(dataType == 'geopoint') {
             var split = value.split(",");
             if(split.length == 2) {
@@ -359,15 +362,16 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             // label.click(labelClickInit(input, div));
         }
         if(type == 'date') {
-            input.pickadate({
+            var picker = input.pickadate({
                 selectMonths: true,
                 selectYears: 150,
                 container: '#page_container',
-                format: 'dd-mm-yyyy',
+                format: 'yyyy-mm-dd',
                 onClose: function() {
                     $("#" + vertexType + "_update_button").focus();
                 },
             });
+            input.data('picker', picker);
         }
     }
 
@@ -464,15 +468,16 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
         }
 
         if(type == 'date') {
-            input.pickadate({
+            var picker = input.pickadate({
                 selectMonths: true,
                 selectYears: 150,
                 container: '#page_container',
-                format: 'dd-mm-yyyy',
+                format: 'yyyy-mm-dd',
                 onClose: function() {
                     $("#search_button").focus();
                 },
             });
+            input.data('picker', picker);
         }
 
     }

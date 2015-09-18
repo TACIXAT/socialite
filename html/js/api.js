@@ -69,9 +69,9 @@ $(document).ready(function() {
 Socialite.util['dateToUTC'] = function(date) {
     console.log(date);
     date = date.split('-');
-    var day = date[0];
+    var day = date[2];
     var month = date[1];
-    var year = date[2];
+    var year = date[0];
     return Date.UTC(year, month, day);
 }
 
