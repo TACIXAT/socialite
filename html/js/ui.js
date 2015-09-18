@@ -134,6 +134,14 @@ Socialite.UI['resetForm'] = function(id, show) {
     $("#" + show + "_" + id + "_form")[0].reset();
 }
 
+Socialite.UI['itemClick'] = function(event) {
+    var vertex = $(this).data('vertex');
+    console.log(vertex);
+    // toggleForm(vertex['properties']['type'], 'display');
+    // resetForm(vertex['properties']['type'], 'display');
+    // displayVertex(vertex);
+}
+
 Socialite.UI['listVertices'] = function(vertices) {
     for(var idx in vertices) {
         console.log(vertices[idx]);
@@ -150,6 +158,7 @@ Socialite.UI['listVertices'] = function(vertices) {
         // item.on('dragstart', dragStart);
         item.text(vertexProperties['name']);
         item.data('vertex', vertex);
+        item.click(Socialite.UI.itemClick);
 
         $("#" + vertexType + "_list").append(item);
     }
