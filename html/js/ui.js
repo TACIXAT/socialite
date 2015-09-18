@@ -146,6 +146,7 @@ Socialite.UI['displayVertex'] = function(vertex) {
 
     var idDisplay = $('#id_' + type + '_attribute');
     idDisplay.val(vertex['_id']);
+    idDisplay.siblings().addClass('active');
 
     console.log(typeProperties);
     console.log(properties);
