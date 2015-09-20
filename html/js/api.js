@@ -283,7 +283,7 @@ Socialite.API['updateVertex'] = function(form) {
         'url': 'api/proxy.php',
         'data': $.param(data),
         'success': Socialite.API.updateSuccess,
-        'error': Soicalite.API.genericError });
+        'error': Socialite.API.genericError });
 }
 
 Socialite.API['deleteSuccess'] = function(data, status, xhr) {
@@ -315,7 +315,7 @@ Socialite.API['deleteVertex'] = function(form) {
         'url': 'api/proxy.php', //'https://opendao.org:8443/IntelligenceGraph/api/utility/create_vertex/',
         'data': $.param(data),
         'success': Socialite.API.deleteSuccess,
-        'error': Soicalite.API.genericError });
+        'error': Socialite.API.genericError });
 
     return false;
 }
