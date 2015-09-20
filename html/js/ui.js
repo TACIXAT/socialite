@@ -286,14 +286,14 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     deleteButton.html('Delete');
     deleteButton.attr('name', 'delete');
     deleteButton.addClass("modal_left_button");
-    deleteButton.addClass("btn");
+    deleteButton.addClass("btn-flat");
     deleteButton.click(function() {
         displayForm.data('clicked', this.name);
     });
 
     var buttonRow = $('<div></div>');
-    buttonRow.append(updateButton);
     buttonRow.append(deleteButton);
+    buttonRow.append(updateButton);
     displayForm.append(buttonRow);
 
     var typeInput = $('<input></input>');
