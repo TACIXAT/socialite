@@ -27,10 +27,10 @@ Socialite.UI['onClickDisplayInit'] = function(form) {
         var clicked = form.data('clicked');
         switch(clicked) {
             case 'update':
-                updateVertex(form);
+                Socialite.API.updateVertex(form);
                 break;
             case 'delete':
-                deleteVertex(form);
+                Socialite.API.deleteVertex(form);
                 break;
         }
     }
@@ -270,34 +270,6 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     if(nameIndex != -1)
         Socialite.util.arrayMove(keys, nameIndex, 0);
 
-    var updateButton = $('<button></button>');
-    updateButton.attr('type', 'submit');
-    updateButton.html('Update');
-    updateButton.attr('name', 'update');
-    updateButton.attr("id", vertexType + '_update_button');
-    updateButton.addClass("modal_right_button");
-    updateButton.addClass("btn");
-    updateButton.css("margin", "10px");
-    updateButton.click(function() {
-        displayForm.data('clicked', this.name);
-    });
-
-    var deleteButton = $('<a></a>');
-    deleteButton.attr('type', 'submit');
-    deleteButton.html('Delete');
-    deleteButton.attr('name', 'delete');
-    deleteButton.addClass("modal_left_button");
-    deleteButton.addClass("btn-flat");
-    deleteButton.css("margin", "10px");
-    deleteButton.click(function() {
-        displayForm.data('clicked', this.name);
-    });
-
-    var buttonRow = $('<div></div>');
-    buttonRow.append(deleteButton);
-    buttonRow.append(updateButton);
-    displayForm.append(buttonRow);
-
     var typeInput = $('<input></input>');
     typeInput.attr('type', 'hidden');
     typeInput.attr('name', 'type');
@@ -378,6 +350,35 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             });
         }
     }
+
+    var updateButton = $('<button></button>');
+    updateButton.attr('type', 'submit');
+    updateButton.html('Update');
+    updateButton.attr('name', 'update');
+    updateButton.attr("id", vertexType + '_update_button');
+    updateButton.addClass("modal_right_button");
+    updateButton.addClass("btn");
+    updateButton.css("margin", "10px");
+    updateButton.click(function() {
+        displayForm.data('clicked', this.name);
+    });
+
+    var deleteButton = $('<a></a>');
+    deleteButton.attr('type', 'submit');
+    deleteButton.html('Delete');
+    deleteButton.attr('name', 'delete');
+    deleteButton.addClass("modal_left_button");
+    deleteButton.addClass("btn-flat");
+    deleteButton.css("margin", "10px");
+    deleteButton.click(function() {
+        displayForm.data('clicked', this.name);
+    });
+
+    var displayFormFooter = $('<div></div>');
+    displayFormFooter.append(deleteButton);
+    displayFormFooter.append(updateButton);
+    displayFormFooter.addClass('display_form_footer');
+    $('#display_' + vertexType + '_div').append(buttonRow);
 
     return displayForm;
 }

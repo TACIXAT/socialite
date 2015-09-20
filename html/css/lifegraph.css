@@ -36,17 +36,26 @@ body {
 .upper_card {
     height:100%;
     overflow: hidden !important;
+    position: relative;
+    /*overflow-y: scroll !important;*/
+}
+
+.display_form {
+    padding: 10px;
+    height: calc(100% - 56px);
     overflow-y: scroll !important;
+}
+
+.display_form_footer {
+    height: 56px;
+    position: absolute;
+    bottom: 0;
 }
 
 .lower_card {
     height:100%;
     overflow: hidden !important;
     overflow-y: scroll !important;
-}
-
-.display_form {
-    padding: 10px;
 }
 
 #lower_row {
