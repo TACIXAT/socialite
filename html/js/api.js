@@ -49,6 +49,7 @@ $(document).ready(function() {
 
     $("#search_submit_button").click(function() {
         var visibleType = undefined;
+        console.log("search submit");
         if($("#search_person_tab").hasClass("active")) {
             visibleType = "person";
         } else if($("#search_event_tab").hasClass("active")) {
