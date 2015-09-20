@@ -75,7 +75,7 @@ Socialite.util['dateToUTC'] = function(date) {
     return Date.UTC(year, month, day);
 }
 
-Socialite.util['genericError'] = function(xhr, status, error) {
+Socialite.API['genericError'] = function(xhr, status, error) {
     console.log(xhr);
     var error = $.parseJSON(xhr.responseText);
     if(error['status'] != 'error') {
@@ -243,4 +243,79 @@ Socialite.API['createSuccess'] = function(data, status, xhr) {
         Socialite.UI.resetForm(vertex['properties']['type'], 'create'); 
         Socialite.UI.listVertices([vertex]);
     }
+}
+
+Socialite.API['updateSuccess'] = function(data, status, xhr) {
+    var vertex = $.parseJSON(data);
+    if(vertex['_id'] == -1) {
+        alert(vertex['properties']['error']);
+    } else {
+        Socialite.UI.listVertices([vertex]);
+    }
+}
+
+Socialite.API['updateVertex'] = function(form) {
+    var id = form[0]['id'].value;
+    var type = form[0]['type'].value;
+    var data = {"action":"update_vertex", "apiKey": apiKey, "vertex": id};
+    mixpanel.track("Update");
+
+    if(type === undefined || id === undefined) {
+        return false;
+    }
+
+    var schema = Socialite.util.typeCache[type];
+    var schemaKeys = Object.keys(schema);
+    for(var idx in schemaKeys) {
+        var key = schemaKeys[idx];
+        var value = form[0][key].value;
+        
+        if((key == 'date' || key == 'born') && value.split(' ').length == 3) {
+            value = Socialite.util.dateToUTC(value);
+        }
+
+        console.log(key + ": " + value);
+        data[key] = value;
+    }
+
+    $.ajax({
+        'type': 'POST',
+        'url': 'api/proxy.php',
+        'data': $.param(data),
+        'success': Socialite.API.updateSuccess,
+        'error': Soicalite.API.genericError });
+}
+
+Socialite.API['deleteSuccess'] = function(data, status, xhr) {
+    data = $.parseJSON(data);
+    if(data['status'] == 'SUCCESS') {
+        var id = data['vertex'];
+        var type = data['type'];
+        //var item = $('#' + type + '_' + id);
+        instance.remove(type + '_' + id);
+        resetForm(type, 'display'); 
+    } else {
+        alert(data['ERROR']);
+    } 
+}
+
+Socialite.API['deleteVertex'] = function(form) {
+    var id = form[0]['id'].value;
+    if(id === undefined)
+        return false;
+
+    if(!confirm("Are you sure you wish to delete this node?"))
+        return false;
+
+    mixpanel.track("Delete");
+    var data = {"action":"delete_vertex", "apiKey": apiKey, "vertex":id};
+
+    $.ajax({
+        'type': 'POST',
+        'url': 'api/proxy.php', //'https://opendao.org:8443/IntelligenceGraph/api/utility/create_vertex/',
+        'data': $.param(data),
+        'success': Socialite.API.deleteSuccess,
+        'error': Soicalite.API.genericError });
+
+    return false;
 }
