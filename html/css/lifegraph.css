@@ -48,8 +48,11 @@ body {
 
 .display_form_footer {
     height: 56px;
+    width: 100%;
     position: absolute;
     bottom: 0;
+    border: 0px;
+    border-top: 1px solid #ddd;
 }
 
 .lower_card {
