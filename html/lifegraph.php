@@ -126,21 +126,21 @@ sec_session_start();
                 <div id="lower_row" class="row">
                     <div class="col l4 s12 center card_col">
                         <div id="list_person_div" class="card lower_card">
-                            <ul id="person_list" class="collection">
+                            <ul id="person_list" class="collection list_collection">
 
                             </ul>
                         </div>
                     </div> 
                     <div class="col l4 s0 center card_col">
                         <div id="list_event_div" class="card lower_card">
-                            <ul id="event_list" class="collection">
+                            <ul id="event_list" class="collection list_collection">
                                 
                             </ul>
                         </div>
                     </div> 
                     <div class="col l4 s0 center card_col">
                         <div id="list_location_div" class="card lower_card">
-                            <ul id="location_list" class="collection">
+                            <ul id="location_list" class="collection list_collection">
 
                             </ul>
                         </div>

@@ -70,6 +70,14 @@ body {
     text-align: left;
 }
 
+.list_collection {
+    margin: 0 !important;
+}
+
+.list_collection:hover {
+    background-color: #ddd;
+}
+
 /*a, body, input, button, select { font-family: monospace; }
 
 p { 
