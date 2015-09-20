@@ -361,6 +361,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     updateButton.css("margin", "10px");
     updateButton.click(function() {
         displayForm.data('clicked', this.name);
+        console.log(this.parent().siblings());
     });
 
     var deleteButton = $('<a></a>');
@@ -372,6 +373,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     deleteButton.css("margin", "10px");
     deleteButton.click(function() {
         displayForm.data('clicked', this.name);
+        console.log(this.parent().siblings());
     });
 
     var displayFormFooter = $('<div></div>');
