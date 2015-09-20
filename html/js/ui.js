@@ -290,7 +290,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     idRow.addClass('input-field');
     idRow.append(idLabel);
     idRow.append(idDisplay);
-    buttonRow.before(idRow);
+    displayForm.append(idRow);
 
     for(var idx in keys) {
         var key = keys[idx];
@@ -329,7 +329,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
 
         row.append(input); 
         row.append(label); 
-        buttonRow.before(row);
+        displayForm.append(row);
         
         if(type == 'geopoint') {
             row.append(div);
