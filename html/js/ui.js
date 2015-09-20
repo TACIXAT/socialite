@@ -233,13 +233,16 @@ Socialite.UI['itemClick'] = function(event) {
 }
 
 Socialite.UI['listVertices'] = function(vertices) {
-    $("#" + vertexType + "_list").empty();
-    
+    var emptied = [];
     for(var idx in vertices) {
         console.log(vertices[idx]);
         var vertex = vertices[idx];
         var vertexProperties = vertex['properties'];
         var vertexType = vertexProperties['type'];
+        if(emptied.indexOf(vertexType) < 0) {
+            $("#" + vertexType + "_list").empty();
+            emptied.push(vertexType);
+        }
         var id = vertex['_id'];
 
         var item = $("<li></li>");
