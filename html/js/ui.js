@@ -233,6 +233,8 @@ Socialite.UI['itemClick'] = function(event) {
 }
 
 Socialite.UI['listVertices'] = function(vertices) {
+    $("#" + vertexType + "_list").empty();
+    
     for(var idx in vertices) {
         console.log(vertices[idx]);
         var vertex = vertices[idx];

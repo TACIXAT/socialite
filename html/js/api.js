@@ -109,7 +109,7 @@ Socialite.API['propertiesSuccessInit'] = function(type) {
     return function(data, status, xhr) {
         var properties = $.parseJSON(data);
         if(properties['ERROR'] !== undefined) {
-            alert(properties['ERROR']);
+            Materialize.toast(properties['ERROR'], 3000);;
         } else {
             Socialite.util.typeCache[type] = properties;
             callback();
@@ -227,7 +227,7 @@ Socialite.API['searchNeighbors'] = function(form) {
 Socialite.API['searchSuccess'] = function(data, status, xhr) {
     var vertices = $.parseJSON(data);
     if(vertices.length == 1 && vertices[0]['_id'] == -1) {
-        alert(vertices[0]['properties']['error']);
+        Materialize.toast(vertices[0]['properties']['error'], 3000);;
     } else {
         Socialite.UI.resetForm(vertices[0]['properties']['type'], 'search'); 
         Socialite.UI.listVertices(vertices);
@@ -238,7 +238,7 @@ Socialite.API['createSuccess'] = function(data, status, xhr) {
     var vertex = $.parseJSON(data);
     // console.log(vertex);
     if(vertex['_id'] == -1) {
-        alert(vertex['properties']['error']);
+        Materialize.toast(vertex['properties']['error'], 3000);;
     } else {
         Socialite.UI.resetForm(vertex['properties']['type'], 'create'); 
         Socialite.UI.listVertices([vertex]);
@@ -248,7 +248,7 @@ Socialite.API['createSuccess'] = function(data, status, xhr) {
 Socialite.API['updateSuccess'] = function(data, status, xhr) {
     var vertex = $.parseJSON(data);
     if(vertex['_id'] == -1) {
-        alert(vertex['properties']['error']);
+        Materialize.toast(vertex['properties']['error'], 3000);;
     } else {
         Socialite.UI.listVertices([vertex]);
     }
@@ -292,10 +292,11 @@ Socialite.API['deleteSuccess'] = function(data, status, xhr) {
         var id = data['vertex'];
         var type = data['type'];
         //var item = $('#' + type + '_' + id);
-        instance.remove(type + '_' + id);
-        resetForm(type, 'display'); 
+        // instance.remove(type + '_' + id);
+        $("#" + type + "_" + id).remove();
+        Socialite.UI.resetForm(type, 'display'); 
     } else {
-        alert(data['ERROR']);
+        Materialize.toast(data['ERROR'], 3000);;
     } 
 }
 
