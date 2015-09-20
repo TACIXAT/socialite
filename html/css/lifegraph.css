@@ -74,7 +74,7 @@ body {
     margin: 0 !important;
 }
 
-.list_collection:hover {
+.list_item:hover {
     background-color: #ddd;
 }
 
