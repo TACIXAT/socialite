@@ -25,6 +25,7 @@ Socialite.UI['onClickDisplayInit'] = function(form) {
     return function(event) {
         event.preventDefault();
         var clicked = form.data('clicked');
+        console.log(clicked);
         switch(clicked) {
             case 'update':
                 Socialite.API.updateVertex(form);
@@ -361,7 +362,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     updateButton.css("margin", "10px");
     updateButton.click(function() {
         displayForm.data('clicked', this.name);
-        console.log($(this).parent().siblings());
+        $(this).parent().siblings().submit();
     });
 
     var deleteButton = $('<a></a>');
@@ -373,7 +374,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     deleteButton.css("margin", "10px");
     deleteButton.click(function() {
         displayForm.data('clicked', this.name);
-        console.log($(this).parent().siblings());
+        $(this).parent().siblings().submit();
     });
 
     var displayFormFooter = $('<div></div>');
