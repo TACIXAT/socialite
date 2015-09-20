@@ -272,17 +272,21 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
 
     var updateButton = $('<button></button>');
     updateButton.attr('type', 'submit');
-    updateButton.html('UPDATE');
+    updateButton.html('Update');
     updateButton.attr('name', 'update');
     updateButton.attr("id", vertexType + '_update_button');
+    updateButton.addClass("modal_right_button");
+    updateButton.addClass("btn");
     updateButton.click(function() {
         displayForm.data('clicked', this.name);
     });
 
-    var deleteButton = $('<button></button>');
+    var deleteButton = $('<a></a>');
     deleteButton.attr('type', 'submit');
-    deleteButton.html('DELETE');
+    deleteButton.html('Delete');
     deleteButton.attr('name', 'delete');
+    deleteButton.addClass("modal_left_button");
+    deleteButton.addClass("btn");
     deleteButton.click(function() {
         displayForm.data('clicked', this.name);
     });
