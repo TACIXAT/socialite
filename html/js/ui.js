@@ -277,6 +277,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     updateButton.attr("id", vertexType + '_update_button');
     updateButton.addClass("modal_right_button");
     updateButton.addClass("btn");
+    updateButton.css("margin-bottom", " 10px");
     updateButton.click(function() {
         displayForm.data('clicked', this.name);
     });
