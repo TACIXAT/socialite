@@ -277,7 +277,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     updateButton.attr("id", vertexType + '_update_button');
     updateButton.addClass("modal_right_button");
     updateButton.addClass("btn");
-    updateButton.css("margin", " 10px");
+    updateButton.css("margin", "10px");
     updateButton.click(function() {
         displayForm.data('clicked', this.name);
     });
@@ -288,6 +288,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     deleteButton.attr('name', 'delete');
     deleteButton.addClass("modal_left_button");
     deleteButton.addClass("btn-flat");
+    deleteButton.css("margin", "10px");
     deleteButton.click(function() {
         displayForm.data('clicked', this.name);
     });
