@@ -378,7 +378,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     displayFormFooter.append(deleteButton);
     displayFormFooter.append(updateButton);
     displayFormFooter.addClass('display_form_footer');
-    $('#display_' + vertexType + '_div').append(buttonRow);
+    $('#display_' + vertexType + '_div').append(displayFormFooter);
 
     return displayForm;
 }
