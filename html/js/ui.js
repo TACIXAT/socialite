@@ -270,7 +270,7 @@ Socialite.UI['highlightItems'] = function(elementId) {
 
     if(elementId.indexOf('event') < 0) {
         for(var idx in tertiary) {
-            var neighbors = tertiary[idx];
+            var tertiaryNeighbors = tertiary[idx];
             for(var jdx in tertiaryNeighbors) {
                 $("#" + tertiaryNeighbors[jdx]).addClass("tertiary_item");
             }
