@@ -284,6 +284,15 @@ Socialite.util['addConnections'] = function(vertex) {
     var elementId = vertex['properties']['type'] + "_" + vertex._id;
     var neighbors = vertex['neighbors'];
     Socialite.util.connections[elementId] = neighbors;
+    for(var idx in neighbors) {
+        var neighbor = neighbors[idx];
+        
+        if(Socialite.util.connections[neighbor] == undefined)
+            Socialite.util.connections[neighbor] = [];
+
+        if(Socialite.util.connections[neighbor].indexOf(elementId) < 0)
+            Socialite.util.connections[neighbor].push(elementId);
+    }
 }
 
 Socialite.UI['listVertices'] = function(vertices) {
