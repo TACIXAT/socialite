@@ -250,33 +250,21 @@ Socialite.UI['itemClick'] = function(event) {
     console.log(vertex);
     Socialite.UI.resetForm(vertex['properties']['type'], 'display');
     Socialite.UI.displayVertex(vertex);
+    var elementId = vertex['properties']['type'] + "_" + vertex._id;
+    Socialite.UI.highlightItems(elementId);
 }
 
-Socialite.util.addConnections(vertex) {
+Socialite.UI['highlightItems'] = function(elementId) {
+    $(".selected_item").removeClass("selected_item");
+    $(".secondary_item").removeClass("secondary_item");
+    $(".tertiary_item").removeClass("tertiary_item");
+    $("#" + elementId).addClass("selected_item");
+}
+
+Socialite.util['addConnections'] = function(vertex) {
     var elementId = vertex['properties']['type'] + "_" + vertex._id;
     var neighbors = vertex['neighbors'];
-
-    if(neighbors == [])
-        return;
-
-    for(var idx in neighbors) {
-        var neighbor = neighbors[idx];
-        if(elementId.indexOf('person') > -1) {
-            if(neighbor.indexOf('event') > -1) {
-                Socialite.util.connections.push({src: elementId, dst: neighbor});
-            }
-        } else if(elementId.indexOf('event') > -1) {
-            if(neighbor.indexOf('person') > -1) {
-                Socialite.util.connections.push({src: neighbor, dst: elementId});
-            } else if(neighbor.indexOf('location') > -1) {
-                Socialite.util.connections.push({src: elementId, dst: neighbor});
-            }
-        } else if(elementId.indexOf('location') > -1) {
-            if(neighbor.indexOf('event') > -1) {
-                Socialite.util.connections.push({src: neighbor, dst: elementId});
-            }
-        } 
-    }
+    Socialite.util.connections[elementId] = neighbors;
 }
 
 Socialite.UI['listVertices'] = function(vertices) {

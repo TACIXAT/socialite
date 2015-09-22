@@ -2,7 +2,7 @@ var Socialite = Socialite || {};
 Socialite.API = {};
 Socialite.util = {};
 Socialite.util.typeCache = {};
-Socialite.util.connections = [];
+Socialite.util.connections = {};
 
 $(document).ready(function() {
     Socialite.API.getVertexTypes();
