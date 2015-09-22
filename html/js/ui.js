@@ -268,7 +268,7 @@ Socialite.UI['highlightItems'] = function(elementId) {
         var neighbors = Socialite.util.connections[secondaryId];
         for(var idx in neighbors) {
             var neighbor = neighbors[idx];
-            if(elementId.split('_')[0] != neighbor.split('_'))
+            if(elementId.split('_')[0] != neighbor.split('_')[0])
                 tertiary.push(neighbor);
         }
     }
