@@ -259,6 +259,23 @@ Socialite.UI['highlightItems'] = function(elementId) {
     $(".secondary_item").removeClass("secondary_item");
     $(".tertiary_item").removeClass("tertiary_item");
     $("#" + elementId).addClass("selected_item");
+
+    var secondary = Socialite.util.connections[elementId];
+    var tertiary = [];
+    for(var idx in secondary) {
+        var secondaryId = secondary[idx];
+        $("#" + secondaryId).addClass("secondary_item");
+        tertiary.push(Socialite.util.connections[secondaryId]);
+    }
+
+    if(elementId.indexOf('event') < 0) {
+        for(var idx in tertiary) {
+            var neighbors = tertiary[idx];
+            for(var jdx in tertiaryNeighbors) {
+                $("#" + tertiaryNeighbors[jdx]).addClass("tertiary_item");
+            }
+        }
+    }
 }
 
 Socialite.util['addConnections'] = function(vertex) {
