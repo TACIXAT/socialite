@@ -339,12 +339,6 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             mapDiv.attr('id', vertexType + '_display_map');
             mapDiv.height(150);
             div.append(mapDiv);
-
-            var addRemoveLink = $("<a></a>");
-            addRemoveLink.text("Remove Map");
-            addRemoveLink.addClass("remove_link");
-            addRemoveLink.click(Socialite.UI.addRemoveMapInit(addRemoveLink, input, div));
-            row.append(addRemoveLink);
         }
 
         if(type == 'date') {
@@ -360,6 +354,11 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             input.data('div', div);
             Socialite.UI.addMap(mapDiv, input.attr("id"));
 
+            var addRemoveLink = $("<a></a>");
+            addRemoveLink.text("Remove Map");
+            addRemoveLink.addClass("remove_link");
+            addRemoveLink.click(Socialite.UI.addRemoveMapInit(addRemoveLink, input, div));
+            row.append(addRemoveLink);
             // label.click(labelClickInit(input, div));
         }
         if(type == 'date') {
