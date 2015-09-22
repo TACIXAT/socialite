@@ -344,7 +344,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             addRemoveLink.text("Remove Map");
             addRemoveLink.addClass("remove_link");
             addRemoveLink.click(Socialite.UI.addRemoveMapInit(addRemoveLink, input, div));
-            div.append(addRemoveLink);
+            row.append(addRemoveLink);
         }
 
         if(type == 'date') {
