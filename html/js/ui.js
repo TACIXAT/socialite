@@ -221,8 +221,15 @@ Socialite.UI['displayVertex'] = function(vertex) {
 
 
 Socialite.UI['resetForm'] = function(id, show) {
-    console.log("#" + show + "_" + id + "_form");
-    $("#" + show + "_" + id + "_form")[0].reset();
+    var selector = "#" + show + "_" + id + "_form";
+    console.log(selector);
+    // $("#" + show + "_" + id + "_form")[0].reset();
+    $(':input', selector)
+        .not(':button, :submit, :reset, :hidden')
+        .val('')
+        .removeAttr('checked')
+        .removeAttr('selected');
+    $(selector).children().children().removeClass("active")
 }
 
 Socialite.UI['itemClick'] = function(event) {
