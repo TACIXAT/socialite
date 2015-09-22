@@ -83,19 +83,19 @@ body {
 }
 
 .list_item:hover {
-    background-color: #9e9e9e !important;
-}
-
-.selected_item {
-    background-color: #9e9e9e !important;
-}
-
-.secondary_item {
     background-color: #bdbdbd !important;
 }
 
-.tertiary_item {
+.selected_item {
+    background-color: #bdbdbd !important;
+}
+
+.secondary_item {
     background-color: #e0e0e0 !important;
+}
+
+.tertiary_item {
+    background-color: #eee !important;
 }
 
 .list_collection {
