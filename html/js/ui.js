@@ -265,15 +265,17 @@ Socialite.UI['highlightItems'] = function(elementId) {
     for(var idx in secondary) {
         var secondaryId = secondary[idx];
         $("#" + secondaryId).addClass("secondary_item");
-        tertiary.push(Socialite.util.connections[secondaryId]);
+        var neighbors = Socialite.util.connections[secondaryId];
+        for(var idx in neighbors) {
+            var neighbor = neighbors[idx];
+            if(elementId.split('_')[0] != neighbor.split('_'))
+                tertiary.push(neighbor);
+        }
     }
 
     if(elementId.indexOf('event') < 0) {
         for(var idx in tertiary) {
-            var tertiaryNeighbors = tertiary[idx];
-            for(var jdx in tertiaryNeighbors) {
-                $("#" + tertiaryNeighbors[jdx]).addClass("tertiary_item");
-            }
+            $("#" + tertiary[idx]).addClass("tertiary_item");
         }
     }
 }
