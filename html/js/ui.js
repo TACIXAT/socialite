@@ -119,6 +119,11 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
             input.data('div', div);
             Socialite.UI.addMap(mapDiv, input.attr("id"));
 
+            var addRemoveLink = $("<a></a>");
+            addRemoveLink.text("Remove Map");
+            addRemoveLink.addClass("remove_link");
+            addRemoveLink.click(Socialite.UI.addRemoveMapInit(addRemoveLink, input, div));
+            row.append(addRemoveLink);
             // label.click(labelClickInit(input, div));
         }
 
@@ -517,6 +522,11 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
             input.data('div', div);
             Socialite.UI.addMap(mapDiv, input.attr("id"), slider);
 
+            var addRemoveLink = $("<a></a>");
+            addRemoveLink.text("Remove Map");
+            addRemoveLink.addClass("remove_link");
+            addRemoveLink.click(Socialite.UI.addRemoveMapInit(addRemoveLink, input, div));
+            row.append(addRemoveLink);
             // label.click(labelClickInit(input, div));
         }
 
