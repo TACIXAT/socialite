@@ -170,7 +170,7 @@ Socialite.UI['displayVertex'] = function(vertex) {
                 input.data('value', val);
                 div.hide();
                 input.addClass('map_hidden');
-                $('#create_add_remove_link').text('Add Map');
+                $('#display_add_remove_link').text('Add Map');
             }
         } else {
             if(input.hasClass('map_hidden')) {
@@ -181,7 +181,7 @@ Socialite.UI['displayVertex'] = function(vertex) {
                 google.maps.event.trigger(map, 'resize');
                 map.setCenter(center);
                 input.val(value);
-                $('#create_add_remove_link').text('Remove Map');
+                $('#display_add_remove_link').text('Remove Map');
             }
         } 
     }
