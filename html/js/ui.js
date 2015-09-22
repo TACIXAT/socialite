@@ -252,11 +252,39 @@ Socialite.UI['itemClick'] = function(event) {
     Socialite.UI.displayVertex(vertex);
 }
 
+Socialite.util.addConnections(vertex) {
+    var elementId = vertex['properties']['type'] + "_" + vertex._id;
+    var neighbors = vertex['neighbors'];
+
+    if(neighbors == [])
+        return;
+
+    for(var idx in neighbors) {
+        var neighbor = neighbors[idx];
+        if(elementId.indexOf('person') > -1) {
+            if(neighbor.indexOf('event') > -1) {
+                Socialite.util.connections.push({src: elementId, dst: neighbor});
+            }
+        } else if(elementId.indexOf('event') > -1) {
+            if(neighbor.indexOf('person') > -1) {
+                Socialite.util.connections.push({src: neighbor, dst: elementId});
+            } else if(neighbor.indexOf('location') > -1) {
+                Socialite.util.connections.push({src: elementId, dst: neighbor});
+            }
+        } else if(elementId.indexOf('location') > -1) {
+            if(neighbor.indexOf('event') > -1) {
+                Socialite.util.connections.push({src: neighbor, dst: elementId});
+            }
+        } 
+    }
+}
+
 Socialite.UI['listVertices'] = function(vertices) {
     var emptied = [];
     for(var idx in vertices) {
         console.log(vertices[idx]);
         var vertex = vertices[idx];
+        Socialite.util.addConnections(vertex);
         var vertexProperties = vertex['properties'];
         var vertexType = vertexProperties['type'];
         if(emptied.indexOf(vertexType) < 0) {
