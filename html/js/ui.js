@@ -339,9 +339,11 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             mapDiv.attr('id', vertexType + '_display_map');
             mapDiv.height(150);
             div.append(mapDiv);
+
             var addRemoveLink = $("<a></a>");
             addRemoveLink.text("Remove Map");
             addRemoveLink.addClass("remove_link");
+            addRemoveLink.click(Socialite.UI.addRemoveMapInit(addRemoveLink, input, div));
             div.append(addRemoveLink);
         }
 
@@ -407,6 +409,29 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     return displayForm;
 }
 
+Socialite.UI['addRemoveMapInit'] = function(addRemoveLink, input, div) {
+    return function() {
+        var map = input.data('map');
+        if(input.hasClass('map_hidden')) {
+            addRemoveLink.text("Remove Map");
+            input.removeClass('map_hidden');
+            var center = input.data('center');
+            var value = input.data('value');
+            div.show();
+            google.maps.event.trigger(map, 'resize');
+            map.setCenter(center);
+            input.val(value);
+        } else {
+            addRemoveLink.text("Add Map");
+            var val = input.val();
+            input.val('');
+            input.data('center', map.getCenter());
+            input.data('value', val);
+            div.hide();
+            input.addClass('map_hidden');
+        }
+    };
+}
 
 Socialite.UI['onClickSearchInit'] = function(form) {
     return function(event) {
