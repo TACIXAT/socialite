@@ -229,7 +229,12 @@ Socialite.UI['resetForm'] = function(id, show) {
         .val('')
         .removeAttr('checked')
         .removeAttr('selected');
-    $(selector).children().children().removeClass("active")
+
+    $(selector)
+        .children()
+        .children()
+        .not(":contains('geoloc')")
+        .removeClass("active");
 }
 
 Socialite.UI['itemClick'] = function(event) {
@@ -334,6 +339,10 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             mapDiv.attr('id', vertexType + '_display_map');
             mapDiv.height(150);
             div.append(mapDiv);
+            var addRemoveLink = $("<a></a>");
+            addRemoveLink.text("Remove Map");
+            addRemoveLink.addClass("remove_link");
+            div.append(addRemoveLink);
         }
 
         if(type == 'date') {

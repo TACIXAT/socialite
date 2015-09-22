@@ -90,6 +90,11 @@ body {
     margin: 0 !important;
 }
 
+.remove_link {
+    color: #9e9e9e;
+    float: right;
+}
+
 /*a, body, input, button, select { font-family: monospace; }
 
 p { 

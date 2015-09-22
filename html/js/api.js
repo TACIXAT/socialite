@@ -12,24 +12,6 @@ $(document).ready(function() {
         $('ul.tabs').tabs();
         if($("#create_location_tab").hasClass('active'))
             Socialite.UI.refreshCreateMap();
-
-        $("#create_submit_button").click(function() {
-            var visibleType = undefined;
-            if($("#create_person_tab").hasClass("active")) {
-                visibleType = "person";
-            } else if($("#create_event_tab").hasClass("active")) {
-                visibleType = "event";
-            } else if($("#create_location_tab").hasClass("active")) {
-                visibleType = "location";
-            } 
-
-            if(visibleType == undefined) {
-                return;
-            }
-
-            var formId = "#create_" + visibleType + "_form";
-            $(formId).submit();
-        });
     });
 
     $("#search_button").click(function() {
@@ -37,25 +19,43 @@ $(document).ready(function() {
         $('ul.tabs').tabs();
         if($("#search_location_tab").hasClass('active'))
             Socialite.UI.refreshSearchMap();
+    });
 
-        $("#search_submit_button").click(function() {
-            var visibleType = undefined;
-            console.log("search submit");
-            if($("#search_person_tab").hasClass("active")) {
-                visibleType = "person";
-            } else if($("#search_event_tab").hasClass("active")) {
-                visibleType = "event";
-            } else if($("#search_location_tab").hasClass("active")) {
-                visibleType = "location";
-            } 
+    $("#create_submit_button").click(function() {
+        var visibleType = undefined;
+        if($("#create_person_tab").hasClass("active")) {
+            visibleType = "person";
+        } else if($("#create_event_tab").hasClass("active")) {
+            visibleType = "event";
+        } else if($("#create_location_tab").hasClass("active")) {
+            visibleType = "location";
+        } 
 
-            if(visibleType == undefined) {
-                return;
-            }
+        if(visibleType == undefined) {
+            return;
+        }
 
-            var formId = "#search_" + visibleType + "_form";
-            $(formId).submit();
-        });
+        var formId = "#create_" + visibleType + "_form";
+        $(formId).submit();
+    });
+    
+    $("#search_submit_button").click(function() {
+        var visibleType = undefined;
+        console.log("search submit");
+        if($("#search_person_tab").hasClass("active")) {
+            visibleType = "person";
+        } else if($("#search_event_tab").hasClass("active")) {
+            visibleType = "event";
+        } else if($("#search_location_tab").hasClass("active")) {
+            visibleType = "location";
+        } 
+
+        if(visibleType == undefined) {
+            return;
+        }
+
+        var formId = "#search_" + visibleType + "_form";
+        $(formId).submit();
     });
     
     $("#create_location_tab").click(function() {
