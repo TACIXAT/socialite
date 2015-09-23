@@ -150,6 +150,9 @@ sec_session_start();
             <div id="add_modal" class="modal modal-fixed-footer">
                 <div class="modal-content">
                     <div class="row">
+                        <h4>Create Node</h4>
+                    </div>
+                    <div class="row">
                         <div class="col s12">
                             <ul class="tabs">
                                 <li class="tab col s3"><a href="#create_person_div" id="create_person_tab" class="active">Person</a></li>
@@ -173,6 +176,9 @@ sec_session_start();
             </div>
             <div id="search_modal" class="modal modal-fixed-footer">
                 <div class="modal-content">
+                    <div class="row">
+                        <h4>Search Nodes</h4>
+                    </div>
                     <div class="row">
                         <div class="col s12">
                             <ul class="tabs">
