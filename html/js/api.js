@@ -8,6 +8,10 @@ $(document).ready(function() {
     Socialite.API.getVertexTypes();
     $('ul.tabs').tabs();
     
+    $("#connect_button").click(function() {
+        $('#connect_modal').openModal();
+    });
+
     $("#add_button").click(function() {
         $('#add_modal').openModal();
         $('ul.tabs').tabs();

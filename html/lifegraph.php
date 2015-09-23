@@ -100,6 +100,9 @@ sec_session_start();
                         <li class="bold">
                             <a id="search_button">Search</a>
                         </li>
+                        <li class="bold">
+                            <a id="connect_button">Connections</a>
+                        </li>
                     </ul>
                 </div>
             </header>
