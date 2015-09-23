@@ -194,7 +194,7 @@ sec_session_start();
                         <div id="search_location_div" class="col s12">
                         </div>
                     </div>
-                    <div class="row" id="connected_to_div">
+                    <div class="row" id="search_connected_to_div">
                         <ul class="collapsible" data-collapsible="accordion">
                             <li>
                               <div class="collapsible-header">Connected To</div>
@@ -209,7 +209,20 @@ sec_session_start();
                     <a id="search_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Cancel</a>
                 </div>
             </div>
-
+            <div id="connect_modal" class="modal modal-fixed-footer">
+                <div class="modal-content">
+                    <div class="row">
+                        <h4>Mangage Connections</h4>
+                    </div>
+                    <div id="connect_div" class="row">
+                       
+                    </div>
+                <div class="modal-footer">
+                    <a id="connect_clear_button" class="modal-action waves-effect waves-green btn-flat modal_left_button">Clear</a>
+                    <button id="connect_submit_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Connect</button>
+                    <a id="connect_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Cancel</a>
+                </div>
+            </div>
 
 
 
