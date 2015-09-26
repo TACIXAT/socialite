@@ -77,7 +77,10 @@ Socialite.Graph.Connect['update'] = function() {
 
     SGC.link.enter().insert("line", ".node")
         .style("stroke", function(d) { 
-            return "linear-gradient(" + SGC.getStrokeColor(d.source) + ", " + SGC.getStrokeColor(d.target) + ")"; })
+            var retVal = "linear-gradient(" + SGC.getStrokeColor(d.source) + ", " + SGC.getStrokeColor(d.target) + ")";
+            console.log(retVal);
+            return retVal; 
+        })
         .attr("class", "link");
 
     SGC.link.exit().remove();
@@ -124,6 +127,7 @@ Socialite.Graph.Connect['getNodeColor'] = function(d) {
 }
 
 Socialite.Graph.Connect['getStrokeColor'] = function(d) {
+    console.log(d.properties.type);
     switch(d.properties.type) {
         case "event":
             //return "#FFC45B";
