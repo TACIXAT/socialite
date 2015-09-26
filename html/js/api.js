@@ -10,6 +10,7 @@ $(document).ready(function() {
     
     $("#connect_button").click(function() {
         $('#connect_modal').openModal();
+        Socialite.Graph.Connect.resize();
     });
 
     $("#add_button").click(function() {

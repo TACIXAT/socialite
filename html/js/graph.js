@@ -21,11 +21,11 @@ Socialite.Graph.Connect['init'] = function() {
         .charge(-1000)
         .on("tick", SGC.tick);
 
-    var svg = d3.select("#connect_div").append("svg")
+    SGC['svg'] = d3.select("#connect_div").append("svg")
         .attr("width", width)
         .attr("height", height);
 
-    svg.append("rect")
+    SGC.svg.append("rect")
         .attr("width", width)
         .attr("height", height);
 
@@ -35,6 +35,20 @@ Socialite.Graph.Connect['init'] = function() {
     SGC['link'] = svg.selectAll(".link");
     SGC['label'] = svg.selectAll("text.label"); 
     SGC.update();
+}
+
+Socialite.Graph.Connect['resize'] = function() {
+    var SGC = Socialite.Graph.Connect;
+    var height = $("#connect_div").innerHeight(),
+        width = $("#connect_div").innerWidth();
+
+    SGC.svg
+        .attr("width", width)
+        .attr("height", height);
+
+    SGC.svg.children("rect")
+        .attr("width", width)
+        .attr("height", height);
 }
 
 Socialite.Graph.Connect['tick'] = function(e) {
