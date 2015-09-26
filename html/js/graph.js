@@ -25,7 +25,7 @@ Socialite.Graph.Connect['init'] = function() {
         .attr("width", width)
         .attr("height", height);
 
-    SGC.svg.append("rect")
+    SGC['rect'] = SGC.svg.append("rect")
         .attr("width", width)
         .attr("height", height);
 
@@ -46,7 +46,7 @@ Socialite.Graph.Connect['resize'] = function() {
         .attr("width", width)
         .attr("height", height);
 
-    SGC.svg.children("rect")
+    SGC.svg.rect
         .attr("width", width)
         .attr("height", height);
 }
