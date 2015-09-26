@@ -114,3 +114,54 @@ Socialite.Graph.Connect['getStrokeColor'] = function(d) {
             return "#74E788";
     }
 }
+
+Socialite.Graph.Connect['addNode'] = function(vertex) {
+    var SGC = Socialite.Graph.Connect;
+    var id = vertex["id"];
+    if(SGC.findNode(id) !== undefined)
+        return;
+
+    SGC.nodes.push(vertex);
+    SGC.update();
+    SGC.linkNeighbors(vertex);
+}
+
+Socialite.Graph.Connect['linkNeighbors'] = function(vertex) {
+    var SGC = Socialite.Graph.Connect;
+    var id = vertex._id;
+    var type = vertex.properties.type;
+    var neighbors = vertex.neighbors;
+    for(var idx in neighbors){
+        var neighbor = neighbors[idx];
+        var neighborType = neighbor.split('_')[0];
+        var neighborId = neighbor.split('_')[1];
+
+        if(type == 'person') {
+            SGC.addLink(id, neighborId);
+        } else if(type == 'event') {
+            if(neighborId == 'person') 
+                SGC.addLink(neighborId, id);
+            else
+                SGC.addLink(id, neighborId);
+        } else if(type == 'location') {
+            SGC.addLink(neighborId, id);
+        }
+    }
+}
+
+Socialite.Graph.Connect['findNode'] = function(id) {
+    var SGC = Socialite.Graph.Connect;
+    for (var i=0; i < SGC.nodes.length; i++) {
+        if (SGC.nodes[i].id == id)
+            return SGC.nodes[i]
+    }
+}
+
+Socialite.Graph.Connect['addLink'] = function(srcId, dstId) {
+    var src = SGC.findNode(srcId);
+    var dst = SGC.findNode(dstId);
+    if((src !== undefined) && (dst !== undefined)) {
+        SGC.links.push({"source": src, "target": dst});
+        SGC.update();
+    } 
+}
