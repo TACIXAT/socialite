@@ -72,7 +72,7 @@ Socialite.Graph.Connect['update'] = function() {
         // .on("click", SGC.nodeClick)
         // .on("dblclick", SGC.nodeDoubleClick)
         // .on("contextmenu", SGC.nodeRightClick)
-        .call(force.drag);
+        .call(SGC.force.drag);
 
     SGC.node.exit().remove();
 
