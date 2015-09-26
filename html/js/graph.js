@@ -32,20 +32,85 @@ Socialite.Graph.Connect['init'] = function() {
     SGC['node'] = svg.selectAll(".node");
     SGC['link'] = svg.selectAll(".link");
     SGC['label'] = svg.selectAll("text.label"); 
+    SGC.update();
 }
 
 Socialite.Graph.Connect['tick'] = function(e) {
-    link.attr("x1", function(d) { return d.source.x; })
+    var SGC = Socialite.Graph.Connect;
+    SGC['link'].attr("x1", function(d) { return d.source.x; })
       .attr("y1", function(d) { return d.source.y; })
       .attr("x2", function(d) { return d.target.x; })
       .attr("y2", function(d) { return d.target.y; });
 
-    node.attr("cx", function(d) { return d.x; })
+    SGC['node'].attr("cx", function(d) { return d.x; })
       .attr("cy", function(d) { return d.y; });
       //.attr("r", function(d) { return 25;});
 
-    label.attr("transform", function(d) {
+    SGC['label'].attr("transform", function(d) {
         return "translate(" + d.x + "," + d.y + ")";
     });
 }
 
+Socialite.Graph.Connect['update'] = function() {
+    var SGC = Socialite.Graph.Connect;
+    SGC.link = SGC.link.data(links, function(d) { return d.source.id + "-" + d.target.id; });
+
+    SGC.link.enter().insert("line", ".node")
+        .style("stroke", function(d) { 
+            return "linear-gradient(" + getStrokeColor(d.source) + ", " + getStrokeColor(d.target) + ")"; })
+        .attr("class", "link");
+
+    SGC.link.exit().remove();
+
+    SGC.node = SGC.node.data(nodes, function(d) { return d.id; });
+
+    SGC.node.enter().insert("circle", ".cursor")
+        .attr("class", "node")
+        .attr("r", 25)
+        .style("fill", SGC.getNodeColor)
+        .style("stroke", SGC.getStrokeColor)
+        // .on("click", SGC.nodeClick)
+        // .on("dblclick", SGC.nodeDoubleClick)
+        // .on("contextmenu", SGC.nodeRightClick)
+        .call(force.drag);
+
+    SGC.node.exit().remove();
+
+    SGC.label = SGC.label.data(nodes, function(d) { return d.id; });
+    SGC.label.enter()
+        .append("text")
+        .attr("class", "label")
+        .attr("fill", "black")
+        .text(function(d) {  return d.properties.name });
+
+    SGC.label.exit().remove();
+    
+    SGC.force
+        .nodes(nodes)
+        .links(links)
+        .start();
+}
+
+Socialite.Graph.Connect['getNodeColor'] = function(d) {
+    switch(d.properties.type) {
+        case "event":
+            //return "#FFC45B";
+            return "#5480CA";
+        case "person":
+            return "#FF675B";
+        case "location":
+            return "#4EDA66";
+    }
+}
+
+Socialite.Graph.Connect['getStrokeColor'] = function(d) {
+    switch(d.properties.type) {
+        case "event":
+            //return "#FFC45B";
+            return "#799EDD";
+        case "person":
+            return "#FF8980";
+        case "location":
+            return "#74E788";
+    }
+}
