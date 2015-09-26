@@ -76,11 +76,12 @@ Socialite.Graph.Connect['update'] = function() {
     SGC.link = SGC.link.data(SGC.links, function(d) { return d.source._id + "-" + d.target._id; });
 
     SGC.link.enter().insert("line", ".node")
-        .style("stroke", function(d) { 
-            var retVal = "linear-gradient(" + SGC.getStrokeColor(d.source) + ", " + SGC.getStrokeColor(d.target) + ")";
-            console.log(retVal);
-            return retVal; 
-        })
+        .style("stroke", "linear-gradient(#FF8980, #FF8980)")
+        //     function(d) { 
+        //     var retVal = "linear-gradient(" + SGC.getStrokeColor(d.source) + ", " + SGC.getStrokeColor(d.target) + ")";
+        //     console.log(retVal);
+        //     return retVal; 
+        // })
         .attr("class", "link");
 
     SGC.link.exit().remove();
