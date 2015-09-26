@@ -77,7 +77,7 @@ Socialite.Graph.Connect['update'] = function() {
 
     SGC.link.enter().insert("line", ".node")
         .style("stroke", function(d) { 
-            return "linear-gradient(" + getStrokeColor(d.source) + ", " + getStrokeColor(d.target) + ")"; })
+            return "linear-gradient(" + SGC.getStrokeColor(d.source) + ", " + SGC.getStrokeColor(d.target) + ")"; })
         .attr("class", "link");
 
     SGC.link.exit().remove();
