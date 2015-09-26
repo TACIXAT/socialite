@@ -50,6 +50,9 @@ Socialite.Graph.Connect['resize'] = function() {
     SGC.rect
         .attr("width", width)
         .attr("height", height);
+
+    SGC.force.size([width, height])
+    SGC.update();
 }
 
 Socialite.Graph.Connect['tick'] = function(e) {
