@@ -137,7 +137,7 @@ Socialite.Graph.Connect['getStrokeColor'] = function(d) {
 
 Socialite.Graph.Connect['addNode'] = function(vertex) {
     var SGC = Socialite.Graph.Connect;
-    var id = vertex["id"];
+    var id = vertex._id;
     if(SGC.findNode(id) !== undefined)
         return;
 
