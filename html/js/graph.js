@@ -73,7 +73,7 @@ Socialite.Graph.Connect['tick'] = function(e) {
 
 Socialite.Graph.Connect['update'] = function() {
     var SGC = Socialite.Graph.Connect;
-    SGC.link = SGC.link.data(SGC.links, function(d) { return d.source.id + "-" + d.target.id; });
+    SGC.link = SGC.link.data(SGC.links, function(d) { return d.source._id + "-" + d.target._id; });
 
     SGC.link.enter().insert("line", ".node")
         .style("stroke", function(d) { 
@@ -82,7 +82,7 @@ Socialite.Graph.Connect['update'] = function() {
 
     SGC.link.exit().remove();
 
-    SGC.node = SGC.node.data(SGC.nodes, function(d) { return d.id; });
+    SGC.node = SGC.node.data(SGC.nodes, function(d) { return d._id; });
 
     SGC.node.enter().insert("circle", ".cursor")
         .attr("class", "node")
@@ -96,7 +96,7 @@ Socialite.Graph.Connect['update'] = function() {
 
     SGC.node.exit().remove();
 
-    SGC.label = SGC.label.data(SGC.nodes, function(d) { return d.id; });
+    SGC.label = SGC.label.data(SGC.nodes, function(d) { return d._id; });
     SGC.label.enter()
         .append("text")
         .attr("class", "label")
@@ -138,12 +138,21 @@ Socialite.Graph.Connect['getStrokeColor'] = function(d) {
 Socialite.Graph.Connect['addNode'] = function(vertex) {
     var SGC = Socialite.Graph.Connect;
     var id = vertex._id;
+
     if(SGC.findNode(id) !== undefined)
         return;
 
     SGC.nodes.push(vertex);
     SGC.update();
     SGC.linkNeighbors(vertex);
+}
+
+Socialite.Graph.Connect['findNode'] = function(id) {
+    var SGC = Socialite.Graph.Connect;
+    for (var i=0; i < SGC.nodes.length; i++) {
+        if (SGC.nodes[i]._id == id)
+            return SGC.nodes[i]
+    }
 }
 
 Socialite.Graph.Connect['linkNeighbors'] = function(vertex) {
@@ -166,14 +175,6 @@ Socialite.Graph.Connect['linkNeighbors'] = function(vertex) {
         } else if(type == 'location') {
             SGC.addLink(neighborId, id);
         }
-    }
-}
-
-Socialite.Graph.Connect['findNode'] = function(id) {
-    var SGC = Socialite.Graph.Connect;
-    for (var i=0; i < SGC.nodes.length; i++) {
-        if (SGC.nodes[i].id == id)
-            return SGC.nodes[i]
     }
 }
 
