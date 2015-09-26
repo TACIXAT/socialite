@@ -37,7 +37,6 @@ sec_session_start();
         <meta name="msapplication-TileImage" content="icon/favicon/mstile-144x144.png">
         <meta name="msapplication-config" content="icon/favicon/browserconfig.xml">
         
-        <!--script type="text/javascript" src="js/lifegraph.js"></script-->
         <!--link rel="stylesheet" href="styles/d3.css" /-->
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5Sh0t7Zp9DeZOfbOfE2-KBgEe9YUoryM"></script>
         <script type="text/javascript" src="js/lib/jquery-2.1.3.min.js"></script>
@@ -57,6 +56,7 @@ sec_session_start();
                 echo "            mixpanel.identify(" . $_SESSION['user_id'] . ");\n";
                 echo "        </script>\n";
                 echo "        <script type=\"text/javascript\" src=\"js/api.js\"></script>\n";
+                echo "        <script type=\"text/javascript\" src=\"js/graph.js\"></script>\n";
                 echo "        <script type=\"text/javascript\" src=\"js/ui.js\"></script>\n";
             } else {
                 echo "        <script type=\"text/javascript\" alert(\"ERROR: NO API KEY!\");";
