@@ -31,9 +31,9 @@ Socialite.Graph.Connect['init'] = function() {
 
     SGC['nodes'] = SGC['force'].nodes();
     SGC['links'] = SGC['force'].links();
-    SGC['node'] = svg.selectAll(".node");
-    SGC['link'] = svg.selectAll(".link");
-    SGC['label'] = svg.selectAll("text.label"); 
+    SGC['node'] = SGC.svg.selectAll(".node");
+    SGC['link'] = SGC.svg.selectAll(".link");
+    SGC['label'] = SGC.svg.selectAll("text.label"); 
     SGC.update();
 }
 
