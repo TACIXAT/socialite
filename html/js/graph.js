@@ -12,6 +12,8 @@ Socialite.Graph.Connect['init'] = function() {
     var height = $("#connect_div").innerHeight(),
         width = $("#connect_div").innerWidth();
 
+    console.log("HW:", height, width);
+
     SGC['force'] = d3.layout.force()
         .size([width, height])
         .nodes([]) // initialize with a single node
