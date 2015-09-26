@@ -71,6 +71,8 @@ $(document).ready(function() {
         Socialite.UI.refreshSearchMap();
     });
 
+    Socialite.Graph.init();
+
 });
 
 Socialite.util['dateToUTC'] = function(date) {
