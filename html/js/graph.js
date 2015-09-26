@@ -19,7 +19,7 @@ Socialite.Graph.Connect['init'] = function() {
         .charge(-1000)
         .on("tick", SGC.tick);
 
-    var svg = d3.select("#graphDiv").append("svg")
+    var svg = d3.select("#connect_div").append("svg")
         .attr("width", width)
         .attr("height", height);
 
@@ -158,6 +158,7 @@ Socialite.Graph.Connect['findNode'] = function(id) {
 }
 
 Socialite.Graph.Connect['addLink'] = function(srcId, dstId) {
+    var SGC = Socialite.Graph.Connect;
     var src = SGC.findNode(srcId);
     var dst = SGC.findNode(dstId);
     if((src !== undefined) && (dst !== undefined)) {
