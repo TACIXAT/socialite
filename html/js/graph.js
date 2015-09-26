@@ -53,7 +53,7 @@ Socialite.Graph.Connect['tick'] = function(e) {
 
 Socialite.Graph.Connect['update'] = function() {
     var SGC = Socialite.Graph.Connect;
-    SGC.link = SGC.link.data(links, function(d) { return d.source.id + "-" + d.target.id; });
+    SGC.link = SGC.link.data(SGC.links, function(d) { return d.source.id + "-" + d.target.id; });
 
     SGC.link.enter().insert("line", ".node")
         .style("stroke", function(d) { 
@@ -62,7 +62,7 @@ Socialite.Graph.Connect['update'] = function() {
 
     SGC.link.exit().remove();
 
-    SGC.node = SGC.node.data(nodes, function(d) { return d.id; });
+    SGC.node = SGC.node.data(SGC.nodes, function(d) { return d.id; });
 
     SGC.node.enter().insert("circle", ".cursor")
         .attr("class", "node")
@@ -76,7 +76,7 @@ Socialite.Graph.Connect['update'] = function() {
 
     SGC.node.exit().remove();
 
-    SGC.label = SGC.label.data(nodes, function(d) { return d.id; });
+    SGC.label = SGC.label.data(SGC.nodes, function(d) { return d.id; });
     SGC.label.enter()
         .append("text")
         .attr("class", "label")
@@ -86,8 +86,8 @@ Socialite.Graph.Connect['update'] = function() {
     SGC.label.exit().remove();
     
     SGC.force
-        .nodes(nodes)
-        .links(links)
+        .nodes(SGC.nodes)
+        .links(SGC.links)
         .start();
 }
 
