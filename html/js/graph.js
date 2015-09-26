@@ -27,7 +27,8 @@ Socialite.Graph.Connect['init'] = function() {
 
     SGC['rect'] = SGC.svg.append("rect")
         .attr("width", width)
-        .attr("height", height);
+        .attr("height", height)
+        .css("background-color", "#fafafa");
 
     SGC['nodes'] = SGC['force'].nodes();
     SGC['links'] = SGC['force'].links();
@@ -46,7 +47,7 @@ Socialite.Graph.Connect['resize'] = function() {
         .attr("width", width)
         .attr("height", height);
 
-    SGC.svg.rect
+    SGC.rect
         .attr("width", width)
         .attr("height", height);
 }
