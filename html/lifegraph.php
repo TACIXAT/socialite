@@ -220,6 +220,7 @@ sec_session_start();
                     <div id="connect_div" class="row">
                        
                     </div>
+                </div>
                 <div class="modal-footer">
                     <a id="connect_clear_button" class="modal-action waves-effect waves-green btn-flat modal_left_button">Clear</a>
                     <button id="connect_submit_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Connect</button>
