@@ -151,30 +151,41 @@ Socialite.Graph.Connect['addNode'] = function(vertex) {
     SGC.nodes.push(vertex);
     SGC.update();
     SGC.linkNeighbors(vertex);
+    // if(SGC.allConnected()) {
+    //     // make disconnect
+    // } else {
+    //     // make connect
+    // }
 }
 
 Socialite.Graph.Connect['allConnected'] = function() {
+    var SGC = Socialite.Graph.Connect;
     var people = _.filter(SGC.nodes, function(n) { return n.properties.type == "person" });
     var events = _.filter(SGC.nodes, function(n) { return n.properties.type == "event" });
     var locations = _.filter(SGC.nodes, function(n) { return n.properties.type == "location" });
 
+    console.log(people);
+    console.log(events);
+    console.log(locations);
     if(events.length == 0)
         return false;
 
     for(var idx in events) {
         var evt = events[idx]; // event is a keyword :(
-
+        console.log(evt);
         for(var jdx in people) {
             var person = people[jdx];
             var identifier = person.properties.type + "_" + person._id;
-            if(!(identifier in evt.neighbors))
+            console.log(identifier);
+            if(evt.neighbors.indexOf(identifier) < 0)
                 return false;
         }
 
         for(var jdx in locations) {
             var location = locations[jdx];
             var identifier = location.properties.type + "_" + location._id;
-            if(!(identifier in evt.neighbors))
+            console.log(identifier);
+            if(evt.neighbors.indexOf(identifier) < 0)
                 return false;
         }
     }
