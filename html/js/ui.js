@@ -318,9 +318,15 @@ Socialite.UI['listVertices'] = function(vertices) {
         item.text(vertexProperties['name']);
         item.data('vertex', vertex);
         item.click(Socialite.UI.itemClick);
+        item.dblclick(Socialite.UI.itemDoubleClick);
 
         $("#" + vertexType + "_list").append(item);
     }
+}
+
+Socialite.UI['itemDoubleClick'] = function(event) {
+    var vertex = $(event.target).data('vertex');
+    getNeighbors(vertex['_id'], 'both', Socialite.API.neighborsDisplaySuccess);
 }
 
 Socialite.UI['dragStart'] = function(ev) {

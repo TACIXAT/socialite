@@ -330,3 +330,28 @@ Socialite.API['deleteVertex'] = function(form) {
 
     return false;
 }
+
+Socialite.API['getNeighbors'] = function(vertexId, direction, success) {
+    var data = {"action": "get_neighbors", "apiKey": apiKey, "vertex": vertexId, "direction": direction};
+
+    $.ajax({
+        'type': 'POST',
+        'url': 'api/proxy.php', //'https://opendao.org:8443/IntelligenceGraph/api/utility/create_vertex/',
+        'data': $.param(data),
+        'success': success,
+        'error': Socialite.API.genericError });
+
+    return false;
+}
+
+Socialite.API['neighborsDisplaySuccess'] = function(data, status, xhr) {
+    mixpanel.track("Neighbors");
+    var vertices = $.parseJSON(data);
+    console.log(vertices);
+    if(vertices.length == 1 && vertices[0]['_id'] == -1) {
+        alert(vertices[0]['properties']['error']);
+    } else {
+        var vertex = vertices.pop();
+        Socialite.UI.listVertices(vertices);
+    }
+}

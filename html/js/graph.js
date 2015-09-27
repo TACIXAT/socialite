@@ -164,19 +164,14 @@ Socialite.Graph.Connect['allConnected'] = function() {
     var events = _.filter(SGC.nodes, function(n) { return n.properties.type == "event" });
     var locations = _.filter(SGC.nodes, function(n) { return n.properties.type == "location" });
 
-    console.log(people);
-    console.log(events);
-    console.log(locations);
     if(events.length == 0)
         return false;
 
     for(var idx in events) {
         var evt = events[idx]; // event is a keyword :(
-        console.log(evt);
         for(var jdx in people) {
             var person = people[jdx];
             var identifier = person.properties.type + "_" + person._id;
-            console.log(identifier);
             if(evt.neighbors.indexOf(identifier) < 0)
                 return false;
         }
@@ -184,7 +179,6 @@ Socialite.Graph.Connect['allConnected'] = function() {
         for(var jdx in locations) {
             var location = locations[jdx];
             var identifier = location.properties.type + "_" + location._id;
-            console.log(identifier);
             if(evt.neighbors.indexOf(identifier) < 0)
                 return false;
         }
