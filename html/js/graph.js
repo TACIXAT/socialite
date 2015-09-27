@@ -130,7 +130,6 @@ Socialite.Graph.Connect['getNodeColor'] = function(d) {
 }
 
 Socialite.Graph.Connect['getStrokeColor'] = function(d) {
-    console.log(d.properties.type);
     switch(d.properties.type) {
         case "event":
             //return "#FFC45B";
@@ -152,6 +151,35 @@ Socialite.Graph.Connect['addNode'] = function(vertex) {
     SGC.nodes.push(vertex);
     SGC.update();
     SGC.linkNeighbors(vertex);
+}
+
+Socialite.Graph.Connect['allConnected'] = function() {
+    var people = _.filter(SGC.nodes, function(n) { return n.properties.type == "person" });
+    var events = _.filter(SGC.nodes, function(n) { return n.properties.type == "event" });
+    var locations = _.filter(SGC.nodes, function(n) { return n.properties.type == "location" });
+
+    if(events.length == 0)
+        return false;
+
+    for(var idx in events) {
+        var evt = events[idx]; // event is a keyword :(
+
+        for(var jdx in people) {
+            var person = people[jdx];
+            var identifier = person.properties.type + "_" + person._id;
+            if(!(identifier in evt.neighbors))
+                return false;
+        }
+
+        for(var jdx in locations) {
+            var location = locations[jdx];
+            var identifier = location.properties.type + "_" + location._id;
+            if(!(identifier in evt.neighbors))
+                return false;
+        }
+    }
+
+    return true;
 }
 
 Socialite.Graph.Connect['removeNode'] = function(id) {
