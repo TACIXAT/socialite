@@ -95,7 +95,7 @@ Socialite.Graph.Connect['update'] = function() {
         .style("fill", SGC.getNodeColor)
         .style("stroke", SGC.getStrokeColor)
         // .on("click", SGC.nodeClick)
-        // .on("dblclick", SGC.nodeDoubleClick)
+        .on("dblclick", SGC.nodeDoubleClick)
         // .on("contextmenu", SGC.nodeRightClick)
         .call(SGC.force.drag);
 
@@ -106,6 +106,7 @@ Socialite.Graph.Connect['update'] = function() {
         .append("text")
         .attr("class", "label")
         .attr("fill", "black")
+        .style("pointer-events", "none")
         .text(function(d) {  return d.properties.name });
 
     SGC.label.exit().remove();
@@ -153,6 +154,18 @@ Socialite.Graph.Connect['addNode'] = function(vertex) {
     SGC.linkNeighbors(vertex);
 }
 
+Socialite.Graph.Connect['removeNode'] = function(id) {
+    nodes = _.filter(nodes, function(n) { return (n._id != id) });
+    links = _.filter(links, function(l) { return (l.source._id != id && l.target._id != id) });
+    update();
+}
+
+Socialite.Graph.Connect['removeLink'] = function(srcId, dstId) {
+    links = _.filter(links, function(l) { return (l['source']['id'] != srcId || l['target']['id'] != dstId) });
+    links = _.filter(links, function(l) { return (l['source']['id'] != dstId || l['target']['id'] != srcId) });
+    update();
+}
+
 Socialite.Graph.Connect['findNode'] = function(id) {
     var SGC = Socialite.Graph.Connect;
     for (var i=0; i < SGC.nodes.length; i++) {
@@ -192,4 +205,8 @@ Socialite.Graph.Connect['addLink'] = function(srcId, dstId) {
         SGC.links.push({"source": src, "target": dst});
         SGC.update();
     } 
+}
+
+Socialite.Graph.Connect['nodeDoubleClick'] = function(d) {
+    Socialite.Graph.Connect.removeNode(d._id);
 }
