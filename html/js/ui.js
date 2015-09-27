@@ -324,8 +324,6 @@ Socialite.UI['listVertices'] = function(vertices) {
 }
 
 Socialite.UI['dragStart'] = function(ev) {
-    console.log(ev);
-    console.log(ev.target.id);
     ev.originalEvent.dataTransfer.setData("targetId", ev.target.id);
 }
 
@@ -335,7 +333,8 @@ Socialite.UI['allowDrop'] = function(ev) {
 
 Socialite.UI['connectDrop'] = function(ev) {
     var targetId = ev.dataTransfer.getData("targetId");
-    console.log("target", targetId);
+    var vertex = $("#" + targetId).data("vertex");
+    Socialite.Graph.Connect.addNode(vertex);
 }
 
 Socialite.UI['buildDisplayForm'] = function(vertexType) {
