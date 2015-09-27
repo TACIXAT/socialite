@@ -100,7 +100,7 @@ sec_session_start();
                         <li class="bold">
                             <a id="search_button">Search</a>
                         </li>
-                        <li class="bold">
+                        <li class="bold" ondrop="Socialite.UI.connectDrop(event)" ondragover="Socialite.UI.allowDrop(event)">
                             <a id="connect_button">Connections</a>
                         </li>
                     </ul>

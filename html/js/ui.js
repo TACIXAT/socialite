@@ -314,13 +314,28 @@ Socialite.UI['listVertices'] = function(vertices) {
         item.attr('draggable', true);
         item.addClass('list_item');
         item.addClass('collection-item');
-        // item.on('dragstart', dragStart);
+        item.on('dragstart', Socialite.UI.dragStart);
         item.text(vertexProperties['name']);
         item.data('vertex', vertex);
         item.click(Socialite.UI.itemClick);
 
         $("#" + vertexType + "_list").append(item);
     }
+}
+
+Socialite.UI['dragStart'] = function(ev) {
+    console.log(ev);
+    console.log(ev.target.id);
+    ev.originalEvent.dataTransfer.setData("targetId", ev.target.id);
+}
+
+Socialite.UI['allowDrop'] = function(ev) {
+    ev.preventDefault();
+}
+
+Socialite.UI['connectDrop'] = function(ev) {
+    var targetId = ev.dataTransfer.getData("targetId");
+    console.log("target", targetId);
 }
 
 Socialite.UI['buildDisplayForm'] = function(vertexType) {
