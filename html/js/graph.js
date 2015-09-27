@@ -158,14 +158,14 @@ Socialite.Graph.Connect['removeNode'] = function(id) {
     var SGC = Socialite.Graph.Connect;
     SGC.nodes = _.filter(SGC.nodes, function(n) { return (n._id != id) });
     SGC.links = _.filter(SGC.links, function(l) { return (l.source._id != id && l.target._id != id) });
-    update();
+    SGC.update();
 }
 
 Socialite.Graph.Connect['removeLink'] = function(srcId, dstId) {
     var SGC = Socialite.Graph.Connect;
     SGC.links = _.filter(SGC.links, function(l) { return (l['source']['id'] != srcId || l['target']['id'] != dstId) });
     SGC.links = _.filter(SGC.links, function(l) { return (l['source']['id'] != dstId || l['target']['id'] != srcId) });
-    update();
+    SGC.update();
 }
 
 Socialite.Graph.Connect['findNode'] = function(id) {
