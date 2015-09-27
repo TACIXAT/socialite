@@ -326,7 +326,7 @@ Socialite.UI['listVertices'] = function(vertices) {
 
 Socialite.UI['itemDoubleClick'] = function(event) {
     var vertex = $(event.target).data('vertex');
-    getNeighbors(vertex['_id'], 'both', Socialite.API.neighborsDisplaySuccess);
+    Socialite.API.getNeighbors(vertex['_id'], 'both', Socialite.API.neighborsDisplaySuccess);
 }
 
 Socialite.UI['dragStart'] = function(ev) {
