@@ -73,7 +73,7 @@ $(document).ready(function() {
     });
 
     Socialite.Graph.init();
-
+    Socialite.UI.connectInterface();
 });
 
 Socialite.util['dateToUTC'] = function(date) {
@@ -354,4 +354,40 @@ Socialite.API['neighborsDisplaySuccess'] = function(data, status, xhr) {
         var vertex = vertices.pop();
         Socialite.UI.listVertices(vertices);
     }
+}
+
+Socialite.API['createEdge'] = function(idA, idB) {
+    var data = {"action": "create_edge", "apiKey": apiKey, "vertexA": idA, "vertexB": idB};
+    mixpanel.track("Create edge");
+    $.ajax({
+        'type': 'POST',
+        'url': 'api/proxy.php',
+        'data': $.param(data),
+        'success': Socialite.API.createEdgeSuccess,
+        'error': Socialite.API.genericError });
+
+    return false;
+}
+
+Socialite.API['createEdgeSuccess'] = function(data, status, xhr) {
+    console.log($.parseJSON(data));
+}
+
+Socialite.API['deleteEdgeSuccess'] = function(data, status, xhr) {
+    data = $.parseJSON(data);
+    console.log(data);
+}
+
+Socialite.API['deleteEdge'] = function(idA, idB) {
+    mixpanel.track("Delete edge");
+    var data = {"action": "delete_edge", "apiKey": apiKey, "vertexA": idA, "vertexB": idB};
+
+    $.ajax({
+        'type': 'POST',
+        'url': 'api/proxy.php',
+        'data': $.param(data),
+        'success': Socialite.API.deleteEdgeSuccess,
+        'error': Socialite.API.genericError });
+
+    return false;
 }

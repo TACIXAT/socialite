@@ -151,11 +151,11 @@ Socialite.Graph.Connect['addNode'] = function(vertex) {
     SGC.nodes.push(vertex);
     SGC.update();
     SGC.linkNeighbors(vertex);
-    // if(SGC.allConnected()) {
-    //     // make disconnect
-    // } else {
-    //     // make connect
-    // }
+    if(SGC.allConnected()) {
+        Socialite.UI.disconnectInterface();
+    } else {
+        Socialite.UI.connectInterface();
+    }
 }
 
 Socialite.Graph.Connect['allConnected'] = function() {
@@ -185,6 +185,50 @@ Socialite.Graph.Connect['allConnected'] = function() {
     }
 
     return true;
+}
+
+Socialite.Graph.Connect['connectAll'] = function() {
+    var SGC = Socialite.Graph.Connect;
+    var people = _.filter(SGC.nodes, function(n) { return n.properties.type == "person" });
+    var events = _.filter(SGC.nodes, function(n) { return n.properties.type == "event" });
+    var locations = _.filter(SGC.nodes, function(n) { return n.properties.type == "location" });
+
+    for(var idx in events) {
+        var evt = events[idx]; // event is a keyword :(
+        for(var jdx in people) {
+            var person = people[jdx];
+            Socialite.API.createEdge(person._id, evt._id);
+        }
+
+        for(var jdx in locations) {
+            var location = locations[jdx];
+            Socialite.API.createEdge(evt._id, location._id);
+        }
+    }
+
+    return false;
+}
+
+Socialite.Graph.Connect['disconnectAll'] = function() {
+    var SGC = Socialite.Graph.Connect;
+    var people = _.filter(SGC.nodes, function(n) { return n.properties.type == "person" });
+    var events = _.filter(SGC.nodes, function(n) { return n.properties.type == "event" });
+    var locations = _.filter(SGC.nodes, function(n) { return n.properties.type == "location" });
+
+    for(var idx in events) {
+        var evt = events[idx]; // event is a keyword :(
+        for(var jdx in people) {
+            var person = people[jdx];
+            Socialite.API.deleteEdge(person._id, evt._id);
+        }
+
+        for(var jdx in locations) {
+            var location = locations[jdx];
+            Socialite.API.deleteEdge(evt._id, location._id);
+        }
+    }
+
+    return false;
 }
 
 Socialite.Graph.Connect['removeNode'] = function(id) {

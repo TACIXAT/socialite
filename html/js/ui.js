@@ -82,14 +82,14 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
         row.addClass('input-field');
 
         var label = $('<label></label>');
-        label.attr('for', key + '_' + vertexType + '_attribute');
+        label.attr('for', key + '_' + vertexType + '_createfield');
         label.text(key);
 
         var input = key == 'notes' ? $('<textarea class="materialize-textarea"></textarea>') : $('<input></input>');
         var type = properties[key];
         input.attr('type', type);
         input.attr('name', key);
-        input.attr('id', key + '_' + vertexType + '_attribute');
+        input.attr('id', key + '_' + vertexType + '_createfield');
 
         var div;
         var mapDiv;
@@ -542,14 +542,14 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
         row.addClass('input-field');
 
         var label = $('<label></label>');
-        label.attr('for', key + '_' + vertexType + '_attribute');
+        label.attr('for', key + '_' + vertexType + '_searchfield');
         label.text(key);
 
         var input = key == 'notes' ? $('<textarea class="materialize-textarea"></textarea>') : $('<input></input>');
         var type = properties[key];
         input.attr('type', type);
         input.attr('name', key);
-        input.attr('id', key + '_' + vertexType + '_attribute');
+        input.attr('id', key + '_' + vertexType + '_searchfield');
 
         var div;
         var mapDiv;
@@ -773,4 +773,14 @@ Socialite.UI['mapFunctionInit'] = function(id) {
 
         $(id).val(coords);
     }
+}
+
+Socialite.UI['connectInterface'] = function() {
+    $("#connect_submit_button").submit(Socialite.Graph.Connect.connectAll);
+    $("#connect_submit_button").text("Connect");
+}
+
+Socialite.UI['disconnectInterface'] = function() {
+    $("#connect_submit_button").submit(Socialite.Graph.Connect.disconnectAll);
+    $("#connect_submit_button").text("Disconnect");
 }
