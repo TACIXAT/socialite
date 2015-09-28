@@ -776,11 +776,11 @@ Socialite.UI['mapFunctionInit'] = function(id) {
 }
 
 Socialite.UI['connectInterface'] = function() {
-    $("#connect_submit_button").click(Socialite.Graph.Connect.connectAll);
+    $("#connect_submit_button").off('click').click(Socialite.Graph.Connect.connectAll);
     $("#connect_submit_button").text("Connect");
 }
 
 Socialite.UI['disconnectInterface'] = function() {
-    $("#connect_submit_button").click(Socialite.Graph.Connect.disconnectAll);
+    $("#connect_submit_button").off('click').click(Socialite.Graph.Connect.disconnectAll);
     $("#connect_submit_button").text("Disconnect");
 }

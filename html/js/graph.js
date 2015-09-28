@@ -188,6 +188,7 @@ Socialite.Graph.Connect['allConnected'] = function() {
 }
 
 Socialite.Graph.Connect['connectAll'] = function() {
+    console.log("C-ALL");
     var SGC = Socialite.Graph.Connect;
     var people = _.filter(SGC.nodes, function(n) { return n.properties.type == "person" });
     var events = _.filter(SGC.nodes, function(n) { return n.properties.type == "event" });
@@ -197,11 +198,13 @@ Socialite.Graph.Connect['connectAll'] = function() {
         var evt = events[idx]; // event is a keyword :(
         for(var jdx in people) {
             var person = people[jdx];
+            console.log("C-PE");
             Socialite.API.createEdge(person._id, evt._id);
         }
 
         for(var jdx in locations) {
             var location = locations[jdx];
+            console.log("C-EL");
             Socialite.API.createEdge(evt._id, location._id);
         }
     }
@@ -210,6 +213,7 @@ Socialite.Graph.Connect['connectAll'] = function() {
 }
 
 Socialite.Graph.Connect['disconnectAll'] = function() {
+    console.log("DC-ALL");
     var SGC = Socialite.Graph.Connect;
     var people = _.filter(SGC.nodes, function(n) { return n.properties.type == "person" });
     var events = _.filter(SGC.nodes, function(n) { return n.properties.type == "event" });
@@ -219,11 +223,13 @@ Socialite.Graph.Connect['disconnectAll'] = function() {
         var evt = events[idx]; // event is a keyword :(
         for(var jdx in people) {
             var person = people[jdx];
+            console.log("D-PE");
             Socialite.API.deleteEdge(person._id, evt._id);
         }
 
         for(var jdx in locations) {
             var location = locations[jdx];
+            console.log("D-EL");
             Socialite.API.deleteEdge(evt._id, location._id);
         }
     }
