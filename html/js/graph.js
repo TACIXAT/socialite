@@ -236,6 +236,11 @@ Socialite.Graph.Connect['removeNode'] = function(id) {
     SGC.nodes = _.filter(SGC.nodes, function(n) { return (n._id != id) });
     SGC.links = _.filter(SGC.links, function(l) { return (l.source._id != id && l.target._id != id) });
     SGC.update();
+    if(SGC.allConnected()) {
+        Socialite.UI.disconnectInterface();
+    } else {
+        Socialite.UI.connectInterface();
+    }
 }
 
 Socialite.Graph.Connect['removeLink'] = function(srcId, dstId) {
