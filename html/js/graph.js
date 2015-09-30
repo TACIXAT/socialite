@@ -237,8 +237,8 @@ Socialite.Graph.Connect['removeNode'] = function(id) {
 
 Socialite.Graph.Connect['removeLink'] = function(srcId, dstId) {
     var SGC = Socialite.Graph.Connect;
-    SGC.links = _.filter(SGC.links, function(l) { return (l['source']['id'] != srcId || l['target']['id'] != dstId) });
-    SGC.links = _.filter(SGC.links, function(l) { return (l['source']['id'] != dstId || l['target']['id'] != srcId) });
+    SGC.links = _.filter(SGC.links, function(l) { return (l['source']['_id'] != srcId || l['target']['_id'] != dstId) });
+    SGC.links = _.filter(SGC.links, function(l) { return (l['source']['_id'] != dstId || l['target']['_id'] != srcId) });
     SGC.update();
 }
 
