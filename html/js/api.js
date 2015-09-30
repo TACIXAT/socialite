@@ -391,6 +391,7 @@ Socialite.API['createEdgeSuccess'] = function(data, status, xhr) {
 
     Socialite.Graph.Connect.addLink(vertexA, vertexB);
     Socialite.UI.checkConnectInterface();
+    Socialite.UI.highlightItems($(".selected_item").attr("id"));
 }
 
 Socialite.API['deleteEdgeSuccess'] = function(data, status, xhr) {
@@ -414,6 +415,7 @@ Socialite.API['deleteEdgeSuccess'] = function(data, status, xhr) {
 
     Socialite.Graph.Connect.removeLink(vertexA, vertexB);
     Socialite.UI.checkConnectInterface();
+    Socialite.UI.highlightItems($(".selected_item").attr("id"));
 }
 
 Socialite.API['deleteEdge'] = function(idA, idB) {
