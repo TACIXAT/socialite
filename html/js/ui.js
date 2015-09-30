@@ -260,12 +260,12 @@ Socialite.UI['highlightItems'] = function(elementId) {
     $(".tertiary_item").removeClass("tertiary_item");
     $("#" + elementId).addClass("selected_item");
 
-    var secondary = Socialite.util.connections[elementId];
+    var secondary = Socialite.util.fetchNeighbors(elementId);
     var tertiary = [];
     for(var idx in secondary) {
         var secondaryId = secondary[idx];
         $("#" + secondaryId).addClass("secondary_item");
-        var neighbors = Socialite.util.connections[secondaryId];
+        var neighbors = Socialite.util.fetchNeighbors(secondaryId);
         for(var idx in neighbors) {
             var neighbor = neighbors[idx];
             if(elementId.split('_')[0] != neighbor.split('_')[0])
@@ -278,6 +278,10 @@ Socialite.UI['highlightItems'] = function(elementId) {
             $("#" + tertiary[idx]).addClass("tertiary_item");
         }
     }
+}
+
+Socialite.util['fetchNeighbors'] = function(elementId) {
+    return $("#" + elementId).data("vertex").neighbors;
 }
 
 Socialite.util['addConnections'] = function(vertex) {
