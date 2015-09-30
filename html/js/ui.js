@@ -775,6 +775,14 @@ Socialite.UI['mapFunctionInit'] = function(id) {
     }
 }
 
+Socialite.UI['checkConnectInterface'] = function() {
+    if(Socialite.Graph.Connect.allConnected()) {
+        Socialite.UI.disconnectInterface();
+    } else {
+        Socialite.UI.connectInterface();
+    }
+}
+
 Socialite.UI['connectInterface'] = function() {
     $("#connect_submit_button").off('click').click(Socialite.Graph.Connect.connectAll);
     $("#connect_submit_button").text("Connect");

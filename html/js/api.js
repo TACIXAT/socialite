@@ -11,11 +11,7 @@ $(document).ready(function() {
     $("#connect_button").click(function() {
         $('#connect_modal').openModal();
         Socialite.Graph.Connect.resize();
-        if(Socialite.Graph.Connect.allConnected()) {
-            Socialite.UI.disconnectInterface();
-        } else {
-            Socialite.UI.connectInterface();
-        }
+        Socialite.UI.checkConnectInterface();
     });
 
     $("#add_button").click(function() {
@@ -375,12 +371,49 @@ Socialite.API['createEdge'] = function(idA, idB) {
 }
 
 Socialite.API['createEdgeSuccess'] = function(data, status, xhr) {
-    console.log($.parseJSON(data));
+    data = $.parseJSON(data);
+    console.log(data);
+
+    if(data['status'] === "ERROR") {
+        Materialize.toast(data['ERROR'], 3000);
+        return;
+    }
+
+    var vertexA = data['vertexA'];
+    var vertexB = data['vertexB'];
+    var typeA = data['typeA'];
+    var typeB = data['typeB'];
+    var idLongA = typeA + "_" + vertexA;
+    var idLongB = typeB + "_" + vertexB;
+
+    $("#" + idLongA).data('vertex').neighbors.push(idLongB);
+    $("#" + idLongB).data('vertex').neighbors.push(idLongA);
+
+    Socialite.Graph.Connect.addLink(vertexA, vertexB);
+    Socialite.UI.checkConnectInterface();
 }
 
 Socialite.API['deleteEdgeSuccess'] = function(data, status, xhr) {
     data = $.parseJSON(data);
     console.log(data);
+
+    if(data['status'] === "ERROR") {
+        Materialize.toast(data['ERROR'], 3000);
+        return;
+    }
+
+    var vertexA = data['vertexA'];
+    var vertexB = data['vertexB'];
+    var typeA = data['typeA'];
+    var typeB = data['typeB'];
+    var idLongA = typeA + "_" + vertexA;
+    var idLongB = typeB + "_" + vertexB;
+
+    $("#" + idLongA).data('vertex').neighbors = _.filter($("#" + idLongA).data("vertex").neighbors, function(ea) { return ea != idLongB });
+    $("#" + idLongB).data('vertex').neighbors = _.filter($("#" + idLongB).data("vertex").neighbors, function(ea) { return ea != idLongA });
+
+    Socialite.Graph.Connect.removeLink(vertexA, vertexB);
+    Socialite.UI.checkConnectInterface();
 }
 
 Socialite.API['deleteEdge'] = function(idA, idB) {
