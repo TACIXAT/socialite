@@ -11,6 +11,11 @@ $(document).ready(function() {
     $("#connect_button").click(function() {
         $('#connect_modal').openModal();
         Socialite.Graph.Connect.resize();
+        if(Socialite.Graph.Connect.allConnected()) {
+            Socialite.UI.disconnectInterface();
+        } else {
+            Socialite.UI.connectInterface();
+        }
     });
 
     $("#add_button").click(function() {
