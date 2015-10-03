@@ -329,13 +329,14 @@ Socialite.UI['listVertices'] = function(vertices) {
         connectLink.click(function() {
             var vertex = $(this).parent().data('vertex');
             Socialite.Graph.Connect.addNode(vertex);
+            $("#connect_button").effect("shake", {'distance': 5, 'times': 2, 'direction': 'right'})
         });
 
         var removeLink = $("<a></a>");
         removeLink.addClass("control_right");
         removeLink.text("Remove");
         removeLink.click(function() {
-            $(this).parent().remove();
+            $(this).parent().hide('slow', function() { $(this).parent().remove() });
         });        
 
         item.append(removeLink);
