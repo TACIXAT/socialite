@@ -60,7 +60,7 @@ $logged_in = login_check($mysqli);
                 echo "        <script type=\"text/javascript\" src=\"js/graph.js\"></script>\n";
                 echo "        <script type=\"text/javascript\" src=\"js/ui.js\"></script>\n";
             } else {
-                // echo "        <script type=\"text/javascript\" alert(\"ERROR: NO API KEY!\");";
+                // echo "        <script type=\"text/javascript\" alert(\"ERROR: NO API KEY!\");</script>";
             }
         ?>
     </head>

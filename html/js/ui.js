@@ -121,7 +121,7 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
 
             var addRemoveLink = $("<a></a>");
             addRemoveLink.text("Remove Map");
-            addRemoveLink.addClass("remove_link");
+            addRemoveLink.addClass("form_link");
             addRemoveLink.click(Socialite.UI.addRemoveMapInit(addRemoveLink, input, div));
             addRemoveLink.attr('id', 'create_add_remove_link');
             row.append(addRemoveLink);
@@ -329,7 +329,7 @@ Socialite.UI['listVertices'] = function(vertices) {
         connectLink.click(function() {
             var vertex = $(this).parent().data('vertex');
             Socialite.Graph.Connect.addNode(vertex);
-            $("#connect_button").effect("shake", {'distance': 5, 'times': 2, 'direction': 'right'})
+            $("#connect_button").effect("shake", {'distance': 5, 'times': 2, 'direction': 'right'});
         });
 
         var removeLink = $("<a></a>");
@@ -450,7 +450,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
 
             var addRemoveLink = $("<a></a>");
             addRemoveLink.text("Remove Map");
-            addRemoveLink.addClass("remove_link");
+            addRemoveLink.addClass("form_link");
             addRemoveLink.click(Socialite.UI.addRemoveMapInit(addRemoveLink, input, div));
             addRemoveLink.attr('id', 'display_add_remove_link');
             row.append(addRemoveLink);
@@ -613,7 +613,7 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
 
             var addRemoveLink = $("<a></a>");
             addRemoveLink.text("Remove Map");
-            addRemoveLink.addClass("remove_link");
+            addRemoveLink.addClass("form_link");
             addRemoveLink.click(Socialite.UI.addRemoveMapInit(addRemoveLink, input, div));
             addRemoveLink.attr('id', 'search_add_remove_link');
             row.append(addRemoveLink);
@@ -621,6 +621,10 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
         }
 
         if(type == 'date') {
+            var rangeToggleLink = $("<a></a>");
+            rangeToggleLink.text("Range Search");
+            rangeToggleLink.addClass("form_link");
+            row.append(rangeToggleLink);
             input.pickadate({
                 selectMonths: true,
                 selectYears: 150,
