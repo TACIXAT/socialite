@@ -51,6 +51,7 @@ $logged_in = login_check($mysqli);
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
         <?php
+            error_log($logged_in);
             if($logged_in == true && isset($_GET['apiKey'])) {
                 echo "<script type=\"text/javascript\">\n";
                 echo "            apiKey = '" . $_GET['apiKey'] . "';\n";
