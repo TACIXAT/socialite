@@ -655,9 +655,76 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
 }
 
 Socialite.UI['toggleSearch'] = function(element) {
-    
+    var name = element.siblings().name();
     var parent = element.parent();
-    parent.hide();
+    if(name.indexOf("_") < 0) {
+        // create two elements
+        var nameStart = name + "_start";
+        var startParentDiv = $("<div></div>");
+        startParentDiv.addClass('tr_search');
+        startParentDiv.addClass('input-field');
+
+        var startLabel = $('<label></label>');
+        startLabel.attr('for', nameStart + '_' + vertexType + '_searchfield');
+        startLabel.text(name + " range start");
+
+        var startInput = $('<input></input>');
+        startInput.attr("type", "date");
+        startInput.addClass('datepicker');
+        startInput.pickadate({
+            selectMonths: true,
+            selectYears: 150,
+            container: '#page_container',
+            onClose: function() {
+                $("#search_button").focus();
+            },
+        });
+
+        startParentDiv.append(startInput);
+        startParentDiv.append(startLabel);
+
+        var nameEnd = name + "_end";
+        var endParentDiv = $("<div></div>");
+        endParentDiv.addClass('tr_search');
+        endParentDiv.addClass('input-field');
+
+        var endLabel = $('<label></label>');
+        endLabel.attr('for', nameEnd + '_' + vertexType + '_searchfield');
+        endLabel.text(name + " range end");
+
+        var endInput = $('<input></input>');
+        endInput.attr("type", "date");
+        endInput.addClass('datepicker');
+        endInput.pickadate({
+            selectMonths: true,
+            selectYears: 150,
+            container: '#page_container',
+            onClose: function() {
+                $("#search_button").focus();
+            },
+        });
+
+        endParentDiv.append(endInput);
+        endParentDiv.append(endLabel);
+
+        var rangeToggleLink = $("<a></a>");
+        rangeToggleLink.text("Exact Search");
+        rangeToggleLink.addClass("form_link");
+        rangeToggleLink.attr("id", vertexType + "_" + key + "_range_toggle");
+        rangeToggleLink.click(function() {
+            Socialite.UI.toggleSearch($(this));
+        });
+        endParentDiv.append(rangeToggleLink);
+
+        parent.replaceWith(startParentDiv);
+        startParentDiv.after(endParentDiv);
+    } else {
+        // create one element
+        var newName = name.split("_")[0];
+
+
+    }
+    // parent.hide();
 }
 
 Socialite.UI['refreshCreateMap'] = function() {
