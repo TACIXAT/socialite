@@ -655,8 +655,9 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
 }
 
 Socialite.UI['toggleSearch'] = function(element) {
-    var name = element.siblings().name();
+    var name = element.siblings().attr("name");
     var parent = element.parent();
+    var vertexType = element.attr("id").split("_")[0];
     if(name.indexOf("_") < 0) {
         // create two elements
         var nameStart = name + "_start";
@@ -670,6 +671,7 @@ Socialite.UI['toggleSearch'] = function(element) {
 
         var startInput = $('<input></input>');
         startInput.attr("type", "date");
+        startInput.attr("name", nameStart);
         startInput.addClass('datepicker');
         startInput.pickadate({
             selectMonths: true,
@@ -690,6 +692,7 @@ Socialite.UI['toggleSearch'] = function(element) {
 
         var endLabel = $('<label></label>');
         endLabel.attr('for', nameEnd + '_' + vertexType + '_searchfield');
+        startInput.attr("name", nameEnd);
         endLabel.text(name + " range end");
 
         var endInput = $('<input></input>');
@@ -710,7 +713,7 @@ Socialite.UI['toggleSearch'] = function(element) {
         var rangeToggleLink = $("<a></a>");
         rangeToggleLink.text("Exact Search");
         rangeToggleLink.addClass("form_link");
-        rangeToggleLink.attr("id", vertexType + "_" + key + "_range_toggle");
+        rangeToggleLink.attr("id", vertexType + "_date_range_toggle");
         rangeToggleLink.click(function() {
             Socialite.UI.toggleSearch($(this));
         });
@@ -724,7 +727,6 @@ Socialite.UI['toggleSearch'] = function(element) {
 
 
     }
-    // parent.hide();
 }
 
 Socialite.UI['refreshCreateMap'] = function() {
