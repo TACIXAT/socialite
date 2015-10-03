@@ -363,6 +363,7 @@ Socialite.UI['connectDrop'] = function(ev) {
     var targetId = ev.dataTransfer.getData("targetId");
     var vertex = $("#" + targetId).data("vertex");
     Socialite.Graph.Connect.addNode(vertex);
+    $("#connect_button").effect("shake", {'distance': 5, 'times': 2, 'direction': 'right'});
 }
 
 Socialite.UI['buildDisplayForm'] = function(vertexType) {
@@ -624,7 +625,12 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
             var rangeToggleLink = $("<a></a>");
             rangeToggleLink.text("Range Search");
             rangeToggleLink.addClass("form_link");
+            rangeToggleLink.attr("id", vertexType + "_" + key + "_range_toggle");
+            rangeToggleLink.click(function() {
+                Socialite.UI.toggleSearch($(this));
+            });
             row.append(rangeToggleLink);
+            
             input.pickadate({
                 selectMonths: true,
                 selectYears: 150,
@@ -646,6 +652,12 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
 
 
     return searchForm;
+}
+
+Socialite.UI['toggleSearch'] = function(element) {
+    
+    var parent = element.parent();
+    parent.hide();
 }
 
 Socialite.UI['refreshCreateMap'] = function() {
