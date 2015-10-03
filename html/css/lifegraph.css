@@ -111,6 +111,13 @@ body {
     height: 75%;
 }
 
+.control_right {
+    float: right;
+    padding-left: 10px;
+    font-size: 12px;
+    color: #666;
+}
+
 /*a, body, input, button, select { font-family: monospace; }
 
 p { 

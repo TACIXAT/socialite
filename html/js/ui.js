@@ -323,6 +323,24 @@ Socialite.UI['listVertices'] = function(vertices) {
         item.click(Socialite.UI.itemClick);
         item.dblclick(Socialite.UI.itemDoubleClick);
 
+        var connectLink = $("<a></a>");
+        connectLink.addClass("control_right");
+        connectLink.text("Connect");
+        connectLink.click(function() {
+            var vertex = $(this).parent().data('vertex');
+            Socialite.Graph.Connect.addNode(vertex);
+        });
+
+        var removeLink = $("<a></a>");
+        removeLink.addClass("control_right");
+        removeLink.text("Remove");
+        removeLink.click(function() {
+            $(this).parent().remove();
+        });        
+
+        item.append(removeLink);
+        item.append(connectLink);
+
         $("#" + vertexType + "_list").append(item);
     }
 }
