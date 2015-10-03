@@ -73,10 +73,10 @@ $logged_in = login_check($mysqli);
         ?>
         <?php if (!$logged_in || !isset($_GET['apiKey'])) : ?>
             <p><span class="error">You are not authorized to access this page.</span> Please <a href="secret.php">login</a>.</p>
-            // <?php 
+            <?php 
             //     header('Location: index.html'); 
             //     exit();
-            // ?>
+            ?>
         <?php else : ?>
             <header class="white">
                 <nav>
