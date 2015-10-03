@@ -4,6 +4,8 @@ include_once '/var/www/php/include/functions.php';
  
 sec_session_start();
 $logged_in = login_check($mysqli);
+error_log("logged in 1 " . $logged_in);
+
 ?>
 <!doctype html>
 <html>
@@ -51,7 +53,7 @@ $logged_in = login_check($mysqli);
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
         <?php
-            error_log($logged_in);
+            error_log("logged in 1 " . $logged_in);
             if($logged_in == true && isset($_GET['apiKey'])) {
                 echo "<script type=\"text/javascript\">\n";
                 echo "            apiKey = '" . $_GET['apiKey'] . "';\n";
