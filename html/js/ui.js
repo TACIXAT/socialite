@@ -45,11 +45,26 @@ Socialite.UI['onClickCreateInit'] = function(form) {
 }
 
 Socialite.util['getYYYYMMDD'] = function(date) {
+    var months = {
+        0: 'January',
+        1: 'February',
+        2: 'March',
+        3: 'April',
+        4: 'May',
+        5: 'June',
+        6: 'July',
+        7: 'August',
+        8: 'September',
+        9: 'October',
+        10: 'November',
+        11: 'December',
+    };
+
     var yyyy = date.getUTCFullYear().toString();                                    
-    var mm = (date.getUTCMonth()+1).toString(); //getMonth() is zero-based         
+    var mm = months[date.getUTCMonth()];          
     var dd  = date.getUTCDate().toString();             
-                            
-    return yyyy + '-' + (mm[1]?mm:"0"+mm[0]) + '-' + (dd[1]?dd:"0"+dd[0]);
+    var date = dd + " " + mm + ", " + yyyy;
+    return date;
 }
 
 Socialite.UI['buildCreateForm'] = function(vertexType) {
@@ -194,7 +209,7 @@ Socialite.UI['displayVertex'] = function(vertex) {
         if(dataType == 'date') {
             value = Socialite.util.getYYYYMMDD(new Date(parseInt(value)));
             console.log('DATE', value);
-            element.pickadate('picker').set('select', value, {'format': 'yyyy-mm-dd'});
+            element.pickadate('picker').set('select', value, {'format': 'd mmmm, yyyy'});
         } else if(dataType == 'geopoint') {
             var split = value.split(",");
             if(split.length == 2) {
