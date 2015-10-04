@@ -118,6 +118,14 @@ body {
     color: #666;
 }
 
+.control_wrapper {
+    width: 100%;
+}
+
+.connected_to_name {
+    padding-left: 10px;
+}
+
 /*a, body, input, button, select { font-family: monospace; }
 
 p { 
