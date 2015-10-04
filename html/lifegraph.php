@@ -200,10 +200,10 @@ $logged_in = login_check($mysqli);
                     </div>
                     <div class="row" id="search_connected_to_div">
                         <ul class="collection">
-                            <li id="title_row">
+                            <li id="title_row" class="collection-item">
                               <div><b>Connected To</b></div>
                             </li>
-                            <li>
+                            <li class="collection-item">
                               <div>Person: Sample</div>
                             </li>
                         </ul>
