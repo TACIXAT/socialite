@@ -444,7 +444,7 @@ Socialite.UI['addConnectedTo'] = function(vertex) {
     $("#connected_to_list").append(listItem);
     var items = $("#connected_to_list > li").get();
     items.sort(function(a, b) {
-        var typeOrder = {'person':1, 'event':2, 'location':3];
+        var typeOrder = {'person':1, 'event':2, 'location':3};
         var vertexA = a.data('vertex');
         var vertexB = b.data('vertex');
         var typeA = vertexA['properties']['type'];
@@ -468,7 +468,7 @@ Socialite.UI['addConnectedTo'] = function(vertex) {
     $.each(items, function(i, li){
       $("#connected_to_list").append(li);
     });
-    
+
     Socialite.UI.updateConnectedToInputs();
 }
 
