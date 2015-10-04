@@ -199,36 +199,9 @@ $logged_in = login_check($mysqli);
                         </div>
                     </div>
                     <div class="row" id="search_connected_to_div">
-                        <ul class="collection">
+                        <ul id="connected_to_list" class="collection">
                             <li id="title_row" class="collection-item">
                               <div><b>Connected To</b></div>
-                            </li>
-                            <li class="collection-item">
-                              <div class="valign-wrapper">
-                                <i class="small material-icons">person</i>
-                                <div class="connected_to_name">Sample</div>
-                                <div class="control_wrapper">
-                                    <a class="control_right">Remove</a>
-                                </div>
-                            </div>
-                            </li>
-                            <li class="collection-item">
-                              <div class="valign-wrapper">
-                                <i class="small material-icons">schedule</i>
-                                <div class="connected_to_name">Sample</div>
-                                <div class="control_wrapper">
-                                    <a class="control_right">Remove</a>
-                                </div>
-                            </div>
-                            </li>
-                            <li class="collection-item">
-                              <div class="valign-wrapper">
-                                <i class="small material-icons">place</i>
-                                <div class="connected_to_name">Sample</div>
-                                <div class="control_wrapper">
-                                    <a class="control_right">Remove</a>
-                                </div>
-                              </div>
                             </li>
                         </ul>
                     </div>

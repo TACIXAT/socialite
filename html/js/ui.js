@@ -390,6 +390,93 @@ Socialite.UI['searchDrop'] = function(ev) {
 
 Socialite.UI['addConnectedTo'] = function(vertex) {
     console.log(vertex._id);
+    var images = {
+        'person': 'person',
+        'event': 'schedule',
+        'location': 'place'
+    }
+    var vertexType = vertex['properties']['type'];
+
+    // <li class="collection-item">
+    //     <div class="valign-wrapper">
+    //         <i class="small material-icons">person</i>
+    //         <div class="connected_to_name">Sample</div>
+    //         <div class="control_wrapper">
+    //             <a class="control_right">Remove</a>
+    //         </div>
+    //     </div>
+    // </li>
+
+    // create list element
+    var listItem = $('<li></li>');
+    listItem.addClass('collection-item');
+    
+    var valignDiv = $('<div></div>');
+    valignDiv.addClass('valign-wrapper');
+
+    var icon = $('<i></i>');
+    icon.addClass('small');
+    icon.addClass('material-icons');
+    icon.text(images[vertexType]);
+
+    var nameDiv = $('<div></div>');
+    nameDiv.class('connected_to_name');
+    nameDiv.text(vertex['properties']['name']);
+
+    var controlDiv = $('<div></div>');
+    controlDiv.addClass('control_wrapper');
+
+    var removeLink = $('<a></a>');
+    removeLink.addClass('control_right');
+    removeLink.text('Remove');
+    removeLink.click(function() {
+        $(this).remove();
+        Socialite.UI.updateConnectedToInputs();
+    });
+
+    valignDiv.append(icon);
+    valignDiv.append(nameDiv);
+    valignDiv.append(controlDiv);
+    controlDiv.append(removeLink);
+    listItem.append(valignDiv);
+    listItem.data('vertex', vertex);
+
+    $("#connected_to_list").append(listItem);
+    var items = $("#connected_to_list > li").get();
+    items.sort(function(a, b) {
+        var typeOrder = {'person':1, 'event':2, 'location':3];
+        var vertexA = a.data('vertex');
+        var vertexB = b.data('vertex');
+        var typeA = vertexA['properties']['type'];
+        var typeB = vertexB['properties']['type'];
+        var nameA = vertexA['properties']['name'];
+        var nameB = vertexB['properties']['name'];
+        
+        if(typeOrder[typeA] < typeOrder[typeB])
+            return -1;
+        else if(typeOrder[typeA] > typeOrder[typeB])
+            return 1;
+
+        if(nameA < nameB)
+            return -1;
+        else if(nameA > nameB)
+            return 1;
+
+        return 0;
+    });
+
+    $.each(items, function(i, li){
+      $("#connected_to_list").append(li);
+    });
+    
+    Socialite.UI.updateConnectedToInputs();
+}
+
+Socialite.UI['updateConnectedToInputs'] = function() {
+    // for each hidden input
+        // for each connect to
+            // build input
+
 }
 
 Socialite.UI['buildDisplayForm'] = function(vertexType) {
