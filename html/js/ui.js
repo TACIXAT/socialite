@@ -430,7 +430,7 @@ Socialite.UI['addConnectedTo'] = function(vertex) {
     removeLink.addClass('control_right');
     removeLink.text('Remove');
     removeLink.click(function() {
-        $(this).remove();
+        $(this).parent().parent().remove();
         Socialite.UI.updateConnectedToInputs();
     });
 
@@ -442,11 +442,11 @@ Socialite.UI['addConnectedTo'] = function(vertex) {
     listItem.data('vertex', vertex);
 
     $("#connected_to_list").append(listItem);
-    var items = $("#connected_to_list > li").get();
+    var items = $("#connected_to_list > li").not("#title_row").get();
     items.sort(function(a, b) {
         var typeOrder = {'person':1, 'event':2, 'location':3};
-        var vertexA = a.data('vertex');
-        var vertexB = b.data('vertex');
+        var vertexA = $(a).data('vertex');
+        var vertexB = $(b).data('vertex');
         var typeA = vertexA['properties']['type'];
         var typeB = vertexB['properties']['type'];
         var nameA = vertexA['properties']['name'];
