@@ -204,7 +204,10 @@ $logged_in = login_check($mysqli);
                               <div><b>Connected To</b></div>
                             </li>
                             <li class="collection-item">
-                              <div>Person: Sample</div>
+                              <div><i class="small material-icons">perm_identity</i>Sample</div>
+                            </li>
+                            <li class="collection-item">
+                              <div><i class="small material-icons">schedule</i>Sample</div>
                             </li>
                         </ul>
                     </div>
