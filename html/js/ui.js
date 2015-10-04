@@ -692,11 +692,11 @@ Socialite.UI['toggleSearch'] = function(element) {
 
         var endLabel = $('<label></label>');
         endLabel.attr('for', nameEnd + '_' + vertexType + '_searchfield');
-        startInput.attr("name", nameEnd);
         endLabel.text(name + " range end");
 
         var endInput = $('<input></input>');
         endInput.attr("type", "date");
+        endInput.attr("name", nameEnd);
         endInput.addClass('datepicker');
         endInput.pickadate({
             selectMonths: true,
