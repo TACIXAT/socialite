@@ -206,22 +206,28 @@ $logged_in = login_check($mysqli);
                             <li class="collection-item">
                               <div class="valign-wrapper">
                                 <i class="small material-icons">person</i>
-                                <div>Sample</div>
-                                <a class="control_right">Remove</a>
+                                <div class="connected_to_name">Sample</div>
+                                <div class="control_wrapper">
+                                    <a class="control_right">Remove</a>
+                                </div>
                             </div>
                             </li>
                             <li class="collection-item">
                               <div class="valign-wrapper">
                                 <i class="small material-icons">schedule</i>
-                                <div>Sample</div>
-                                <a class="control_right">Remove</a>
+                                <div class="connected_to_name">Sample</div>
+                                <div class="control_wrapper">
+                                    <a class="control_right">Remove</a>
+                                </div>
                             </div>
                             </li>
                             <li class="collection-item">
                               <div class="valign-wrapper">
                                 <i class="small material-icons">place</i>
-                                <div>Sample</div>
-                                <a class="control_right">Remove</a>
+                                <div class="connected_to_name">Sample</div>
+                                <div class="control_wrapper">
+                                    <a class="control_right">Remove</a>
+                                </div>
                               </div>
                             </li>
                         </ul>
