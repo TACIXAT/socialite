@@ -731,7 +731,7 @@ Socialite.UI['toggleSearch'] = function(element) {
 
         var label = $('<label></label>');
         label.attr('for', newName + '_' + vertexType + '_searchfield');
-        label.text(name);
+        label.text(newName);
 
         var input = $('<input></input>');
         input.attr("type", "date");
