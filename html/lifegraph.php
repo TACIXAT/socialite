@@ -45,8 +45,8 @@ $logged_in = login_check($mysqli);
         <script type="text/javascript" src="js/lib/jquery-ui-1.11.3/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/lib/d3.v3.min.js"></script>
         <script type="text/javascript" src="js/lib/underscore-min.js"></script>
-        
         <script type="text/javascript" src="js/materialize.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="css/lifegraph.css" />
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
