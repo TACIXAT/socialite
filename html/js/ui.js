@@ -761,8 +761,8 @@ Socialite.UI['toggleSearch'] = function(element) {
         endParentDiv.append(rangeToggleLink);
 
         parent.replaceWith(startParentDiv);
-        startParentDiv.after(dummyInput);
         startParentDiv.after(endParentDiv);
+        startParentDiv.after(dummyInput);
     } else {
         // create one element
         var newName = name.split("_")[0];
