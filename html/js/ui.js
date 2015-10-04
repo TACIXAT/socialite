@@ -397,16 +397,6 @@ Socialite.UI['addConnectedTo'] = function(vertex) {
     }
     var vertexType = vertex['properties']['type'];
 
-    // <li class="collection-item">
-    //     <div class="valign-wrapper">
-    //         <i class="small material-icons">person</i>
-    //         <div class="connected_to_name">Sample</div>
-    //         <div class="control_wrapper">
-    //             <a class="control_right">Remove</a>
-    //         </div>
-    //     </div>
-    // </li>
-
     // create list element
     var listItem = $('<li></li>');
     listItem.addClass('collection-item');
@@ -430,7 +420,7 @@ Socialite.UI['addConnectedTo'] = function(vertex) {
     removeLink.addClass('control_right');
     removeLink.text('Remove');
     removeLink.click(function() {
-        $(this).parent().parent().remove();
+        $(this).parent().parent().parent().remove();
         Socialite.UI.updateConnectedToInputs();
     });
 

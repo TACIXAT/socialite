@@ -124,6 +124,7 @@ body {
 
 .connected_to_name {
     padding-left: 10px;
+    white-space: nowrap;
 }
 
 /*a, body, input, button, select { font-family: monospace; }
