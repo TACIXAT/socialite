@@ -717,6 +717,7 @@ Socialite.UI['toggleSearch'] = function(element) {
         rangeToggleLink.click(function() {
             Socialite.UI.toggleSearch($(this));
         });
+
         endParentDiv.append(rangeToggleLink);
 
         parent.replaceWith(startParentDiv);
@@ -724,8 +725,38 @@ Socialite.UI['toggleSearch'] = function(element) {
     } else {
         // create one element
         var newName = name.split("_")[0];
+        var parentDiv = $("<div></div>");
+        parentDiv.addClass('tr_search');
+        parentDiv.addClass('input-field');
 
+        var label = $('<label></label>');
+        label.attr('for', newName + '_' + vertexType + '_searchfield');
+        label.text(name);
 
+        var input = $('<input></input>');
+        input.attr("type", "date");
+        input.attr("name", newName);
+        input.addClass('datepicker');
+        input.pickadate({
+            selectMonths: true,
+            selectYears: 150,
+            container: '#page_container',
+            onClose: function() {
+                $("#search_button").focus();
+            },
+        });
+
+        var rangeToggleLink = $("<a></a>");
+        rangeToggleLink.text("Range Search");
+        rangeToggleLink.addClass("form_link");
+        rangeToggleLink.attr("id", vertexType + "_date_range_toggle");
+        rangeToggleLink.click(function() {
+            Socialite.UI.toggleSearch($(this));
+        });
+
+        parentDiv.append(input);
+        parentDiv.append(label);
+        parentDiv.append(rangeToggleLink);
     }
 }
 
