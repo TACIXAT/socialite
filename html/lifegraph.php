@@ -199,10 +199,12 @@ $logged_in = login_check($mysqli);
                         </div>
                     </div>
                     <div class="row" id="search_connected_to_div">
-                        <ul class="collapsible" data-collapsible="accordion">
+                        <ul class="collection">
+                            <li id="title_row">
+                              <div><b>Connected To</b></div>
+                            </li>
                             <li>
-                              <div class="collapsible-header">Connected To</div>
-                              <div class="collapsible-body">CONNECTED NODES HERE</div>
+                              <div>Person: Sample</div>
                             </li>
                         </ul>
                     </div>
