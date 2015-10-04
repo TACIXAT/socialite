@@ -757,6 +757,8 @@ Socialite.UI['toggleSearch'] = function(element) {
         parentDiv.append(input);
         parentDiv.append(label);
         parentDiv.append(rangeToggleLink);
+        parent.replaceWith(parentDiv);
+        parentDiv.prev().remove();
     }
 }
 
