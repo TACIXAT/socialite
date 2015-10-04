@@ -420,7 +420,7 @@ Socialite.UI['addConnectedTo'] = function(vertex) {
     icon.text(images[vertexType]);
 
     var nameDiv = $('<div></div>');
-    nameDiv.class('connected_to_name');
+    nameDiv.addClass('connected_to_name');
     nameDiv.text(vertex['properties']['name']);
 
     var controlDiv = $('<div></div>');
