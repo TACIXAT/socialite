@@ -659,7 +659,13 @@ Socialite.UI['toggleSearch'] = function(element) {
     var parent = element.parent();
     var vertexType = element.attr("id").split("_")[0];
     if(name.indexOf("_") < 0) {
-        // create two elements
+        // dummy input
+        var nameDummy = name;
+        var dummyInput = $("<input></input>");
+        dummyInput.attr("type", "hidden");
+        dummyInput.attr("name", nameDummy);
+
+        // start input
         var nameStart = name + "_start";
         var startParentDiv = $("<div></div>");
         startParentDiv.addClass('tr_search');
@@ -673,18 +679,11 @@ Socialite.UI['toggleSearch'] = function(element) {
         startInput.attr("type", "date");
         startInput.attr("name", nameStart);
         startInput.addClass('datepicker');
-        startInput.pickadate({
-            selectMonths: true,
-            selectYears: 150,
-            container: '#page_container',
-            onClose: function() {
-                $("#search_button").focus();
-            },
-        });
 
         startParentDiv.append(startInput);
         startParentDiv.append(startLabel);
 
+        // end input
         var nameEnd = name + "_end";
         var endParentDiv = $("<div></div>");
         endParentDiv.addClass('tr_search');
@@ -698,6 +697,29 @@ Socialite.UI['toggleSearch'] = function(element) {
         endInput.attr("type", "date");
         endInput.attr("name", nameEnd);
         endInput.addClass('datepicker');
+        
+        var setDummy = function() {
+            if(startInput.val().split(' ').length == 3 && endInput.val().split(' ').length == 3) {
+                startVal = startInput.val();
+                endVal = endInput.val();
+                startVal = Socialite.util.dateToUTC(startVal);
+                endVal = Socialite.util.dateToUTC(endVal);
+                dummyInput.val('[' + startVal + ',' + endVal + ']');
+            }
+        }
+
+        startInput.pickadate({
+            selectMonths: true,
+            selectYears: 150,
+            container: '#page_container',
+            onClose: function() {
+                $("#search_button").focus();
+            },
+            onSet: function(thingSet) {
+                setDummy();
+            }
+        });
+
         endInput.pickadate({
             selectMonths: true,
             selectYears: 150,
@@ -705,6 +727,9 @@ Socialite.UI['toggleSearch'] = function(element) {
             onClose: function() {
                 $("#search_button").focus();
             },
+            onSet: function(thingSet) {
+                setDummy();
+            }
         });
 
         endParentDiv.append(endInput);
@@ -721,6 +746,7 @@ Socialite.UI['toggleSearch'] = function(element) {
         endParentDiv.append(rangeToggleLink);
 
         parent.replaceWith(startParentDiv);
+        startParentDiv.after(dummyInput);
         startParentDiv.after(endParentDiv);
     } else {
         // create one element
@@ -758,6 +784,7 @@ Socialite.UI['toggleSearch'] = function(element) {
         parentDiv.append(label);
         parentDiv.append(rangeToggleLink);
         parent.replaceWith(parentDiv);
+        parentDiv.prev().remove();
         parentDiv.prev().remove();
     }
 }
