@@ -381,6 +381,17 @@ Socialite.UI['connectDrop'] = function(ev) {
     $("#connect_button").effect("shake", {'distance': 5, 'times': 2, 'direction': 'right'});
 }
 
+Socialite.UI['searchDrop'] = function(ev) {
+    var targetId = ev.dataTransfer.getData("targetId");
+    var vertex = $("#" + targetId).data("vertex");
+    Socialite.UI.addConnectedTo(vertex);
+    $("#search_button").effect("shake", {'distance': 5, 'times': 2, 'direction': 'right'});
+}
+
+Socialite.UI['addConnectedTo'] = function(vertex) {
+    console.log(vertex._id);
+}
+
 Socialite.UI['buildDisplayForm'] = function(vertexType) {
     var displayForm = $('<form></form>');
     var formId = "display_" + vertexType + '_form';

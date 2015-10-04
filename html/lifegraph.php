@@ -98,7 +98,7 @@ $logged_in = login_check($mysqli);
                         <li class="bold">
                             <a id="add_button">Add</a>
                         </li>
-                        <li class="bold">
+                        <li class="bold" ondrop="Socialite.UI.searchDrop(event)" ondragover="Socialite.UI.allowDrop(event)">
                             <a id="search_button">Search</a>
                         </li>
                         <li class="bold" ondrop="Socialite.UI.connectDrop(event)" ondragover="Socialite.UI.allowDrop(event)">
