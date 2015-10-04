@@ -204,10 +204,25 @@ $logged_in = login_check($mysqli);
                               <div><b>Connected To</b></div>
                             </li>
                             <li class="collection-item">
-                              <div><i class="small material-icons">perm_identity</i>Sample</div>
+                              <div class="valign-wrapper">
+                                <i class="small material-icons">person</i>
+                                <div>Sample</div>
+                                <a class="control_right">Remove</a>
+                            </div>
                             </li>
                             <li class="collection-item">
-                              <div><i class="small material-icons">schedule</i>Sample</div>
+                              <div class="valign-wrapper">
+                                <i class="small material-icons">schedule</i>
+                                <div>Sample</div>
+                                <a class="control_right">Remove</a>
+                            </div>
+                            </li>
+                            <li class="collection-item">
+                              <div class="valign-wrapper">
+                                <i class="small material-icons">place</i>
+                                <div>Sample</div>
+                                <a class="control_right">Remove</a>
+                              </div>
                             </li>
                         </ul>
                     </div>
