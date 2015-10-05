@@ -341,7 +341,10 @@ Socialite.UI['listVertices'] = function(vertices) {
         var connectLink = $("<a></a>");
         connectLink.addClass("control_right");
         connectLink.text("Connect");
-        connectLink.click(function() {
+        connectLink.click(function(ev) {
+            ev.cancelBubble = true;
+            if(ev.stopPropagation) 
+                ev.stopPropagation();
             var vertex = $(this).parent().data('vertex');
             Socialite.Graph.Connect.addNode(vertex);
             $("#connect_button").effect("shake", {'distance': 5, 'times': 2, 'direction': 'right'});
@@ -350,7 +353,10 @@ Socialite.UI['listVertices'] = function(vertices) {
         var removeLink = $("<a></a>");
         removeLink.addClass("control_right");
         removeLink.text("Remove");
-        removeLink.click(function() {
+        removeLink.click(function(ev) {
+            ev.cancelBubble = true;
+            if(ev.stopPropagation) 
+                ev.stopPropagation();
             $(this).parent().hide('slow', function() { $(this).remove() });
         });        
 
