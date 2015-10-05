@@ -357,7 +357,7 @@ Socialite.UI['listVertices'] = function(vertices) {
             ev.cancelBubble = true;
             if(ev.stopPropagation) 
                 ev.stopPropagation();
-            $(this).parent().hide('slow', function() { $(this).remove() });
+            $(this).parent().hide('fast', function() { $(this).remove() });
         });        
 
         item.append(removeLink);
@@ -432,7 +432,7 @@ Socialite.UI['addConnectedTo'] = function(vertex) {
     removeLink.addClass('control_right');
     removeLink.text('Remove');
     removeLink.click(function() {
-        $(this).parent().parent().parent().hide('slow', function() { 
+        $(this).parent().parent().parent().hide('fast', function() { 
             $(this).remove();
             Socialite.UI.updateConnectedToInputs();
         });
