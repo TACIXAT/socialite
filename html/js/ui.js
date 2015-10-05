@@ -469,10 +469,20 @@ Socialite.UI['addConnectedTo'] = function(vertex) {
 }
 
 Socialite.UI['updateConnectedToInputs'] = function() {
-    // for each hidden input
-        // for each connect to
-            // build input
+    var input = [];
+    var items = $("#connected_to_list > li").not("#title_row");
+    $.each(items, function(idx, item) {
+        var vertex = $(item).data('vertex');
+        input.push(vertex._id);
+    });
 
+    var inputStr = input.join(",");
+    var types = ['person', 'event', 'location'];
+    for(var idx in types) {
+        var type = types[idx];
+        var id = "#" + type + "_connected_search_input";
+        $(id).va(inputStr);
+    }
 }
 
 Socialite.UI['buildDisplayForm'] = function(vertexType) {
@@ -757,7 +767,7 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
     connectedInput.attr('type', 'hidden');
     connectedInput.attr('name', 'connected_to');
     connectedInput.attr('id', vertexType + '_connected_search_input');
-    row.append(connectedInput);
+    typeInput.before(connectedInput);
 
 
     return searchForm;
