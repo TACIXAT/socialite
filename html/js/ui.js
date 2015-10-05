@@ -432,10 +432,8 @@ Socialite.UI['addConnectedTo'] = function(vertex) {
     removeLink.addClass('control_right');
     removeLink.text('Remove');
     removeLink.click(function() {
-        $(this).parent().parent().parent().hide('fast', function() { 
-            $(this).remove();
-            Socialite.UI.updateConnectedToInputs();
-        });
+        $(this).parent().parent().parent().remove(); 
+        Socialite.UI.updateConnectedToInputs();
     });
 
     valignDiv.append(icon);
