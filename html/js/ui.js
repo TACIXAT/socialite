@@ -390,12 +390,18 @@ Socialite.UI['connectDrop'] = function(ev) {
 Socialite.UI['searchDrop'] = function(ev) {
     var targetId = ev.dataTransfer.getData("targetId");
     var vertex = $("#" + targetId).data("vertex");
-    Socialite.UI.addConnectedTo(vertex);
-    $("#search_button").effect("shake", {'distance': 5, 'times': 2, 'direction': 'right'});
+    if(Socialite.UI.addConnectedTo(vertex))
+        $("#search_button").effect("shake", {'distance': 5, 'times': 2, 'direction': 'right'});
 }
 
 Socialite.UI['addConnectedTo'] = function(vertex) {
-    console.log(vertex._id);
+    var items = $("#connected_to_list > li").not("#title_row").get();
+    for(var idx in items) {
+        var item = $(items[idx]);
+        if(item.data('vertex')._id == vertex._id)
+            return false;
+    }
+
     var images = {
         'person': 'person',
         'event': 'schedule',
@@ -426,8 +432,10 @@ Socialite.UI['addConnectedTo'] = function(vertex) {
     removeLink.addClass('control_right');
     removeLink.text('Remove');
     removeLink.click(function() {
-        $(this).parent().parent().parent().hide('slow', function() { $(this).remove() });
-        Socialite.UI.updateConnectedToInputs();
+        $(this).parent().parent().parent().hide('slow', function() { 
+            $(this).remove();
+            Socialite.UI.updateConnectedToInputs();
+        });
     });
 
     valignDiv.append(icon);
@@ -438,7 +446,6 @@ Socialite.UI['addConnectedTo'] = function(vertex) {
     listItem.data('vertex', vertex);
 
     $("#connected_to_list").append(listItem);
-    var items = $("#connected_to_list > li").not("#title_row").get();
     items.sort(function(a, b) {
         var typeOrder = {'person':1, 'event':2, 'location':3};
         var vertexA = $(a).data('vertex');
@@ -466,6 +473,7 @@ Socialite.UI['addConnectedTo'] = function(vertex) {
     });
 
     Socialite.UI.updateConnectedToInputs();
+    return true;
 }
 
 Socialite.UI['updateConnectedToInputs'] = function() {
