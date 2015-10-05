@@ -426,7 +426,7 @@ Socialite.UI['addConnectedTo'] = function(vertex) {
     removeLink.addClass('control_right');
     removeLink.text('Remove');
     removeLink.click(function() {
-        $(this).parent().parent().parent().remove();
+        $(this).parent().parent().parent().hide('slow', function() { $(this).remove() });
         Socialite.UI.updateConnectedToInputs();
     });
 
