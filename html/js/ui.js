@@ -481,7 +481,7 @@ Socialite.UI['updateConnectedToInputs'] = function() {
     for(var idx in types) {
         var type = types[idx];
         var id = "#" + type + "_connected_search_input";
-        $(id).va(inputStr);
+        $(id).val(inputStr);
     }
 }
 
@@ -768,7 +768,6 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
     connectedInput.attr('name', 'connected_to');
     connectedInput.attr('id', vertexType + '_connected_search_input');
     typeInput.before(connectedInput);
-
 
     return searchForm;
 }
