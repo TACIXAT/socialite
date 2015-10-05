@@ -351,7 +351,7 @@ Socialite.UI['listVertices'] = function(vertices) {
         removeLink.addClass("control_right");
         removeLink.text("Remove");
         removeLink.click(function() {
-            $(this).parent().hide('slow', function() { $(this).parent().remove() });
+            $(this).parent().hide('slow', function() { $(this).remove() });
         });        
 
         item.append(removeLink);
