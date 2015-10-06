@@ -190,7 +190,7 @@ Socialite.API['createVertex'] = function(form) {
 
 Socialite.API['searchVertices'] = function(form) {
     if(form[0]['connected_to'].value != '') {
-        Socialite.API.searchNeighbors(form);
+        Socialite.API.searchConnectedTo(form);
         return false;
     }
 
@@ -220,13 +220,13 @@ Socialite.API['searchVertices'] = function(form) {
         'error': Socialite.API.genericError });
 }
 
-Socialite.API['searchNeighbors'] = function(form) {
+Socialite.API['searchConnectedTo'] = function(form) {
     var type = form[0]['type'].value;
-    var vertex = form[0]['connected_to'].value;
-    var data = {"action":"search_neighbors", "apiKey": apiKey, "type":type, "vertex": vertex};
-    mixpanel.track("SearchNeighbors (" + type + ")");
+    var vertices = form[0]['connected_to'].value;
+    var data = {"action":"search_connected_to", "apiKey": apiKey, "type":type, "vertices": vertices};
+    mixpanel.track("SearchConnectedTo (" + type + ")");
 
-    var schema = typeCache[type];
+    var schema = Socialite.util.typeCache[type];
     var schemaKeys = Object.keys(schema);
     for(var idx in schemaKeys) {
         var key = schemaKeys[idx];
