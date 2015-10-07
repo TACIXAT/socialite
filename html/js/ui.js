@@ -358,6 +358,7 @@ Socialite.UI['listVertices'] = function(vertices) {
             if(ev.stopPropagation) 
                 ev.stopPropagation();
             $(this).parent().hide('fast', function() { $(this).remove() });
+            Socialite.UI.resetForm(type, 'display');
         });        
 
         item.append(removeLink);
