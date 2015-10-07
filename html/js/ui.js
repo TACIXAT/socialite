@@ -357,10 +357,10 @@ Socialite.UI['listVertices'] = function(vertices) {
             ev.cancelBubble = true;
             if(ev.stopPropagation) 
                 ev.stopPropagation();
+            var vertex = $(this).parent().data('vertex');
+            Socialite.UI.resetForm(vertex['properties']['type'], 'display');
             $(this).parent().hide('fast', function() { 
                 $(this).remove();
-                var vertex = $(this).data('vertex');
-                Socialite.UI.resetForm(vertex['properties']['type'], 'display');
             });
         });        
 
