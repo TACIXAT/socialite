@@ -104,6 +104,9 @@ $logged_in = login_check($mysqli);
                         <li class="bold" ondrop="Socialite.UI.connectDrop(event)" ondragover="Socialite.UI.allowDrop(event)">
                             <a id="connect_button">Connections</a>
                         </li>
+                        <li class="bold">
+                            <a id="signout_button" href="/logout.php">Sign Out</a>
+                        </li>
                     </ul>
                 </div>
             </header>
