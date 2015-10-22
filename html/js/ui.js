@@ -519,11 +519,11 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     displayForm.append(typeInput);
 
     var idRow = $('<div></div>');
-    var idLabel = $('<label></label>');
+    // var idLabel = $('<label></label>');
     var idDisplay = $('<input></input>');
 
-    idLabel.text('ID ');
-    idLabel.attr('for', 'id_' + vertexType + '_attribute');
+    // idLabel.text('ID ');
+    // idLabel.attr('for', 'id_' + vertexType + '_attribute');
     idDisplay.attr('id', 'id_' + vertexType + '_attribute');
     idDisplay.attr('hidden', true);
     idDisplay.attr('type', 'text');
@@ -533,6 +533,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     idRow.append(idLabel);
     idRow.append(idDisplay);
     displayForm.append(idRow);
+    idRow.hide();
 
     for(var idx in keys) {
         var key = keys[idx];
