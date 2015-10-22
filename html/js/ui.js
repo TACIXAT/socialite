@@ -530,7 +530,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     idDisplay.attr('name', 'id');
 
     idRow.addClass('input-field');
-    idRow.append(idLabel);
+    // idRow.append(idLabel);
     idRow.append(idDisplay);
     displayForm.append(idRow);
     idRow.hide();
