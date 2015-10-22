@@ -278,6 +278,8 @@ Socialite.UI['highlightItems'] = function(elementId) {
     var tertiary = [];
     for(var idx in secondary) {
         var secondaryId = secondary[idx];
+        if($("#" + secondaryId).length == 0)
+            continue;
         $("#" + secondaryId).addClass("secondary_item");
         var neighbors = Socialite.util.fetchNeighbors(secondaryId);
         for(var idx in neighbors) {
