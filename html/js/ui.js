@@ -525,7 +525,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     idLabel.text('ID ');
     idLabel.attr('for', 'id_' + vertexType + '_attribute');
     idDisplay.attr('id', 'id_' + vertexType + '_attribute');
-    idDisplay.attr('disabled', true);
+    idDisplay.attr('hidden', true);
     idDisplay.attr('type', 'text');
     idDisplay.attr('name', 'id');
 
