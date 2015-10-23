@@ -47,13 +47,16 @@
             });
         </script>
         <style>
+            body {
+                100%;
+            }
             #container {
                 height: 100%;
                 width: 100%;
             }
         </style>
     </head>
-    <body>
+    <body class="red">
         <?php
             if (!empty($error_msg)) {
                 echo $error_msg;
@@ -64,8 +67,8 @@
                 echo '<p class="error">Error Logging In!</p>';
             }
         ?> 
-        <div id="container" class="valign-wrapper red">
-            <div class="row valign center-align white s6">
+        <div id="container" class="valign-wrapper">
+            <div class="row valign center-align white s12">
                 <div class="col s12">
                     <ul class="tabs">
                         <li class="tab col s6"><a class="active" href="#loginDiv">Login</a></li>
