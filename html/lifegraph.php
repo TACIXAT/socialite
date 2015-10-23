@@ -4,6 +4,11 @@ include_once '/var/www/php/include/functions.php';
  
 sec_session_start();
 $logged_in = login_check($mysqli);
+if (!$logged_in || !isset($_GET['apiKey'])) {
+    header('Location: index.html'); 
+    exit();
+}
+
 ?>
 <!doctype html>
 <html>
@@ -72,11 +77,7 @@ $logged_in = login_check($mysqli);
             }
         ?>
         <?php if (!$logged_in || !isset($_GET['apiKey'])) : ?>
-            <!-- <p><span class="error">You are not authorized to access this page.</span> Please <a href="secret.php">login</a>.</p> -->
-            <?php 
-                header('Location: index.html'); 
-                exit();
-            ?>
+            <p><span class="error">You are not authorized to access this page.</span> Please <a href="secret.php">login</a>.</p>
         <?php else : ?>
             <header class="white">
                 <nav>
