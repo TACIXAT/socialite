@@ -8,7 +8,7 @@
     if (login_check($mysqli) == true) {
         $logged = 'in';
         // redirect
-	header('Location: lifegraph.php');
+        header('Location: lifegraph.php');
     } 
 ?>
 

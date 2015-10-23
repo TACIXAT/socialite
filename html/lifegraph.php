@@ -4,7 +4,7 @@ include_once '/var/www/php/include/functions.php';
  
 sec_session_start();
 $logged_in = login_check($mysqli);
-if (!$logged_in || !isset($_GET['apiKey'])) {
+if (!$logged_in) {
     header('Location: index.html'); 
     exit();
 }
@@ -56,9 +56,8 @@ if (!$logged_in || !isset($_GET['apiKey'])) {
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
         <?php
-            if($logged_in && isset($_GET['apiKey'])) {
+            if($logged_in) {
                 echo "<script type=\"text/javascript\">\n";
-                echo "            apiKey = '" . $_GET['apiKey'] . "';\n";
                 echo "            mixpanel.identify(" . $_SESSION['user_id'] . ");\n";
                 echo "        </script>\n";
                 echo "        <script type=\"text/javascript\" src=\"js/api.js\"></script>\n";
@@ -76,7 +75,7 @@ if (!$logged_in || !isset($_GET['apiKey'])) {
                 echo '<p class="error">' . $_GET['msg'] . '</p>';
             }
         ?>
-        <?php if (!$logged_in || !isset($_GET['apiKey'])) : ?>
+        <?php if (!$logged_in) : ?>
             <p><span class="error">You are not authorized to access this page.</span> Please <a href="secret.php">login</a>.</p>
         <?php else : ?>
             <header class="white">
