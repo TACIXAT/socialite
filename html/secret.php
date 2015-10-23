@@ -37,8 +37,8 @@
         <meta name="msapplication-config" content="icon/favicon/browserconfig.xml">
 
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/javascript" src="js/lib/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/JavaScript" src="js/sha512.js"></script> 
         <script type="text/JavaScript" src="js/forms.js"></script> 
         <script type="text/JavaScript">
