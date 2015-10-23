@@ -57,6 +57,12 @@
             #row {
                 height: 70%;
             }
+            #loginDiv {
+                padding: 20px;
+            }
+            #registrationDiv {
+                padding: 20px;
+            }
         </style>
     </head>
     <body class="red">
