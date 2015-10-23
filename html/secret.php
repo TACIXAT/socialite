@@ -36,6 +36,9 @@
         <meta name="msapplication-TileImage" content="icon/favicon/mstile-144x144.png">
         <meta name="msapplication-config" content="icon/favicon/browserconfig.xml">
 
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+
         <script type="text/JavaScript" src="js/sha512.js"></script> 
         <script type="text/JavaScript" src="js/forms.js"></script> 
     </head>
@@ -48,8 +51,8 @@
             ?> 
             
             <form action="process_login.php" method="post" name="login_form">                      
-                Email:&nbsp&nbsp&nbsp&nbsp<input type="text" name="email" /><br>
-                Password: <input type="password" name="password" id="password"/><br>
+                <label>Email</label><input type="text" name="email" /><br>
+                <label>Password</label><input type="password" name="password" id="password"/><br>
                 <input type="button" value="Login" onclick="formhash(this.form, this.form.password);" /> 
             </form>
         </div>
@@ -62,11 +65,11 @@
             ?>
 
             <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
-                Username: <input type='text' name='username' id='username' /><br>
-                Email:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email" id="email" /><br>
-                Password: <input type="password" name="password" id="password"/><br>
-                Confirm:&nbsp;&nbsp;<input type="password" name="confirmpwd"  id="confirmpwd" /><br>
-                Invite:&nbsp;&nbsp;&nbsp;<input type='text' name='invite' id='invite' /><br>
+                <label>Username</label><input type='text' name='username' id='username' /><br>
+                <label>Email</label><input type="text" name="email" id="email" /><br>
+                <label>Password</label><input type="password" name="password" id="password"/><br>
+                <label>Confirm</label><input type="password" name="confirmpwd"  id="confirmpwd" /><br>
+                <label>Invite</label><input type='text' name='invite' id='invite' /><br>
                 <input type="button" value="Register" onclick="return regformhash(this.form, this.form.username, this.form.email, this.form.password, this.form.confirmpwd);" /> 
             </form>
         </div>
