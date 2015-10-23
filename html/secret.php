@@ -84,8 +84,6 @@
                                 <input type="button" value="Login" onclick="formhash(this.form, this.form.password);" /> 
                             </form>
                         </div>
-                            </div>
-                        </div>
                         <div id='registrationDiv' class="col l12">
                             <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
                                 <label>Username</label><input type='text' name='username' id='username' /><br>
