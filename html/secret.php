@@ -54,6 +54,10 @@
                 height: 100%;
                 width: 100%;
             }
+
+            #card {
+                top: 15%;
+            }
         </style>
     </head>
     <body class="red">
@@ -67,9 +71,9 @@
                 echo '<p class="error">Error Logging In!</p>';
             }
         ?> 
-        <div id="container" class="valign-wrapper">
+        <div id="container">
             <div class="row l6">
-                <div class="card valign center-align white l12">
+                <div id="card" class="card center-align white l12">
                     <div class="card-content">
                         <div class="col l12">
                             <ul class="tabs">
