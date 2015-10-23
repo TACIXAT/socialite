@@ -48,7 +48,7 @@
         </script>
         <style>
             body {
-                100%;
+                height: 100vh;
             }
             #container {
                 height: 100%;
@@ -68,29 +68,37 @@
             }
         ?> 
         <div id="container" class="valign-wrapper">
-            <div class="row valign center-align white s12">
-                <div class="col s12">
+            <div class="row valign center-align white l6">
+                <div class="col l12">
                     <ul class="tabs">
-                        <li class="tab col s6"><a class="active" href="#loginDiv">Login</a></li>
-                        <li class="tab col s6"><a href="#registrationDiv">Register</a></li>
+                        <li class="tab col l6"><a class="active" href="#loginDiv">Login</a></li>
+                        <li class="tab col l6"><a href="#registrationDiv">Register</a></li>
                     </ul>
                 </div>
-                <div id='loginDiv' class="col s12">
-                    <form action="process_login.php" method="post" name="login_form">                      
-                        <label>Email</label><input type="text" name="email" /><br>
-                        <label>Password</label><input type="password" name="password" id="password"/><br>
-                        <input type="button" value="Login" onclick="formhash(this.form, this.form.password);" /> 
-                    </form>
+                <div class="card">
+                    <div class="card-content">
+                        <div id='loginDiv' class="col l12">
+                            <form action="process_login.php" method="post" name="login_form">                      
+                                <label>Email</label><input type="text" name="email" /><br>
+                                <label>Password</label><input type="password" name="password" id="password"/><br>
+                                <input type="button" value="Login" onclick="formhash(this.form, this.form.password);" /> 
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div id='registrationDiv' class="col s12">
-                    <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
-                        <label>Username</label><input type='text' name='username' id='username' /><br>
-                        <label>Email</label><input type="text" name="email" id="email" /><br>
-                        <label>Password</label><input type="password" name="password" id="password"/><br>
-                        <label>Confirm</label><input type="password" name="confirmpwd"  id="confirmpwd" /><br>
-                        <label>Invite</label><input type='text' name='invite' id='invite' /><br>
-                        <input type="button" value="Register" onclick="return regformhash(this.form, this.form.username, this.form.email, this.form.password, this.form.confirmpwd);" /> 
-                    </form>
+                <div class="card">
+                    <div class="card-content">
+                        <div id='registrationDiv' class="col l12">
+                            <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
+                                <label>Username</label><input type='text' name='username' id='username' /><br>
+                                <label>Email</label><input type="text" name="email" id="email" /><br>
+                                <label>Password</label><input type="password" name="password" id="password"/><br>
+                                <label>Confirm</label><input type="password" name="confirmpwd"  id="confirmpwd" /><br>
+                                <label>Invite</label><input type='text' name='invite' id='invite' /><br>
+                                <input type="button" value="Register" onclick="return regformhash(this.form, this.form.username, this.form.email, this.form.password, this.form.confirmpwd);" /> 
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
