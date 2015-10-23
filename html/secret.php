@@ -46,6 +46,12 @@
                 $('ul.tabs').tabs();
             });
         </script>
+        <style>
+            #container {
+                height: 100%;
+                width: 100%;
+            }
+        </style>
     </head>
     <body>
         <?php
@@ -58,8 +64,8 @@
                 echo '<p class="error">Error Logging In!</p>';
             }
         ?> 
-        <div class="valign-wrapper red">
-            <div class="row valign center-align">
+        <div id="container" class="valign-wrapper red">
+            <div class="row valign center-align white">
                 <div class="col s6">
                     <ul class="tabs">
                         <li class="tab col s3"><a class="active" href="#loginDiv">Login</a></li>
