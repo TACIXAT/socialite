@@ -58,29 +58,31 @@
                 echo '<p class="error">Error Logging In!</p>';
             }
         ?> 
-        <div class="row">
-            <div class="col s12">
-                <ul class="tabs">
-                    <li class="tab col s3"><a class="active" href="#loginDiv">Login</a></li>
-                    <li class="tab col s3"><a href="#registrationDiv">Register</a></li>
-                </ul>
-            </div>
-            <div id='loginDiv' class="col s6">
-                <form action="process_login.php" method="post" name="login_form">                      
-                    <label>Email</label><input type="text" name="email" /><br>
-                    <label>Password</label><input type="password" name="password" id="password"/><br>
-                    <input type="button" value="Login" onclick="formhash(this.form, this.form.password);" /> 
-                </form>
-            </div>
-            <div id='registrationDiv' class="col s6">
-                <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
-                    <label>Username</label><input type='text' name='username' id='username' /><br>
-                    <label>Email</label><input type="text" name="email" id="email" /><br>
-                    <label>Password</label><input type="password" name="password" id="password"/><br>
-                    <label>Confirm</label><input type="password" name="confirmpwd"  id="confirmpwd" /><br>
-                    <label>Invite</label><input type='text' name='invite' id='invite' /><br>
-                    <input type="button" value="Register" onclick="return regformhash(this.form, this.form.username, this.form.email, this.form.password, this.form.confirmpwd);" /> 
-                </form>
+        <div class="valign-wrapper red">
+            <div class="row valign center-align">
+                <div class="col s6">
+                    <ul class="tabs">
+                        <li class="tab col s3"><a class="active" href="#loginDiv">Login</a></li>
+                        <li class="tab col s3"><a href="#registrationDiv">Register</a></li>
+                    </ul>
+                </div>
+                <div id='loginDiv' class="col s6">
+                    <form action="process_login.php" method="post" name="login_form">                      
+                        <label>Email</label><input type="text" name="email" /><br>
+                        <label>Password</label><input type="password" name="password" id="password"/><br>
+                        <input type="button" value="Login" onclick="formhash(this.form, this.form.password);" /> 
+                    </form>
+                </div>
+                <div id='registrationDiv' class="col s6">
+                    <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
+                        <label>Username</label><input type='text' name='username' id='username' /><br>
+                        <label>Email</label><input type="text" name="email" id="email" /><br>
+                        <label>Password</label><input type="password" name="password" id="password"/><br>
+                        <label>Confirm</label><input type="password" name="confirmpwd"  id="confirmpwd" /><br>
+                        <label>Invite</label><input type='text' name='invite' id='invite' /><br>
+                        <input type="button" value="Register" onclick="return regformhash(this.form, this.form.username, this.form.email, this.form.password, this.form.confirmpwd);" /> 
+                    </form>
+                </div>
             </div>
         </div>
     </body>
