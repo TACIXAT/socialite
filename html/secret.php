@@ -38,7 +38,7 @@
 
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
         <script type="text/javascript" src="js/materialize.min.js"></script>
-
+        <script type="text/javascript" src="js/lib/jquery-2.1.3.min.js"></script>
         <script type="text/JavaScript" src="js/sha512.js"></script> 
         <script type="text/JavaScript" src="js/forms.js"></script> 
         <script type="text/JavaScript">
@@ -65,14 +65,14 @@
                     <li class="tab col s3"><a href="#registrationDiv">Register</a></li>
                 </ul>
             </div>
-            <div id='loginDiv' class="col s12">
+            <div id='loginDiv' class="col s6">
                 <form action="process_login.php" method="post" name="login_form">                      
                     <label>Email</label><input type="text" name="email" /><br>
                     <label>Password</label><input type="password" name="password" id="password"/><br>
                     <input type="button" value="Login" onclick="formhash(this.form, this.form.password);" /> 
                 </form>
             </div>
-            <div id='registrationDiv' class="col s12">
+            <div id='registrationDiv' class="col s6">
                 <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
                     <label>Username</label><input type='text' name='username' id='username' /><br>
                     <label>Email</label><input type="text" name="email" id="email" /><br>
