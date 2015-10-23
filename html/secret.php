@@ -71,11 +71,11 @@
             <div class="row valign center-align white l6">
                 <div class="col l12">
                     <ul class="tabs">
-                        <li class="tab col l6"><a class="active" href="#loginDiv">Login</a></li>
-                        <li class="tab col l6"><a href="#registrationDiv">Register</a></li>
+                        <li class="tab col l6"><a class="active" href="#loginCard">Login</a></li>
+                        <li class="tab col l6"><a href="#registrationCard">Register</a></li>
                     </ul>
                 </div>
-                <div class="card">
+                <div id="loginCard" class="card">
                     <div class="card-content">
                         <div id='loginDiv' class="col l12">
                             <form action="process_login.php" method="post" name="login_form">                      
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
+                <div id='registrationCard' class="card">
                     <div class="card-content">
                         <div id='registrationDiv' class="col l12">
                             <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
