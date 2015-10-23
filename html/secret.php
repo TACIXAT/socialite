@@ -54,8 +54,8 @@
                 height: 100%;
                 width: 100%;
             }
-            #card {
-                
+            #row {
+                height: 70%;
             }
         </style>
     </head>
@@ -71,7 +71,7 @@
             }
         ?> 
         <div id="container" class="valign-wrapper">
-            <div class="row l6">
+            <div id="row" class="row l6">
                 <div id="card" class="card valign center-align white l12">
                     <div class="card-content">
                         <div class="col l12">
