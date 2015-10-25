@@ -58,7 +58,7 @@
                 height: 70%;
             }
             .contentDiv {
-                padding: 20px;
+                padding: 20px !important;
             }
         </style>
     </head>
