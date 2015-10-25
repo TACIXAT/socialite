@@ -84,6 +84,7 @@
                             <ul class="tabs">
                                 <li class="tab col l6"><a class="active" href="#loginDiv">Login</a></li>
                                 <li class="tab col l6"><a href="#registrationDiv">Register</a></li>
+                                <li class="tab col l6"><a href="#resetDiv">Reset</a></li>
                             </ul>
                         </div>
                         <div id='loginDiv' class="col l12">
