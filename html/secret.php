@@ -57,8 +57,11 @@
             #row {
                 height: 70%;
             }
-            .contentDiv {
+            .content_div {
                 padding: 20px !important;
+            }
+            .right_btn {
+                float: right;
             }
         </style>
     </head>
@@ -84,28 +87,37 @@
                                 <li class="tab col l6"><a href="#resetDiv">Reset</a></li>
                             </ul>
                         </div>
-                        <div id='loginDiv' class="contentDiv col l12">
+                        <div id='loginDiv' class="content_div col l12">
                             <form action="process_login.php" method="post" name="login_form">                      
-                                <label>Email</label><input type="text" name="email" /><br>
-                                <label>Password</label><input type="password" name="password" id="password"/><br>
-                                <input type="button" class="btn" value="Login" onclick="formhash(this.form, this.form.password);" /> 
+                                <label>Email</label>
+                                <input type="text" name="email" /><br>
+                                <label>Password</label>
+                                <input type="password" name="password" id="password"/><br>
+                                <input type="button" class="btn right_btn" value="Login" onclick="formhash(this.form, this.form.password);" /> 
                             </form>
                         </div>
-                        <div id='registrationDiv' class="contentDiv col l12">
+                        <div id='registrationDiv' class="content_div col l12">
                             <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
-                                <label>Username</label><input type='text' name='username' id='username' /><br>
-                                <label>Email</label><input type="text" name="email" id="email" /><br>
-                                <label>Password</label><input type="password" name="password" id="password"/><br>
-                                <label>Confirm</label><input type="password" name="confirmpwd"  id="confirmpwd" /><br>
-                                <label>Invite</label><input type='text' name='invite' id='invite' /><br>
-                                <input type="button" class="btn" value="Register" onclick="return regformhash(this.form, this.form.username, this.form.email, this.form.password, this.form.confirmpwd);" /> 
+                                <label>Username</label>
+                                <input type='text' name='username' id='username' /><br>
+                                <label>Email</label>
+                                <input type="text" name="email" id="email" /><br>
+                                <label>Password</label>
+                                <input type="password" name="password" id="password"/><br>
+                                <label>Confirm</label>
+                                <input type="password" name="confirmpwd"  id="confirmpwd" /><br>
+                                <label>Invite</label>
+                                <input type='text' name='invite' id='invite' /><br>
+                                <input type="button" class="btn right_btn" value="Register" onclick="return regformhash(this.form, this.form.username, this.form.email, this.form.password, this.form.confirmpwd);" /> 
                             </form>
                         </div>
-                        <div id='resetDiv' class="contentDiv col l12">
+                        <div id='resetDiv' class="content_div col l12">
                             <form action="pwreset.php" method="post" name="reset_form">
-                                <label>Username</label><input type='text' name='username' id='username' /><br>
-                                <label>Email</label><input type="text" name="email" id="email" /><br>
-                                <input type="button" class="btn" value="Register" onclick="return regformhash(this.form, this.form.username, this.form.email, this.form.password, this.form.confirmpwd);" /> 
+                                <label>Username</label>
+                                <input type='text' name='username' id='username' /><br>
+                                <label>Email</label>
+                                <input type="text" name="email" id="email" /><br>
+                                <input type="button" class="btn right_btn" value="Register" onclick="return regformhash(this.form, this.form.username, this.form.email, this.form.password, this.form.confirmpwd);" /> 
                             </form>
                         </div>
                     </div>
