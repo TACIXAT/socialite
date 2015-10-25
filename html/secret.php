@@ -84,14 +84,14 @@
                                 <li class="tab col l6"><a href="#resetDiv">Reset</a></li>
                             </ul>
                         </div>
-                        <div id='loginDiv' class="col l12 contentDiv">
+                        <div id='loginDiv' class="contentDiv col l12">
                             <form action="process_login.php" method="post" name="login_form">                      
                                 <label>Email</label><input type="text" name="email" /><br>
                                 <label>Password</label><input type="password" name="password" id="password"/><br>
                                 <input type="button" class="btn" value="Login" onclick="formhash(this.form, this.form.password);" /> 
                             </form>
                         </div>
-                        <div id='registrationDiv' class="col l12 contentDiv">
+                        <div id='registrationDiv' class="contentDiv col l12">
                             <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
                                 <label>Username</label><input type='text' name='username' id='username' /><br>
                                 <label>Email</label><input type="text" name="email" id="email" /><br>
@@ -101,7 +101,7 @@
                                 <input type="button" class="btn" value="Register" onclick="return regformhash(this.form, this.form.username, this.form.email, this.form.password, this.form.confirmpwd);" /> 
                             </form>
                         </div>
-                        <div id='resetDiv' class="col l12 contentDiv">
+                        <div id='resetDiv' class="contentDiv col l12">
                             <form action="pwreset.php" method="post" name="reset_form">
                                 <label>Username</label><input type='text' name='username' id='username' /><br>
                                 <label>Email</label><input type="text" name="email" id="email" /><br>
