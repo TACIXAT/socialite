@@ -89,34 +89,34 @@
                         </div>
                         <div id='loginDiv' class="content_div col l12">
                             <form action="process_login.php" method="post" name="login_form">                      
-                                <label>Email</label>
-                                <input type="text" name="email" /><br>
-                                <label>Password</label>
-                                <input type="password" name="password" id="password"/><br>
+                                <input type="text" name="login_email" />
+                                <label for="login_email">Email</label>
+                                <input type="password" name="password" id="login_password"/>
+                                <label for="login_password">Password</label>
                                 <input type="button" class="btn right_btn" value="Login" onclick="formhash(this.form, this.form.password);" /> 
                             </form>
                         </div>
                         <div id='registrationDiv' class="content_div col l12">
                             <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
-                                <label>Username</label>
-                                <input type='text' name='username' id='username' /><br>
-                                <label>Email</label>
-                                <input type="text" name="email" id="email" /><br>
-                                <label>Password</label>
-                                <input type="password" name="password" id="password"/><br>
-                                <label>Confirm</label>
-                                <input type="password" name="confirmpwd"  id="confirmpwd" /><br>
-                                <label>Invite</label>
-                                <input type='text' name='invite' id='invite' /><br>
+                                <input type='text' name='username' id='registration_username' />
+                                <label for="registration_username">Username</label>
+                                <input type="text" name="email" id="registration_email" />
+                                <label for="registration_email">Email</label>
+                                <input type="password" name="password" id="registration_password"/>
+                                <label for="registration_password">Password</label>
+                                <input type="password" name="confirmpwd"  id="registration_confirmpwd" />
+                                <label for="registration_confirmpwd">Confirm</label>
+                                <input type='text' name='invite' id='registration_invite' />
+                                <label for="registration_invite">Invite</label>
                                 <input type="button" class="btn right_btn" value="Register" onclick="return regformhash(this.form, this.form.username, this.form.email, this.form.password, this.form.confirmpwd);" /> 
                             </form>
                         </div>
                         <div id='resetDiv' class="content_div col l12">
                             <form action="pwreset.php" method="post" name="reset_form">
-                                <label>Username</label>
-                                <input type='text' name='username' id='username' /><br>
-                                <label>Email</label>
-                                <input type="text" name="email" id="email" /><br>
+                                <input type='text' name='username' id='reset_username' />
+                                <label for="reset_username">Username</label>
+                                <input type="text" name="email" id="reset_email" />
+                                <label for="reset_email">Email</label>
                                 <input type="button" class="btn right_btn" value="Register" onclick="return regformhash(this.form, this.form.username, this.form.email, this.form.password, this.form.confirmpwd);" /> 
                             </form>
                         </div>
