@@ -90,7 +90,7 @@
                         <div id='loginDiv' class="content_div col l12">
                             <form action="process_login.php" method="post" name="login_form">
                                 <div class="input-field">
-                                    <input type="text" name="login_email" />
+                                    <input type="text" name="email" id="login_email"/>
                                     <label for="login_email">Email</label>
                                 </div>
                                 <div class="input-field">
@@ -126,7 +126,7 @@
                             </form>
                         </div>
                         <div id='resetDiv' class="content_div col l12">
-                            <form action="pwreset.php" method="post" name="reset_form">
+                            <form action="reset.php" method="post" name="reset_form">
                                 <div class="input-field">
                                     <input type='text' name='username' id='reset_username' />
                                     <label for="reset_username">Username</label>
@@ -135,7 +135,7 @@
                                     <input type="text" name="email" id="reset_email" />
                                     <label for="reset_email">Email</label>
                                 </div>
-                                <input type="button" class="btn right_btn" value="Register" onclick="return regformhash(this.form, this.form.username, this.form.email, this.form.password, this.form.confirmpwd);" /> 
+                                <input type="button" class="btn right_btn" value="Reset" onclick="return reset(this.form, this.form.username, this.form.email);" /> 
                             </form>
                         </div>
                     </div>
