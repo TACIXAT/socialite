@@ -9,9 +9,7 @@ function resetError(xhr, status, error) {
 }
 
 function requestReset(form, username, email) {
-    console.log(form);
-    console.log("passed", username, email);
-    var data = {"username": username, "email": email};
+    var data = {"username": username.value, "email": email.value};
     $.ajax({
         'type': 'POST',
         'url': '/api/reset.php',
