@@ -3,6 +3,9 @@ include_once '/var/www/php/include/db_connect.php';
 include_once '/var/www/php/include/functions.php';
 include_once '/var/www/php/include/composer/include.php';
 
+use SparkPost\SparkPost;
+use SparkPost\Transmission;
+
 function is_ajax() {
     return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
 }
