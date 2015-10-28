@@ -127,7 +127,7 @@
                             </form>
                         </div>
                         <div id='resetDiv' class="content_div col l12">
-                            <form method="post" name="reset_form">
+                            <form action="reset.php" method="post" name="reset_form">
                                 <div class="input-field">
                                     <input type='text' name='username' id='reset_username' />
                                     <label for="reset_username">Username</label>
@@ -136,7 +136,7 @@
                                     <input type="text" name="email" id="reset_email" />
                                     <label for="reset_email">Email</label>
                                 </div>
-                                <input type="button" class="btn right_btn" value="Reset" onclick="return requestReset(this.form.username, this.form.email);" /> 
+                                <input type="button" class="btn right_btn" value="Reset" onclick="requestReset(this.form, this.form.username, this.form.email);" /> 
                             </form>
                         </div>
                     </div>

@@ -8,8 +8,9 @@ function resetError(xhr, status, error) {
     Materialize.toast(error['error'], 3000);
 }
 
-function requestReset(username, email) {
-    console.log(username, email);
+function requestReset(form, username, email) {
+    console.log(form);
+    console.log("passed", username, email);
     var data = {"username": username, "email": email};
     $.ajax({
         'type': 'POST',
