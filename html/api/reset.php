@@ -1,6 +1,6 @@
 <?php
-include_once '/var/www/include/db_connect.php';
-include_once '/var/www/include/functions.php';
+include_once '/var/www/php/include/db_connect.php';
+include_once '/var/www/php/include/functions.php';
 include_once '/var/www/php/include/composer/include.php';
 
 function is_ajax() {
