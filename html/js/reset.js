@@ -9,6 +9,7 @@ function resetError(xhr, status, error) {
 }
 
 function requestReset(username, email) {
+    console.log(username, email);
     var data = {"username": username, "email": email};
     $.ajax({
         'type': 'POST',
