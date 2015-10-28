@@ -272,7 +272,7 @@ Socialite.API['createSuccess'] = function(data, status, xhr) {
 Socialite.API['updateSuccess'] = function(data, status, xhr) {
     var vertex = $.parseJSON(data);
     if(vertex['_id'] == -1) {
-        Materialize.toast(vertex['properties']['error'], 3000);;
+        Materialize.toast(vertex['properties']['error'], 3000);
     } else {
         Socialite.UI.listVertices([vertex]);
     }

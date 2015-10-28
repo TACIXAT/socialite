@@ -41,6 +41,7 @@
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/JavaScript" src="js/sha512.js"></script> 
         <script type="text/JavaScript" src="js/forms.js"></script> 
+        <script type="text/JavaScript" src="js/reset.js"></script> 
         <script type="text/JavaScript">
             $(document).ready(function(){
                 $('ul.tabs').tabs();
@@ -135,7 +136,7 @@
                                     <input type="text" name="email" id="reset_email" />
                                     <label for="reset_email">Email</label>
                                 </div>
-                                <input type="button" class="btn right_btn" value="Reset" onclick="return reset(this.form, this.form.username, this.form.email);" /> 
+                                <input type="button" class="btn right_btn" value="Reset" onclick="return requestReset(this.form.username, this.form.email);" /> 
                             </form>
                         </div>
                     </div>

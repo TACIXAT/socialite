@@ -1,20 +1,21 @@
 function resetSuccess(data, status, xhr) {
     var jsonData = $.parseJSON(data);
-    console.log(jsonData);
+    Materialize.toast(jsonData['success'], 3000);
 }
 
-function genericError() {
-    console.log('PW RESET ERROR');
+function resetError(xhr, status, error) {
+    var error = $.parseJSON(xhr.responseText);
+    Materialize.toast(error['error'], 3000);
 }
 
 function requestReset(username, email) {
-    var data = {"action": "reset_password", "username": username, "email": email};
+    var data = {"username": username, "email": email};
     $.ajax({
         'type': 'POST',
         'url': '/api/reset.php',
         'data': $.param(data),
         'success': resetSuccess,
-        'error': genericError });
+        'error': resetError });
 }
 
 function resetformhash(form, password, repeat, reset_key) {
