@@ -127,7 +127,7 @@
                             </form>
                         </div>
                         <div id='resetDiv' class="content_div col l12">
-                            <form action="reset.php" method="post" name="reset_form">
+                            <form method="post" name="reset_form">
                                 <div class="input-field">
                                     <input type='text' name='username' id='reset_username' />
                                     <label for="reset_username">Username</label>

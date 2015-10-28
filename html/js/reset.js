@@ -17,6 +17,7 @@ function requestReset(username, email) {
         'data': $.param(data),
         'success': resetSuccess,
         'error': resetError });
+    return false;
 }
 
 function resetformhash(form, password, repeat, reset_key) {
