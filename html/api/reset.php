@@ -40,8 +40,8 @@ if (is_ajax()) {
         $form .= "  </head>\n";
         $form .= "  <body class='red'>\n";
         $form .= "    <div class='container'>\n";
-        $form .= "      <div class='valign-wrapper'>\n";
-        $form .= "        <div id='row' class='row l12 s12'>\n";
+        $form .= "      <div id='row' class='row s12'>\n";
+        $form .= "        <div class='valign-wrapper'>\n";
         $form .= "          <div id='card' class='card valign center-align white l12'>\n";
         $form .= "            <div class='card-content'>\n";
         $form .= "              <span class='card-title black-text'>Password Reset</span>\n";
