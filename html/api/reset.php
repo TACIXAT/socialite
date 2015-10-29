@@ -63,7 +63,7 @@ if (is_ajax()) {
         $form .= "  <body class='red'>\n";
         $form .= "    <div class='container'>\n";
         $form .= "      <div id='row' class='row s12'>\n";
-        $form .= "        <div class='col l3 offset-l6 s12'>\n";
+        $form .= "        <div class='col l6 offset-l3 s12'>\n";
         $form .= "          <div id='card' class='card center-align white s12'>\n";
         $form .= "            <div class='card-content'>\n";
         $form .= "              <span class='card-title black-text'>Password Reset</span>\n";
@@ -77,7 +77,7 @@ if (is_ajax()) {
         $form .= "                  <label for='repeat_input'>Repeat</label>\n";
         $form .= "                </div>\n";
         $form .= "                <input type='hidden' name='reset_key' value='" . $_GET["reset_key"] . "'/><br/>\n";
-        $form .= "                <input type='button' class='btn right_button' onclick='return resetformhash(this.form, this.form.password, this.form.repeat, this.form.reset_key)' value='Reset'/>\n";
+        $form .= "                <input type='button' class='btn right_btn' onclick='return resetformhash(this.form, this.form.password, this.form.repeat, this.form.reset_key)' value='Reset'/>\n";
         $form .= "              </form>\n";
         $form .= "            </div>\n";
         $form .= "          </div>\n";
