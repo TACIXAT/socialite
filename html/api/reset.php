@@ -23,11 +23,11 @@ if (is_ajax()) {
     } else if(!empty($_GET["reset_key"])) {
         $form = "<html>";
         $form .= "  <head>";
-        $form .= "    <link type='text/css' rel='stylesheet' href='css/materialize.min.css'  media='screen,projection'/>";
-        $form .= "    <script type='text/javascript' src='js/lib/jquery-2.1.3.min.js'></script>";
+        $form .= "    <link type='text/css' rel='stylesheet' href='/css/materialize.min.css'  media='screen,projection'/>";
+        $form .= "    <script type='text/javascript' src='/js/lib/jquery-2.1.3.min.js'></script>";
         $form .= "    <script type='text/javascript' src='/js/sha512.js'></script>";
         $form .= "    <script type='text/javascript' src='/js/reset.js'></script>";
-        $form .= "    <script type='text/javascript' src='js/materialize.min.js'></script>";
+        $form .= "    <script type='text/javascript' src='/js/materialize.min.js'></script>";
         $form .= "  </head>";
         $form .= "  <body>";
         $form .= "    <div id='container' class='valign-wrapper'>";
