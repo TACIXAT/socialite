@@ -21,8 +21,28 @@ if (is_ajax()) {
     if(!empty($_POST["p"]) && !empty($_POST["reset_key"])) {
         reset_password($mysqli, $_POST["p"], $_POST["reset_key"]);
     } else if(!empty($_GET["reset_key"])) {
+        // this has gotten a little out of hand and I feel bad
         $form = "<html>\n";
         $form .= "  <head>\n";
+        $form .= "    <meta charset='UTF-8'>\n";
+        $form .= "    <link rel='apple-touch-icon' sizes='57x57' href='icon/favicon/apple-touch-icon-57x57.png'>\n";
+        $form .= "    <link rel='apple-touch-icon' sizes='60x60' href='icon/favicon/apple-touch-icon-60x60.png'>\n";
+        $form .= "    <link rel='apple-touch-icon' sizes='72x72' href='icon/favicon/apple-touch-icon-72x72.png'>\n";
+        $form .= "    <link rel='apple-touch-icon' sizes='76x76' href='icon/favicon/apple-touch-icon-76x76.png'>\n";
+        $form .= "    <link rel='apple-touch-icon' sizes='114x114' href='icon/favicon/apple-touch-icon-114x114.png'>\n";
+        $form .= "    <link rel='apple-touch-icon' sizes='120x120' href='icon/favicon/apple-touch-icon-120x120.png'>\n";
+        $form .= "    <link rel='apple-touch-icon' sizes='144x144' href='icon/favicon/apple-touch-icon-144x144.png'>\n";
+        $form .= "    <link rel='apple-touch-icon' sizes='152x152' href='icon/favicon/apple-touch-icon-152x152.png'>\n";
+        $form .= "    <link rel='apple-touch-icon' sizes='180x180' href='icon/favicon/apple-touch-icon-180x180.png'>\n";
+        $form .= "    <link rel='icon' type='image/png' href='icon/favicon/favicon-32x32.png' sizes='32x32'>\n";
+        $form .= "    <link rel='icon' type='image/png' href='icon/favicon/android-chrome-192x192.png' sizes='192x192'>\n";
+        $form .= "    <link rel='icon' type='image/png' href='icon/favicon/favicon-96x96.png' sizes='96x96'>\n";
+        $form .= "    <link rel='icon' type='image/png' href='icon/favicon/favicon-16x16.png' sizes='16x16'>\n";
+        $form .= "    <link rel='manifest' href='icon/favicon/manifest.json'>\n";
+        $form .= "    <link rel='shortcut icon' href='icon/favicon/favicon.ico'>\n";
+        $form .= "    <meta name='msapplication-TileColor' content='#da532c'>\n";
+        $form .= "    <meta name='msapplication-TileImage' content='icon/favicon/mstile-144x144.png'>\n";
+        $form .= "    <meta name='msapplication-config' content='icon/favicon/browserconfig.xml'>\n";
         $form .= "    <link type='text/css' rel='stylesheet' href='/css/materialize.min.css'  media='screen,projection'/>\n";
         $form .= "    <script type='text/javascript' src='/js/lib/jquery-2.1.3.min.js'></script>\n";
         $form .= "    <script type='text/javascript' src='/js/sha512.js'></script>\n";
@@ -32,9 +52,8 @@ if (is_ajax()) {
         $form .= "      body {\n";
         $form .= "        height: 100vh;\n";
         $form .= "      }\n";
-        $form .= "      #container {\n";
-        $form .= "        height: 100%;\n";
-        $form .= "        width: 100%;\n";
+        $form .= "      .right_btn {\n";
+        $form .= "        float: right;\n";
         $form .= "      }\n";
         $form .= "    </style>\n";
         $form .= "  </head>\n";
