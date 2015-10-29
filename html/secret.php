@@ -56,7 +56,7 @@
                 width: 100%;
             }
             #row {
-                margin-top: 10%;
+                padding-top: 10%;
             }
             .content_div {
                 padding: 20px !important;

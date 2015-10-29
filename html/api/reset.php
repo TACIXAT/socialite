@@ -53,7 +53,7 @@ if (is_ajax()) {
         $form .= "        height: 100vh;\n";
         $form .= "      }\n";
         $form .= "      #row {\n";
-        $form .= "        margin-top: 10%;\n";
+        $form .= "        padding-top: 10%;\n";
         $form .= "      }\n";
         $form .= "      .right_btn {\n";
         $form .= "        float: right;\n";
