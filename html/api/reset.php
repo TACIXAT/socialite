@@ -52,6 +52,9 @@ if (is_ajax()) {
         $form .= "      body {\n";
         $form .= "        height: 100vh;\n";
         $form .= "      }\n";
+        $form .= "      #row {\n";
+        $form .= "        margin-top: 10%;\n";
+        $form .= "      }\n";
         $form .= "      .right_btn {\n";
         $form .= "        float: right;\n";
         $form .= "      }\n";
@@ -59,8 +62,8 @@ if (is_ajax()) {
         $form .= "  </head>\n";
         $form .= "  <body class='red'>\n";
         $form .= "    <div class='container'>\n";
-        $form .= "      <div class='row s12'>\n";
-        $form .= "        <div class='col l4 offset-l4 s12'>\n";
+        $form .= "      <div id='row' class='row s12'>\n";
+        $form .= "        <div class='col l3 offset-l6 s12'>\n";
         $form .= "          <div id='card' class='card center-align white s12'>\n";
         $form .= "            <div class='card-content'>\n";
         $form .= "              <span class='card-title black-text'>Password Reset</span>\n";

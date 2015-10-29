@@ -56,7 +56,7 @@
                 width: 100%;
             }
             #row {
-                height: 70%;
+                margin-top: 10%;
             }
             .content_div {
                 padding: 20px !important;
@@ -77,9 +77,9 @@
                 echo '<p class="error">Error Logging In!</p>';
             }
         ?> 
-        <div id="container" class="valign-wrapper">
-            <div id="row" class="row l12 s12">
-                <div id="card" class="card valign center-align white l12">
+        <div class="container">
+            <div id="row" class="row l6 offset-l3 s12">
+                <div id="card" class="card white s12">
                     <div class="card-content">
                         <div class="col l12">
                             <ul class="tabs">
