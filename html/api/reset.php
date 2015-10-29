@@ -22,19 +22,36 @@ if (is_ajax()) {
         reset_password($mysqli, $_POST["p"], $_POST["reset_key"]);
     } else if(!empty($_GET["reset_key"])) {
         $form = "<html>";
-        $form .= "<head>";
-        $form .= "<script type='text/javascript' src='/js/sha512.js'></script>";
-        $form .= "<script type='text/javascript' src='/js/reset.js'></script>";
-        $form .= "</head>";
-        $form .= "<body>";
-        $form .= "<h1>Password Reset</h1>";
-        $form .= "<form action='" . esc_url($_SERVER['PHP_SELF']) . "' method='post'>";
-        $form .= "Password: <input type='password' name='password'></input><br/>";
-        $form .= "Repeat:&nbsp;&nbsp;&nbsp;<input type='password' name='repeat'/>";
-        $form .= "<input type='hidden' name='reset_key' value='" . $_GET["reset_key"] . "'/><br/>";
-        $form .= "<input type='button' onclick='return resetformhash(this.form, this.form.password, this.form.repeat, this.form.reset_key)' value='Reset'/>";
-        $form .= "</form>";
-        $form .= "</body>";
+        $form .= "  <head>";
+        $form .= "    <link type='text/css' rel='stylesheet' href='css/materialize.min.css'  media='screen,projection'/>";
+        $form .= "    <script type='text/javascript' src='js/lib/jquery-2.1.3.min.js'></script>";
+        $form .= "    <script type='text/javascript' src='/js/sha512.js'></script>";
+        $form .= "    <script type='text/javascript' src='/js/reset.js'></script>";
+        $form .= "    <script type='text/javascript' src='js/materialize.min.js'></script>";
+        $form .= "  </head>";
+        $form .= "  <body>";
+        $form .= "    <div id='container' class='valign-wrapper'>";
+        $form .= "      <div id='row' class='row l12 s12'>";
+        $form .= "        <div id='card' class='card valign center-align white l12'>";
+        $form .= "          <div class='card-content'>";
+        $form .= "            <span class='card-title'>Password Reset</span>";
+        $form .= "            <form action='" . esc_url($_SERVER['PHP_SELF']) . "' method='post'>";
+        $form .= "              <div class='input-field'>";
+        $form .= "                <input type='password' name='password'></input><br/>";
+        $form .= "                <label for='password_input'>Password</label>";
+        $form .= "              </div>";
+        $form .= "              <div class='input-field'>";
+        $form .= "                <input type='password' name='repeat'/>";
+        $form .= "                <label for='repeat_input'>Repeat</label>";
+        $form .= "              </div>";
+        $form .= "              <input type='hidden' name='reset_key' value='" . $_GET["reset_key"] . "'/><br/>";
+        $form .= "              <input type='button' onclick='return resetformhash(this.form, this.form.password, this.form.repeat, this.form.reset_key)' value='Reset'/>";
+        $form .= "            </form>";
+        $form .= "          </div>";
+        $form .= "        </div>";
+        $form .= "      </div>";
+        $form .= "    </div>";
+        $form .= "  </body>";
         $form .= "</html>";
         echo($form);
     } else {
@@ -105,7 +122,7 @@ function reset_password($mysqli, $password, $reset_key) {
         die('{"error":"Trouble executing statement in reset password (3)!"}');
     }
 
-    header("Location: index.php");
+    header("Location: /");
     exit();
     #die('"{"success": "Password successfully updated!"}');
 
@@ -173,14 +190,14 @@ function get_key($mysqli, $username, $email) {
     SparkPost::setConfig(array('key'=>$key));
     try {
         $html = "<body>";
-        $html .= "<p><a href='https://socialite.ooo/api/reset.php?code=" . urlencode(base64_encode($reset_key));
+        $html .= "<p><a href='https://socialite.ooo/api/reset.php?reset_key=" . urlencode(base64_encode($reset_key));
         $html .= "'>Follow this link to reset your password.</a></p>";
         $html .= "<br/>";
         $html .= "</body>";
         $html .= "<footer>";
         $html .= "</footer>";
         $text = "Follow this link to reset your password:\n";
-        $text .= "https://socialite.ooo/api/reset.php?code=" . urlencode(base64_encode($reset_key));
+        $text .= "https://socialite.ooo/api/reset.php?reset_key=" . urlencode(base64_encode($reset_key));
         $results = Transmission::send(array(
             "from"=>"Socialite <donutreply@socialite.ooo>",
             "html"=>$html,
@@ -198,10 +215,10 @@ function get_key($mysqli, $username, $email) {
         ));
     } catch (\Exception $exception) {
         http_response_code(500);
-        die('{error":"Problem sending email.", "exception":"' . $exception->getMessage() . '"}');
+        die('{"error":"Problem sending email.", "exception":"' . $exception->getMessage() . '"}');
     }
 
-    die('{success":"Password reset link sent. Please check your email."}');
+    die('{"success":"Password reset link sent. Please check your email."}');
 
 
 }
