@@ -64,18 +64,10 @@ if (!$logged_in) {
                 echo "        <script type=\"text/javascript\" src=\"js/api.js\"></script>\n";
                 echo "        <script type=\"text/javascript\" src=\"js/graph.js\"></script>\n";
                 echo "        <script type=\"text/javascript\" src=\"js/ui.js\"></script>\n";
-            } else {
-                // echo "        <script type=\"text/javascript\" alert(\"ERROR: NO API KEY!\");</script>";
-            }
+            } 
         ?>
     </head>
     <body class="red">
-        <?php
-            if (isset($_GET['error'])) {
-                echo '<p class="error">Error updating your API KEY!</p>';
-                echo '<p class="error">' . $_GET['msg'] . '</p>';
-            }
-        ?>
         <?php if (!$logged_in) : ?>
             <p><span class="error">You are not authorized to access this page.</span> Please <a href="secret.php">login</a>.</p>
         <?php else : ?>
