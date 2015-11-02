@@ -142,7 +142,7 @@ Socialite.API['propertiesSuccessInit'] = function(type) {
 }
 
 Socialite.API['getTypeProperties'] = function(type) {
-    var data = {"action": "get_type_properties", "type": type};
+    var data = {"action": "get_type_properties", "type": type, "seasurf": seasurf};
     var propertiesSuccess = Socialite.API.propertiesSuccessInit(type);
     $.ajax({
         'type': 'POST',
@@ -160,7 +160,7 @@ Socialite.API['getVertexTypes'] = function() {
 
 Socialite.API['createVertex'] = function(form) {
     var type = form[0]['type'].value;
-    var data = {"action":"create_vertex", "type":type};
+    var data = {"action":"create_vertex", "type":type, "seasurf": seasurf};
     mixpanel.track("Create (" + type + ")");
 
     var schema = Socialite.util.typeCache[type];
@@ -195,7 +195,7 @@ Socialite.API['searchVertices'] = function(form) {
     }
 
     var type = form[0]['type'].value;
-    var data = {"action":"search_vertices", "type":type};
+    var data = {"action":"search_vertices", "type":type, "seasurf": seasurf};
     mixpanel.track("Search (" + type + ")");
 
     var schema = Socialite.util.typeCache[type];
@@ -223,7 +223,7 @@ Socialite.API['searchVertices'] = function(form) {
 Socialite.API['searchConnectedTo'] = function(form) {
     var type = form[0]['type'].value;
     var vertices = form[0]['connected_to'].value;
-    var data = {"action":"search_connected_to", "type":type, "vertices": vertices};
+    var data = {"action":"search_connected_to", "type":type, "vertices": vertices, "seasurf": seasurf};
     mixpanel.track("SearchConnectedTo (" + type + ")");
 
     var schema = Socialite.util.typeCache[type];
@@ -281,7 +281,7 @@ Socialite.API['updateSuccess'] = function(data, status, xhr) {
 Socialite.API['updateVertex'] = function(form) {
     var id = form[0]['id'].value;
     var type = form[0]['type'].value;
-    var data = {"action":"update_vertex", "vertex": id};
+    var data = {"action":"update_vertex", "vertex": id, "seasurf": seasurf};
     mixpanel.track("Update");
 
     if(type === undefined || id === undefined) {
@@ -333,7 +333,7 @@ Socialite.API['deleteVertex'] = function(form) {
         return false;
 
     mixpanel.track("Delete");
-    var data = {"action":"delete_vertex", "vertex":id};
+    var data = {"action":"delete_vertex", "vertex":id, "seasurf": seasurf};
 
     $.ajax({
         'type': 'POST',
@@ -346,7 +346,7 @@ Socialite.API['deleteVertex'] = function(form) {
 }
 
 Socialite.API['getNeighbors'] = function(vertexId, direction, success) {
-    var data = {"action": "get_neighbors", "vertex": vertexId, "direction": direction};
+    var data = {"action": "get_neighbors", "vertex": vertexId, "direction": direction, "seasurf": seasurf};
 
     $.ajax({
         'type': 'POST',
@@ -371,7 +371,7 @@ Socialite.API['neighborsDisplaySuccess'] = function(data, status, xhr) {
 }
 
 Socialite.API['createEdge'] = function(idA, idB) {
-    var data = {"action": "create_edge", "vertexA": idA, "vertexB": idB};
+    var data = {"action": "create_edge", "vertexA": idA, "vertexB": idB, "seasurf": seasurf};
     mixpanel.track("Create edge");
     $.ajax({
         'type': 'POST',
@@ -433,7 +433,7 @@ Socialite.API['deleteEdgeSuccess'] = function(data, status, xhr) {
 
 Socialite.API['deleteEdge'] = function(idA, idB) {
     mixpanel.track("Delete edge");
-    var data = {"action": "delete_edge", "vertexA": idA, "vertexB": idB};
+    var data = {"action": "delete_edge", "vertexA": idA, "vertexB": idB, "seasurf": seasurf};
 
     $.ajax({
         'type': 'POST',
