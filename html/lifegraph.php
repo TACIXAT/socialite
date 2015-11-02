@@ -59,6 +59,7 @@ if (!$logged_in) {
             if($logged_in) {
                 echo "<script type=\"text/javascript\">\n";
                 echo "            mixpanel.identify(" . $_SESSION['user_id'] . ");\n";
+                echo "            seasurf = '" . $_SESSION['csrf_token'] . "';\n";
                 echo "        </script>\n";
                 echo "        <script type=\"text/javascript\" src=\"js/api.js\"></script>\n";
                 echo "        <script type=\"text/javascript\" src=\"js/graph.js\"></script>\n";
