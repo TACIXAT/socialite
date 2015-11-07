@@ -24,36 +24,36 @@ if (!$logged_in) {
         </script>
         <!-- end Mixpanel -->
 
-        <link rel="apple-touch-icon" sizes="57x57" href="icon/favicon/apple-touch-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="icon/favicon/apple-touch-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="icon/favicon/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="icon/favicon/apple-touch-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="icon/favicon/apple-touch-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="icon/favicon/apple-touch-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="icon/favicon/apple-touch-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="icon/favicon/apple-touch-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="icon/favicon/apple-touch-icon-180x180.png">
-        <link rel="icon" type="image/png" href="icon/favicon/favicon-32x32.png" sizes="32x32">
-        <link rel="icon" type="image/png" href="icon/favicon/android-chrome-192x192.png" sizes="192x192">
-        <link rel="icon" type="image/png" href="icon/favicon/favicon-96x96.png" sizes="96x96">
-        <link rel="icon" type="image/png" href="icon/favicon/favicon-16x16.png" sizes="16x16">
-        <link rel="manifest" href="icon/favicon/manifest.json">
-        <link rel="shortcut icon" href="icon/favicon/favicon.ico">
+        <link rel="apple-touch-icon" sizes="57x57" href="/icon/favicon/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/icon/favicon/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/icon/favicon/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/icon/favicon/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/icon/favicon/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/icon/favicon/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/icon/favicon/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/icon/favicon/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/icon/favicon/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="/icon/favicon/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/icon/favicon/android-chrome-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="/icon/favicon/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="/icon/favicon/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="/icon/favicon/manifest.json">
+        <link rel="shortcut icon" href="/icon/favicon/favicon.ico">
         <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="msapplication-TileImage" content="icon/favicon/mstile-144x144.png">
-        <meta name="msapplication-config" content="icon/favicon/browserconfig.xml">
+        <meta name="msapplication-TileImage" content="/icon/favicon/mstile-144x144.png">
+        <meta name="msapplication-config" content="/icon/favicon/browserconfig.xml">
         
         <!--link rel="stylesheet" href="styles/d3.css" /-->
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5Sh0t7Zp9DeZOfbOfE2-KBgEe9YUoryM"></script>
-        <script type="text/javascript" src="js/lib/jquery-2.1.3.min.js"></script>
-        <script type="text/javascript" src="js/lib/jquery.jsPlumb-1.7.3-min.js"></script>
-        <script type="text/javascript" src="js/lib/jquery-ui-1.11.3/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="js/lib/d3.v3.min.js"></script>
-        <script type="text/javascript" src="js/lib/underscore-min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="/js/lib/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="/js/lib/jquery.jsPlumb-1.7.3-min.js"></script>
+        <script type="text/javascript" src="/js/lib/jquery-ui-1.11.3/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/js/lib/d3.v3.min.js"></script>
+        <script type="text/javascript" src="/js/lib/underscore-min.js"></script>
+        <script type="text/javascript" src="/js/materialize.min.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="css/lifegraph.css" />
-        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link rel="stylesheet" href="/css/lifegraph.css" />
+        <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
 
         <?php
             if($logged_in) {
@@ -61,15 +61,15 @@ if (!$logged_in) {
                 echo "            mixpanel.identify(" . $_SESSION['user_id'] . ");\n";
                 echo "            seasurf = '" . $_SESSION['csrf_token'] . "';\n";
                 echo "        </script>\n";
-                echo "        <script type=\"text/javascript\" src=\"js/api.js\"></script>\n";
-                echo "        <script type=\"text/javascript\" src=\"js/graph.js\"></script>\n";
-                echo "        <script type=\"text/javascript\" src=\"js/ui.js\"></script>\n";
+                echo "        <script type=\"text/javascript\" src=\"/js/api.js\"></script>\n";
+                echo "        <script type=\"text/javascript\" src=\"/js/graph.js\"></script>\n";
+                echo "        <script type=\"text/javascript\" src=\"/js/ui.js\"></script>\n";
             } 
         ?>
     </head>
     <body class="red">
         <?php if (!$logged_in) : ?>
-            <p><span class="error">You are not authorized to access this page.</span> Please <a href="secret.php">login</a>.</p>
+            <p><span class="error">You are not authorized to access this page.</span> Please <a href="/secret.php">login</a>.</p>
         <?php else : ?>
             <header class="white">
                 <nav>
@@ -85,7 +85,7 @@ if (!$logged_in) {
                 <div class="nav-wrapper">
                     <ul id="nav-mobile" class="side-nav fixed" style="left: 0px;">
                         <li class="logo">
-                            <a href="https://socialite.ooo" class="btn-flat"><img src="icon/SocialiteLogoFill.svg" style="width:100%" name="Socialite Logo"></img></a>
+                            <a href="https://socialite.ooo" class="btn-flat"><img src="/icon/SocialiteLogoFill.svg" style="width:100%" name="Socialite Logo"></img></a>
                             <!-- Logo designed by @mlgs -->
                         </li>
                         <li class="bold">

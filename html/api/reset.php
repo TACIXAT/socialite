@@ -41,8 +41,8 @@ if (is_ajax()) {
         $form .= "    <link rel='manifest' href='/icon/favicon/manifest.json'>\n";
         $form .= "    <link rel='shortcut icon' href='/icon/favicon/favicon.ico'>\n";
         $form .= "    <meta name='msapplication-TileColor' content='#da532c'>\n";
-        $form .= "    <meta name='msapplication-TileImage' content='icon/favicon/mstile-144x144.png'>\n";
-        $form .= "    <meta name='msapplication-config' content='icon/favicon/browserconfig.xml'>\n";
+        $form .= "    <meta name='msapplication-TileImage' content='/icon/favicon/mstile-144x144.png'>\n";
+        $form .= "    <meta name='msapplication-config' content='/icon/favicon/browserconfig.xml'>\n";
         $form .= "    <link type='text/css' rel='stylesheet' href='/css/materialize.min.css'  media='screen,projection'/>\n";
         $form .= "    <script type='text/javascript' src='/js/lib/jquery-2.1.3.min.js'></script>\n";
         $form .= "    <script type='text/javascript' src='/js/sha512.js'></script>\n";
