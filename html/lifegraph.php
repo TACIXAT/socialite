@@ -17,7 +17,7 @@ if (!$logged_in) {
         <title>Socialite.ooo</title>
         
         <?php
-            error_log($_SERVER['HTTP_DNT']);
+            error_log(isset($_SERVER['HTTP_DNT']));
             if(isset($_SERVER['HTTP_DNT']) && $_SERVER['HTTP_DNT'] == 1) {
                 echo "            <!-- start Mixpanel -->\n";
                 echo "            <script type=\"text/javascript\">\n";
