@@ -25,6 +25,7 @@ if (!$logged_in) {
                 echo "                mixpanel.init(\"3cfcfcdc33cbc6693645f79e38e9a292\");\n";
                 echo "            </script>\n";
                 echo "            <!-- end Mixpanel -->\n";
+            }
         ?>
         <link rel="apple-touch-icon" sizes="57x57" href="/icon/favicon/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="/icon/favicon/apple-touch-icon-60x60.png">
