@@ -161,7 +161,8 @@ Socialite.API['getVertexTypes'] = function() {
 Socialite.API['createVertex'] = function(form) {
     var type = form[0]['type'].value;
     var data = {"action":"create_vertex", "type":type, "seasurf": seasurf};
-    mixpanel.track("Create (" + type + ")");
+    if(useMixpanel)
+        mixpanel.track("Create (" + type + ")");
 
     var schema = Socialite.util.typeCache[type];
     var schemaKeys = Object.keys(schema);
@@ -196,7 +197,8 @@ Socialite.API['searchVertices'] = function(form) {
 
     var type = form[0]['type'].value;
     var data = {"action":"search_vertices", "type":type, "seasurf": seasurf};
-    mixpanel.track("Search (" + type + ")");
+    if(useMixpanel)
+        mixpanel.track("Search (" + type + ")");
 
     var schema = Socialite.util.typeCache[type];
     var schemaKeys = Object.keys(schema);
@@ -224,7 +226,8 @@ Socialite.API['searchConnectedTo'] = function(form) {
     var type = form[0]['type'].value;
     var vertices = form[0]['connected_to'].value;
     var data = {"action":"search_connected_to", "type":type, "vertices": vertices, "seasurf": seasurf};
-    mixpanel.track("SearchConnectedTo (" + type + ")");
+    if(useMixpanel)
+        mixpanel.track("SearchConnectedTo (" + type + ")");
 
     var schema = Socialite.util.typeCache[type];
     var schemaKeys = Object.keys(schema);
@@ -282,7 +285,8 @@ Socialite.API['updateVertex'] = function(form) {
     var id = form[0]['id'].value;
     var type = form[0]['type'].value;
     var data = {"action":"update_vertex", "vertex": id, "seasurf": seasurf};
-    mixpanel.track("Update");
+    if(useMixpanel)
+        mixpanel.track("Update");
 
     if(type === undefined || id === undefined) {
         return false;
@@ -332,7 +336,8 @@ Socialite.API['deleteVertex'] = function(form) {
     if(!confirm("Are you sure you wish to delete this node?"))
         return false;
 
-    mixpanel.track("Delete");
+    if(useMixpanel)
+        mixpanel.track("Delete");
     var data = {"action":"delete_vertex", "vertex":id, "seasurf": seasurf};
 
     $.ajax({
@@ -359,7 +364,8 @@ Socialite.API['getNeighbors'] = function(vertexId, direction, success) {
 }
 
 Socialite.API['neighborsDisplaySuccess'] = function(data, status, xhr) {
-    mixpanel.track("Neighbors");
+    if(useMixpanel)
+        mixpanel.track("Neighbors");
     var vertices = $.parseJSON(data);
     console.log(vertices);
     if(vertices.length == 1 && vertices[0]['_id'] == -1) {
@@ -372,7 +378,8 @@ Socialite.API['neighborsDisplaySuccess'] = function(data, status, xhr) {
 
 Socialite.API['createEdge'] = function(idA, idB) {
     var data = {"action": "create_edge", "vertexA": idA, "vertexB": idB, "seasurf": seasurf};
-    mixpanel.track("Create edge");
+    if(useMixpanel)
+        mixpanel.track("Create edge");
     $.ajax({
         'type': 'POST',
         'url': 'api/proxy.php',
@@ -432,7 +439,8 @@ Socialite.API['deleteEdgeSuccess'] = function(data, status, xhr) {
 }
 
 Socialite.API['deleteEdge'] = function(idA, idB) {
-    mixpanel.track("Delete edge");
+    if(useMixpanel)
+        mixpanel.track("Delete edge");
     var data = {"action": "delete_edge", "vertexA": idA, "vertexB": idB, "seasurf": seasurf};
 
     $.ajax({
