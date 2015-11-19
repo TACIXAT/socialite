@@ -17,8 +17,7 @@ if (!$logged_in) {
         <title>Socialite.ooo</title>
         
         <?php
-            error_log(isset($_SERVER['HTTP_DNT']));
-            if(isset($_SERVER['HTTP_DNT']) && $_SERVER['HTTP_DNT'] == 1) {
+            if(!isset($_SERVER['HTTP_DNT']) || $_SERVER['HTTP_DNT'] != 1) {
                 echo "            <!-- start Mixpanel -->\n";
                 echo "            <script type=\"text/javascript\">\n";
                 echo "                (function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(\".\");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;\"undefined\"!==typeof d?c=b[d]=[]:d=\"mixpanel\";c.people=c.people||[];c.toString=function(b){var a=\"mixpanel\";\"mixpanel\"!==d&&(a+=\".\"+d);b||(a+=\" (stub)\");return a};c.people.toString=function(){return c.toString(1)+\".people (stub)\"};i=\"disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user\".split(\" \");\n";
@@ -63,10 +62,10 @@ if (!$logged_in) {
             if($logged_in) {
                 echo "<script type=\"text/javascript\">\n";
                 if(isset($_SERVER['HTTP_DNT']) && $_SERVER['HTTP_DNT'] == 1) {
+                    echo "            useMixpanel = false;\n";
+                } else {
                     echo "            mixpanel.identify(" . $_SESSION['user_id'] . ");\n";
                     echo "            useMixpanel = true;\n";
-                } else {
-                    echo "            useMixpanel = false;\n";
                 }
                 echo "            seasurf = '" . $_SESSION['csrf_token'] . "';\n";
                 echo "        </script>\n";
