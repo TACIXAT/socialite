@@ -82,14 +82,14 @@
                 <div class="col l6 offset-l3 s12">
                     <div id="card" class="card white s12">
                         <div class="card-content">
-                            <div class="col l12">
+                            <div class="col s12">
                                 <ul class="tabs">
                                     <li class="tab col l6"><a class="active" href="#loginDiv">Login</a></li>
                                     <li class="tab col l6"><a href="#registrationDiv">Register</a></li>
                                     <li class="tab col l6"><a href="#resetDiv">Reset</a></li>
                                 </ul>
                             </div>
-                            <div id='loginDiv' class="content_div col l12">
+                            <div id='loginDiv' class="content_div col s12">
                                 <form action="process_login.php" method="post" name="login_form">
                                     <div class="input-field">
                                         <input type="text" name="email" id="login_email"/>
@@ -102,7 +102,7 @@
                                     <input type="button" class="btn right_btn" value="Login" onclick="formhash(this.form, this.form.password);" /> 
                                 </form>
                             </div>
-                            <div id='registrationDiv' class="content_div col l12">
+                            <div id='registrationDiv' class="content_div col s12">
                                 <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post" name="registration_form">
                                     <div class="input-field">
                                         <input type='text' name='username' id='registration_username' />
@@ -127,7 +127,7 @@
                                         <input type="button" class="btn right_btn" value="Register" onclick="return regformhash(this.form, this.form.username, this.form.email, this.form.password, this.form.confirmpwd);" /> 
                                 </form>
                             </div>
-                            <div id='resetDiv' class="content_div col l12">
+                            <div id='resetDiv' class="content_div col s12">
                                 <form action="reset.php" method="post" name="reset_form">
                                     <div class="input-field">
                                         <input type='text' name='username' id='reset_username' />
