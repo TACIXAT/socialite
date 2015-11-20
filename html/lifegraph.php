@@ -15,7 +15,6 @@ if (!$logged_in) {
     <head>
         <meta charset="UTF-8">
         <title>Socialite.ooo</title>
-        
         <?php
             if(!isset($_SERVER['HTTP_DNT']) || $_SERVER['HTTP_DNT'] != 1) {
                 echo "<!-- start Mixpanel -->\n";
@@ -27,6 +26,7 @@ if (!$logged_in) {
                 echo "        <!-- end Mixpanel -->\n";
             }
         ?>
+
         <link rel="apple-touch-icon" sizes="57x57" href="/icon/favicon/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="/icon/favicon/apple-touch-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="/icon/favicon/apple-touch-icon-72x72.png">
