@@ -111,8 +111,8 @@ if (!$logged_in) {
                                     <a class="collapsible-header menu_item">Legalities</a>
                                     <div class="collapsible-body">
                                         <ul>
-                                            <li><a href="tos.txt" target="_blank">Terms of Service</a></li>
-                                            <li><a href="privacy.txt" target="_blank">Privacy Policy</a></li>
+                                            <li><a href="/legal/tos.txt" target="_blank">Terms of Service</a></li>
+                                            <li><a href="/legal/privacy.txt" target="_blank">Privacy Policy</a></li>
                                         </ul>
                                     </div>
                                 </li>
