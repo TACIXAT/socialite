@@ -76,6 +76,12 @@ body {
     }
 }
 
+@media screen and (max-width: 992px) {
+    #page_container {
+        height: calc(100vh - 110px);
+    }
+}
+
 .modal-content {
     height: 100% !important;
 }
