@@ -128,9 +128,9 @@ body {
 }
 
 .menu_item {
-    font-size: 1rem;
-    height: 64px;
-    line-height: 64px;
+    font-size: 1rem !important;
+    height: 64px !important;
+    line-height: 64px !important;
 }
 
 /*a, body, input, button, select { font-family: monospace; }
