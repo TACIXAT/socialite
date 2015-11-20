@@ -111,7 +111,7 @@ if (!$logged_in) {
                         <li class="no-padding">
                             <ul class="collapsible collapsible-accordion">
                                 <li>
-                                    <a class="collapsible-header">Legalities<i class="mdi-navigation-arrow-drop-down"></i></a>
+                                    <a class="collapsible-header">Legalities</a>
                                     <div class="collapsible-body">
                                         <ul>
                                             <li><a href="tos.txt">Terms of Service</a></li>
