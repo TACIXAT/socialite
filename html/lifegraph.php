@@ -105,21 +105,21 @@ if (!$logged_in) {
                         <li class="bold" ondrop="Socialite.UI.connectDrop(event)" ondragover="Socialite.UI.allowDrop(event)">
                             <a id="connect_button">Connections</a>
                         </li>
-                        <li class="bold">
-                            <a id="signout_button" href="/logout.php">Sign Out</a>
-                        </li>
                         <li class="no-padding">
                             <ul class="collapsible collapsible-accordion">
                                 <li>
                                     <a class="collapsible-header menu_item">Legalities</a>
                                     <div class="collapsible-body">
                                         <ul>
-                                            <li><a href="tos.txt">Terms of Service</a></li>
-                                            <li><a href="privacy.txt">Privacy Policy</a></li>
+                                            <li><a href="tos.txt" target="_blank">Terms of Service</a></li>
+                                            <li><a href="privacy.txt" target="_blank">Privacy Policy</a></li>
                                         </ul>
                                     </div>
                                 </li>
                             </ul>
+                        </li>
+                        <li class="bold">
+                            <a id="signout_button" href="/logout.php">Sign Out</a>
                         </li>
                     </ul>
                 </div>
