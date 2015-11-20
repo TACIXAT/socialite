@@ -127,6 +127,12 @@ body {
     white-space: nowrap;
 }
 
+.menu_item {
+    font-size: 1rem;
+    height: 64px;
+    line-height: 64px;
+}
+
 /*a, body, input, button, select { font-family: monospace; }
 
 p { 
