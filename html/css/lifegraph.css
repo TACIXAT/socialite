@@ -69,9 +69,11 @@ body {
     height:100%;
 }
 
-#page_container {
-    padding-left: 240px;
-    height: calc(100vh - 110px);
+@media screen and (min-width: 993px) {
+    #page_container {
+        padding-left: 240px;
+        height: calc(100vh - 110px);
+    }
 }
 
 .modal-content {
