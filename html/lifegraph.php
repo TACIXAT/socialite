@@ -108,6 +108,19 @@ if (!$logged_in) {
                         <li class="bold">
                             <a id="signout_button" href="/logout.php">Sign Out</a>
                         </li>
+                        <li class="no-padding">
+                            <ul class="collapsible collapsible-accordion">
+                                <li>
+                                    <a class="collapsible-header">Legalities<i class="mdi-navigation-arrow-drop-down"></i></a>
+                                    <div class="collapsible-body">
+                                        <ul>
+                                            <li><a href="tos.txt">Terms of Service</a></li>
+                                            <li><a href="privacy.txt">Privacy Policy</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </header>
