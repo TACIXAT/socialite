@@ -132,12 +132,12 @@ if (!$logged_in) {
                             
                         </div>
                     </div> 
-                    <div class="col l4 hide-on-small-only center card_col">
+                    <div class="col l4 hide-on-med-and-down center card_col">
                         <div id= "display_event_div" class="card upper_card">
                             
                         </div>
                     </div> 
-                    <div class="col l4 hide-on-small-only center card_col">
+                    <div class="col l4 hide-on-med-and-down center card_col">
                         <div id= "display_location_div" class="card upper_card">
                             
                         </div>
@@ -152,14 +152,14 @@ if (!$logged_in) {
                             </ul>
                         </div>
                     </div> 
-                    <div class="col l4 hide-on-small-only center card_col">
+                    <div class="col l4 hide-on-med-and-down center card_col">
                         <div id="list_event_div" class="card lower_card">
                             <ul id="event_list" class="collection list_collection">
                                 
                             </ul>
                         </div>
                     </div> 
-                    <div class="col l4 hide-on-small-only center card_col">
+                    <div class="col l4 hide-on-med-and-down center card_col">
                         <div id="list_location_div" class="card lower_card">
                             <ul id="location_list" class="collection list_collection">
 
