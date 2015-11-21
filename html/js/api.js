@@ -419,8 +419,10 @@ Socialite.API['createEdgeSuccess'] = function(data, status, xhr) {
     var idLongA = typeA + "_" + vertexA;
     var idLongB = typeB + "_" + vertexB;
 
-    $("#" + idLongA).data('vertex').neighbors.push(idLongB);
-    $("#" + idLongB).data('vertex').neighbors.push(idLongA);
+    if($("#" + idLongA).length > 0)
+        $("#" + idLongA).data('vertex').neighbors.push(idLongB);
+    if($("#" + idLongB).length > 0)
+        $("#" + idLongB).data('vertex').neighbors.push(idLongA);
 
     Socialite.Graph.Connect.addLink(vertexA, vertexB);
     Socialite.UI.checkConnectInterface();
