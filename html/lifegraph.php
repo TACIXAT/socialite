@@ -5,7 +5,7 @@ include_once '/var/www/php/include/functions.php';
 sec_session_start();
 $logged_in = login_check($mysqli);
 if (!$logged_in) {
-    header('Location: index.html'); 
+    header('Location: /'); 
     exit();
 }
 
@@ -190,7 +190,7 @@ if (!$logged_in) {
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a id="clear_button" class="modal-action waves-effect waves-green btn-flat modal_left_button">Clear</a>
+                    <a id="create_clear_button" class="modal-action waves-effect waves-green btn-flat modal_left_button">Clear</a>
                     <button id="create_submit_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Create</button>
                     <a id="create_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Cancel</a>
                 </div>

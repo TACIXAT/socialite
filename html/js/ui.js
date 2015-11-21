@@ -373,6 +373,24 @@ Socialite.UI['listVertices'] = function(vertices) {
     }
 }
 
+Socialite.UI['resetActiveTab'] = function(action) {
+    var type;
+
+    if($("#" + action + "_person_tab").length < 1)
+        return false;
+
+    if($("#" + action + "_person_tab").hasClass("active"))
+        type = "person";
+    else if($("#" + action + "_event_tab").hasClass("active"))
+        type = "event";
+    else if($("#" + action + "_location_tab").hasClass("active"))
+        type = "location";
+    else
+        return false;
+
+    Socialite.UI.resetForm(type, action); 
+}
+
 Socialite.UI['itemDoubleClick'] = function(event) {
     var vertex = $(event.target).data('vertex');
     Socialite.API.getNeighbors(vertex['_id'], 'both', Socialite.API.neighborsDisplaySuccess);

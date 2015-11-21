@@ -66,6 +66,18 @@ $(document).ready(function() {
         });
     });
 
+    $("#create_clear_button").click(function() {
+        Socialite.UI.resetActiveTab('create'); 
+    });
+
+    $("#search_clear_button").click(function() {
+        Socialite.UI.resetActiveTab('search'); 
+    });
+
+    $("#connect_clear_button").click(function() {
+
+    });
+
     $("#create_location_tab").click(function() {
         Socialite.UI.refreshCreateMap();
     });
@@ -343,7 +355,7 @@ Socialite.API['deleteVertex'] = function(form) {
 
     $.ajax({
         'type': 'POST',
-        'url': 'api/proxy.php', //'https://opendao.org:8443/IntelligenceGraph/api/utility/create_vertex/',
+        'url': 'api/proxy.php',
         'data': $.param(data),
         'success': Socialite.API.deleteSuccess,
         'error': Socialite.API.genericError });
@@ -356,7 +368,7 @@ Socialite.API['getNeighbors'] = function(vertexId, direction, success) {
 
     $.ajax({
         'type': 'POST',
-        'url': 'api/proxy.php', //'https://opendao.org:8443/IntelligenceGraph/api/utility/create_vertex/',
+        'url': 'api/proxy.php',
         'data': $.param(data),
         'success': success,
         'error': Socialite.API.genericError });
