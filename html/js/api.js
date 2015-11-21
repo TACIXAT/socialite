@@ -48,7 +48,6 @@ $(document).ready(function() {
 
         $("#search_submit_button").click(function() {
             var visibleType = undefined;
-            console.log("search submit");
             if($("#search_person_tab").hasClass("active")) {
                 visibleType = "person";
             } else if($("#search_event_tab").hasClass("active")) {
@@ -113,7 +112,6 @@ Socialite.util['dateToUTC'] = function(date) {
 }
 
 Socialite.API['genericError'] = function(xhr, status, error) {
-    console.log(xhr);
     var error = $.parseJSON(xhr.responseText);
     if(error['status'] != 'error') {
         Materialize.toast('An error occured! Please contact us directly!', 3000);
@@ -191,7 +189,6 @@ Socialite.API['createVertex'] = function(form) {
             data[key] = value;
     }
     
-    console.log($.param(data));
     $.ajax({
         'type': 'POST',
         'url': 'api/proxy.php', 
@@ -276,7 +273,6 @@ Socialite.API['searchSuccess'] = function(data, status, xhr) {
 
 Socialite.API['createSuccess'] = function(data, status, xhr) {
     var vertex = $.parseJSON(data);
-    // console.log(vertex);
     if(vertex['_id'] == -1) {
         Materialize.toast(vertex['properties']['error'], 3000);;
     } else {
@@ -315,7 +311,6 @@ Socialite.API['updateVertex'] = function(form) {
             value = Socialite.util.dateToUTC(value);
         }
 
-        console.log(key + ": " + value);
         data[key] = value;
     }
 
@@ -380,7 +375,6 @@ Socialite.API['neighborsDisplaySuccess'] = function(data, status, xhr) {
     if(useMixpanel)
         mixpanel.track("Neighbors");
     var vertices = $.parseJSON(data);
-    console.log(vertices);
     if(vertices.length == 1 && vertices[0]['_id'] == -1) {
         alert(vertices[0]['properties']['error']);
     } else {
@@ -405,7 +399,6 @@ Socialite.API['createEdge'] = function(idA, idB) {
 
 Socialite.API['createEdgeSuccess'] = function(data, status, xhr) {
     data = $.parseJSON(data);
-    console.log(data);
 
     if(data['status'] === "ERROR") {
         Materialize.toast(data['ERROR'], 3000);
@@ -442,7 +435,6 @@ Socialite.API['createEdgeSuccess'] = function(data, status, xhr) {
 
 Socialite.API['deleteEdgeSuccess'] = function(data, status, xhr) {
     data = $.parseJSON(data);
-    console.log(data);
 
     if(data['status'] === "ERROR") {
         Materialize.toast(data['ERROR'], 3000);

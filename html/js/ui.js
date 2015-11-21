@@ -25,7 +25,7 @@ Socialite.UI['onClickDisplayInit'] = function(form) {
     return function(event) {
         event.preventDefault();
         var clicked = form.data('clicked');
-        console.log(clicked);
+
         switch(clicked) {
             case 'update':
                 Socialite.API.updateVertex(form);
@@ -170,8 +170,6 @@ Socialite.UI['displayVertex'] = function(vertex) {
     idDisplay.siblings().addClass('active');
     idDisplay.val(vertex['_id']);
 
-    console.log(typeProperties);
-    console.log(properties);
     if(typeProperties['geoloc'] !== undefined) {
         var input = $('#geoloc_' + type + '_attribute');
         var map = input.data('map');
@@ -208,7 +206,6 @@ Socialite.UI['displayVertex'] = function(vertex) {
 
         if(dataType == 'date') {
             value = Socialite.util.getYYYYMMDD(new Date(parseInt(value)));
-            console.log('DATE', value);
             element.pickadate('picker').set('select', value, {'format': 'd mmmm, yyyy'});
         } else if(dataType == 'geopoint') {
             var split = value.split(",");
@@ -244,7 +241,7 @@ Socialite.UI['displayVertex'] = function(vertex) {
 
 Socialite.UI['resetForm'] = function(id, show) {
     var selector = "#" + show + "_" + id + "_form";
-    console.log(selector);
+
     // $("#" + show + "_" + id + "_form")[0].reset();
     $(':input', selector)
         .not(':button, :submit, :reset, :hidden')
@@ -261,7 +258,6 @@ Socialite.UI['resetForm'] = function(id, show) {
 
 Socialite.UI['itemClick'] = function(event) {
     var vertex = $(this).data('vertex');
-    console.log(vertex);
     Socialite.UI.resetForm(vertex['properties']['type'], 'display');
     Socialite.UI.displayVertex(vertex);
     var elementId = vertex['properties']['type'] + "_" + vertex._id;
@@ -324,7 +320,6 @@ Socialite.util['addConnections'] = function(vertex) {
 Socialite.UI['listVertices'] = function(vertices) {
     var emptied = [];
     for(var idx in vertices) {
-        console.log(vertices[idx]);
         var vertex = vertices[idx];
         Socialite.util.addConnections(vertex);
         var vertexProperties = vertex['properties'];

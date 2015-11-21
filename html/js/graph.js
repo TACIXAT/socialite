@@ -12,8 +12,6 @@ Socialite.Graph.Connect['init'] = function() {
     var height = $("#connect_div").innerHeight(),
         width = $("#connect_div").innerWidth();
 
-    console.log("HW:", height, width);
-
     SGC['force'] = d3.layout.force()
         .size([width, height])
         .nodes([]) // initialize with a single node
@@ -159,10 +157,6 @@ Socialite.Graph.Connect['allConnected'] = function() {
     var people = _.filter(SGC.nodes, function(n) { return n.properties.type == "person" });
     var events = _.filter(SGC.nodes, function(n) { return n.properties.type == "event" });
     var locations = _.filter(SGC.nodes, function(n) { return n.properties.type == "location" });
-
-    console.log(people);
-    console.log(events);
-    console.log(locations);
 
     if(events.length == 0)
         return false;
