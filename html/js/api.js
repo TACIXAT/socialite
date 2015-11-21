@@ -380,6 +380,8 @@ Socialite.API['neighborsDisplaySuccess'] = function(data, status, xhr) {
     } else {
         var vertex = vertices.pop();
         Socialite.UI.listVertices(vertices);
+        if($(".selected_item").length > 0 && $(".selected_item").data("vertex")._id == vertex._id)
+            Socialite.UI.highlightItems($(".selected_item").attr("id"));
     }
 }
 
