@@ -141,6 +141,10 @@ body {
     line-height: 64px !important;
 }
 
+.tr_search {
+    min-height: 20px;
+}
+
 /*a, body, input, button, select { font-family: monospace; }
 
 p { 
