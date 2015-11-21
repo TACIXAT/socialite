@@ -160,6 +160,10 @@ Socialite.Graph.Connect['allConnected'] = function() {
     var events = _.filter(SGC.nodes, function(n) { return n.properties.type == "event" });
     var locations = _.filter(SGC.nodes, function(n) { return n.properties.type == "location" });
 
+    console.log(people);
+    console.log(events);
+    console.log(locations);
+
     if(events.length == 0)
         return false;
 

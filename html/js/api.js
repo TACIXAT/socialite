@@ -419,10 +419,21 @@ Socialite.API['createEdgeSuccess'] = function(data, status, xhr) {
     var idLongA = typeA + "_" + vertexA;
     var idLongB = typeB + "_" + vertexB;
 
-    if($("#" + idLongA).length > 0)
+    if($("#" + idLongA).length > 0) {
         $("#" + idLongA).data('vertex').neighbors.push(idLongB);
-    if($("#" + idLongB).length > 0)
+    } else {
+        var nodeA = Socialite.Graph.Connect.findNode(vertexA);
+        if(nodeA !== undefined)
+            nodeA.neighbors.push(idLongB);
+    }
+
+    if($("#" + idLongB).length > 0) {
         $("#" + idLongB).data('vertex').neighbors.push(idLongA);
+    } else {
+        var nodeB = Socialite.Graph.Connect.findNode(vertexB);
+        if(nodeB !== undefined)
+            nodeB.neighbors.push(idLongA);
+    }
 
     Socialite.Graph.Connect.addLink(vertexA, vertexB);
     Socialite.UI.checkConnectInterface();
@@ -445,10 +456,21 @@ Socialite.API['deleteEdgeSuccess'] = function(data, status, xhr) {
     var idLongA = typeA + "_" + vertexA;
     var idLongB = typeB + "_" + vertexB;
 
-    if($("#" + idLongA).length > 0)
+    if($("#" + idLongA).length > 0) {
         $("#" + idLongA).data('vertex').neighbors = _.filter($("#" + idLongA).data("vertex").neighbors, function(ea) { return ea != idLongB });
-    if($("#" + idLongB).length > 0)
+    } else {
+    var nodeA = Socialite.Graph.Connect.findNode(vertexA);
+    if(nodeA !== undefined)
+        nodeA.neighbors = _.filter(nodeA.neighbors, function(ea) { return ea != idLongB });
+    }
+    
+    if($("#" + idLongB).length > 0) {
         $("#" + idLongB).data('vertex').neighbors = _.filter($("#" + idLongB).data("vertex").neighbors, function(ea) { return ea != idLongA });
+    } else {
+        var nodeB = Socialite.Graph.Connect.findNode(vertexB);
+        if(nodeB !== undefined)
+            nodeB.neighbors = _.filter(nodeB.neighbors, function(ea) { return ea != idLongA });
+    }
 
     Socialite.Graph.Connect.removeLink(vertexA, vertexB);
     Socialite.UI.checkConnectInterface();
