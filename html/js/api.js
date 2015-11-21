@@ -75,7 +75,7 @@ $(document).ready(function() {
     });
 
     $("#connect_clear_button").click(function() {
-
+        Socialite.Graph.Connect.removeAll();
     });
 
     $("#create_location_tab").click(function() {

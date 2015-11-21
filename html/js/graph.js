@@ -235,6 +235,14 @@ Socialite.Graph.Connect['removeNode'] = function(id) {
     Socialite.UI.checkConnectInterface();
 }
 
+Socialite.Graph.Connect['removeAll'] = function() {
+    var SGC = Socialite.Graph.Connect;
+    SGC.nodes = _.filter(SGC.nodes, function(n) { return false });
+    SGC.links = _.filter(SGC.links, function(l) { return false });
+    SGC.update();
+    Socialite.UI.checkConnectInterface();
+}
+
 Socialite.Graph.Connect['removeLink'] = function(srcId, dstId) {
     var SGC = Socialite.Graph.Connect;
     SGC.links = _.filter(SGC.links, function(l) { return (l['source']['_id'] != srcId || l['target']['_id'] != dstId) });
