@@ -297,6 +297,9 @@ Socialite.UI['highlightItems'] = function(elementId) {
 }
 
 Socialite.util['fetchNeighbors'] = function(elementId) {
+    if($("#" + elementId).length < 1)
+        return [];
+
     return $("#" + elementId).data("vertex").neighbors;
 }
 

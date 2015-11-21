@@ -445,8 +445,10 @@ Socialite.API['deleteEdgeSuccess'] = function(data, status, xhr) {
     var idLongA = typeA + "_" + vertexA;
     var idLongB = typeB + "_" + vertexB;
 
-    $("#" + idLongA).data('vertex').neighbors = _.filter($("#" + idLongA).data("vertex").neighbors, function(ea) { return ea != idLongB });
-    $("#" + idLongB).data('vertex').neighbors = _.filter($("#" + idLongB).data("vertex").neighbors, function(ea) { return ea != idLongA });
+    if($("#" + idLongA).length > 0)
+        $("#" + idLongA).data('vertex').neighbors = _.filter($("#" + idLongA).data("vertex").neighbors, function(ea) { return ea != idLongB });
+    if($("#" + idLongB).length > 0)
+        $("#" + idLongB).data('vertex').neighbors = _.filter($("#" + idLongB).data("vertex").neighbors, function(ea) { return ea != idLongA });
 
     Socialite.Graph.Connect.removeLink(vertexA, vertexB);
     Socialite.UI.checkConnectInterface();
