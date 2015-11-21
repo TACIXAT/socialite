@@ -269,6 +269,9 @@ Socialite.UI['itemClick'] = function(event) {
 }
 
 Socialite.UI['highlightItems'] = function(elementId) {
+    if($("#" + elementId).length < 1)
+        return;
+    
     $(".selected_item").removeClass("selected_item");
     $(".secondary_item").removeClass("secondary_item");
     $(".tertiary_item").removeClass("tertiary_item");
