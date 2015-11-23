@@ -394,9 +394,21 @@ Socialite.API['createEdge'] = function(idA, idB) {
         'url': 'api/proxy.php',
         'data': $.param(data),
         'success': Socialite.API.createEdgeSuccess,
-        'error': Socialite.API.genericError });
+        'error': Socialite.API.createEdgeError });
 
     return false;
+}
+
+Socialite.API['createEdgeError'] = function(xhr, status, error) {
+    var error = $.parseJSON(xhr.responseText);
+    if(error['status'] != 'error') {
+        Materialize.toast('An error occured! Please contact us directly!', 3000);
+    } else {
+        if(error['msg'] != "Edge already exists between these vertices!")
+            Materialize.toast(error['msg'], 3000);
+        else
+            console.log(error['msg']);
+    }
 }
 
 Socialite.API['createEdgeSuccess'] = function(data, status, xhr) {
