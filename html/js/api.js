@@ -404,7 +404,7 @@ Socialite.API['createEdgeError'] = function(xhr, status, error) {
     if(error['status'] != 'error') {
         Materialize.toast('An error occured! Please contact us directly!', 3000);
     } else {
-        if(error['msg'] != "Edge already exists between these vertices!")
+        if(error['msg'].indexOf("Edge already exists between these vertices!") < 0)
             Materialize.toast(error['msg'], 3000);
         else
             console.log(error['msg']);
