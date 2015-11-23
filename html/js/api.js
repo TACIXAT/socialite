@@ -414,19 +414,19 @@ Socialite.API['createEdgeSuccess'] = function(data, status, xhr) {
     var idLongA = typeA + "_" + vertexA;
     var idLongB = typeB + "_" + vertexB;
 
-    if($("#" + idLongA).length > 0) {
+    if($("#" + idLongA).length > 0 && $("#" + idLongA).data('vertex').neighbors.indexOf(idLongB) < 0) {
         $("#" + idLongA).data('vertex').neighbors.push(idLongB);
     } else {
         var nodeA = Socialite.Graph.Connect.findNode(vertexA);
-        if(nodeA !== undefined)
+        if(nodeA !== undefined && nodeA.neighbors.indexOf(idLongB) < 0)
             nodeA.neighbors.push(idLongB);
     }
 
-    if($("#" + idLongB).length > 0) {
+    if($("#" + idLongB).length > 0 && $("#" + idLongB).data('vertex').neighbors.indexOf(idLongA) < 0) {
         $("#" + idLongB).data('vertex').neighbors.push(idLongA);
     } else {
         var nodeB = Socialite.Graph.Connect.findNode(vertexB);
-        if(nodeB !== undefined)
+        if(nodeB !== undefined && nodeB.neighbors.indexOf(idLongA) < 0)
             nodeB.neighbors.push(idLongA);
     }
 

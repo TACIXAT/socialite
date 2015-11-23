@@ -283,7 +283,7 @@ Socialite.Graph.Connect['addLink'] = function(srcId, dstId) {
     var SGC = Socialite.Graph.Connect;
     var src = SGC.findNode(srcId);
     var dst = SGC.findNode(dstId);
-    if((src !== undefined) && (dst !== undefined)) {
+    if((src !== undefined) && (dst !== undefined) && SGC.links.indexOf({"source": src, "target": dst}) < 0) {
         SGC.links.push({"source": src, "target": dst});
         SGC.update();
     } 
