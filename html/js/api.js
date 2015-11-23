@@ -403,7 +403,7 @@ Socialite.API['createEdgeSuccess'] = function(data, status, xhr) {
     data = $.parseJSON(data);
 
     if(data['status'] === "ERROR") {
-        if(data['ERROR'] != "Edge already exists between these vertices!" < 0)
+        if(data['ERROR'] != "Edge already exists between these vertices!")
             Materialize.toast(data['ERROR'], 3000);
         else 
             console.log(data['ERROR'])
