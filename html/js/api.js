@@ -112,7 +112,6 @@ Socialite.util['dateToUTC'] = function(date) {
 }
 
 Socialite.API['genericError'] = function(xhr, status, error) {
-    console.log("genericError");
     var error = $.parseJSON(xhr.responseText);
     if(error['status'] != 'error') {
         Materialize.toast('An error occured! Please contact us directly!', 3000);
@@ -395,31 +394,19 @@ Socialite.API['createEdge'] = function(idA, idB) {
         'url': 'api/proxy.php',
         'data': $.param(data),
         'success': Socialite.API.createEdgeSuccess,
-        'error': Socialite.API.createEdgeError });
+        'error': Socialite.API.genericError });
 
     return false;
-}
-
-Socialite.API['createEdgeError'] = function(xhr, status, error) {
-    console.log("edgeError");
-    var error = $.parseJSON(xhr.responseText);
-    if(error['status'] != 'error') {
-        Materialize.toast('An error occured! Please contact us directly!', 3000);
-    } else {
-        console.log(error['msg']);
-        console.log(error['msg'].indexOf('already'));
-        if(error['msg'].indexOf("Edge already exists between these vertices!") < 0)
-            Materialize.toast(error['msg'], 3000);
-        else
-            console.log(error['msg']);
-    }
 }
 
 Socialite.API['createEdgeSuccess'] = function(data, status, xhr) {
     data = $.parseJSON(data);
 
     if(data['status'] === "ERROR") {
-        Materialize.toast(data['ERROR'], 3000);
+        if(data['ERROR'] != "Edge already exists between these vertices!" < 0)
+            Materialize.toast(data['ERROR'], 3000);
+        else 
+            console.log(data['ERROR'])
         return;
     }
 
