@@ -28,7 +28,7 @@ Socialite.Tour['nextStep'] = function() {
     if(placement != "center")
         offset += sign[placement] + Socialite.Tour.arrowSize;
 
-    // console.log("position({ my:" + opposite[placement] + ", at:" + offset + ", of: $(" + step['target'] + ")});");
+    console.log("$('#tour_card').position({ my:" + opposite[placement] + ", at:" + offset + ", of: $(" + step['target'] + ")});");
     $("#tour_card").show();
     $("#tour_card").position({ my: opposite[placement], at: offset, of: $(step['target'])});
     $("#tour_title").text(step['title']);

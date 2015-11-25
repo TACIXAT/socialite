@@ -248,7 +248,7 @@ if (!$logged_in) {
                 </div>
             </div>
             <div id="tour_card" class="card small blue-grey lighten-1">
-                <div id="tour_content" class="card-content">
+                <div class="card-content">
                     <div id="tour_title" class="card-title">Title</div>
                     <br/>
                     <div id="tour_content" class="white-text">Words words words!</div>
