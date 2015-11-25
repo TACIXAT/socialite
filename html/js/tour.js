@@ -33,7 +33,9 @@ Socialite.Tour = {
                         $(formId).submit();
                     });
 
-                    hopscotch.nextStep();
+                    setTimeout(function() {
+                        hopscotch.nextStep();
+                    }, 500);
                 });
             }
         },
@@ -42,6 +44,7 @@ Socialite.Tour = {
             content: "Let's add a new node.",
             target: document.querySelector("#add_button"),
             placement: "right",
+            showNextButton: false,
             onNext: function() {
                 $("#add_button").click(function() {
                     $('#add_modal').openModal();
