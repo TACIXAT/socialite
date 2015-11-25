@@ -257,9 +257,6 @@ if (!$logged_in) {
                     <a class="waves-effect waves-green btn-flat modal_right_button">Next</a>
                 </div>
             </div>
-            <div id="overlay"></div>
-
-           
 
         <?php endif; ?>
     </body>
