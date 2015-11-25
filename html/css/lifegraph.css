@@ -164,7 +164,7 @@ body {
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
     
-    border-bottom: 20px solid #607d8b;
+    border-bottom: 20px solid #78909c;
 
     bottom: 100%;
     left: calc(50% - 20px);
@@ -177,7 +177,7 @@ body {
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
     
-    border-top: 20px solid #607d8b;
+    border-top: 20px solid #78909c;
 
     top: 100%;
     left: calc(50% - 20px);
@@ -190,7 +190,7 @@ body {
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
     
-    border-left: 20px solid #607d8b;
+    border-left: 20px solid #78909c;
 
     left: 100%;
     top: calc(50% - 20px);
@@ -203,7 +203,7 @@ body {
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent; 
     
-    border-right: 20px solid #607d8b; 
+    border-right: 20px solid #78909c; 
 
     right: 100%;
     top: calc(50% - 20px);

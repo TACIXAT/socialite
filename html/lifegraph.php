@@ -247,7 +247,7 @@ if (!$logged_in) {
                     <a id="connect_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Cancel</a>
                 </div>
             </div>
-            <div id="tour_card" class="card small blue-grey">
+            <div id="tour_card" class="card small blue-grey lighten-1">
                 <div id="tour_content" class="card-content">
                     <div id="tour_title" class="card-title">Title</div>
                     <br/>
