@@ -10,15 +10,13 @@ Socialite.Tour['nextStep'] = function() {
 
 Socialite.Tour['highlight'] = function(selector) {
     if($(selector).length < 1)
-        return;
+        return false;
 
     $(selector).addClass("highlight");
     var oldZ = $(selector).css("z-index");
-    
-    $('.highlight').click(function(e){
-        $(this).css('z-index','99999');
-        $('#overlay').fadeIn(300);
-    });
+
+    $('.highlight').css('z-index','99999');
+    $('#overlay').fadeIn(300);
 
     var removeOverlay = function(e) {
         $('#overlay').fadeOut(300, function(){
@@ -28,6 +26,7 @@ Socialite.Tour['highlight'] = function(selector) {
     };
 
     $('#overlay').click(removeOverlay);
+    return true;
 }
 
 Socialite.Tour['steps'] = [
