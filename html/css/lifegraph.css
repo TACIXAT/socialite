@@ -149,8 +149,9 @@ body {
     position: fixed;
     left:10px;
     top:100px;
-    z-index: 99999;
+    z-index: 1001;
     display: none;
+    overflow: visible;
 }
 
 .arrow_top {
@@ -164,7 +165,9 @@ body {
     border-right: 20px solid transparent;
     
     border-bottom: 20px solid #607d8b;
-    bottom: 0px;
+
+    bottom: 100%;
+    left: calc(50% - 20px);
     position: absolute;
 }
 
@@ -175,6 +178,10 @@ body {
     border-right: 20px solid transparent;
     
     border-top: 20px solid #607d8b;
+
+    top: 100%;
+    left: calc(50% - 20px);
+    position: absolute;
 }
 
 .arrow-right {
@@ -184,6 +191,10 @@ body {
     border-bottom: 20px solid transparent;
     
     border-left: 20px solid #607d8b;
+
+    left: 100%;
+    top: calc(50% - 20px);
+    position: absolute;
 }
 
 .arrow-left {
@@ -193,6 +204,10 @@ body {
     border-bottom: 20px solid transparent; 
     
     border-right: 20px solid #607d8b; 
+
+    right: 100%;
+    top: calc(50% - 20px);
+    position: absolute;
 }
 
 /*a, body, input, button, select { font-family: monospace; }
