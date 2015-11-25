@@ -74,10 +74,25 @@ Socialite.Tour = {
         },
         {
             title: "Create Node",
-            content: "This is where you add new people, events, and locations to Socialite. ",
-            target: document.querySelector("#add_modal > .modal-content");// > .row > h4"),
+            content: "This is where you add new nodes. Nodes are People, Events, and Locations.",
+            target: document.querySelector("#add_modal > .modal-content"),
             placement: "left",
             yOffset: "center"
-        }
+        },
+        {
+            title: "Your Name",
+            content: "You're the center of your life, so let's start by adding you.",
+            target: document.querySelector("#name_person_createfield"),
+            placement: "left",
+            yOffset: "center"
+        },
+        {
+            title: "Create Node",
+            content: "You can fill in the rest later.",
+            target: document.querySelector("#create_submit_button"),
+            placement: "top",
+            xOffset: "center"
+        },
     ]
+    
 };
