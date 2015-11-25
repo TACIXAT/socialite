@@ -1,6 +1,6 @@
 var Socialite = Socialite || {};
 Socialite.Tour = {
-    id: "hello-hopscotch",
+    id: "Socialite.Tour",
     steps: [
         {
             title: "Add Node",

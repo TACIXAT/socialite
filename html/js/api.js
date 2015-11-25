@@ -87,6 +87,7 @@ $(document).ready(function() {
 
     Socialite.Graph.init();
     Socialite.UI.connectInterface();
+    $.getScript('js/tour.js');
 });
 
 Socialite.util['dateToUTC'] = function(date) {
