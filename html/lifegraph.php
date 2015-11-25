@@ -247,9 +247,10 @@ if (!$logged_in) {
                     <a id="connect_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Cancel</a>
                 </div>
             </div>
-            <div id="tour_card" class="card small">
+            <div id="tour_card" class="card small blue-grey">
                 <div id="tour_content" class="card-content">
                     <span id="tour_title" class="card-title">Title</span>
+                    <br/>
                     Words words words!
                 </div>
                 <div id="tour_action" class="card-action">
