@@ -153,10 +153,46 @@ body {
     display: none;
 }
 
-.highlight {
-    outline-style: solid;
-    outline-width: 1000px;
-    outline-color: rgba(0, 0, 0, 0.5);
+.arrow_top {
+    // 607d8b
+}
+
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    
+    border-bottom: 20px solid #607d8b;
+    bottom: 0px;
+    position: absolute;
+}
+
+.arrow-down {
+    width: 0; 
+    height: 0; 
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    
+    border-top: 20px solid #607d8b;
+}
+
+.arrow-right {
+    width: 0; 
+    height: 0; 
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    
+    border-left: 20px solid #607d8b;
+}
+
+.arrow-left {
+    width: 0; 
+    height: 0; 
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent; 
+    
+    border-right: 20px solid #607d8b; 
 }
 
 /*a, body, input, button, select { font-family: monospace; }
