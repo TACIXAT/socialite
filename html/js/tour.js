@@ -1,7 +1,7 @@
 var Socialite = Socialite || {};
 Socialite.Tour = {};
 Socialite.Tour['currentStep'] = 0;
-Socialite.Tour['arrowSize'] = "+20px";
+Socialite.Tour['arrowSize'] = "20px";
 
 Socialite.Tour['nextStep'] = function() {
     var idx = Socialite.Tour.currentStep;
@@ -20,18 +20,22 @@ Socialite.Tour['nextStep'] = function() {
         "left": "-",
         "bottom": "+",
         "right": "+",
+        "center": "",
     };
 
     var placement = step['placement'];
-    var offset = sign[placement] + plaement;
+    var offset = placement;
+    if(placement != "center")
+        offset += sign[placement] + Socialite.Tour.arrowSize;
 
-    $("#tour_card").hide();
-    $("#tour_card").position({ my: opposite[placement], at: offset, of: $(step[target])});
+    // console.log("position({ my:" + opposite[placement] + ", at:" + offset + ", of: $(" + step['target'] + ")});");
+    $("#tour_card").show();
+    $("#tour_card").position({ my: opposite[placement], at: offset, of: $(step['target'])});
     $("#tour_title").text(step['title']);
     $("#tour_content").text(step['content']);
     $(".arrow").hide();
-    $("#tour_card").show();
-    $("." + opposite[placement] + "-arrow").show();    
+    $(".arrow-" + opposite[placement]).show();    
+    Socialite.Tour.currentStep += 1;
 }
 
 Socialite.Tour['highlight'] = function(selector) {
