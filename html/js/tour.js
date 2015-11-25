@@ -33,9 +33,7 @@ Socialite.Tour = {
                         $(formId).submit();
                     });
 
-                    setTimeout(function() {
-                        hopscotch.nextStep();
-                    }, 500);
+                    hopscotch.nextStep();
                 });
             }
         },
@@ -45,7 +43,7 @@ Socialite.Tour = {
             target: document.querySelector("#add_button"),
             placement: "right",
             showNextButton: false,
-            onNext: function() {
+            onShow: function() {
                 $("#add_button").click(function() {
                     $('#add_modal').openModal();
                     $('ul.tabs').tabs();
@@ -68,6 +66,7 @@ Socialite.Tour = {
 
                         var formId = "#create_" + visibleType + "_form";
                         $(formId).submit();
+                        hopscotch.nextStep();
                     });
                 });
             }
@@ -81,17 +80,30 @@ Socialite.Tour = {
         },
         {
             title: "Your Name",
-            content: "You're the center of your life, so let's start by adding you.",
+            content: "Let's start by adding you. Fill in your name.",
             target: document.querySelector("#name_person_createfield"),
             placement: "left",
-            yOffset: "center"
         },
         {
             title: "Create Node",
             content: "You can fill in the rest later.",
             target: document.querySelector("#create_submit_button"),
             placement: "top",
-            xOffset: "center"
+            showNextButton: false,
+        },
+        {
+            title: "New Node",
+            content: "Newly created nodes appear in these lists.",
+            target: document.querySelector("#list_person_div"),
+            yOffset: "center",
+            placement: "left",
+        },
+        {
+            title: "Details",
+            content: "Clicking the node will show its details up here.",
+            target: document.querySelector("#display_person_div"),
+            yOffset: "center",
+            placement: "left",
         },
     ]
     
