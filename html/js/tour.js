@@ -28,11 +28,11 @@ Socialite.Tour['nextStep'] = function() {
     if(placement != "center")
         offset += sign[placement] + Socialite.Tour.arrowSize;
 
-    console.log("$('#tour_card').position({ my:" + opposite[placement] + ", at:" + offset + ", of: $(" + step['target'] + ")});");
+    console.log("$('#tour_card').position({ my:'" + opposite[placement] + "', at:'" + offset + "', of: $('" + step['target'] + "')});");
     $("#tour_card").show();
-    $("#tour_card").position({ my: opposite[placement], at: offset, of: $(step['target'])});
     $("#tour_title").text(step['title']);
     $("#tour_content").text(step['content']);
+    $("#tour_card").position({ my: opposite[placement], at: offset, of: $(step['target'])});
     $(".arrow").hide();
     $(".arrow-" + opposite[placement]).show();    
     Socialite.Tour.currentStep += 1;
@@ -137,12 +137,12 @@ Socialite.Tour['steps'] = [
         content: "Newly created nodes appear in these lists.",
         target: "#list_person_div",
         yOffset: "center",
-        placement: "left",
+        placement: "right",
     },
     {
         title: "Details",
         content: "Clicking the node will show its details up here.",
         target: "#display_person_div",
-        placement: "left",
+        placement: "right",
     },
 ];
