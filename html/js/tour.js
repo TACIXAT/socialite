@@ -7,6 +7,7 @@ Socialite.Tour = {
             content: "This guide will walk you through application functionality.",
             target: document.querySelector(".logo"),
             placement: "right",
+            yOffset: "center",
             onNext: function() {
                 $("#add_button").click(function() {
                     $('#add_modal').openModal();
@@ -31,6 +32,7 @@ Socialite.Tour = {
                         var formId = "#create_" + visibleType + "_form";
                         $(formId).submit();
                     });
+
                     hopscotch.nextStep();
                 });
             }
@@ -67,11 +69,12 @@ Socialite.Tour = {
                 });
             }
         },
-        // {
-        //     title: "My content",
-        //     content: "Here is where I put my content.",
-        //     target: document.querySelector("#content p"),
-        //     placement: "bottom"
-        // }
+        {
+            title: "Create Node",
+            content: "This is where you add new people, events, and locations to Socialite. ",
+            target: document.querySelector("#add_modal > .modal-content > .row > h4"),
+            placement: "left",
+            yOffset: "center"
+        }
     ]
 };
