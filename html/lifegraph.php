@@ -48,13 +48,14 @@ if (!$logged_in) {
         
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5Sh0t7Zp9DeZOfbOfE2-KBgEe9YUoryM"></script>
         <script type="text/javascript" src="/js/lib/jquery-2.1.3.min.js"></script>
-        <script type="text/javascript" src="/js/lib/jquery-ui-1.11.3"></script>
+        <script type="text/javascript" src="/js/lib/jquery-ui-1.11.3/jquery-ui.min.js"></script>
         <script type="text/javascript" src="/js/lib/d3.v3.min.js"></script>
         <script type="text/javascript" src="/js/lib/underscore-min.js"></script>
         <script type="text/javascript" src="/js/materialize.min.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="/css/lifegraph.css" />
         <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="/js/lib/jquery-ui-1.11.3/jquery-ui.min.css"  media="screen,projection"/>
         <!--link rel="stylesheet" href="styles/d3.css" /-->
         <!--script type="text/javascript" src="/js/lib/hopscotch.min.js"></script-->
         <!-- <link type="text/css" rel="stylesheet" href="/css/hopscotch.min.css"  media="screen,projection"/> -->
