@@ -147,11 +147,10 @@ body {
 
 #tour_card {
     position: fixed;
-    width:100px;
-    height:100px;
-    background:red;
+    background: white;
     left:10px;
     top:100px;
+    z-index: 1001;
     display: none;
 }
 
