@@ -75,7 +75,7 @@ Socialite.Tour = {
         {
             title: "Create Node",
             content: "This is where you add new people, events, and locations to Socialite. ",
-            target: document.querySelector("#add_modal > .modal-content > .row > h4"),
+            target: document.querySelector("#add_modal > .modal-content");// > .row > h4"),
             placement: "left",
             yOffset: "center"
         }
