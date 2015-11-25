@@ -256,10 +256,10 @@ if (!$logged_in) {
                 <div id="tour_action" class="card-action">
                     <a class="waves-effect waves-green btn-flat modal_right_button">Next</a>
                 </div>
-                <div class="arrow-up"></div>
-                <div class="arrow-down"></div>
-                <div class="arrow-left"></div>
-                <div class="arrow-right"></div>
+                <div class="arrow-up arrow"></div>
+                <div class="arrow-down arrow"></div>
+                <div class="arrow-left arrow"></div>
+                <div class="arrow-right arrow"></div>
             </div>
 
         <?php endif; ?>
