@@ -145,6 +145,11 @@ body {
     min-height: 20px;
 }
 
+#tour_card {
+    position: fixed;
+    display: none;
+}
+
 /*a, body, input, button, select { font-family: monospace; }
 
 p { 

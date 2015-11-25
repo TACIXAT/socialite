@@ -46,17 +46,18 @@ if (!$logged_in) {
         <meta name="msapplication-TileImage" content="/icon/favicon/mstile-144x144.png">
         <meta name="msapplication-config" content="/icon/favicon/browserconfig.xml">
         
-        <!--link rel="stylesheet" href="styles/d3.css" /-->
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5Sh0t7Zp9DeZOfbOfE2-KBgEe9YUoryM"></script>
         <script type="text/javascript" src="/js/lib/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="/js/lib/jquery-ui-1.11.3"></script>
         <script type="text/javascript" src="/js/lib/d3.v3.min.js"></script>
         <script type="text/javascript" src="/js/lib/underscore-min.js"></script>
-        <script type="text/javascript" src="/js/lib/hopscotch.min.js"></script>
         <script type="text/javascript" src="/js/materialize.min.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="/css/lifegraph.css" />
         <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
-        <link type="text/css" rel="stylesheet" href="/css/hopscotch.min.css"  media="screen,projection"/>
+        <!--link rel="stylesheet" href="styles/d3.css" /-->
+        <!--script type="text/javascript" src="/js/lib/hopscotch.min.js"></script-->
+        <!-- <link type="text/css" rel="stylesheet" href="/css/hopscotch.min.css"  media="screen,projection"/> -->
 
         <?php
             if($logged_in) {
@@ -72,6 +73,7 @@ if (!$logged_in) {
                 echo "        <script type=\"text/javascript\" src=\"/js/api.js\"></script>\n";
                 echo "        <script type=\"text/javascript\" src=\"/js/graph.js\"></script>\n";
                 echo "        <script type=\"text/javascript\" src=\"/js/ui.js\"></script>\n";
+                echo "        <script type=\"text/javascript\" src=\"/js/tour.js\"></script>\n";
             } 
         ?>
     </head>
@@ -244,96 +246,17 @@ if (!$logged_in) {
                     <a id="connect_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Cancel</a>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-            <!--div id="all">
-                <div id="header">
-                    <p>Welcome <?php echo htmlentities($_SESSION['username']); ?>!</p>
+            <div id="tour_card" class="card small">
+                <div id="tour_content" class="card-content">
+                    <span id="tour_title" class="card-title"></span>
                 </div>
-                <div id="content">
-                    <div id="toprow">
-                        <div class="upper">
-                            <div class="button_row">
-                                <button onclick="togglePersonForm('display');" class='person_button'>
-                                    <span class='description_span'>DETAILS</span>
-                                </button>
-                                <button onclick="togglePersonForm('create');" class='create_button'>
-                                    <span class='description_span'>CREATE</span>
-                                </button>
-                                <button onclick="togglePersonForm('search');" class='search_button'>
-                                    <span class='description_span'>SEARCH</span>
-                                </button>
-                            </div>
-                            <div class="form_row" ondrop="personDrop(event)" ondragover="allowDrop(event)">
-                                <div id="search_person_div"></div>
-                                <div id="create_person_div"></div>
-                                <div id="display_person_div"></div>
-                            </div>
-                        </div>
-                        <div class="upper">
-                            <div class="button_row">
-                                <button onclick="toggleEventForm('display');" class='event_button'>
-                                    <span class='description_span'>DETAILS</span>
-                                </button>
-                                <button onclick="toggleEventForm('create');" class='create_button'>
-                                    <span class='description_span'>CREATE</span>
-                                </button>
-                                <button onclick="toggleEventForm('search');" class='search_button'>
-                                    <span class='description_span'>SEARCH</span>
-                                </button>
-                            </div>
-                            <div class="form_row" ondrop="eventDrop(event)" ondragover="allowDrop(event)">
-                                <div id="search_event_div"></div>
-                                <div id="create_event_div"></div>
-                                <div id="display_event_div"></div>
-                            </div>
-                        </div>
-                        <div class="upper">
-                            <div class="button_row">
-                                <button onclick="toggleLocationForm('display');" class='location_button'>
-                                    <span class='description_span'>DETAILS</span>
-                                </button>
-                                <button onclick="toggleLocationForm('create');" class='create_button'>
-                                    <span class='description_span'>CREATE</span>
-                                </button>
-                                <button onclick="toggleLocationForm('search');" class='search_button'>
-                                    <span class='description_span'>SEARCH</span>
-                                </button>
-                            </div>
-                            <div class="form_row" ondrop="locationDrop(event)" ondragover="allowDrop(event)">
-                                <div id="search_location_div"></div>
-                                <div id="create_location_div"></div>
-                                <div id="display_location_div"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div id="bottomrow">
-                        <div class="lower">
-                            <ul id="person_list">
-                            </ul>
-                        </div>
-                        <div class="lower">
-                            <ul id="event_list">
-                            </ul>
-                        </div>
-                        <div class="lower">
-                            <ul id="location_list">
-                            </ul>
-                        </div>
-                    </div>
+                <div id="tour_action" class="card-action">
+                    <a class="waves-effect waves-green btn-flat modal_right_button">Next</a>
                 </div>
-                <div id="footer">
-                    <p><a href="logout.php">Logout</a></p>
-                </div>
-            </div-->
+            </div>
+
+
+           
 
         <?php endif; ?>
     </body>
