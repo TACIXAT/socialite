@@ -251,13 +251,13 @@ if (!$logged_in) {
                 <div id="tour_content" class="card-content">
                     <div id="tour_title" class="card-title">Title</div>
                     <br/>
-                    <div id="tour_content" class="white">Words words words!</div>
+                    <div id="tour_content" class="white-text">Words words words!</div>
                 </div>
                 <div id="tour_action" class="card-action">
                     <a class="waves-effect waves-green btn-flat modal_right_button">Next</a>
                 </div>
             </div>
-
+            <div id="overlay"></div>
 
            
 

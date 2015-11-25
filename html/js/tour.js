@@ -5,7 +5,29 @@ Socialite.Tour['currentStep'] = 0;
 Socialite.Tour['nextStep'] = function() {
     var idx = Socialite.Tour.currentStep;
     var step = Socialite.Tour.steps[idx];
+    $("#tour_card").position({ my: "left", at: "center", of: $("body")})
+}
+
+Socialite.Tour['highlight'] = function(selector) {
+    if($(selector).length < 1)
+        return;
+
+    $(selector).addClass("highlight");
+    var oldZ = $(selector).css("z-index");
     
+    $('.highlight').click(function(e){
+        $(this).css('z-index','99999');
+        $('#overlay').fadeIn(300);
+    });
+
+    var removeOverlay = function(e) {
+        $('#overlay').fadeOut(300, function(){
+            $('.highlight').css('z-index', oldZ);
+            $(selector).removeClass("highlight");
+        });
+    };
+
+    $('#overlay').click(removeOverlay);
 }
 
 Socialite.Tour['steps'] = [
