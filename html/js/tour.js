@@ -275,6 +275,9 @@ Socialite.Tour['steps'] = [
         placement: "bottom",
         showButtons: false,
         onNext: function() {
+            $("#name_event_createfield").val("Learned how to use Socialite!");
+            $("#name_event_createfield").siblings().addClass('active');
+
             $("#create_event_tab").off("click.tab");
 
             $("#add_button").off('click.open');
@@ -325,7 +328,7 @@ Socialite.Tour['steps'] = [
     {
         title: "Connect Nodes",
         content: "Click connect on each node to add it to the connection interface. Then click here to open the interface.",
-        target: "#create_submit_button",
+        target: "#connect_button",
         placement: "top",
         showButtons: false,
         onNext: function() {
