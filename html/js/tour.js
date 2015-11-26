@@ -67,6 +67,13 @@ Socialite.Tour['steps'] = [
         placement: "center",
         target: "body",
         onNext: function() {
+            var waitForAddModal = function() {
+                if($("#add_modal").css("opacity") != 1 || $("#add_modal").css("top") != "10px")
+                    setTimeout(waitForAddModal, 100);
+                else
+                    Socialite.Tour.nextStep();
+
+            }
             $("#add_button").off('click');
             $("#add_button").click(function() {
                 $('#add_modal').openModal();
@@ -94,7 +101,7 @@ Socialite.Tour['steps'] = [
                     Socialite.Tour.nextStep();
                 });
 
-                setTimeout(Socialite.Tour.nextStep, 1000);
+                setTimeout(waitForAddModal, 100);
             });
 
             Socialite.Tour.nextStep();  
