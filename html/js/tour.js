@@ -137,7 +137,7 @@ Socialite.Tour['highlight'] = function(selector) {
 Socialite.Tour['steps'] = [
     {
         title: "Welcome to Socialite",
-        content: "This guide will walk you through Socialite's functionality.",
+        content: "This guide will walk you through Socialite's functionality. This tour takes about 2 minutes to complete.",
         placement: "center",
         target: "body",
         onNext: function() {

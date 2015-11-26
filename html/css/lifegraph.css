@@ -145,6 +145,10 @@ body {
     min-height: 20px;
 }
 
+#nav-mobile a:hover {
+    cursor:pointer;
+}
+
 #tour_card {
     position: fixed;
     left:10px;
