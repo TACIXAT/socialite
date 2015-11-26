@@ -53,6 +53,11 @@ Socialite.Tour['nextStep'] = function() {
 
     var step = Socialite.Tour.steps[idx];
 
+    if(step['hidden'] !== undefined && step['hidden']) {
+        $("#tour_card").hide();
+        return;
+    }
+
     if(step['showButtons'] !== undefined && !step['showButtons'])
         $("#tour_action").hide();
     else
@@ -331,13 +336,38 @@ Socialite.Tour['steps'] = [
     },
     {
         title: "Connection Interface",
-        content: "You can connect people to events, and events to locations.",
+        content: "You can connect people to events, and events to locations. You can create many connections at once through this interface.",
         placement: "center",
         target: "body",
     },
     {
         title: "Connection Interface",
-        content: "If any nodes are disconnected you will see the CONNECT button. If all nodes are connected you will see the DISCONNECT button.",
+        content: "If any nodes in this interface are disconnected you will see the CONNECT button.",
+        placement: "center",
+        target: "body",
+        onNext: function() {
+            var waitForClose = function() {
+                if($("#connect_modal").is(":visible"))
+                    setTimeout(waitForClose, 300);
+                else
+                    Socialite.Tour.nextStep();      
+            };
+
+            setTimeout(waitForClose, 300);
+        }
+    },
+    {
+        title: "Connection Interface",
+        content: "If all nodes in this interface are connected you will see the DISCONNECT button.",
+        placement: "center",
+        target: "body",
+    },
+    {
+        hidden: true
+    },
+    {
+        title: "Good Luck",
+        content: "Thanks for taking the time to learn about Socialite. Don't hesitate to contact us with any questions.",
         placement: "center",
         target: "body",
     },
