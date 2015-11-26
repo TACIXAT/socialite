@@ -102,6 +102,11 @@ Socialite.Tour['nextStep'] = function() {
     else
         $("#tour_card").css('width', '300px');
 
+    if(step['fontSize'] !== undefined)
+        $("#tour_content").css('fontSize', step['fontSize']);
+    else
+        $("#tour_content").css('fontSize', '');
+
     if(step['showButtons'] !== undefined && !step['showButtons'])
         $("#tour_action").hide();
     else
@@ -203,12 +208,13 @@ Socialite.Tour['steps'] = [
     },
     {
         title: "Enjoy!",
-        content: "A few more quick things:<br><ul><li>Double clicking a listed node will search for its neighbors.</li><li>In addition to clicking Connect you can also drag a node to the connect button.</li><li>Draggin a node to the search button will allow you to search for neighbors of that node.</li></ul><br>Thanks for taking the time to learn about Socialite. Don't hesitate to contact us with any questions.",
+        content: "A few more quick things:<br/><br/>&nbsp;-&nbsp;&nbsp;&nbsp;Double clicking a listed node will search for its neighbors.<br/><br/>&nbsp;-&nbsp;&nbsp;&nbsp;In addition to clicking Connect you can also drag a node to the connect button.<br/><br/>&nbsp;-&nbsp;&nbsp;&nbsp;Draggin a node to the search button will allow you to search for neighbors of that node.<br/><br/>Thanks for taking the time to learn about Socialite. Don't hesitate to contact us with any questions!",
         placement: "center",
         hidePrev: true,
         multiLine: true,
         height: "70%",
         width: "55%",
+        fontSize: "18px",
         target: "body",
     },
     {
