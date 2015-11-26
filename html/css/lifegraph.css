@@ -149,13 +149,10 @@ body {
     position: fixed;
     left:10px;
     top:100px;
+    width: 450px;
     z-index: 1001;
     display: none;
     overflow: visible;
-}
-
-.arrow_top {
-    // 607d8b
 }
 
 .arrow-top {
