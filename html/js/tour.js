@@ -102,10 +102,13 @@ Socialite.Tour['nextStep'] = function() {
     else
         $("#tour_card").css('width', '300px');
 
-    if(step['fontSize'] !== undefined)
+    if(step['fontSize'] !== undefined) {
         $("#tour_content").css('fontSize', step['fontSize']);
-    else
+        $("#tour_content").css('padding-op', "2%");
+        $("#tour_content").css('padding-left', step['fontSize']);
+    } else {
         $("#tour_content").css('fontSize', '');
+    }
 
     if(step['titleSize'] !== undefined)
         $("#tour_title").css('fontSize', step['titleSize']);
@@ -214,7 +217,7 @@ Socialite.Tour['steps'] = [
     },
     {
         title: "Enjoy!",
-        content: "A few more quick things:<br/><br/>&nbsp;-&nbsp;&nbsp;&nbsp;Double clicking a listed node will search for its neighbors.<br/><br/>&nbsp;-&nbsp;&nbsp;&nbsp;In addition to clicking Connect you can also drag a node to the connect button.<br/><br/>&nbsp;-&nbsp;&nbsp;&nbsp;Draggin a node to the search button will allow you to search for neighbors of that node.<br/><br/>Thanks for taking the time to learn about Socialite. Don't hesitate to contact us with any questions!",
+        content: "A few more quick things:<br/><br/>&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;Double clicking a listed node will search for its neighbors.<br/><br/>&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;In addition to clicking Connect you can also drag a node to the Connections button.<br/><br/>&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;Dragging a node to the Search button will allow you to search for neighbors of that node.<br/><br/>Thanks for taking the time to learn about Socialite. Don't hesitate to contact us with any questions!",
         placement: "center",
         hidePrev: true,
         multiLine: true,
@@ -223,6 +226,7 @@ Socialite.Tour['steps'] = [
         titleSize: "40px",
         fontSize: "18px",
         target: "body",
+
     },
     {
         title: "Add Node",
