@@ -12,11 +12,11 @@ Socialite.Tour['nextStep'] = function() {
     else
         $("#tour_action").show();
 
-    $("#tour_next_btn").off('click', 'next');
+    $("#tour_next_btn").off('click.next');
     if(step['onNext'] !== undefined)
-        $("#tour_next_btn").on('click', 'next', step['onNext']);
+        $("#tour_next_btn").on('click.next', step['onNext']);
     else
-        $("#tour_next_btn").on('click', 'next', function() {
+        $("#tour_next_btn").on('click.next', function() {
             Socialite.Tour.nextStep();
         });
 
@@ -74,15 +74,15 @@ Socialite.Tour['steps'] = [
                     Socialite.Tour.nextStep();
             }
 
-            $("#add_button").off('click', 'open');
-            $("#add_button").on('click', 'open', function() {
+            $("#add_button").off('click.open');
+            $("#add_button").on('click.open', function() {
                 $('#add_modal').openModal();
                 $('ul.tabs').tabs();
                 if($("#create_location_tab").hasClass('active'))
                     Socialite.UI.refreshCreateMap();
     
-                $("#create_submit_button").off('click', 'submit');
-                $("#create_submit_button").on('click', 'submit', function() {
+                $("#create_submit_button").off('click.submit');
+                $("#create_submit_button").on('click.submit', function() {
                     Socialite.Tour.nextStep();
                     var visibleType = undefined;
                     if($("#create_person_tab").hasClass("active")) {
@@ -121,15 +121,15 @@ Socialite.Tour['steps'] = [
         placement: "left",
         yOffset: "center",
         onNext: function() {
-            $("#add_button").off('click', 'open');
-            $("#add_button").on('click', 'open', function() {
+            $("#add_button").off('click.open');
+            $("#add_button").on('click.open', function() {
                 $('#add_modal').openModal();
                 $('ul.tabs').tabs();
                 if($("#create_location_tab").hasClass('active'))
                     Socialite.UI.refreshCreateMap();
 
-                $("#create_submit_button").off('click', 'submit');
-                $("#create_submit_button").on('click', 'submit', function() {
+                $("#create_submit_button").off('click.submit');
+                $("#create_submit_button").on('click.submit', function() {
                     var visibleType = undefined;
                     if($("#create_person_tab").hasClass("active")) {
                         visibleType = "person";

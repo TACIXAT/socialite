@@ -16,14 +16,14 @@ $(document).ready(function() {
     });
 
     // if this is changed update tour.js
-    // use a selector (open) so we can remove this specific fn
-    $("#add_button").on('click', 'open', function() {
+    // use a namespace (open) so we can remove this specific fn
+    $("#add_button").on('click.open', function() {
         $('#add_modal').openModal();
         $('ul.tabs').tabs();
         if($("#create_location_tab").hasClass('active'))
             Socialite.UI.refreshCreateMap();
 
-        $("#create_submit_button").on('click', 'submit', function() {
+        $("#create_submit_button").on('click.submit', function() {
             var visibleType = undefined;
             if($("#create_person_tab").hasClass("active")) {
                 visibleType = "person";
