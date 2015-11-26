@@ -12,11 +12,11 @@ Socialite.Tour['nextStep'] = function() {
     else
         $("#tour_action").show();
 
-    $("#tour_next_btn").off('click');
+    $("#tour_next_btn").off('click', 'next');
     if(step['onNext'] !== undefined)
-        $("#tour_next_btn").click(step['onNext']);
+        $("#tour_next_btn").on('click', 'next', step['onNext']);
     else
-        $("#tour_next_btn").click(function() {
+        $("#tour_next_btn").on('click', 'next', function() {
             Socialite.Tour.nextStep();
         });
 
