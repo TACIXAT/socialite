@@ -68,7 +68,7 @@ Socialite.Tour['steps'] = [
         target: "body",
         onNext: function() {
             var waitForAddModal = function() {
-                if($("#add_modal").css("opacity") != 1 || $("#add_modal").css("top") != "10px")
+                if($("#add_modal").css("opacity") != 1 || $("#add_modal")[0].style.top != "10%")
                     setTimeout(waitForAddModal, 100);
                 else
                     Socialite.Tour.nextStep();
