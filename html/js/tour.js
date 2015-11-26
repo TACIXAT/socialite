@@ -42,6 +42,8 @@ Socialite.Tour['nextStep'] = function() {
         Socialite.Tour.nextFn();
 
     var idx = Socialite.Tour.currentStep;
+    Socialite.Tour.currentStep += 1;
+
     if(idx >= Socialite.Tour.steps.length) {
         Socialite.Tour.done();
         return;
@@ -103,7 +105,6 @@ Socialite.Tour['nextStep'] = function() {
     });
     $(".arrow").hide();
     $(".arrow-" + opposite[placement]).show();    
-    Socialite.Tour.currentStep += 1;
 }
 
 Socialite.Tour['highlight'] = function(selector) {
