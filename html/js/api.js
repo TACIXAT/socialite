@@ -42,6 +42,13 @@ $(document).ready(function() {
         });
     });
 
+    $("#tutorial_button").click(function() {
+        Socialite.Tour.nextStep();
+        $("#help_li > ul > li").removeClass("active");
+        $("#help_li > ul > li > a").removeClass("active");
+        $("#help_li > ul > li > div").hide();
+    });
+
     $("#search_button").click(function() {
         $('#search_modal').openModal();
         $('ul.tabs').tabs();

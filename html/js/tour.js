@@ -2,7 +2,6 @@ var Socialite = Socialite || {};
 Socialite.Tour = {};
 Socialite.Tour['currentStep'] = 0;
 Socialite.Tour['arrowSize'] = "20px";
-Socialite.Tour['nextFn'] = undefined;
 
 Socialite.Tour['done'] = function() {
     $("#tour_card").hide();
@@ -37,12 +36,43 @@ Socialite.Tour['done'] = function() {
     });
 }
 
+Socialite.Tour['init'] = function() {
+    $("#tour_next_btn").off('click.next');
+    $("#tour_next_btn").on('click.next', function() {
+        Socialite.Tour.nextStep();
+    });
+
+    $("#tour_prev_btn").off('click.prev');
+    $("#tour_prev_btn").on('click.prev', function() {
+        Socialite.Tour.prevStep();
+    });
+
+    $("#tour_skip_btn").off('click.skip');
+    $("#tour_skip_btn").on('click.skip', function() {
+        Socialite.Tour.done();
+    });
+
+    Socialite.Tour.initialized = true;
+}
+
+Socialite.Tour['prevStep'] = function() {
+    Socialite.Tour.currentStep -= 2;
+    Socialite.Tour.nextStep();
+}
+
 Socialite.Tour['nextStep'] = function() {
-    if(Socialite.Tour.nextFn != undefined)
-        Socialite.Tour.nextFn();
+    if(!Socialite.Tour.initialized) {
+        Socialite.Tour.init();
+    }
 
     var idx = Socialite.Tour.currentStep;
     Socialite.Tour.currentStep += 1;
+    
+    if(idx > 0 && idx < Socialite.Tour.steps.length) {
+        var fn = Socialite.Tour.steps[idx-1].onNext;
+        if(fn != undefined)
+            fn();
+    }
 
     if(idx >= Socialite.Tour.steps.length) {
         Socialite.Tour.done();
@@ -64,13 +94,6 @@ Socialite.Tour['nextStep'] = function() {
         $("#tour_action").hide();
     else
         $("#tour_action").show();
-
-    Socialite.Tour.nextFn = step['onNext'];
-
-    $("#tour_next_btn").off('click.next');
-    $("#tour_next_btn").on('click.next', function() {
-        Socialite.Tour.nextStep();
-    });
 
     var opposite = {
         "left": "right",

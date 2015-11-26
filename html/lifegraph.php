@@ -121,13 +121,13 @@ if (!$logged_in) {
                                 </li>
                             </ul>
                         </li>
-                        <li class="no-padding">
+                        <li class="no-padding" id="help_li">
                             <ul class="collapsible collapsible-accordion">
                                 <li>
                                     <a class="collapsible-header menu_item">Help</a>
                                     <div class="collapsible-body">
                                         <ul>
-                                            <li><a onclick="Socialite.Tour.nextStep()">Tutorial</a></li>
+                                            <li><a id="tutorial_btn">Tutorial</a></li>
                                             <li><a href="mailto:feedback@socialite.ooo">Email</a></li>
                                         </ul>
                                     </div>

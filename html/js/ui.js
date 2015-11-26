@@ -344,7 +344,7 @@ Socialite.UI['listVertices'] = function(vertices) {
         var connectLink = $("<a></a>");
         connectLink.addClass("control_right");
         connectLink.text("Connect");
-        connectLink.click(function(ev) {
+        connectLink.on('click.connect', function(ev) {
             ev.cancelBubble = true;
             if(ev.stopPropagation) 
                 ev.stopPropagation();
