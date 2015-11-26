@@ -148,8 +148,6 @@ Socialite.Tour['steps'] = [
 
                 setTimeout(waitForAddModal, 100);
             });
-
-            Socialite.Tour.nextStep();  
         }
     },
     {
@@ -192,7 +190,6 @@ Socialite.Tour['steps'] = [
                     $(formId).submit();
                 });
             });
-            Socialite.Tour.nextStep();
         }
     },
     {
@@ -256,8 +253,6 @@ Socialite.Tour['steps'] = [
                 });
                 setTimeout(waitForAddModal, 100);
             });
-
-            Socialite.Tour.nextStep();
         }
     },
     {
@@ -310,7 +305,6 @@ Socialite.Tour['steps'] = [
                     $(formId).submit();
                 });
             });
-            Socialite.Tour.nextStep();
         }
     },
     {
