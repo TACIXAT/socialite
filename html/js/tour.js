@@ -45,7 +45,12 @@ Socialite.Tour['nextStep'] = function() {
     $("#tour_card").show();
     $("#tour_title").text(step['title']);
     $("#tour_content").text(step['content']);
-    $("#tour_card").position({ my: opposite[placement], at: offset, of: $(step['target'])});
+    $("#tour_card").position({ 
+        my: opposite[placement], 
+        at: offset, 
+        of: $(step['target']), 
+        collision: "none"
+    });
     $(".arrow").hide();
     $(".arrow-" + opposite[placement]).show();    
     Socialite.Tour.currentStep += 1;
