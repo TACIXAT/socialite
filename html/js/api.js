@@ -42,11 +42,12 @@ $(document).ready(function() {
         });
     });
 
-    $("#tutorial_button").click(function() {
+    $("#tutorial_btn").on('click.tour', function() {
         Socialite.Tour.nextStep();
-        $("#help_li > ul > li").removeClass("active");
-        $("#help_li > ul > li > a").removeClass("active");
-        $("#help_li > ul > li > div").hide();
+        $("#help_li > ul > li > div").slideToggle(300, function() {
+            $("#help_li > ul > li").removeClass("active");
+            $("#help_li > ul > li > a").removeClass("active");
+        });
     });
 
     $("#search_button").click(function() {
