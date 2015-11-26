@@ -7,7 +7,7 @@ Socialite.Tour['nextStep'] = function() {
     var idx = Socialite.Tour.currentStep;
     var step = Socialite.Tour.steps[idx];
 
-    if(step['showButtons'] !=== undefined && !step['showButtons'])
+    if(step['showButtons'] !== undefined && !step['showButtons'])
         $("#tour_action").hide();
     else
         $("#tour_action").show();
