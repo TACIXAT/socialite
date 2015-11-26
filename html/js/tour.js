@@ -273,6 +273,14 @@ Socialite.Tour['steps'] = [
         onNext: function() {
             $("#create_event_tab").off("click.tab");
 
+            $("#connect_button").off('click.open');
+            $("#connect_button").on('click.open', function() {
+                $('#connect_modal').openModal();
+                Socialite.Graph.Connect.resize();
+                Socialite.UI.checkConnectInterface();
+                Socialite.Tour.nextStep();
+            });
+
             $("#add_button").off('click.open');
             $("#add_button").on('click.open', function() {
                 $('#add_modal').openModal();
@@ -308,15 +316,6 @@ Socialite.Tour['steps'] = [
         target: "#create_submit_button",
         placement: "top",
         showButtons: false,
-        onNext: function() {
-            $("#connect_button").off('click.open');
-            $("#connect_button").on('click.open', function() {
-                $('#connect_modal').openModal();
-                Socialite.Graph.Connect.resize();
-                Socialite.UI.checkConnectInterface();
-                Socialite.Tour.nextStep();
-            });
-        }
     },
     {
         title: "Connect Nodes",

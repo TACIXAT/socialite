@@ -111,11 +111,11 @@ if (!$logged_in) {
                         <li class="no-padding">
                             <ul class="collapsible collapsible-accordion">
                                 <li>
-                                    <a class="collapsible-header menu_item">Help</a>
+                                    <a class="collapsible-header menu_item">Legalities</a>
                                     <div class="collapsible-body">
                                         <ul>
-                                            <li><a onclick="Socialite.Tour.nextStep()">Tutorial</a></li>
-                                            <li><a href="mailto:feedback@socialite.ooo">Email</a></li>
+                                            <li><a href="/legal/tos.txt" target="_blank">Terms of Service</a></li>
+                                            <li><a href="/legal/privacy.txt" target="_blank">Privacy Policy</a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -124,11 +124,11 @@ if (!$logged_in) {
                         <li class="no-padding">
                             <ul class="collapsible collapsible-accordion">
                                 <li>
-                                    <a class="collapsible-header menu_item">Legalities</a>
+                                    <a class="collapsible-header menu_item">Help</a>
                                     <div class="collapsible-body">
                                         <ul>
-                                            <li><a href="/legal/tos.txt" target="_blank">Terms of Service</a></li>
-                                            <li><a href="/legal/privacy.txt" target="_blank">Privacy Policy</a></li>
+                                            <li><a onclick="Socialite.Tour.nextStep()">Tutorial</a></li>
+                                            <li><a href="mailto:feedback@socialite.ooo">Email</a></li>
                                         </ul>
                                     </div>
                                 </li>
