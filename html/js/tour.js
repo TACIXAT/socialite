@@ -176,15 +176,27 @@ Socialite.Tour['steps'] = [
         target: "#display_person_div",
         placement: "right",
         onNext: function() {
+            var waitForAddModal = function() {
+                if($("#add_modal").css("opacity") != 1 || $("#add_modal")[0].style.top != "10%")
+                    setTimeout(waitForAddModal, 100);
+                else
+                    Socialite.Tour.nextStep();
+            }
+
+            $("#create_event_tab").on("click.tab", function() {
+                Socialite.Tour.nextStep();
+            });
+
             $("#add_button").off('click.open');
             $("#add_button").on('click.open', function() {
                 $('#add_modal').openModal();
                 $('ul.tabs').tabs();
                 if($("#create_location_tab").hasClass('active'))
                     Socialite.UI.refreshCreateMap();
-
+    
                 $("#create_submit_button").off('click.submit');
                 $("#create_submit_button").on('click.submit', function() {
+                    Socialite.Tour.nextStep();
                     var visibleType = undefined;
                     if($("#create_person_tab").hasClass("active")) {
                         visibleType = "person";
@@ -201,7 +213,9 @@ Socialite.Tour['steps'] = [
                     var formId = "#create_" + visibleType + "_form";
                     $(formId).submit();
                 });
+                setTimeout(waitForAddModal, 100);
             });
+
             Socialite.Tour.nextStep();
         }
     },
@@ -215,9 +229,12 @@ Socialite.Tour['steps'] = [
     {
         title: "Event Tab",
         content: "Click the event tab to create an event.",
-        target: "#add_modal > .modal-content",
-        placement: "top",
+        target: "#create_event_tab",
+        placement: "bottom",
+        showButtons: false,
         onNext: function() {
+            $("#create_event_tab").off("click.tab");
+            
             $("#add_button").off('click.open');
             $("#add_button").on('click.open', function() {
                 $('#add_modal').openModal();
