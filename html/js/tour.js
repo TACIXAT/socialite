@@ -107,6 +107,12 @@ Socialite.Tour['nextStep'] = function() {
     else
         $("#tour_content").css('fontSize', '');
 
+    if(step['titleSize'] !== undefined)
+        $("#tour_title").css('fontSize', step['titleSize']);
+    else
+        $("#tour_title").css('fontSize', '');
+
+
     if(step['showButtons'] !== undefined && !step['showButtons'])
         $("#tour_action").hide();
     else
@@ -212,8 +218,9 @@ Socialite.Tour['steps'] = [
         placement: "center",
         hidePrev: true,
         multiLine: true,
-        height: "70%",
+        height: "60%",
         width: "55%",
+        titleSize: "40px",
         fontSize: "18px",
         target: "body",
     },
