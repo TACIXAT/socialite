@@ -216,19 +216,6 @@ Socialite.Tour['steps'] = [
         }
     },
     {
-        title: "Enjoy!",
-        content: "A few more quick things:<br/><br/>&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;Double clicking a listed node will search for its neighbors.<br/><br/>&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;In addition to clicking Connect you can also drag a node to the Connections button.<br/><br/>&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;Dragging a node to the Search button will allow you to search for neighbors of that node.<br/><br/>Thanks for taking the time to learn about Socialite. Don't hesitate to contact us with any questions!",
-        placement: "center",
-        hidePrev: true,
-        multiLine: true,
-        height: "60%",
-        width: "55%",
-        titleSize: "40px",
-        fontSize: "18px",
-        target: "body",
-
-    },
-    {
         title: "Add Node",
         content: "Let's add a new node.",
         target: "#add_button",
@@ -497,5 +484,17 @@ Socialite.Tour['steps'] = [
     {
         hidden: true
     },
-    
+    {
+        title: "Thanks!",
+        content: "A few quick tips:<br/><br/>&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Double clicking a listed node will search for its neighbors.<br/><br/>&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;In addition to clicking Connect you can also drag a node to the Connections button.<br/><br/>&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Dragging a node to the Search button will allow you to search for neighbors of that node.<br/><br/>Thanks for taking the time to learn about Socialite. Don't hesitate to contact us with any questions!",
+        placement: "center",
+        hidePrev: true,
+        multiLine: true,
+        height: "60%",
+        width: "55%",
+        titleSize: "40px",
+        fontSize: "18px",
+        target: "body",
+
+    },    
 ];
