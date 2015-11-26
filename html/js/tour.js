@@ -270,7 +270,7 @@ Socialite.Tour['steps'] = [
     },
     {
         title: "Event Tab",
-        content: "Click the event tab to create an event.",
+        content: "Click the event tab to create an event. Events help you keep track of when you interacted with someone.",
         target: "#create_event_tab",
         placement: "bottom",
         showButtons: false,
@@ -307,16 +307,34 @@ Socialite.Tour['steps'] = [
         }
     },
     {
-        title: "Events",
-        content: "Events give you a time based aspect. It helps track when you saw someone.",
-        placement: "center",
-        target: "body",
-    },
-    {
         title: "Create Node",
         content: "When you're done adding details, click create.",
         target: "#create_submit_button",
         placement: "top",
         showButtons: false,
+        onNext: function() {
+            $("#connect_button").off('click.open');
+            $("#connect_button").on('click.open', function() {
+                $('#connect_modal').openModal();
+                Socialite.Graph.Connect.resize();
+                Socialite.UI.checkConnectInterface();
+                Socialite.Tour.nextStep();
+            });
+        }
+    },
+    {
+        title: "Connect Nodes",
+        content: "Click connect on each node to add it to the connection interface. Then click here to open the interface.",
+        target: "#create_submit_button",
+        placement: "top",
+        showButtons: false,
+        onNext: function() {
+            $("#connect_button").off('click.open');
+            $("#connect_button").on('click.open', function() {
+                $('#connect_modal').openModal();
+                Socialite.Graph.Connect.resize();
+                Socialite.UI.checkConnectInterface();
+            });
+        }
     },
 ];

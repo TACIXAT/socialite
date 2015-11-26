@@ -236,6 +236,7 @@ if (!$logged_in) {
                 <div class="modal-content">
                     <div class="row">
                         <h4>Mangage Connections</h4>
+                        Double click a node to remove it from the connection interface. Or click CLEAR to remove all nodes.
                     </div>
                     <div id="connect_div" class="row">
                        

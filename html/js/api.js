@@ -9,7 +9,7 @@ $(document).ready(function() {
     $('ul.tabs').tabs();
     $(".button-collapse").sideNav();
     
-    $("#connect_button").click(function() {
+    $("#connect_button").on('click.open', function() {
         $('#connect_modal').openModal();
         Socialite.Graph.Connect.resize();
         Socialite.UI.checkConnectInterface();
