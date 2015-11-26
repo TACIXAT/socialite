@@ -62,7 +62,6 @@ Socialite.Tour['nextStep'] = function() {
     Socialite.Tour.nextFn = step['onNext'];
 
     if(idx == 0) {
-        $("#tour_next_btn").off('click.next');
         $("#tour_next_btn").on('click.next', function() {
             Socialite.Tour.nextStep();
         });
