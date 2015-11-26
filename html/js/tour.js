@@ -333,4 +333,16 @@ Socialite.Tour['steps'] = [
             });
         }
     },
+    {
+        title: "Connection Interface",
+        content: "You can connect people to events, and events to locations.",
+        placement: "center",
+        target: "body",
+    },
+    {
+        title: "Connection Interface",
+        content: "If any nodes are disconnected you will see the CONNECT button. If all nodes are connected you will see the DISCONNECT button.",
+        placement: "center",
+        target: "body",
+    },
 ];

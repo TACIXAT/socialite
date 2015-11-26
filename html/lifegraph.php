@@ -111,6 +111,19 @@ if (!$logged_in) {
                         <li class="no-padding">
                             <ul class="collapsible collapsible-accordion">
                                 <li>
+                                    <a class="collapsible-header menu_item">Help</a>
+                                    <div class="collapsible-body">
+                                        <ul>
+                                            <li><a onclick="Socialite.Tour.nextStep">Tutorial</a></li>
+                                            <li><a href="mailto:feedback@socialite.ooo">Email</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="no-padding">
+                            <ul class="collapsible collapsible-accordion">
+                                <li>
                                     <a class="collapsible-header menu_item">Legalities</a>
                                     <div class="collapsible-body">
                                         <ul>
