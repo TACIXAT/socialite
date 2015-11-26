@@ -92,6 +92,16 @@ Socialite.Tour['nextStep'] = function() {
         return;
     }
 
+    if(step['height'] !== undefined)
+        $("#tour_card").css('height', step['height']);
+    else
+        $("#tour_card").css('height', '300px');
+
+    if(step['width'] !== undefined)
+        $("#tour_card").css('width', step['width']);
+    else
+        $("#tour_card").css('width', '300px');
+
     if(step['showButtons'] !== undefined && !step['showButtons'])
         $("#tour_action").hide();
     else
@@ -126,7 +136,11 @@ Socialite.Tour['nextStep'] = function() {
     console.log("$('#tour_card').position({ my:'" + opposite[placement] + "', at:'" + offset + "', of: $('" + step['target'] + "')});");
     $("#tour_card").show();
     $("#tour_title").text(step['title']);
-    $("#tour_content").text(step['content']);
+    if(step['multiLine'] !== undefined && step['multiline'])
+        $("#tour_content").html(step['content']);
+    else
+        $("#tour_content").text(step['content']);
+
     $("#tour_card").position({ 
         my: opposite[placement], 
         at: offset, 
@@ -199,7 +213,6 @@ Socialite.Tour['steps'] = [
         content: "Let's start by adding you. Fill in your name.",
         target: "#name_person_createfield",
         placement: "left",
-        yOffset: "center",
         onNext: function() {
             $("#add_button").off('click.open');
             $("#add_button").on('click.open', function() {
@@ -240,7 +253,6 @@ Socialite.Tour['steps'] = [
         title: "New Node",
         content: "Newly created nodes appear in the lower lists. People in the first column, events in the second, and locations in the third.",
         target: "#list_person_div",
-        yOffset: "center",
         placement: "right",
         hidePrev: true,
     },
@@ -459,10 +471,13 @@ Socialite.Tour['steps'] = [
         hidden: true
     },
     {
-        title: "Good Luck",
-        content: "Thanks for taking the time to learn about Socialite. Don't hesitate to contact us with any questions.",
+        title: "Enjoy!",
+        content: "A few more quick things:<br><ul><li>Double clicking a listed node will search for its neighbors.</li><li>In addition to clicking Connect you can also drag a node to the connect button.</li><li>Draggin a node to the search button will allow you to search for neighbors of that node.</li></ul><br>Thanks for taking the time to learn about Socialite. Don't hesitate to contact us with any questions.",
         placement: "center",
         hidePrev: true,
+        multiLine: true,
+        height: "70%",
+        width: "55%",
         target: "body",
     },
 ];
