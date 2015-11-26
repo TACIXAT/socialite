@@ -41,7 +41,6 @@ Socialite.Tour['nextStep'] = function() {
     if(Socialite.Tour.nextFn != undefined)
         Socialite.Tour.nextFn();
 
-
     var idx = Socialite.Tour.currentStep;
     if(idx >= Socialite.Tour.steps.length) {
         Socialite.Tour.done();
@@ -61,11 +60,10 @@ Socialite.Tour['nextStep'] = function() {
 
     Socialite.Tour.nextFn = step['onNext'];
 
-    if(idx == 0) {
-        $("#tour_next_btn").on('click.next', function() {
-            Socialite.Tour.nextStep();
-        });
-    }
+    $("#tour_next_btn").off('click.next');
+    $("#tour_next_btn").on('click.next', function() {
+        Socialite.Tour.nextStep();
+    });
 
     var opposite = {
         "left": "right",
