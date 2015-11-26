@@ -7,6 +7,18 @@ Socialite.Tour['nextStep'] = function() {
     var idx = Socialite.Tour.currentStep;
     var step = Socialite.Tour.steps[idx];
 
+    if(step['showButtons'] !=== undefined && !step['showButtons'])
+        $("#tour_action").hide();
+    else
+        $("#tour_action").show();
+
+    if(step['onNext'] !== undefined)
+        $("#tour_next_btn").click(step['onNext']);
+    else
+        $("#tour_next_btn").click(function() {
+            Socialite.Tour.nextStep();
+        });
+
     var opposite = {
         "left": "right",
         "right": "left",
@@ -82,7 +94,7 @@ Socialite.Tour['steps'] = [
         content: "Let's add a new node.",
         target: "#add_button",
         placement: "right",
-        showNextButton: false,
+        showButtons: false,
         onShow: function() {
             $("#add_button").click(function() {
                 $('#add_modal').openModal();
@@ -130,7 +142,7 @@ Socialite.Tour['steps'] = [
         content: "You can fill in the rest later.",
         target: "#create_submit_button",
         placement: "top",
-        showNextButton: false,
+        showButtons: false,
     },
     {
         title: "New Node",
