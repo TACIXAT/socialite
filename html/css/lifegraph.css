@@ -155,6 +155,21 @@ body {
     overflow: visible;
 }
 
+#tour_next_btn {
+    float: right;
+    margin-right: 0px;
+}
+
+#tour_prev_btn {
+    float: right;
+    margin-right: 0px;
+}
+
+#tour_skip_btn {
+    float: left;
+    margin-right: 0px;
+}
+
 .arrow-top {
     width: 0; 
     height: 0; 

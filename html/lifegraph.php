@@ -254,9 +254,9 @@ if (!$logged_in) {
                     <div id="tour_content" class="white-text">Words words words!</div>
                 </div>
                 <div id="tour_action" class="card-action">
-                    <a id="tour_skip_btn" class="waves-effect waves-green btn-flat" style="float: left;">Skip</a>
-                    <a id="tour_next_btn" class="waves-effect waves-green btn-flat" style="float: right;">Next</a>
-                    <a id="tour_prev_btn" class="waves-effect waves-green btn-flat" style="float: right;">Prev</a>
+                    <a id="tour_skip_btn" class="waves-effect waves-green btn-flat">Skip</a>
+                    <a id="tour_next_btn" class="waves-effect waves-green btn-flat">Next</a>
+                    <a id="tour_prev_btn" class="waves-effect waves-green btn-flat">Prev</a>
                 </div>
                 <div class="arrow-top arrow"></div>
                 <div class="arrow-bottom arrow"></div>
