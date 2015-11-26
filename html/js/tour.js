@@ -74,15 +74,15 @@ Socialite.Tour['steps'] = [
                     Socialite.Tour.nextStep();
             }
 
-            $("#add_button").off('click');
-            $("#add_button").click(function() {
+            $("#add_button").off('click', 'open');
+            $("#add_button").on('click', 'open', function() {
                 $('#add_modal').openModal();
                 $('ul.tabs').tabs();
                 if($("#create_location_tab").hasClass('active'))
                     Socialite.UI.refreshCreateMap();
     
-                $("#create_submit_button").off('click');
-                $("#create_submit_button").click(function() {
+                $("#create_submit_button").off('click', 'submit');
+                $("#create_submit_button").on('click', 'submit', function() {
                     Socialite.Tour.nextStep();
                     var visibleType = undefined;
                     if($("#create_person_tab").hasClass("active")) {
@@ -121,15 +121,15 @@ Socialite.Tour['steps'] = [
         placement: "left",
         yOffset: "center",
         onNext: function() {
-            $("#add_button").off('click');
-            $("#add_button").click(function() {
+            $("#add_button").off('click', 'open');
+            $("#add_button").on('click', 'open', function() {
                 $('#add_modal').openModal();
                 $('ul.tabs').tabs();
                 if($("#create_location_tab").hasClass('active'))
                     Socialite.UI.refreshCreateMap();
 
-                $("#create_submit_button").off('click');
-                $("#create_submit_button").click(function() {
+                $("#create_submit_button").off('click', 'submit');
+                $("#create_submit_button").on('click', 'submit', function() {
                     var visibleType = undefined;
                     if($("#create_person_tab").hasClass("active")) {
                         visibleType = "person";

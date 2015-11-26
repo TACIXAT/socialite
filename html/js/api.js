@@ -16,13 +16,14 @@ $(document).ready(function() {
     });
 
     // if this is changed update tour.js
-    $("#add_button").click(function() {
+    // use a selector (open) so we can remove this specific fn
+    $("#add_button").on('click', 'open', function() {
         $('#add_modal').openModal();
         $('ul.tabs').tabs();
         if($("#create_location_tab").hasClass('active'))
             Socialite.UI.refreshCreateMap();
 
-        $("#create_submit_button").click(function() {
+        $("#create_submit_button").on('click', 'submit', function() {
             var visibleType = undefined;
             if($("#create_person_tab").hasClass("active")) {
                 visibleType = "person";
