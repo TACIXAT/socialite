@@ -97,6 +97,11 @@ Socialite.Tour['nextStep'] = function() {
     else
         $("#tour_action").show();
 
+    if(step['hidePrev'] !== undefined && step['hidePrev'])
+        $("#tour_prev_btn").hide();
+    else
+        $("#tour_prev_btn").show();
+
     var opposite = {
         "left": "right",
         "right": "left",
@@ -236,6 +241,7 @@ Socialite.Tour['steps'] = [
         target: "#list_person_div",
         yOffset: "center",
         placement: "right",
+        hidePrev: true,
     },
     {
         title: "Details",
@@ -424,6 +430,7 @@ Socialite.Tour['steps'] = [
         content: "You can connect people to events, and events to locations. You can create many connections at once through this interface.",
         placement: "center",
         target: "body",
+        hidePrev: true,
     },
     {
         title: "Connection Interface",
@@ -454,6 +461,7 @@ Socialite.Tour['steps'] = [
         title: "Good Luck",
         content: "Thanks for taking the time to learn about Socialite. Don't hesitate to contact us with any questions.",
         placement: "center",
+        hidePrev: true,
         target: "body",
     },
 ];
