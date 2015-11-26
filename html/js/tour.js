@@ -136,7 +136,7 @@ Socialite.Tour['nextStep'] = function() {
     console.log("$('#tour_card').position({ my:'" + opposite[placement] + "', at:'" + offset + "', of: $('" + step['target'] + "')});");
     $("#tour_card").show();
     $("#tour_title").text(step['title']);
-    if(step['multiLine'] !== undefined && step['multiline'])
+    if(step['multiLine'] !== undefined && step['multiLine'])
         $("#tour_content").html(step['content']);
     else
         $("#tour_content").text(step['content']);
@@ -200,6 +200,16 @@ Socialite.Tour['steps'] = [
                 setTimeout(waitForAddModal, 100);
             });
         }
+    },
+    {
+        title: "Enjoy!",
+        content: "A few more quick things:<br><ul><li>Double clicking a listed node will search for its neighbors.</li><li>In addition to clicking Connect you can also drag a node to the connect button.</li><li>Draggin a node to the search button will allow you to search for neighbors of that node.</li></ul><br>Thanks for taking the time to learn about Socialite. Don't hesitate to contact us with any questions.",
+        placement: "center",
+        hidePrev: true,
+        multiLine: true,
+        height: "70%",
+        width: "55%",
+        target: "body",
     },
     {
         title: "Add Node",
@@ -470,14 +480,5 @@ Socialite.Tour['steps'] = [
     {
         hidden: true
     },
-    {
-        title: "Enjoy!",
-        content: "A few more quick things:<br><ul><li>Double clicking a listed node will search for its neighbors.</li><li>In addition to clicking Connect you can also drag a node to the connect button.</li><li>Draggin a node to the search button will allow you to search for neighbors of that node.</li></ul><br>Thanks for taking the time to learn about Socialite. Don't hesitate to contact us with any questions.",
-        placement: "center",
-        hidePrev: true,
-        multiLine: true,
-        height: "70%",
-        width: "55%",
-        target: "body",
-    },
+    
 ];
