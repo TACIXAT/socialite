@@ -319,10 +319,69 @@ Socialite.Tour['steps'] = [
         target: "#create_submit_button",
         placement: "top",
         showButtons: false,
+        onNext: function() {
+            $("#person_list > li > a:eq(1)").off('click.connect');
+            $("#person_list > li > a:eq(1)").on('click.connect', function(ev) {
+                ev.cancelBubble = true;
+                if(ev.stopPropagation) 
+                    ev.stopPropagation();
+                var vertex = $(this).parent().data('vertex');
+                Socialite.Graph.Connect.addNode(vertex);
+                $("#connect_button").effect("shake", {'distance': 5, 'times': 2, 'direction': 'right'});
+                Socialite.Tour.nextStep();
+            });
+        }
     },
     {
         title: "Connect Nodes",
-        content: "Click connect on each node to add it to the connection interface. Then click here to open the interface.",
+        content: "Click Connect on each node to add it to the connection interface.",
+        target: "#person_list > li > a:eq(1)",
+        placement: "bottom",
+        showButtons: false,
+        onNext: function() {
+            $("#person_list > li > a:eq(1)").off('click.connect');
+            $("#person_list > li > a:eq(1)").on('click.connect', function(ev) {
+                ev.cancelBubble = true;
+                if(ev.stopPropagation) 
+                    ev.stopPropagation();
+                var vertex = $(this).parent().data('vertex');
+                Socialite.Graph.Connect.addNode(vertex);
+                $("#connect_button").effect("shake", {'distance': 5, 'times': 2, 'direction': 'right'});
+            });
+
+            $("#event_list > li > a:eq(1)").off('click.connect');
+            $("#event_list > li > a:eq(1)").on('click.connect', function(ev) {
+                ev.cancelBubble = true;
+                if(ev.stopPropagation) 
+                    ev.stopPropagation();
+                var vertex = $(this).parent().data('vertex');
+                Socialite.Graph.Connect.addNode(vertex);
+                $("#connect_button").effect("shake", {'distance': 5, 'times': 2, 'direction': 'right'});
+                Socialite.Tour.nextStep();
+            });
+        }
+    },
+    {
+        title: "Connect Nodes",
+        content: "Click Connect on each node to add it to the connection interface.",
+        target: "#event_list > li > a:eq(1)",
+        placement: "bottom",
+        showButtons: false,
+        onNext: function() {
+            $("#event_list > li > a:eq(1)").off('click.connect');
+            $("#event_list > li > a:eq(1)").on('click.connect', function(ev) {
+                ev.cancelBubble = true;
+                if(ev.stopPropagation) 
+                    ev.stopPropagation();
+                var vertex = $(this).parent().data('vertex');
+                Socialite.Graph.Connect.addNode(vertex);
+                $("#connect_button").effect("shake", {'distance': 5, 'times': 2, 'direction': 'right'});
+            });
+        }
+    },
+    {
+        title: "Connect Nodes",
+        content: "Then click here to open the interface.",
         target: "#connect_button",
         placement: "right",
         showButtons: false,
