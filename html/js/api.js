@@ -276,7 +276,7 @@ Socialite.API['searchSuccess'] = function(data, status, xhr) {
     var vertices = $.parseJSON(data);
     if(vertices.length == 1 && vertices[0]['_id'] == -1) {
         Materialize.toast(vertices[0]['properties']['error'], 3000);;
-    } else {
+    } else if(vertices.length > 0) {
         Socialite.UI.resetForm(vertices[0]['properties']['type'], 'search'); 
         Socialite.UI.listVertices(vertices);
     }
