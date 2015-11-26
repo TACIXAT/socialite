@@ -119,7 +119,6 @@ Socialite.Tour['steps'] = [
         content: "This is where you add new nodes.",
         target: "#add_modal > .modal-content",
         placement: "left",
-        yOffset: "center",
         onNext: function() {
             $("#add_button").off('click.open');
             $("#add_button").on('click.open', function() {
@@ -159,22 +158,93 @@ Socialite.Tour['steps'] = [
     },
     {
         title: "Create Node",
-        content: "You can fill in the rest later.",
+        content: "When you're done adding details, click create.",
         target: "#create_submit_button",
         placement: "top",
         showButtons: false,
     },
     {
         title: "New Node",
-        content: "Newly created nodes appear in these lists.",
+        content: "Newly created nodes appear in the lower lists. People in the first column, events in the second, and locations in the third.",
         target: "#list_person_div",
         yOffset: "center",
         placement: "right",
     },
     {
         title: "Details",
-        content: "Clicking the node will show its details up here.",
+        content: "Clicking the node will show its details up here. If you edit the details you commit them by clicking the update button. Or you can permenantly delete a node by clicking the delete button.",
         target: "#display_person_div",
         placement: "right",
+        onNext: function() {
+            $("#add_button").off('click.open');
+            $("#add_button").on('click.open', function() {
+                $('#add_modal').openModal();
+                $('ul.tabs').tabs();
+                if($("#create_location_tab").hasClass('active'))
+                    Socialite.UI.refreshCreateMap();
+
+                $("#create_submit_button").off('click.submit');
+                $("#create_submit_button").on('click.submit', function() {
+                    var visibleType = undefined;
+                    if($("#create_person_tab").hasClass("active")) {
+                        visibleType = "person";
+                    } else if($("#create_event_tab").hasClass("active")) {
+                        visibleType = "event";
+                    } else if($("#create_location_tab").hasClass("active")) {
+                        visibleType = "location";
+                    } 
+
+                    if(visibleType == undefined) {
+                        return;
+                    }
+
+                    var formId = "#create_" + visibleType + "_form";
+                    $(formId).submit();
+                });
+            });
+            Socialite.Tour.nextStep();
+        }
+    },
+    {
+        title: "Create an Event",
+        content: "Go ahead and create an event so we can learn about connections.",
+        target: "#add_button",
+        placement: "right",
+        showButtons: false,
+    },
+    {
+        title: "Event Tab",
+        content: "Click the event tab to create an event.",
+        target: "#add_modal > .modal-content",
+        placement: "top",
+        onNext: function() {
+            $("#add_button").off('click.open');
+            $("#add_button").on('click.open', function() {
+                $('#add_modal').openModal();
+                $('ul.tabs').tabs();
+                if($("#create_location_tab").hasClass('active'))
+                    Socialite.UI.refreshCreateMap();
+
+                $("#create_submit_button").off('click.submit');
+                $("#create_submit_button").on('click.submit', function() {
+                    var visibleType = undefined;
+                    if($("#create_person_tab").hasClass("active")) {
+                        visibleType = "person";
+                    } else if($("#create_event_tab").hasClass("active")) {
+                        visibleType = "event";
+                    } else if($("#create_location_tab").hasClass("active")) {
+                        visibleType = "location";
+                    } 
+
+                    if(visibleType == undefined) {
+                        return;
+                    }
+
+                    var formId = "#create_" + visibleType + "_form";
+                    $(formId).submit();
+                });
+            });
+            Socialite.Tour.nextStep();
+        }
     },
 ];
