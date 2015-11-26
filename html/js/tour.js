@@ -275,10 +275,10 @@ Socialite.Tour['steps'] = [
 
             $("#connect_button").off('click.open');
             $("#connect_button").on('click.open', function() {
+                Socialite.Tour.nextStep();
                 $('#connect_modal').openModal();
                 Socialite.Graph.Connect.resize();
                 Socialite.UI.checkConnectInterface();
-                Socialite.Tour.nextStep();
             });
 
             $("#add_button").off('click.open');
