@@ -57,6 +57,8 @@ Socialite.Tour['init'] = function() {
 
 Socialite.Tour['prevStep'] = function() {
     Socialite.Tour.currentStep -= 2;
+    if(Socialite.Tour.currentStep < 0)
+        Socialite.Tour.currentStep = 0;
     Socialite.Tour.nextStep();
 }
 
