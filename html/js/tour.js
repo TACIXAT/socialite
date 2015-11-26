@@ -72,8 +72,8 @@ Socialite.Tour['steps'] = [
                     setTimeout(waitForAddModal, 100);
                 else
                     Socialite.Tour.nextStep();
-
             }
+
             $("#add_button").off('click');
             $("#add_button").click(function() {
                 $('#add_modal').openModal();
@@ -83,6 +83,7 @@ Socialite.Tour['steps'] = [
     
                 $("#create_submit_button").off('click');
                 $("#create_submit_button").click(function() {
+                    Socialite.Tour.nextStep();
                     var visibleType = undefined;
                     if($("#create_person_tab").hasClass("active")) {
                         visibleType = "person";
@@ -98,7 +99,6 @@ Socialite.Tour['steps'] = [
 
                     var formId = "#create_" + visibleType + "_form";
                     $(formId).submit();
-                    Socialite.Tour.nextStep();
                 });
 
                 setTimeout(waitForAddModal, 100);
