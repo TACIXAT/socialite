@@ -220,6 +220,8 @@ Socialite.Tour['steps'] = [
             }
 
             $("#create_event_tab").on("click.tab", function() {
+                $("#name_event_createfield").val("Learned how to use Socialite!");
+                $("#name_event_createfield").siblings().addClass('active');
                 Socialite.Tour.nextStep();
             });
 
@@ -269,9 +271,6 @@ Socialite.Tour['steps'] = [
         placement: "bottom",
         showButtons: false,
         onNext: function() {
-            $("#name_event_createfield").val("Learned how to use Socialite!");
-            $("#name_event_createfield").siblings().addClass('active');
-
             $("#create_event_tab").off("click.tab");
 
             $("#add_button").off('click.open');
