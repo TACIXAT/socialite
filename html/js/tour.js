@@ -3,11 +3,43 @@ Socialite.Tour = {};
 Socialite.Tour['currentStep'] = 0;
 Socialite.Tour['arrowSize'] = "20px";
 
+Socialite.Tour['done'] = function() {
+    $("#tour_card").hide();
+    Socialite.Tour.currentStep = 0;
+
+    $("#create_event_tab").off("click.tab");
+    $("#add_button").off('click.open');
+    $("#add_button").on('click.open', function() {
+        $('#add_modal').openModal();
+        $('ul.tabs').tabs();
+        if($("#create_location_tab").hasClass('active'))
+            Socialite.UI.refreshCreateMap();
+
+        $("#create_submit_button").off('click.submit');
+        $("#create_submit_button").on('click.submit', function() {
+            var visibleType = undefined;
+            if($("#create_person_tab").hasClass("active")) {
+                visibleType = "person";
+            } else if($("#create_event_tab").hasClass("active")) {
+                visibleType = "event";
+            } else if($("#create_location_tab").hasClass("active")) {
+                visibleType = "location";
+            } 
+
+            if(visibleType == undefined) {
+                return;
+            }
+
+            var formId = "#create_" + visibleType + "_form";
+            $(formId).submit();
+        });
+    });
+}
+
 Socialite.Tour['nextStep'] = function() {
     var idx = Socialite.Tour.currentStep;
     if(idx >= Socialite.Tour.steps.length) {
-        $("#tour_card").hide();
-        Socialite.Tour.currentStep = 0;
+        Socialite.Tour.done();
         return;
     } else if(idx+1 == Socialite.Tour.steps.length) {
         $("#tour_next_btn").text("Done");
@@ -273,5 +305,18 @@ Socialite.Tour['steps'] = [
             });
             Socialite.Tour.nextStep();
         }
+    },
+    {
+        title: "Events",
+        content: "Events give you a time based aspect. It helps track when you saw someone.",
+        placement: "center",
+        target: "body",
+    },
+    {
+        title: "Create Node",
+        content: "When you're done adding details, click create.",
+        target: "#create_submit_button",
+        placement: "top",
+        showButtons: false,
     },
 ];
