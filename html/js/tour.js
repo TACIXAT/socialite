@@ -5,6 +5,16 @@ Socialite.Tour['arrowSize'] = "20px";
 
 Socialite.Tour['nextStep'] = function() {
     var idx = Socialite.Tour.currentStep;
+    if(idx >= Socialite.Tour.steps.length) {
+        $("#tour_card").hide();
+        Socialite.Tour.currentStep = 0;
+        return;
+    } else if(idx+1 == Socialite.Tour.steps.length) {
+        $("#tour_next_btn").text("Done");
+    } else {
+        $("#tour_next_btn").text("Next");
+    }
+
     var step = Socialite.Tour.steps[idx];
 
     if(step['showButtons'] !== undefined && !step['showButtons'])
@@ -234,7 +244,7 @@ Socialite.Tour['steps'] = [
         showButtons: false,
         onNext: function() {
             $("#create_event_tab").off("click.tab");
-            
+
             $("#add_button").off('click.open');
             $("#add_button").on('click.open', function() {
                 $('#add_modal').openModal();
