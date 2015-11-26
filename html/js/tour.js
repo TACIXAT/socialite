@@ -147,6 +147,7 @@ Socialite.Tour['steps'] = [
         content: "This guide will walk you through Socialite's functionality. This tour takes about 2 minutes to complete.",
         placement: "center",
         target: "body",
+        hidePrev: true,
         onNext: function() {
             var waitForAddModal = function() {
                 if($("#add_modal").css("opacity") != 1 || $("#add_modal")[0].style.top != "10%")
