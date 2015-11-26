@@ -12,6 +12,7 @@ Socialite.Tour['nextStep'] = function() {
     else
         $("#tour_action").show();
 
+    $("#tour_next_btn").off('click');
     if(step['onNext'] !== undefined)
         $("#tour_next_btn").click(step['onNext']);
     else
@@ -61,12 +62,14 @@ Socialite.Tour['steps'] = [
         placement: "center",
         target: "body",
         onNext: function() {
+            $("#add_button").off('click');
             $("#add_button").click(function() {
                 $('#add_modal').openModal();
                 $('ul.tabs').tabs();
                 if($("#create_location_tab").hasClass('active'))
                     Socialite.UI.refreshCreateMap();
-
+    
+                $("#create_submit_button").off('click');
                 $("#create_submit_button").click(function() {
                     var visibleType = undefined;
                     if($("#create_person_tab").hasClass("active")) {
@@ -106,12 +109,14 @@ Socialite.Tour['steps'] = [
         placement: "left",
         yOffset: "center",
         onNext: function() {
+            $("#add_button").off('click');
             $("#add_button").click(function() {
                 $('#add_modal').openModal();
                 $('ul.tabs').tabs();
                 if($("#create_location_tab").hasClass('active'))
                     Socialite.UI.refreshCreateMap();
 
+                $("#create_submit_button").off('click');
                 $("#create_submit_button").click(function() {
                     var visibleType = undefined;
                     if($("#create_person_tab").hasClass("active")) {
