@@ -42,9 +42,10 @@ $(document).ready(function() {
         });
     });
 
+    $("#tutorial_btn").off('click.tour');
     $("#tutorial_btn").on('click.tour', function() {
         Socialite.Tour.nextStep();
-        $("#help_li > ul > li > div").slideToggle(300, function() {
+        $("#help_li > ul > li > div").slideToggle(200, function() {
             $("#help_li > ul > li").removeClass("active");
             $("#help_li > ul > li > a").removeClass("active");
         });
