@@ -86,10 +86,10 @@ Socialite.Tour['steps'] = [
                     Socialite.Tour.nextStep();
                 });
 
-                Socialite.Tour.nextStep();
+                setTimeout(Socialite.Tour.nextStep, 1000);
             });
 
-            Socialite.Tour.nextStep();
+            Socialite.Tour.nextStep();  
         }
     },
     {
