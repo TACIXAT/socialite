@@ -2,6 +2,7 @@ var Socialite = Socialite || {};
 Socialite.Tour = {};
 Socialite.Tour['currentStep'] = 0;
 Socialite.Tour['arrowSize'] = "20px";
+Socialite.Tour['nextFn'] = undefined;
 
 Socialite.Tour['done'] = function() {
     $("#tour_card").hide();
@@ -37,6 +38,10 @@ Socialite.Tour['done'] = function() {
 }
 
 Socialite.Tour['nextStep'] = function() {
+    if(Socialite.Tour.nextFn != undefined)
+        Socialite.Tour.nextFn();
+
+
     var idx = Socialite.Tour.currentStep;
     if(idx >= Socialite.Tour.steps.length) {
         Socialite.Tour.done();
@@ -54,13 +59,14 @@ Socialite.Tour['nextStep'] = function() {
     else
         $("#tour_action").show();
 
-    $("#tour_next_btn").off('click.next');
-    if(step['onNext'] !== undefined)
-        $("#tour_next_btn").on('click.next', step['onNext']);
-    else
+    Socialite.Tour.nextFn = step['onNext'];
+
+    if(idx == 0) {
+        $("#tour_next_btn").off('click.next');
         $("#tour_next_btn").on('click.next', function() {
             Socialite.Tour.nextStep();
         });
+    }
 
     var opposite = {
         "left": "right",
