@@ -208,7 +208,7 @@ Socialite.Tour['steps'] = [
     },
     {
         title: "Details",
-        content: "Clicking the node will show its details up here. If you edit the details you commit them by clicking the update button. Or you can permenantly delete a node by clicking the delete button.",
+        content: "Clicking the node will show its details up here. If you edit the details you commit them by clicking the UPDATE button. Or you can permenantly delete a node by clicking the DELETE button.",
         target: "#display_person_div",
         placement: "right",
         onNext: function() {
@@ -322,7 +322,7 @@ Socialite.Tour['steps'] = [
         title: "Connect Nodes",
         content: "Click connect on each node to add it to the connection interface. Then click here to open the interface.",
         target: "#connect_button",
-        placement: "left",
+        placement: "right",
         showButtons: false,
         onNext: function() {
             $("#connect_button").off('click.open');
