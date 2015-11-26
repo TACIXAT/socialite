@@ -15,6 +15,7 @@ $(document).ready(function() {
         Socialite.UI.checkConnectInterface();
     });
 
+    // if this is changed update tour.js
     $("#add_button").click(function() {
         $('#add_modal').openModal();
         $('ul.tabs').tabs();

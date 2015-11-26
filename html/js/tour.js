@@ -83,10 +83,13 @@ Socialite.Tour['steps'] = [
 
                     var formId = "#create_" + visibleType + "_form";
                     $(formId).submit();
+                    Socialite.Tour.nextStep();
                 });
 
                 Socialite.Tour.nextStep();
             });
+
+            Socialite.Tour.nextStep();
         }
     },
     {
@@ -95,7 +98,14 @@ Socialite.Tour['steps'] = [
         target: "#add_button",
         placement: "right",
         showButtons: false,
-        onShow: function() {
+    },
+    {
+        title: "Create Node",
+        content: "This is where you add new nodes.",
+        target: "#add_modal > .modal-content",
+        placement: "left",
+        yOffset: "center",
+        onNext: function() {
             $("#add_button").click(function() {
                 $('#add_modal').openModal();
                 $('ul.tabs').tabs();
@@ -118,17 +128,10 @@ Socialite.Tour['steps'] = [
 
                     var formId = "#create_" + visibleType + "_form";
                     $(formId).submit();
-                    Socialite.Tour.nextStep();
                 });
             });
+            Socialite.Tour.nextStep();
         }
-    },
-    {
-        title: "Create Node",
-        content: "This is where you add new nodes.",
-        target: "#add_modal > .modal-content",
-        placement: "left",
-        yOffset: "center",
     },
     {
         title: "Your Name",
