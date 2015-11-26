@@ -157,10 +157,11 @@ Socialite.Tour['steps'] = [
         showButtons: false,
     },
     {
-        title: "Create Node",
-        content: "This is where you add new nodes.",
-        target: "#add_modal > .modal-content",
+        title: "Your Name",
+        content: "Let's start by adding you. Fill in your name.",
+        target: "#name_person_createfield",
         placement: "left",
+        yOffset: "center",
         onNext: function() {
             $("#add_button").off('click.open');
             $("#add_button").on('click.open', function() {
@@ -190,13 +191,6 @@ Socialite.Tour['steps'] = [
             });
             Socialite.Tour.nextStep();
         }
-    },
-    {
-        title: "Your Name",
-        content: "Let's start by adding you. Fill in your name.",
-        target: "#name_person_createfield",
-        placement: "left",
-        yOffset: "center",
     },
     {
         title: "Create Node",
@@ -329,7 +323,7 @@ Socialite.Tour['steps'] = [
         title: "Connect Nodes",
         content: "Click connect on each node to add it to the connection interface. Then click here to open the interface.",
         target: "#connect_button",
-        placement: "top",
+        placement: "left",
         showButtons: false,
         onNext: function() {
             $("#connect_button").off('click.open');
