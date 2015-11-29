@@ -22,9 +22,10 @@ function get_invite_list($mysqli) {
         while($stmt->fetch()) {
             printf("%d %s %s\n", $user_id, $requested, $email);
         }
+        
+        $stmt->close();
     }
 
-    $stmt->close();
     return 0;
 }
 
