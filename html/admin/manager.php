@@ -15,10 +15,17 @@ if(!$logged_in || $_SESSION['user_id'] != 1 || !in_array($_SERVER['REMOTE_ADDR']
 
 echo "<html>\n";
 echo "    <head>\n";
+echo "        <script type='text/javascript' src='/js/lib/jquery-2.1.3.min.js'></script>\n";
+echo "        <script>\n";
+echo "            function invite() {\n";
+echo "                console.log('YUS');\n";
+echo "            }\n";
+echo "        </script>\n";
 echo "    </head>\n";
 echo "    <body>\n";
-echo "        <table>\n";
-echo "            <tbody>\n";
+echo "        <form>\n";
+echo "            <table>\n";
+echo "                <tbody>\n";
 
 function get_invite_list($mysqli) {
     $stmt = $mysqli->prepare("SELECT id, requested, email FROM waiting_list WHERE invited IS NULL");
@@ -28,7 +35,7 @@ function get_invite_list($mysqli) {
 
         $stmt->bind_result($user_id, $timestamp, $email);
         while($stmt->fetch()) {
-            echo "                <tr>\n";
+            echo "                <tr id='invitees'>\n";
             printf("                    <td><input type='checkbox' name='id' value='%d'/></td>\n", $user_id);
             printf("                    <td>%s</td>\n", $timestamp);
             printf("                    <td>%s</td>\n", $email);
@@ -44,8 +51,10 @@ function get_invite_list($mysqli) {
 
 get_invite_list($mysqli);
 
-echo "            </tbody>\n";
-echo "        </table>\n";
+echo "                </tbody>\n";
+echo "            </table>\n";
+echo "            <button onclick='invite'>INVITE</button>\n";
+echo "        </form>\n";
 echo "    </body>\n";
 echo "</html>\n";
 
