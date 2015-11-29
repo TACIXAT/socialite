@@ -18,7 +18,8 @@ echo "    <head>\n";
 echo "        <script type='text/javascript' src='/js/lib/jquery-2.1.3.min.js'></script>\n";
 echo "        <script>\n";
 echo "            function invite() {\n";
-echo "                console.log('YUS');\n";
+echo "                console.log('MO');\n";
+echo "                return false;\n";
 echo "            }\n";
 echo "        </script>\n";
 echo "    </head>\n";
@@ -53,7 +54,7 @@ get_invite_list($mysqli);
 
 echo "                </tbody>\n";
 echo "            </table>\n";
-echo "            <button onclick='invite'>INVITE</button>\n";
+echo "            <button onclick='return invite();'>INVITE</button>\n";
 echo "        </form>\n";
 echo "    </body>\n";
 echo "</html>\n";
