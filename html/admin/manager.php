@@ -13,7 +13,7 @@ if(!$logged_in || $_SESSION['user_id'] != 1 || !in_array($_SERVER['REMOTE_ADDR']
 } 
 
 function get_invite_list($mysqli) {
-    $stmt = $mysqli->prepare("SELECT id, requested, email FROM members WHERE invited IS NULL");
+    $stmt = $mysqli->prepare("SELECT id, requested, email FROM waiting_list WHERE invited IS NULL");
     if($stmt) {
         $stmt->execute();    
         $stmt->store_result();
@@ -22,7 +22,7 @@ function get_invite_list($mysqli) {
         while($stmt->fetch()) {
             printf("%d %s %s\n", $user_id, $requested, $email);
         }
-        
+
         $stmt->close();
     }
 
