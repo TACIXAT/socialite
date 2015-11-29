@@ -169,7 +169,7 @@ Socialite.API['getTypeProperties'] = function(type) {
     var propertiesSuccess = Socialite.API.propertiesSuccessInit(type);
     $.ajax({
         'type': 'POST',
-        'url': 'api/proxy.php',
+        'url': '/api/proxy.php',
         'data': $.param(data),
         'success': propertiesSuccess,
         'error': Socialite.API.genericError });
@@ -203,7 +203,7 @@ Socialite.API['createVertex'] = function(form) {
     
     $.ajax({
         'type': 'POST',
-        'url': 'api/proxy.php', 
+        'url': '/api/proxy.php', 
         'data': $.param(data),
         'success': Socialite.API.createSuccess,
         'error': Socialite.API.genericError });
@@ -238,7 +238,7 @@ Socialite.API['searchVertices'] = function(form) {
 
     $.ajax({
         'type': 'POST',
-        'url': 'api/proxy.php',
+        'url': '/api/proxy.php',
         'data': $.param(data),
         'success': Socialite.API.searchSuccess,
         'error': Socialite.API.genericError });
@@ -267,7 +267,7 @@ Socialite.API['searchConnectedTo'] = function(form) {
 
     $.ajax({
         'type': 'POST',
-        'url': 'api/proxy.php',
+        'url': '/api/proxy.php',
         'data': $.param(data),
         'success': Socialite.API.searchSuccess,
         'error': Socialite.API.genericError });
@@ -328,7 +328,7 @@ Socialite.API['updateVertex'] = function(form) {
 
     $.ajax({
         'type': 'POST',
-        'url': 'api/proxy.php',
+        'url': '/api/proxy.php',
         'data': $.param(data),
         'success': Socialite.API.updateSuccess,
         'error': Socialite.API.genericError });
@@ -362,7 +362,7 @@ Socialite.API['deleteVertex'] = function(form) {
 
     $.ajax({
         'type': 'POST',
-        'url': 'api/proxy.php',
+        'url': '/api/proxy.php',
         'data': $.param(data),
         'success': Socialite.API.deleteSuccess,
         'error': Socialite.API.genericError });
@@ -375,7 +375,7 @@ Socialite.API['getNeighbors'] = function(vertexId, direction, success) {
 
     $.ajax({
         'type': 'POST',
-        'url': 'api/proxy.php',
+        'url': '/api/proxy.php',
         'data': $.param(data),
         'success': success,
         'error': Socialite.API.genericError });
@@ -403,7 +403,7 @@ Socialite.API['createEdge'] = function(idA, idB) {
         mixpanel.track("Create edge");
     $.ajax({
         'type': 'POST',
-        'url': 'api/proxy.php',
+        'url': '/api/proxy.php',
         'data': $.param(data),
         'success': Socialite.API.createEdgeSuccess,
         'error': Socialite.API.genericError });
@@ -493,7 +493,7 @@ Socialite.API['deleteEdge'] = function(idA, idB) {
 
     $.ajax({
         'type': 'POST',
-        'url': 'api/proxy.php',
+        'url': '/api/proxy.php',
         'data': $.param(data),
         'success': Socialite.API.deleteEdgeSuccess,
         'error': Socialite.API.genericError });

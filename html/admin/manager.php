@@ -9,7 +9,7 @@ $logged_in = login_check($mysqli);
 $allow = array("108.3.175.118");
 
 if(!$logged_in || $_SESSION['user_id'] != 1 || !in_array($_SERVER['REMOTE_ADDR'], $allow)) {
-    die('{"msg":"Fuck off!"}');
+    die('{"msg":"This is not the right place for you!"}');
 } 
 
 
@@ -43,9 +43,28 @@ function get_invite_list($mysqli) {
 <?php
 echo "            seasurf = '" . $_SESSION['csrf_token'] . "';\n";
 ?>
+
+            function inviteSuccess(data, status, xhr) {
+                console.log(data);
+                var response = $.parseJSON(data);
+            }
+
+            function regError(xhr, status, error) {
+                console.log(xhr.responseText);
+                var error = $.parseJSON(xhr.responseText);
+            }
+
+
             function invite() {
-                var ids = $('input:checked').map(function() { return parseInt(this.value); });
+                var ids = $('input:checked').map(function() { return parseInt(this.value); }).get();
                 console.log(ids);
+                var data = {"ids": ids, "seasurf": seasurf};
+                $.ajax({
+                    'type': 'POST',
+                    'url': '/admin/invite.php',
+                    'data': $.param(data),
+                    'success': inviteSuccess,
+                    'error': inviteError });
                 return false;
             }
         </script>
