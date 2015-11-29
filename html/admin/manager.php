@@ -29,8 +29,8 @@ function get_invite_list($mysqli) {
         $stmt->bind_result($user_id, $timestamp, $email);
         while($stmt->fetch()) {
             echo "                <tr>\n";
-            printf("                    <td>%d</td>\n", $user_id);
-            printf("                    <td>%s</td>\n", $requested);
+            printf("                    <td><input type='checkbox' name='id' value='%d'/></td>\n", $user_id);
+            printf("                    <td>%s</td>\n", $timestamp);
             printf("                    <td>%s</td>\n", $email);
             echo "                </tr>\n";
 
