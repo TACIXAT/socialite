@@ -23,6 +23,9 @@ if (empty($_POST["ids"])) {
 }
 
 function invite($mysqli, $id) {
+    $successes = 0;
+    $failures = 0;
+
     $stmt = $mysqli->prepare("SELECT email FROM waiting_list WHERE invited IS NULL AND id = ?");
     if($stmt) {
         $stmt->bind_param('i', $id);
@@ -32,7 +35,12 @@ function invite($mysqli, $id) {
         $stmt->bind_result($email);
         $stmt->fetch();
         if($stmt->num_rows == 1) {
-            echo $email;
+            // create invite code
+            $invite = secure_random_string(32);
+            // send email
+            echo $email + '\n';
+            echo $invite + '\n';
+            // mark user as invited
         }
 
         $stmt->close();
