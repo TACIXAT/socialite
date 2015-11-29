@@ -23,10 +23,8 @@ if (empty($_POST["ids"])) {
 }
 
 function invite($mysqli, $id) {
-    $successes = 0;
-    $failures = 0;
-
-    $stmt = $mysqli->prepare("SELECT email FROM waiting_list WHERE invited IS NULL AND id = ?");
+    $query = "SELECT email FROM waiting_list WHERE invited IS NULL AND id = ?";
+    $stmt = $mysqli->prepare($query);
     if($stmt) {
         $stmt->bind_param('i', $id);
         $stmt->execute();    
@@ -35,22 +33,68 @@ function invite($mysqli, $id) {
         $stmt->bind_result($email);
         $stmt->fetch();
         if($stmt->num_rows == 1) {
-            // create invite code
-            $invite = secure_random_string(32);
+
+            // check exists
+            $exists = true;
+            while($exists) {
+                // create invite code
+                $invite = strtoupper(secure_random_string(32));
+
+                $query = "SELECT * from invites WHERE invite_code = ?";
+                $stmt = $mysqli->prepare($query);
+
+                if(!$stmt) {
+                    return false;
+                }
+        
+                $stmt->bind_param('s', $invite);
+                if(!$stmt->execute()){
+                    return false;
+                }
+                $stmt->store_result();
+
+                if($stmt->num_rows == 0) {
+                    $exists = false;
+                }
+            }
+
+            // insert invite code 
+            $query = "INSERT INTO invites (invite_code) VALUES (?)";            
+            $stmt = $mysqli->prepare($query);
+
+            if(!$stmt) {
+                return false;
+            }
+    
+            $stmt->bind_param('s', $invite);
+            if(!$stmt->execute()){
+                return false;
+            }
+
             // send email
             echo $email;
             echo $invite;
+
             // mark user as invited
+            
+        } else {
+            return false;
         }
 
         $stmt->close();
+    } else {
+        return false;
     }
 
-    return 0;
+    return true;
 }
 
 foreach($_POST["ids"] as $id) {
-    invite($mysqli, $id);
+    if(invite($mysqli, $id)) {
+        $successes += 1;
+    } else {
+        $failures += 1;
+    }
 }
 
 ?>
