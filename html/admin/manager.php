@@ -40,8 +40,12 @@ function get_invite_list($mysqli) {
     <head>
         <script type='text/javascript' src='/js/lib/jquery-2.1.3.min.js'></script>
         <script>
+<?php
+echo "            seasurf = '" . $_SESSION['csrf_token'] . "';\n";
+?>
             function invite() {
                 var ids = $('input:checked').map(function() { return parseInt(this.value); });
+                console.log(ids);
                 return false;
             }
         </script>
