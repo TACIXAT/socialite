@@ -22,6 +22,8 @@ if (empty($_POST["ids"])) {
     die('{"status":"error", "msg":"Missing ids."}');
 }
 
-echo $_POST["ids"];
+foreach($_POST["ids"] as $id) {
+    echo $id;
+}
 
 ?>
