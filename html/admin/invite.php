@@ -38,8 +38,8 @@ function invite($mysqli, $id) {
             // create invite code
             $invite = secure_random_string(32);
             // send email
-            echo $email + '\n';
-            echo $invite + '\n';
+            echo $email;
+            echo $invite;
             // mark user as invited
         }
 
