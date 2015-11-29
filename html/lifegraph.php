@@ -80,7 +80,7 @@ if (!$logged_in) {
     </head>
     <body class="red">
         <?php if (!$logged_in) : ?>
-            <p><span class="error">You are not authorized to access this page.</span> Please <a href="/secret.php">login</a>.</p>
+            <p><span class="error">You are not authorized to access this page.</span> Please <a href="/login.php">login</a>.</p>
         <?php else : ?>
             <header class="white">
                 <nav>
