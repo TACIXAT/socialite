@@ -20,7 +20,7 @@ function get_invite_list($mysqli) {
 
         $stmt->bind_result($user_id, $timestamp, $email);
         while($stmt->fetch()) {
-            printf("%d %s %s\n", $user_id, $requested, $email);
+            printf("%d %s %s<br>", $user_id, $requested, $email);
         }
 
         $stmt->close();
