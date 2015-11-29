@@ -22,8 +22,27 @@ if (empty($_POST["ids"])) {
     die('{"status":"error", "msg":"Missing ids."}');
 }
 
+function invite($mysqli, $id) {
+    $stmt = $mysqli->prepare("SELECT email FROM waiting_list WHERE invited IS NULL AND id = ?");
+    if($stmt) {
+        $stmt->bind_param('i', $id);
+        $stmt->execute();    
+        $stmt->store_result();
+        $stmt->fetch();
+
+        $stmt->bind_result($email);
+        if($stmt->num_rows == 1) {
+            echo $email;
+        }
+
+        $stmt->close();
+    }
+
+    return 0;
+}
+
 foreach($_POST["ids"] as $id) {
-    echo $id;
+    invite($mysqli, $id);
 }
 
 ?>
