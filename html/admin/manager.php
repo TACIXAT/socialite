@@ -12,7 +12,7 @@ if(!$logged_in || $_SESSION['user_id'] != 1 || !in_array($_SERVER['REMOTE_ADDR']
     die('{"msg":"Fuck off!"}');
 } 
 
-function get_invite_list($target, $email, $mysqli) {
+function get_invite_list($mysqli) {
     $stmt = $mysqli->prepare("SELECT id, requested, email FROM members WHERE invited IS NULL");
     if($stmt) {
         $stmt->execute();    
@@ -28,6 +28,6 @@ function get_invite_list($target, $email, $mysqli) {
     return 0;
 }
 
-get_invite_list();
+get_invite_list($mysqli);
 
 ?>
