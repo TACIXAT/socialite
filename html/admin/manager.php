@@ -28,11 +28,11 @@ function get_invite_list($mysqli) {
 
         $stmt->bind_result($user_id, $timestamp, $email);
         while($stmt->fetch()) {
-            echo "                <tr>\n"
+            echo "                <tr>\n";
             printf("                    <td>%d</td>\n", $user_id);
             printf("                    <td>%s</td>\n", $requested);
             printf("                    <td>%s</td>\n", $email);
-            echo "                </tr>\n"
+            echo "                </tr>\n";
 
         }
 
