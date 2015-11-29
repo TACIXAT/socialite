@@ -12,6 +12,14 @@ if(!$logged_in || $_SESSION['user_id'] != 1 || !in_array($_SERVER['REMOTE_ADDR']
     die('{"msg":"Fuck off!"}');
 } 
 
+
+echo "<html>\n";
+echo "    <head>\n";
+echo "    </head>\n";
+echo "    <body>\n";
+echo "        <table>\n";
+echo "            <tbody>\n";
+
 function get_invite_list($mysqli) {
     $stmt = $mysqli->prepare("SELECT id, requested, email FROM waiting_list WHERE invited IS NULL");
     if($stmt) {
@@ -20,7 +28,12 @@ function get_invite_list($mysqli) {
 
         $stmt->bind_result($user_id, $timestamp, $email);
         while($stmt->fetch()) {
-            printf("%d %s %s<br>", $user_id, $requested, $email);
+            echo "                <tr>\n"
+            printf("                    <td>%d</td>\n", $user_id);
+            printf("                    <td>%s</td>\n", $requested);
+            printf("                    <td>%s</td>\n", $email);
+            echo "                </tr>\n"
+
         }
 
         $stmt->close();
@@ -30,5 +43,10 @@ function get_invite_list($mysqli) {
 }
 
 get_invite_list($mysqli);
+
+echo "            </tbody>\n";
+echo "        </table>\n";
+echo "    </body>\n";
+echo "</html>\n";
 
 ?>
