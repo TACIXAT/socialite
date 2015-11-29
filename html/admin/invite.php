@@ -28,9 +28,9 @@ function invite($mysqli, $id) {
         $stmt->bind_param('i', $id);
         $stmt->execute();    
         $stmt->store_result();
-        $stmt->fetch();
 
         $stmt->bind_result($email);
+        $stmt->fetch();
         if($stmt->num_rows == 1) {
             echo $email;
         }
