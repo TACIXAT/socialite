@@ -26,7 +26,7 @@ echo "    </head>\n";
 echo "    <body>\n";
 echo "        <form>\n";
 echo "            <table>\n";
-echo "                <tbody>\n";
+echo "                <tbody id='invitees'>\n";
 
 function get_invite_list($mysqli) {
     $stmt = $mysqli->prepare("SELECT id, requested, email FROM waiting_list WHERE invited IS NULL");
@@ -36,7 +36,7 @@ function get_invite_list($mysqli) {
 
         $stmt->bind_result($user_id, $timestamp, $email);
         while($stmt->fetch()) {
-            echo "                <tr id='invitees'>\n";
+            echo "                <tr>\n";
             printf("                    <td><input type='checkbox' name='id' value='%d'/></td>\n", $user_id);
             printf("                    <td>%s</td>\n", $timestamp);
             printf("                    <td>%s</td>\n", $email);
