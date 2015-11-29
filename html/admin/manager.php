@@ -13,21 +13,6 @@ if(!$logged_in || $_SESSION['user_id'] != 1 || !in_array($_SERVER['REMOTE_ADDR']
 } 
 
 
-echo "<html>\n";
-echo "    <head>\n";
-echo "        <script type='text/javascript' src='/js/lib/jquery-2.1.3.min.js'></script>\n";
-echo "        <script>\n";
-echo "            function invite() {\n";
-echo "                console.log('MO');\n";
-echo "                return false;\n";
-echo "            }\n";
-echo "        </script>\n";
-echo "    </head>\n";
-echo "    <body>\n";
-echo "        <form>\n";
-echo "            <table>\n";
-echo "                <tbody id='invitees'>\n";
-
 function get_invite_list($mysqli) {
     $stmt = $mysqli->prepare("SELECT id, requested, email FROM waiting_list WHERE invited IS NULL");
     if($stmt) {
@@ -49,14 +34,30 @@ function get_invite_list($mysqli) {
 
     return 0;
 }
-
-get_invite_list($mysqli);
-
-echo "                </tbody>\n";
-echo "            </table>\n";
-echo "            <button onclick='return invite();'>INVITE</button>\n";
-echo "        </form>\n";
-echo "    </body>\n";
-echo "</html>\n";
-
 ?>
+
+<html>
+    <head>
+        <script type='text/javascript' src='/js/lib/jquery-2.1.3.min.js'></script>
+        <script>
+            function invite() {
+                var ids = $('input:checked').map(function() { return parseInt(this.value); });
+                return false;
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <table>
+                <tbody id='invitees'>
+
+<?php
+get_invite_list($mysqli);
+?>
+
+                </tbody>
+            </table>
+            <button onclick='return invite();'>INVITE</button>
+        </form>
+    </body>
+</html>
