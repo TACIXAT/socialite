@@ -49,7 +49,7 @@ echo "            seasurf = '" . $_SESSION['csrf_token'] . "';\n";
                 var response = $.parseJSON(data);
             }
 
-            function regError(xhr, status, error) {
+            function inviteError(xhr, status, error) {
                 console.log(xhr.responseText);
                 var error = $.parseJSON(xhr.responseText);
             }
@@ -59,6 +59,7 @@ echo "            seasurf = '" . $_SESSION['csrf_token'] . "';\n";
                 var ids = $('input:checked').map(function() { return parseInt(this.value); }).get();
                 console.log(ids);
                 var data = {"ids": ids, "seasurf": seasurf};
+                console.log(data);
                 $.ajax({
                     'type': 'POST',
                     'url': '/admin/invite.php',
