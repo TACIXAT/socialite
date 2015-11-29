@@ -44,7 +44,15 @@
         <script type="text/JavaScript" src="/js/reset.js"></script> 
         <script type="text/JavaScript">
             $(document).ready(function(){
-                $('ul.tabs').tabs();
+<?php
+if(isset($_GET["invite"]) && ctype_alnum($_GET["invite"])) {
+    echo "                $('ul.tabs').tabs('select_tab', 'registrationDiv');\n";
+    printf("                $('#registration_invite').val('%s');\n", $_GET["invite"]);
+    echo "                $('#registration_invite').siblings().addClass('active');\n";
+} else {
+    echo "                $('ul.tabs').tabs();";
+}
+?>
             });
         </script>
         <style>
@@ -67,16 +75,6 @@
         </style>
     </head>
     <body class="red">
-        <?php
-            if (!empty($error_msg)) {
-                echo $error_msg;
-            }
-        ?>
-        <?php
-            if (isset($_GET['error'])) {
-                echo '<p class="error">Error Logging In!</p>';
-            }
-        ?> 
         <div class="container">
             <div id="row" class="row s12">
                 <div class="col l6 offset-l3 s12">
