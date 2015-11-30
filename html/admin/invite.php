@@ -2,6 +2,7 @@
 
 include_once '/var/www/php/include/db_connect.php';
 include_once '/var/www/php/include/functions.php';
+include_once '/var/www/php/include/composer/include.php';
  
 sec_session_start();
 $logged_in = login_check($mysqli);
@@ -111,7 +112,7 @@ function invite($mysqli, $id) {
 foreach($_POST["ids"] as $id) {
     $successes = 0;
     $failures = 0;
-    
+
     if(invite($mysqli, $id)) {
         $successes += 1;
     } else {
