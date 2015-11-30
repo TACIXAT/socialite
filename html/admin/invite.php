@@ -47,16 +47,19 @@ function invite($mysqli, $id) {
                 $stmt = $mysqli->prepare($query);
 
                 if(!$stmt) {
+                    error_log("__FILE__:__LINE__");
                     return false;
                 }
         
                 $stmt->bind_param('s', $invite);
                 if(!$stmt->execute()){
+                    error_log("__FILE__:__LINE__");
                     return false;
                 }
                 $stmt->store_result();
 
                 if($stmt->num_rows == 0) {
+                    error_log("__FILE__:__LINE__");
                     $exists = false;
                 }
             }
@@ -66,11 +69,13 @@ function invite($mysqli, $id) {
             $stmt = $mysqli->prepare($query);
 
             if(!$stmt) {
+                error_log("__FILE__:__LINE__");
                 return false;
             }
     
             $stmt->bind_param('s', $invite);
             if(!$stmt->execute()){
+                error_log("__FILE__:__LINE__");
                 return false;
             }
 
@@ -95,32 +100,48 @@ function invite($mysqli, $id) {
                     "campaign"=>"invites"
                 ));
             } catch (\Exception $exception) {
+                error_log("__FILE__:__LINE__");
                 return false;
             }
 
             // mark user as invited
+            $query = "UPDATE waiting_list SET invited = now() WHERE id = ?";
+            $stmt = $mysqli->prepare($query);
+            if(!$stmt) {
+                error_log("__FILE__:__LINE__");
+                return false;
+            }
 
+            $stmt->bind_param('i', $id);
+            if(!$stmt->execute()) {
+                error_log("__FILE__:__LINE__");
+                return false;
+            }
         } else {
+            error_log("__FILE__:__LINE__");
             return false;
         }
 
         $stmt->close();
     } else {
+        error_log("__FILE__:__LINE__");
         return false;
     }
 
     return true;
 }
 
-foreach($_POST["ids"] as $id) {
-    $successes = 0;
-    $failures = 0;
+$successes = 0;
+$failures = 0;
 
+foreach($_POST["ids"] as $id) {
     if(invite($mysqli, $id)) {
         $successes += 1;
     } else {
         $failures += 1;
     }
 }
+
+die('{"successes": ' + $successes + ', "failures": ' + $failures + '}');
 
 ?>
