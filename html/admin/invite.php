@@ -23,17 +23,16 @@ if (empty($_POST["ids"])) {
 }
 
 function invite($mysqli, $id) {
-    $query = "SELECT email FROM waiting_list WHERE invited IS NULL AND id = ?";
+    $query = "SELECT email, remove_code FROM waiting_list WHERE invited IS NULL AND id = ?";
     $stmt = $mysqli->prepare($query);
     if($stmt) {
         $stmt->bind_param('i', $id);
         $stmt->execute();    
         $stmt->store_result();
 
-        $stmt->bind_result($email);
+        $stmt->bind_result($email, $remove_code);
         $stmt->fetch();
         if($stmt->num_rows == 1) {
-
             // check exists
             $exists = true;
             while($exists) {
@@ -72,11 +71,31 @@ function invite($mysqli, $id) {
             }
 
             // send email
-            echo $email;
-            echo $invite;
+            $key = "a0a8326c9a551bebd7beb3d2331275634e2a82ea";
+            SparkPost::setConfig(array('key'=>$key));
+            try {
+                $results = Transmission::send(array(
+                    "recipients"=>array(
+                        array(
+                            "address"=>array(
+                                "email"=>$email
+                            )
+                        )
+                    ),
+                    "template"=>"invite",
+                    "substitutionData"=>array(
+                        "REMOVE"=>$remove_code,
+                        "INVITE"=>$invite
+                    ),
+                    "trackClicks"=>false,
+                    "campaign"=>"invites"
+                ));
+            } catch (\Exception $exception) {
+                return false;
+            }
 
             // mark user as invited
-            
+
         } else {
             return false;
         }
@@ -90,6 +109,9 @@ function invite($mysqli, $id) {
 }
 
 foreach($_POST["ids"] as $id) {
+    $successes = 0;
+    $failures = 0;
+    
     if(invite($mysqli, $id)) {
         $successes += 1;
     } else {
