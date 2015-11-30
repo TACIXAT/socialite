@@ -37,6 +37,8 @@ function invite($mysqli, $id) {
         $stmt->bind_result($email, $remove_code);
         $stmt->fetch();
         if($stmt->num_rows == 1) {
+            $stmt->close();
+
             // check exists
             $exists = true;
             while($exists) {
@@ -47,37 +49,44 @@ function invite($mysqli, $id) {
                 $stmt = $mysqli->prepare($query);
 
                 if(!$stmt) {
-                    error_log("__FILE__:__LINE__");
+                    error_log(__FILE__ . ":" . __LINE__);
                     return false;
                 }
         
                 $stmt->bind_param('s', $invite);
                 if(!$stmt->execute()){
-                    error_log("__FILE__:__LINE__");
+                    error_log(__FILE__ . ":" . __LINE__);
                     return false;
                 }
                 $stmt->store_result();
 
                 if($stmt->num_rows == 0) {
-                    error_log("__FILE__:__LINE__");
+                    $stmt->close();
+                    error_log(__FILE__ . ":" . __LINE__);
                     $exists = false;
                 }
+
+                $stmt->close();
+
             }
 
             // insert invite code 
-            $query = "INSERT INTO invites (invite_code) VALUES (?)";            
+            $query = "INSERT INTO invites (invite_code, wait_id) VALUES (?, ?)";            
             $stmt = $mysqli->prepare($query);
 
             if(!$stmt) {
-                error_log("__FILE__:__LINE__");
+                error_log(__FILE__ . ":" . __LINE__);
                 return false;
             }
     
-            $stmt->bind_param('s', $invite);
+            $stmt->bind_param('si', $invite, $id);
             if(!$stmt->execute()){
-                error_log("__FILE__:__LINE__");
+                $stmt->close();
+                error_log(__FILE__ . ":" . __LINE__);
                 return false;
             }
+
+            $stmt->close();
 
             // send email
             $key = "a0a8326c9a551bebd7beb3d2331275634e2a82ea";
@@ -100,7 +109,7 @@ function invite($mysqli, $id) {
                     "campaign"=>"invites"
                 ));
             } catch (\Exception $exception) {
-                error_log("__FILE__:__LINE__");
+                error_log(__FILE__ . ":" . __LINE__);
                 return false;
             }
 
@@ -108,23 +117,25 @@ function invite($mysqli, $id) {
             $query = "UPDATE waiting_list SET invited = now() WHERE id = ?";
             $stmt = $mysqli->prepare($query);
             if(!$stmt) {
-                error_log("__FILE__:__LINE__");
+                error_log(__FILE__ . ":" . __LINE__);
                 return false;
             }
 
             $stmt->bind_param('i', $id);
             if(!$stmt->execute()) {
-                error_log("__FILE__:__LINE__");
+                error_log(__FILE__ . ":" . __LINE__);
                 return false;
             }
+            
+            $stmt->close();
+
         } else {
-            error_log("__FILE__:__LINE__");
+            $stmt->close();
+            error_log(__FILE__ . ":" . __LINE__);
             return false;
         }
-
-        $stmt->close();
     } else {
-        error_log("__FILE__:__LINE__");
+        error_log(__FILE__ . ":" . __LINE__);
         return false;
     }
 
@@ -142,6 +153,6 @@ foreach($_POST["ids"] as $id) {
     }
 }
 
-die('{"successes": ' + $successes + ', "failures": ' + $failures + '}');
+die('{"successes": ' . $successes . ', "failures": ' . $failures . '}');
 
 ?>
