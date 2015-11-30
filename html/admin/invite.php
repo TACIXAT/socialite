@@ -3,7 +3,10 @@
 include_once '/var/www/php/include/db_connect.php';
 include_once '/var/www/php/include/functions.php';
 include_once '/var/www/php/include/composer/include.php';
- 
+
+use SparkPost\SparkPost;
+use SparkPost\Transmission;
+
 sec_session_start();
 $logged_in = login_check($mysqli);
 
