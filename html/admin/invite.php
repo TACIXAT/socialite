@@ -61,8 +61,6 @@ function invite($mysqli, $id) {
                 $stmt->store_result();
 
                 if($stmt->num_rows == 0) {
-                    $stmt->close();
-                    error_log(__FILE__ . ":" . __LINE__);
                     $exists = false;
                 }
 
