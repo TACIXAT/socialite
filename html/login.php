@@ -53,8 +53,7 @@ if(isset($_GET["invite"]) && ctype_alnum($_GET["invite"])) {
     echo "                $('ul.tabs').tabs();\n";
 }
 if(isset($_GET["confirmed"])) {
-    echo "// " . $_SERVER['HTTP_REFERER'] . "\n";
-    echo "                Materialize.toast('Account confirmed! You may now log in!');\n";
+    echo "                Materialize.toast('Account confirmed! You may now log in!', 5000);\n";
 }
 ?>
             });
