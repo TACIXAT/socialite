@@ -50,7 +50,11 @@ if(isset($_GET["invite"]) && ctype_alnum($_GET["invite"])) {
     printf("                $('#registration_invite').val('%s');\n", $_GET["invite"]);
     echo "                $('#registration_invite').siblings().addClass('active');\n";
 } else {
-    echo "                $('ul.tabs').tabs();";
+    echo "                $('ul.tabs').tabs();\n";
+}
+if(isset($_GET["confirmed"])) {
+    echo "// " . $_SERVER['HTTP_REFERER'] . "\n";
+    echo "                Materialize.toast('Account confirmed! You may now log in!');\n";
 }
 ?>
             });
