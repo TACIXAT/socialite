@@ -9,6 +9,8 @@ if (!$logged_in) {
     exit();
 }
 
+$first_login = first_login($mysqli);
+
 ?>
 <!doctype html>
 <html>
@@ -70,6 +72,8 @@ if (!$logged_in) {
                     echo "            useMixpanel = true;\n";
                 }
                 echo "            seasurf = '" . $_SESSION['csrf_token'] . "';\n";
+                if($first_login)
+                    echo "            first_login = true;\n";
                 echo "        </script>\n";
                 echo "        <script type=\"text/javascript\" src=\"/js/api.js\"></script>\n";
                 echo "        <script type=\"text/javascript\" src=\"/js/graph.js\"></script>\n";

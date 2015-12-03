@@ -98,6 +98,9 @@ $(document).ready(function() {
 
     Socialite.Graph.init();
     Socialite.UI.connectInterface();
+
+    if(first_login)
+        Socialite.Tour.nextStep();
     // $.getScript('js/tour.js');
 });
 

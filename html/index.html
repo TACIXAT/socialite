@@ -112,7 +112,7 @@
                     var data = {"email": email, "action":"add"};
                     $.ajax({
                         'type': 'POST',
-                        'url': 'api/waitlist.php',
+                        'url': '/api/waitlist.php',
                         'data': $.param(data),
                         'success': signupSuccess,
                         'error': genericError });
