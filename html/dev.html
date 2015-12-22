@@ -141,6 +141,9 @@
                 });
                 $("#about_button").click(function() {
                     $("html, body").animate({scrollTop:$("#about_div").offset().top}, 'slow'); 
+                });
+                $("#features_button").click(function() {
+                    $("html, body").animate({scrollTop:$("#features_div").offset().top}, 'slow'); 
                 }); 
                 $("#pricing_button").click(function() {
                     $("html, body").animate({scrollTop:$("#pricing_div").offset().top}, 'slow'); 
@@ -186,6 +189,9 @@
                     </li>
                     <li class="bold">
                         <a id="about_button">About</a>
+                    </li>
+                    <li class="bold">
+                        <a id="features_button">Features</a>
                     </li>
                     <li class="bold">
                         <a id="pricing_button">Pricing</a>
@@ -272,6 +278,12 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div id="features_div" class="row white-text">
+                <div class="col l8 offset-l2 s12 flow-text">
+                    <h4>Features</h4>
+                    
                 </div>
             </div>
             <div id="pricing_div" class="row white-text">
