@@ -76,6 +76,13 @@
                /* margin-top: 25%;*/
             }
 
+            @media screen and (min-width: 993px) {
+                #title_container {
+                    position: absolute;
+                    left: 280px;
+                }
+            }
+
             .hidden {
                 display: none;
             }
@@ -147,8 +154,8 @@
                 <a href="#" data-activates="nav-mobile" class="button-collapse" style="top:25%;"><i class="mdi-navigation-menu"></i></a>
                 <div class="top-nav">
                     <div class="container">
-                        <div class="nav-wrapper">
-                            <a href="https://socialite.ooo" class="page-title">Socialite</a>
+                        <div class="nav-wrapper" id="title_container">
+                            <a href="https://socialite.ooo" class="page-title" id="page_title">Socialite</a>
                         </div>
                     </div>
                 </div>

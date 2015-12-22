@@ -94,7 +94,7 @@ $first_login = first_login($mysqli);
                     <a href="#" data-activates="nav-mobile" class="button-collapse" style="top:25%;"><i class="mdi-navigation-menu"></i></a>
                     <div class="top-nav">
                         <div class="container">
-                            <div class="nav-wrapper">
+                            <div class="nav-wrapper" id="title_container">
                                 <a href="https://socialite.ooo" class="page-title">Socialite</a>
                             </div>
                         </div>

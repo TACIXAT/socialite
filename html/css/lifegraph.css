@@ -78,6 +78,11 @@ body {
         padding-left: 240px;
         height: calc(100vh - 110px);
     }
+
+    #title_container {
+        position: absolute;
+        left: 280px;
+    }
 }
 
 @media screen and (max-width: 992px) {
