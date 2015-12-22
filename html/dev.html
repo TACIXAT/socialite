@@ -1,0 +1,278 @@
+<html>
+    <head>
+        <title>Socialite</title>
+        <meta name="description" content="Keep notes about the social events in your life, who you saw, when and where you saw them. Search your data. Pivot from a location to an event, then from an event to a person, or in the opposite direction. Leverage these notes to be a better friend and forge stronger business relationships. Sign up today and we'll let you know as soon as you can start managing the data in your life.">
+        <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+        <meta property="og:title" content="Socialite" />
+        <meta property="og:url" content="https://socialite.ooo" />
+        <meta property="og:image" content="https://socialite.ooo/icon/socialitefb.png" />
+        <meta property="og:description" content="Keep notes about the social events in your life, who you saw, when and where you saw them. Leverage these notes to be a better friend and to forge stronger business relationships. Sign up today and we'll let you know as soon as you can start managing the data in your life." />
+        <link rel="apple-touch-icon" sizes="57x57" href="/icon/favicon/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/icon/favicon/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/icon/favicon/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/icon/favicon/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/icon/favicon/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/icon/favicon/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/icon/favicon/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/icon/favicon/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/icon/favicon/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="/icon/favicon/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/icon/favicon/android-chrome-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="/icon/favicon/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="/icon/favicon/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="/icon/favicon/manifest.json">
+        <link rel="shortcut icon" href="/icon/favicon/favicon.ico">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-TileImage" content="/icon/favicon/mstile-144x144.png">
+        <meta name="msapplication-config" content="/icon/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+        <!--link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100' rel='stylesheet' type='text/css'-->
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <script type="text/javascript" src="/js/lib/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="/js/materialize.min.js"></script>
+        <style>
+            body {
+                /*background-color: #f3442d;*/
+                color: #1d1d1d;
+                letter-spacing: 1px;
+            }
+
+            p {
+                letter-spacing: 1px;
+                /*margin-top: -15px;*/
+            }
+
+            .logo:hover {
+                background-color:#fff !important;
+            }
+
+            .logo {
+                height: 310px;
+                margin-bottom: 0px;
+                border-bottom: 1px solid #ddd;
+
+            }
+
+            #waiting_list_div {
+                background-color: #fdf9db;
+                padding: 10px;
+            }
+            
+            .page-title {
+                font-size: 48px;
+                line-height: 128px;
+            }
+
+            nav {
+                height: 128px;
+            }
+
+            #card_row {
+               /* margin-top: 25%;*/
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            .menu_item {
+                font-size: 1rem !important;
+                height: 64px !important;
+                line-height: 64px !important;
+            }
+        </style>
+        <script type='text/javascript'>
+            function signupSuccess(data, status, xhr) {
+                Materialize.toast('Success signing up!', 3000);
+                $('#waiting_list_input').val('');
+            }
+
+            function genericError(xhr, status, error) {
+                console.log(xhr);
+                var error = $.parseJSON(xhr.responseText);
+                if(error['status'] != 'error') {
+                    Materialize.toast('An error occured! Please contact us directly!', 3000);
+                } else {
+                    Materialize.toast(error['msg'], 3000);
+                }
+            }
+
+            $(document).ready(function() {
+                $(".button-collapse").sideNav();
+                $("#waiting_list_button").click(function() {
+                    var email = $('#waiting_list_input').val();
+                    if(email == undefined || email == "")
+                        return false;
+                    console.log(email);
+                    var data = {"email": email, "action":"add"};
+                    $.ajax({
+                        'type': 'POST',
+                        'url': '/api/waitlist.php',
+                        'data': $.param(data),
+                        'success': signupSuccess,
+                        'error': genericError });
+                });
+                $("#signup_button").click(function() {
+                    $("html, body").animate({scrollTop:$("#waiting_list_div").offset().top-20}, 'slow');
+                });
+                $("#about_button").click(function() {
+                    $("html, body").animate({scrollTop:$("#about_div").offset().top}, 'slow'); 
+                }); 
+                $("#pricing_button").click(function() {
+                    $("html, body").animate({scrollTop:$("#pricing_div").offset().top}, 'slow'); 
+                });
+                $("#contact_button").click(function() {
+                    $("html, body").animate({scrollTop:$("#contact_div").offset().top}, 'slow'); 
+                });
+                
+                $("#email_link").attr("href", "mailto:feedback@socialite.ooo"); 
+                $("#email_link").text("feedback@socialite.ooo");
+                
+                var vframew = $("#video_iframe").width();
+                var vcardw = $("#video_card").width();
+                $("#video_iframe").width(vcardw);
+                var vframeh = (vcardw / 16) * 9;
+                $("#video_iframe").height(vframeh);
+            });    
+        </script>
+    </head>
+    <body class="red">
+        <header class="white">
+            <nav>
+                <a href="#" data-activates="nav-mobile" class="button-collapse" style="top:25%;"><i class="mdi-navigation-menu"></i></a>
+                <div class="top-nav">
+                    <div class="container">
+                        <div class="nav-wrapper">
+                            <a href="https://socialite.ooo" class="page-title">Socialite</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="nav-wrapper">
+                <ul id="nav-mobile" class="side-nav fixed" style="left: 0px;">
+                    <li class="logo">
+                        <a href="https://socialite.ooo" class="btn-flat"><img src="/icon/SocialiteLogoFill.svg" style="width:100%" name="Socialite"></img></a>
+                        <!-- Logo designed by @mlgs -->
+                    </li>
+                    <li class="bold">
+                        <a id="login_button" href="/login.php">Login</a>
+                    </li>
+                    <li class="bold">
+                        <a id="signup_button">Sign Up</a>
+                    </li>
+                    <li class="bold">
+                        <a id="about_button">About</a>
+                    </li>
+                    <li class="bold">
+                        <a id="pricing_button">Pricing</a>
+                    </li>
+                    <li class="bold">
+                        <a id="contact_button">Contact</a>
+                    </li>
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li>
+                                <a class="collapsible-header menu_item">Legalities</a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="/legal/tos.txt" target="_blank">Terms of Service</a></li>
+                                        <li><a href="/legal/privacy.txt" target="_blank">Privacy Policy</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div class="container">
+            <!--div class="row white-text">
+                <div class="col l12 s12 center">
+                    <h1>Socialite</h1>
+                </div>
+            </div-->
+
+            <div class="row white-text">
+                <div class="col l2 offset-l3 s4 center">
+                    <i class="large mdi-social-person"></i>
+                    <br />
+                    People
+                </div> 
+                <div class="col l2 s4 center">
+                    <i class="large mdi-action-schedule"></i>
+                    <br />
+                    Events
+                </div> 
+                <div class="col l2 s4 center">
+                    <i class="large mdi-maps-place"></i>
+                    <br />
+                    Locations
+                </div> 
+            </div>
+            <div class="row white-text">
+                <div class="col l6 offset-l3 s12 center">
+                    <h4>Manage Your Social Life</h4>
+                </div>
+            </div>
+            <div id="card_row" class="row">
+                <div class="col l6 offset-l3 s12">
+                    <div id="waiting_list_div" class="card">
+                        <div class="card-content">
+                            <span class="card-title black-text">Waiting List Signup</span>
+                            <div class="input-field">
+                                <input type="email" id="waiting_list_input"/>
+                                <label for="waiting_list_input">Email Address</label>
+                            </div>
+                            <button id="waiting_list_button" class="btn waves-effect waves-light right">
+                                Submit
+                                <i class="mdi-content-send right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="about_div" class="row white-text">
+                <div class="col l8 offset-l2 s12 flow-text">
+                    <h4>About</h4>
+                    Keep notes about the social events in your life, who you saw, when and where you saw them.
+                    Search your data. Pivot from a location to an event, then from an event to a person, or in the opposite direction.
+                    Leverage these notes to be a better friend and forge stronger business relationships. Sign up today and we'll let you know
+                    as soon as you can start managing the data in your life.
+
+                    <div class="row">
+                        <div class="col offset-l1 l10 s12">
+                            <div class="card">
+                                <div id="video_card" class="card-content center">
+                                    <iframe id="video_iframe" height="400" width="630" frameborder="0" src="https://www.youtube.com/embed/vN9XxMInOnA?rel=0&showinfo=0"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="pricing_div" class="row white-text">
+                <div class="col l8 offset-l2 s12 flow-text">
+                    <h4>Pricing</h4>
+                    Socialite will be a paid application. We made this choice in 
+                    order to give you peace of mind. With no advertisers 
+                    involved, you won't have to worry about who is getting their 
+                    hands on your information. While exact pricing is not set, we
+                    are considering a price around $1/month or $10/year. 
+                </div>
+            </div>
+            <div id="contact_div" class="row white-text">
+                <div class="col l8 offset-l2 s12 flow-text">
+                    <h4>Contact</h4>
+                    We love customer feedback. If you have any questions or comments
+                    feel free to reach out to 
+                    <a id="email_link" style="color: #fff">feedback [at] socialite [dot] ooo</a>.
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
