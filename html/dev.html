@@ -58,7 +58,7 @@
 
             }
 
-            #waiting_list_div {
+            .waiting_list_div {
                 background-color: #fdf9db;
                 padding: 10px;
             }
@@ -70,10 +70,6 @@
 
             nav {
                 height: 128px;
-            }
-
-            #card_row {
-               /* margin-top: 25%;*/
             }
 
             @media screen and (min-width: 993px) {
@@ -97,6 +93,7 @@
             function signupSuccess(data, status, xhr) {
                 Materialize.toast('Success signing up!', 3000);
                 $('#waiting_list_input').val('');
+                $('#waiting_list_input_2').val('');
             }
 
             function genericError(xhr, status, error) {
@@ -124,6 +121,21 @@
                         'success': signupSuccess,
                         'error': genericError });
                 });
+
+                $("#waiting_list_button_2").click(function() {
+                    var email = $('#waiting_list_input_2').val();
+                    if(email == undefined || email == "")
+                        return false;
+                    console.log(email);
+                    var data = {"email": email, "action":"add"};
+                    $.ajax({
+                        'type': 'POST',
+                        'url': '/api/waitlist.php',
+                        'data': $.param(data),
+                        'success': signupSuccess,
+                        'error': genericError });
+                });
+
                 $("#signup_button").click(function() {
                     $("html, body").animate({scrollTop:$("#waiting_list_div").offset().top-20}, 'slow');
                 });
@@ -223,10 +235,10 @@
             </div>
             <div class="row white-text">
                 <div class="col l6 offset-l3 s12 center">
-                    <h4>Manage Your Social Life</h4>
+                    <h4>Personal Relationship Management</h4>
                 </div>
             </div>
-            <div id="card_row" class="row">
+            <div class="row">
                 <div class="col l6 offset-l3 s12">
                     <div id="waiting_list_div" class="card">
                         <div class="card-content">
@@ -270,6 +282,23 @@
                     involved, you won't have to worry about who is getting their 
                     hands on your information. While exact pricing is not set, we
                     are considering a price around $1/month or $10/year. 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l6 offset-l3 s12">
+                    <div id="waiting_list_div" class="card waiting_list_div">
+                        <div class="card-content">
+                            <span class="card-title black-text">Waiting List Signup</span>
+                            <div class="input-field">
+                                <input type="email" id="waiting_list_input_2"/>
+                                <label for="waiting_list_input_2">Email Address</label>
+                            </div>
+                            <button id="waiting_list_button_2" class="btn waves-effect waves-light right">
+                                Submit
+                                <i class="mdi-content-send right"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="contact_div" class="row white-text">
