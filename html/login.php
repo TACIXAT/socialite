@@ -80,9 +80,9 @@ if(isset($_GET["confirmed"])) {
     <body class="red">
         <div class="container">
             <div id="row" class="row s12">
-                <div class="col l6 offset-l3 s12">
+                <div class="col white l6 offset-l3 s12">
                     <div id="card" class="card white s12">
-                        <div class="card-content">
+                        <div>
                             <div class="col s12">
                                 <ul class="tabs">
                                     <li class="tab col l6"><a class="active" href="#loginDiv">Login</a></li>
