@@ -59,7 +59,7 @@
 
             }
 
-            #waiting_list_div {
+            .waiting_list_div {
                 background-color: #fdf9db;
                 padding: 10px;
             }
@@ -73,8 +73,11 @@
                 height: 128px;
             }
 
-            #card_row {
-               /* margin-top: 25%;*/
+            @media screen and (min-width: 993px) {
+                #title_container {
+                    position: absolute;
+                    left: 280px;
+                }
             }
 
             .hidden {
@@ -95,6 +98,7 @@
             function signupSuccess(data, status, xhr) {
                 Materialize.toast('Success signing up!', 3000);
                 $('#waiting_list_input').val('');
+                $('#waiting_list_input_2').val('');
             }
 
             function genericError(xhr, status, error) {
@@ -122,11 +126,29 @@
                         'success': signupSuccess,
                         'error': genericError });
                 });
+
+                $("#waiting_list_button_2").click(function() {
+                    var email = $('#waiting_list_input_2').val();
+                    if(email == undefined || email == "")
+                        return false;
+                    console.log(email);
+                    var data = {"email": email, "action":"add"};
+                    $.ajax({
+                        'type': 'POST',
+                        'url': '/api/waitlist.php',
+                        'data': $.param(data),
+                        'success': signupSuccess,
+                        'error': genericError });
+                });
+
                 $("#signup_button").click(function() {
                     $("html, body").animate({scrollTop:$("#waiting_list_div").offset().top-20}, 'slow');
                 });
                 $("#about_button").click(function() {
                     $("html, body").animate({scrollTop:$("#about_div").offset().top}, 'slow'); 
+                });
+                $("#features_button").click(function() {
+                    $("html, body").animate({scrollTop:$("#features_div").offset().top}, 'slow'); 
                 }); 
                 $("#pricing_button").click(function() {
                     $("html, body").animate({scrollTop:$("#pricing_div").offset().top}, 'slow'); 
@@ -143,17 +165,19 @@
                 $("#video_iframe").width(vcardw);
                 var vframeh = (vcardw / 16) * 9;
                 $("#video_iframe").height(vframeh);
+
+                $('.materialboxed').materialbox();
             });    
         </script>
     </head>
     <body class="red">
         <header class="white">
             <nav>
-                <a href="#" data-activates="nav-mobile" class="button-collapse" style="top:25%;"><i class="mdi-navigation-menu"></i></a>
+                <a href="#" data-activates="nav-mobile" class="button-collapse" style="top:25%;"><i class="material-icons">menu</i></a>
                 <div class="top-nav">
                     <div class="container">
-                        <div class="nav-wrapper">
-                            <a href="https://socialite.ooo" class="page-title">Socialite</a>
+                        <div class="nav-wrapper" id="title_container">
+                            <a href="https://socialite.ooo" class="page-title" id="page_title">Socialite</a>
                         </div>
                     </div>
                 </div>
@@ -165,10 +189,16 @@
                         <!-- Logo designed by @mlgs -->
                     </li>
                     <li class="bold">
+                        <a id="login_button" href="/login.php">Login</a>
+                    </li>
+                    <li class="bold">
                         <a id="signup_button">Sign Up</a>
                     </li>
                     <li class="bold">
                         <a id="about_button">About</a>
+                    </li>
+                    <li class="bold">
+                        <a id="features_button">Features</a>
                     </li>
                     <li class="bold">
                         <a id="pricing_button">Pricing</a>
@@ -176,7 +206,7 @@
                     <li class="bold">
                         <a id="contact_button">Contact</a>
                     </li>
-                    <!--li class="no-padding">
+                    <li class="no-padding">
                         <ul class="collapsible collapsible-accordion">
                             <li>
                                 <a class="collapsible-header menu_item">Legalities</a>
@@ -188,7 +218,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </li-->
+                    </li>
                 </ul>
             </div>
         </header>
@@ -218,12 +248,12 @@
             </div>
             <div class="row white-text">
                 <div class="col l6 offset-l3 s12 center">
-                    <h4>Manage Your Social Life</h4>
+                    <h4>Personal Relationship Management</h4>
                 </div>
             </div>
-            <div id="card_row" class="row">
+            <div class="row">
                 <div class="col l6 offset-l3 s12">
-                    <div id="waiting_list_div" class="card">
+                    <div id="waiting_list_div" class="card waiting_list_div">
                         <div class="card-content">
                             <span class="card-title black-text">Waiting List Signup</span>
                             <div class="input-field">
@@ -232,7 +262,7 @@
                             </div>
                             <button id="waiting_list_button" class="btn waves-effect waves-light right">
                                 Submit
-                                <i class="mdi-content-send right"></i>
+                                <i class="material-icons right">send</i>
                             </button>
                         </div>
                     </div>
@@ -257,6 +287,41 @@
                     </div>
                 </div>
             </div>
+            <div id="features_div" class="row white-text">
+                <div class="col l8 offset-l2 s12 flow-text">
+                    <h4>Features</h4>
+                    <div class="row">
+                        <div class="col offset-l1 l10 s12">
+                            <div class="card">
+                                <div class="card-content center">
+                                    <span class="card-title grey-text text-darken-2">Pivot quickly between nodes to recall information.</span>
+                                    <img class="z-depth-2 responsive-img materialboxed" src="/img/screens/view.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col offset-l1 l10 s12">
+                            <div class="card">
+                                <div class="card-content center">
+                                    <span class="card-title grey-text text-darken-2">Geo-search over an area to find a location.</span>
+                                    <img class="responsive-img materialboxed" src="/img/screens/geo.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col offset-l1 l10 s12">
+                            <div class="card">
+                                <div class="card-content center">
+                                    <span class="card-title grey-text text-darken-2">Link nodes together with the connection interface.</span>
+                                    <img class="responsive-img materialboxed" src="/img/screens/connect.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div id="pricing_div" class="row white-text">
                 <div class="col l8 offset-l2 s12 flow-text">
                     <h4>Pricing</h4>
@@ -265,6 +330,23 @@
                     involved, you won't have to worry about who is getting their 
                     hands on your information. While exact pricing is not set, we
                     are considering a price around $1/month or $10/year. 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l6 offset-l3 s12">
+                    <div id="waiting_list_div" class="card waiting_list_div">
+                        <div class="card-content">
+                            <span class="card-title black-text">Waiting List Signup</span>
+                            <div class="input-field">
+                                <input type="email" id="waiting_list_input_2"/>
+                                <label for="waiting_list_input_2">Email Address</label>
+                            </div>
+                            <button id="waiting_list_button_2" class="btn waves-effect waves-light right">
+                                Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="contact_div" class="row white-text">
