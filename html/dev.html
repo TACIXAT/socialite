@@ -56,7 +56,6 @@
                 height: 310px;
                 margin-bottom: 0px;
                 border-bottom: 1px solid #ddd;
-
             }
 
             .waiting_list_div {
@@ -80,12 +79,34 @@
                 }
             }
 
-            @media screen and (max-height: 993px) {
+            .logo_img {
+                width: 100%;
+            }
+
+            @media screen and (max-height: 768px) {
                 .flow-text {
                     font-size: 1.5rem;
                 }
+                .card-title {
+                    font-size: 18px;
+                    font-weight: 300;
+                }
+
+                .logo_img {
+                    width: 80%;
+                    margin-left:18%;
+                }
+
+                .logo {
+                    height: 245px;
+                    margin-bottom: 0px;
+                    border-bottom: 1px solid #ddd;
+                }
             }
 
+            #nav-mobile a:hover {
+                cursor:pointer;
+            }
 
             .hidden {
                 display: none;
@@ -192,7 +213,7 @@
             <div class="nav-wrapper">
                 <ul id="nav-mobile" class="side-nav fixed" style="left: 0px;">
                     <li class="logo">
-                        <a href="https://socialite.ooo" class="btn-flat"><img src="/icon/SocialiteLogoFill.svg" style="width:100%" name="Socialite"></img></a>
+                        <a href="https://socialite.ooo" class="btn-flat"><img src="/icon/SocialiteLogoFill.svg" class="logo_img" name="Socialite"></img></a>
                         <!-- Logo designed by @mlgs -->
                     </li>
                     <li class="bold">
