@@ -62,7 +62,7 @@ Socialite.Tour['prevStep'] = function() {
     Socialite.Tour.nextStep();
 }
 
-Socialite.Tour['nextStep'] = function(var targetStep) {
+Socialite.Tour['nextStep'] = function(targetStep) {
     if(!Socialite.Tour.initialized) {
         Socialite.Tour.init();
     }
