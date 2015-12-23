@@ -62,13 +62,18 @@ Socialite.Tour['prevStep'] = function() {
     Socialite.Tour.nextStep();
 }
 
-Socialite.Tour['nextStep'] = function() {
+Socialite.Tour['nextStep'] = function(var targetStep) {
     if(!Socialite.Tour.initialized) {
         Socialite.Tour.init();
     }
 
     var idx = Socialite.Tour.currentStep;
-    Socialite.Tour.currentStep += 1;
+    if(targetStep !== undefined) {
+        idx = targetStep;
+        Socialite.Tour.currentStep = targetStep + 1;
+    } else {
+        Socialite.Tour.currentStep += 1;
+    }
     
     if(idx > 0 && idx < Socialite.Tour.steps.length) {
         var fn = Socialite.Tour.steps[idx-1].onNext;
@@ -193,7 +198,7 @@ Socialite.Tour['steps'] = [
     
                 $("#create_submit_button").off('click.submit');
                 $("#create_submit_button").on('click.submit', function() {
-                    Socialite.Tour.nextStep();
+                    Socialite.Tour.nextStep(4);
                     var visibleType = undefined;
                     if($("#create_person_tab").hasClass("active")) {
                         visibleType = "person";
