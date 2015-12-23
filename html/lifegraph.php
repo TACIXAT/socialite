@@ -270,7 +270,7 @@ $first_login = first_login($mysqli);
             </div>
             <div id="tour_card" class="card small blue-grey lighten-1">
                 <div id="tour_card_content" class="card-content">
-                    <div id="tour_title" class="card-title">Title</div>
+                    <div id="tour_title" class="card-title white-text">Title</div>
                     <br/>
                     <div id="tour_content" class="white-text">Words words words!</div>
                 </div>
