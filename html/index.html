@@ -56,7 +56,6 @@
                 height: 310px;
                 margin-bottom: 0px;
                 border-bottom: 1px solid #ddd;
-
             }
 
             .waiting_list_div {
@@ -78,6 +77,31 @@
                     position: absolute;
                     left: 280px;
                 }
+            }
+
+            .logo_img {
+                width: 100%;
+            }
+
+            @media screen and (max-height: 768px) {
+                .logo_img {
+                    width: 80%;
+                    margin-left:18%;
+                }
+
+                .logo {
+                    height: 245px;
+                    margin-bottom: 0px;
+                    border-bottom: 1px solid #ddd;
+                }
+
+                .screen_shot_title {
+                    font-size: 18px !important;
+                }
+            }
+
+            #nav-mobile a:hover {
+                cursor:pointer;
             }
 
             .hidden {
@@ -185,7 +209,7 @@
             <div class="nav-wrapper">
                 <ul id="nav-mobile" class="side-nav fixed" style="left: 0px;">
                     <li class="logo">
-                        <a href="https://socialite.ooo" class="btn-flat"><img src="/icon/SocialiteLogoFill.svg" style="width:100%" name="Socialite"></img></a>
+                        <a href="https://socialite.ooo" class="btn-flat"><img src="/icon/SocialiteLogoFill.svg" class="logo_img" name="Socialite"></img></a>
                         <!-- Logo designed by @mlgs -->
                     </li>
                     <li class="bold">
@@ -206,25 +230,12 @@
                     <li class="bold">
                         <a id="contact_button">Contact</a>
                     </li>
-                    <li class="no-padding">
-                        <ul class="collapsible collapsible-accordion">
-                            <li>
-                                <a class="collapsible-header menu_item">Legalities</a>
-                                <div class="collapsible-body">
-                                    <ul>
-                                        <li><a href="/legal/tos.txt" target="_blank">Terms of Service</a></li>
-                                        <li><a href="/legal/privacy.txt" target="_blank">Privacy Policy</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
         </header>
         <div class="container">
             <!--div class="row white-text">
-                <div class="col l12 m12 center">
+                <div class="col l12 s12 center">
                     <h1>Socialite</h1>
                 </div>
             </div-->
@@ -247,12 +258,12 @@
                 </div> 
             </div>
             <div class="row white-text">
-                <div class="col l6 offset-l3 m12 center">
+                <div class="col l6 offset-l3 s12 center">
                     <h4>Personal Relationship Management</h4>
                 </div>
             </div>
             <div class="row">
-                <div class="col l6 offset-l3 m12">
+                <div class="col l6 offset-l3 s12">
                     <div id="waiting_list_div" class="card waiting_list_div">
                         <div class="card-content">
                             <span class="card-title black-text">Waiting List Signup</span>
@@ -269,7 +280,7 @@
                 </div>
             </div>
             <div id="about_div" class="row white-text">
-                <div class="col l8 offset-l2 m12 flow-text">
+                <div class="col l8 offset-l2 s12 flow-text">
                     <h4>About</h4>
                     Keep notes about the social events in your life, who you saw, when and where you saw them.
                     Search your data. Pivot from a location to an event, then from an event to a person, or in the opposite direction.
@@ -277,7 +288,7 @@
                     as soon as you can start managing the data in your life.
 
                     <div class="row">
-                        <div class="col offset-l1 l10 m12">
+                        <div class="col offset-l1 l10 s12">
                             <div class="card">
                                 <div id="video_card" class="card-content center">
                                     <iframe id="video_iframe" height="400" width="630" frameborder="0" src="https://www.youtube.com/embed/vN9XxMInOnA?rel=0&showinfo=0"></iframe>
@@ -288,34 +299,34 @@
                 </div>
             </div>
             <div id="features_div" class="row white-text">
-                <div class="col l8 offset-l2 m12 flow-text">
+                <div class="col l8 offset-l2 s12 flow-text">
                     <h4>Features</h4>
                     <div class="row">
-                        <div class="col offset-l1 l10 m12">
+                        <div class="col offset-l1 l10 s12">
                             <div class="card">
                                 <div class="card-content center">
-                                    <span class="card-title grey-text text-darken-2">Pivot quickly between nodes to recall information.</span>
+                                    <span class="screen_shot_title card-title grey-text text-darken-2">Pivot quickly between nodes to recall information.</span>
                                     <img class="z-depth-2 responsive-img materialboxed" src="/img/screens/view.png">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col offset-l1 l10 m12">
+                        <div class="col offset-l1 l10 s12">
                             <div class="card">
                                 <div class="card-content center">
-                                    <span class="card-title grey-text text-darken-2">Geo-search over an area to find a location.</span>
-                                    <img class="z-depth-1 responsive-img materialboxed" src="/img/screens/geo.png">
+                                    <span class="screen_shot_title card-title grey-text text-darken-2">Geo-search over an area to find a location.</span>
+                                    <img class="responsive-img materialboxed" src="/img/screens/geo.png">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col offset-l1 l10 m12">
+                        <div class="col offset-l1 l10 s12">
                             <div class="card">
                                 <div class="card-content center">
-                                    <span class="card-title grey-text text-darken-2">Link nodes together with the connection interface.</span>
-                                    <img class="z-depth-1 responsive-img materialboxed" src="/img/screens/connect.png">
+                                    <span class="screen_shot_title card-title grey-text text-darken-2">Link nodes together with the connection interface.</span>
+                                    <img class="responsive-img materialboxed" src="/img/screens/connect.png">
                                 </div>
                             </div>
                         </div>
@@ -323,17 +334,18 @@
                 </div>
             </div>
             <div id="pricing_div" class="row white-text">
-                <div class="col l8 offset-l2 m12 flow-text">
+                <div class="col l8 offset-l2 s12 flow-text">
                     <h4>Pricing</h4>
                     Socialite will be a paid application. We made this choice in 
                     order to give you peace of mind. With no advertisers 
                     involved, you won't have to worry about who is getting their 
-                    hands on your information. While exact pricing is not set, we
-                    are considering a price around $1/month or $10/year. 
+                    hands on your information. Pricing will be targeted at $10/year. 
+                    Don't worry though, we won't charge you until you're making use 
+                    of the application.
                 </div>
             </div>
             <div class="row">
-                <div class="col l6 offset-l3 m12">
+                <div class="col l6 offset-l3 s12">
                     <div id="waiting_list_div" class="card waiting_list_div">
                         <div class="card-content">
                             <span class="card-title black-text">Waiting List Signup</span>
@@ -350,7 +362,7 @@
                 </div>
             </div>
             <div id="contact_div" class="row white-text">
-                <div class="col l8 offset-l2 m12 flow-text">
+                <div class="col l8 offset-l2 s12 flow-text">
                     <h4>Contact</h4>
                     We love customer feedback. If you have any questions or comments
                     feel free to reach out to 
