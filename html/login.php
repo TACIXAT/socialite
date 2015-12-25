@@ -91,7 +91,7 @@ if(isset($_GET["confirmed"])) {
                                 </ul>
                             </div>
                             <div id='loginDiv' class="content_div col s12">
-                                <form action="process_login.php" method="post" name="login_form">
+                                <form action="process_login.php" method="post" name="login_form" onKeyPress="return checkSubmit(this.form, event)">
                                     <div class="input-field">
                                         <input type="text" name="email" id="login_email"/>
                                         <label for="login_email">Email</label>
