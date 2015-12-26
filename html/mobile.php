@@ -91,7 +91,7 @@ $first_login = first_login($mysqli);
         <?php else : ?>
             <header class="white">
                 <nav>
-                    <a href="#" data-activates="nav-mobile" class="button-collapse" style="top:25%;"><i class="mdi-navigation-menu"></i></a>
+                    <a href="#" data-activates="nav-mobile" class="button-collapse" style="top:25%;"><i class="material-icons">menu</i></a>
                     <div class="top-nav">
                         <div class="container">
                             <div class="nav-wrapper" id="title_container">
@@ -148,50 +148,35 @@ $first_login = first_login($mysqli);
                 </div>
             </header>
             <div id="page_container">
-                <!--upper row-->
-                <div id="upper_row" class="row">
-                    <div class="col s4 center card_col">
-                        <div id= "display_person_div" class="card upper_card">
+                <!-- node info -->
+                <div id="info_view" class="row">
+                    <div class="col s12 center card_col">
+                        <div id= "display_person_div" class="card">
                             
                         </div>
-                    </div> 
-                    <div class="col s4 center card_col">
-                        <div id= "display_event_div" class="card upper_card">
+                        <div id= "display_event_div" class="card hide">
                             
                         </div>
-                    </div> 
-                    <div class="col s4 center card_col">
-                        <div id= "display_location_div" class="card upper_card">
+                        <div id= "display_location_div" class="card hide">
                             
                         </div>
                     </div> 
                 </div>
-                <!--lower row-->
-                <div id="lower_row" class="row">
-                    <div class="col s4 center card_col">
-                        <div id="list_person_div" class="card lower_card">
-                            <ul id="person_list" class="collection list_collection">
-
-                            </ul>
-                        </div>
-                    </div> 
-                    <div class="col s4 center card_col">
-                        <div id="list_event_div" class="card lower_card">
-                            <ul id="event_list" class="collection list_collection">
-                                
-                            </ul>
-                        </div>
-                    </div> 
-                    <div class="col s4 center card_col">
-                        <div id="list_location_div" class="card lower_card">
-                            <ul id="location_list" class="collection list_collection">
+                <!-- node list -->
+                <div id="list_view" class="row hide">
+                    <div class="col s12 center card_col">
+                        <div id="list_person_div" class="card">
+                            <ul id="node_list" class="collection list_collection">
 
                             </ul>
                         </div>
                     </div> 
                 </div>
+                <!-- node create -->
+                <!-- node search -->
+                <!-- node connect -->
             </div>
-            <div id="add_modal" class="modal modal-fixed-footer">
+            <!-- <div id="add_modal" class="">
                 <div class="modal-content">
                     <div class="row">
                         <h4>Create Node</h4>
@@ -283,7 +268,7 @@ $first_login = first_login($mysqli);
                 <div class="arrow-bottom arrow"></div>
                 <div class="arrow-left arrow"></div>
                 <div class="arrow-right arrow"></div>
-            </div>
+            </div> -->
 
         <?php endif; ?>
     </body>
