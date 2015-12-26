@@ -1,7 +1,19 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
 #info_view {
     height: 100%;
 }
 
 #display_person_div {
     height: 100%;
+}
+
+#page_container {
+    height: calc(100vh - 110px);
 }
