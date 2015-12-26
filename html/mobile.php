@@ -55,7 +55,7 @@ $first_login = first_login($mysqli);
         <script type="text/javascript" src="/js/lib/underscore-min.js"></script>
         <script type="text/javascript" src="/js/materialize.min.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="/css/lifegraph.css" />
+        <link rel="stylesheet" href="/css/mobile.css" />
         <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="/js/lib/jquery-ui-1.11.3/jquery-ui.min.css"  media="screen,projection"/>
         <!--link rel="stylesheet" href="styles/d3.css" /-->
