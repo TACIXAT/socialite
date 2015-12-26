@@ -6,10 +6,6 @@ include_once '/var/www/php/include/composer/include.php';
 use SparkPost\SparkPost;
 use SparkPost\Transmission;
 
-function is_ajax() {
-    return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
-}
-
 if (is_ajax()) {
     if (!empty($_POST["username"]) && !empty($_POST["email"])) {
         get_key($mysqli, $_POST["username"], $_POST["email"]);
