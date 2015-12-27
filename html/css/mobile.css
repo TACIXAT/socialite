@@ -16,6 +16,10 @@ body {
     border-bottom: 1px solid #ddd;
 }
 
+.logo_img {
+    width:100%;
+}
+
 @media screen and (max-height: 768px) {
     .logo_img {
         width: 80%;
