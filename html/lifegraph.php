@@ -48,6 +48,7 @@ $first_login = first_login($mysqli);
         <meta name="msapplication-TileImage" content="/icon/favicon/mstile-144x144.png">
         <meta name="msapplication-config" content="/icon/favicon/browserconfig.xml">
         
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5Sh0t7Zp9DeZOfbOfE2-KBgEe9YUoryM"></script>
         <script type="text/javascript" src="/js/lib/jquery-2.1.3.min.js"></script>
         <script type="text/javascript" src="/js/lib/jquery-ui-1.11.3/jquery-ui.min.js"></script>
