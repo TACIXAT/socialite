@@ -165,9 +165,9 @@ $first_login = first_login($mysqli);
                 </div>
                 <!-- node list -->
                 <div id="list_view" class="row">
-                    <div class="col s12 center card_col">
-                        <div id="list_person_div" class="card">
-                            <ul id="node_list" class="collection list_collection">
+                    <div class="col s12 center card_col h100">
+                        <div id="list_person_div" class="card h100">
+                            <ul id="node_list" class="collection list_collection h100">
                                 <li class="collection-item title_row">
                                   <div><b>Listed Nodes</b></div>
                                 </li>

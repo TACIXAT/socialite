@@ -38,10 +38,13 @@ body {
     font-size: 32px;
 }
 
+.h100 {
+    height: 100%;
+}
+
 #menu_button {
     line-height: 28px;
 }
-
 
 #list_view {
     height: 100%;
