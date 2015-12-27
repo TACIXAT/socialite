@@ -164,7 +164,7 @@ $first_login = first_login($mysqli);
                     </div> 
                 </div>
                 <!-- node list -->
-                <div id="list_view" class="row hide">
+                <div id="list_view" class="row">
                     <div class="col s12 center card_col h100">
                         <div id="list_person_div" class="card h100">
                             <ul id="node_list" class="collection list_collection h100">
@@ -177,14 +177,14 @@ $first_login = first_login($mysqli);
                 </div>
                 <!-- node create -->
                 <!-- node search -->
-                <div id="search_view" class="row">
+                <div id="search_view" class="row white hide">
                     <div class="col s12 center card_col h100">
                         <div class="row">
                             <h4>Search Nodes</h4>
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                <ul class="tabs">
+                                <ul class="tabs view_tabs">
                                     <li class="tab col s3"><a href="#search_person_div" id="search_person_tab" class="active">Person</a></li>
                                     <li class="tab col s3"><a href="#search_event_div" id="search_event_tab">Event</a></li>
                                     <li class="tab col s3"><a href="#search_location_div" id="search_location_tab">Location</a></li>
@@ -197,7 +197,7 @@ $first_login = first_login($mysqli);
 
                             </div>
                             <div id="search_location_div" class="col s12">
-                                
+
                             </div>
                         </div>
                         <div class="search_footer">

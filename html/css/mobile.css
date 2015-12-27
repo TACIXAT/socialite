@@ -46,6 +46,11 @@ body {
     height: 100%;
 }
 
+.view_tabs {
+    width: 100%;
+    overflow: hidden !important;
+}
+
 #menu_button {
     line-height: 28px;
 }
