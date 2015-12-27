@@ -97,7 +97,9 @@ body {
     float: left;
 }
 
-#search_footer {
+.search_footer {
+    position: absolute;
+    bottom: 0;
     width: 95%;
 }
 

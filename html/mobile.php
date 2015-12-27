@@ -177,7 +177,7 @@ $first_login = first_login($mysqli);
                 </div>
                 <!-- node create -->
                 <!-- node search -->
-                <div id="search_view" class="row">
+                <div id="search_view" class="row h100">
                     <div class="col s12 center card_col h100">
                         <div class="card h100">
                             <div class="row">
