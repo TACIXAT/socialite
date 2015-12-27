@@ -151,14 +151,14 @@ $first_login = first_login($mysqli);
             <div id="page_container">
                 <!-- node info -->
                 <div id="info_view" class="row">
-                    <div class="col s12 center card_col">
-                        <div id= "display_person_div" class="card">
+                    <div class="col s12 center card_col container_div">
+                        <div id= "display_person_div" class="card display_div">
                             
                         </div>
-                        <div id= "display_event_div" class="card hide">
+                        <div id= "display_event_div" class="card display_div hide">
                             
                         </div>
-                        <div id= "display_location_div" class="card hide">
+                        <div id= "display_location_div" class="card display_div hide">
                             
                         </div>
                     </div> 

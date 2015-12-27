@@ -44,3 +44,29 @@ body {
 #page_container {
     height: calc(100vh - 110px);
 }
+
+.container_div {
+    height: 100%;
+}
+
+.display_div {
+    height: 100%;
+}
+
+.display_form {
+    padding: 5px;
+}
+
+.display_form_footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
