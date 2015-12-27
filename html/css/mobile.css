@@ -100,7 +100,8 @@ body {
 .search_footer {
     position: absolute;
     bottom: 0px;
-    width: 100%;
+    width: 99%;
+    padding-right: 10px;
 }
 
 #search_card {
