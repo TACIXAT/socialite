@@ -42,6 +42,11 @@ body {
     line-height: 28px;
 }
 
+
+#list_view {
+    height: 100%;
+}
+
 #info_view {
     height: 100%;
 }
@@ -51,7 +56,7 @@ body {
 }
 
 #page_container {
-    height: calc(100vh - 110px);
+    height: calc(100vh - 80px);
 }
 
 .container_div {

@@ -150,7 +150,7 @@ $first_login = first_login($mysqli);
             </header>
             <div id="page_container">
                 <!-- node info -->
-                <div id="info_view" class="row">
+                <div id="info_view" class="row hide">
                     <div class="col s12 center card_col container_div">
                         <div id= "display_person_div" class="card display_div">
                             
@@ -164,11 +164,13 @@ $first_login = first_login($mysqli);
                     </div> 
                 </div>
                 <!-- node list -->
-                <div id="list_view" class="row hide">
+                <div id="list_view" class="row">
                     <div class="col s12 center card_col">
                         <div id="list_person_div" class="card">
                             <ul id="node_list" class="collection list_collection">
-
+                                <li class="collection-item title_row">
+                                  <div><b>Listed Nodes</b></div>
+                                </li>
                             </ul>
                         </div>
                     </div> 
