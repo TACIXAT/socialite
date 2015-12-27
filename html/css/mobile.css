@@ -99,10 +99,13 @@ body {
 
 .search_footer {
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     width: 95%;
 }
 
+#search_card {
+    padding-top: 5px;
+}
 
 
 

@@ -179,7 +179,7 @@ $first_login = first_login($mysqli);
                 <!-- node search -->
                 <div id="search_view" class="row h100">
                     <div class="col s12 center card_col h100">
-                        <div class="card h100">
+                        <div id="search_card" class="card h100">
                             <div class="row">
                                 <h5>Search Nodes</h5>
                             </div>
