@@ -176,8 +176,41 @@ $first_login = first_login($mysqli);
                     </div> 
                 </div>
                 <!-- node create -->
+                <div id="create_view" class="row h100">
+                    <div class="col s12 center card_col h100">
+                        <div id="create_card" class="card h100">
+                            <div class="row">
+                                <h4>Create Node</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col s12">
+                                    <ul class="tabs">
+                                        <li class="tab col s3"><a href="#create_person_div" id="create_person_tab" class="active">Person</a></li>
+                                        <li class="tab col s3"><a href="#create_event_div" id="create_event_tab">Event</a></li>
+                                        <li class="tab col s3"><a href="#create_location_div" id="create_location_tab">Location</a></li>
+                                    </ul>
+                                </div>
+                                <div id="create_person_div" class="col s12">
+
+                                </div>
+                                <div id="create_event_div" class="col s12">
+
+                                </div>
+                                <div id="create_location_div" class="col s12">
+
+                                </div>
+                            </div>
+                            <div class="row create_footer">
+                                <a id="create_clear_button" class="modal-action waves-effect waves-green btn-flat modal_left_button">Clear</a>
+                                <button id="create_submit_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Create</button>
+                                <a id="create_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
                 <!-- node search -->
-                <div id="search_view" class="row h100">
+                <div id="search_view" class="row h100 hide">
                     <div class="col s12 center card_col h100">
                         <div id="search_card" class="card h100">
                             <div class="row">
