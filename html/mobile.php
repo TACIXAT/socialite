@@ -179,31 +179,33 @@ $first_login = first_login($mysqli);
                 <!-- node search -->
                 <div id="search_view" class="row white hide">
                     <div class="col s12 center card_col h100">
-                        <div class="row">
-                            <h4>Search Nodes</h4>
-                        </div>
-                        <div class="row">
-                            <div class="col s12">
-                                <ul class="tabs view_tabs">
-                                    <li class="tab col s3"><a href="#search_person_div" id="search_person_tab" class="active">Person</a></li>
-                                    <li class="tab col s3"><a href="#search_event_div" id="search_event_tab">Event</a></li>
-                                    <li class="tab col s3"><a href="#search_location_div" id="search_location_tab">Location</a></li>
-                                </ul>
+                        <div class="card h100">
+                            <div class="row">
+                                <h5>Search Nodes</h5>
                             </div>
-                            <div id="search_person_div" class="col s12">
+                            <div class="row">
+                                <div class="col s12">
+                                    <ul class="tabs view_tabs">
+                                        <li class="tab col s3"><a href="#search_person_div" id="search_person_tab" class="active">Person</a></li>
+                                        <li class="tab col s3"><a href="#search_event_div" id="search_event_tab">Event</a></li>
+                                        <li class="tab col s3"><a href="#search_location_div" id="search_location_tab">Location</a></li>
+                                    </ul>
+                                </div>
+                                <div id="search_person_div" class="col s12">
 
-                            </div>
-                            <div id="search_event_div" class="col s12">
+                                </div>
+                                <div id="search_event_div" class="col s12">
 
-                            </div>
-                            <div id="search_location_div" class="col s12">
+                                </div>
+                                <div id="search_location_div" class="col s12">
 
+                                </div>
                             </div>
-                        </div>
-                        <div class="search_footer">
-                            <a id="search_clear_button" class="modal-action waves-effect waves-green btn-flat modal_left_button">Clear</a>
-                            <button id="search_submit_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Search</button>
-                            <a id="search_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Cancel</a>
+                            <div class="search_footer">
+                                <a id="search_clear_button" class="modal-action waves-effect waves-green btn-flat modal_left_button">Clear</a>
+                                <button id="search_submit_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Search</button>
+                                <a id="search_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Cancel</a>
+                            </div>
                         </div>
                     </div>
                 </div>
