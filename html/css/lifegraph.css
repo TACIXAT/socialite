@@ -93,7 +93,7 @@ body {
 
 .modal_tabs {
     width: 100%;
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 .modal-content {
