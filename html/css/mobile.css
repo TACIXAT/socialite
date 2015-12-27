@@ -16,6 +16,23 @@ body {
     border-bottom: 1px solid #ddd;
 }
 
+@media screen and (max-height: 768px) {
+    .logo_img {
+        width: 80%;
+        margin-left:18%;
+    }
+
+    .logo {
+        height: 245px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid #ddd;
+    }
+}
+
+.side-nav li:hover, .side-nav li.active {
+    background-color: #ddd;
+}
+
 #info_view {
     height: 100%;
 }

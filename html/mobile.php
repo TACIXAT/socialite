@@ -103,7 +103,7 @@ $first_login = first_login($mysqli);
                 <div class="nav-wrapper">
                     <ul id="nav-mobile" class="side-nav fixed" style="left: 0px;">
                         <li class="logo">
-                            <a href="https://socialite.ooo" class="btn-flat"><img src="/icon/SocialiteLogoFill.svg" style="width:100%" name="Socialite Logo"></img></a>
+                            <a href="https://socialite.ooo" class="btn-flat"><img src="/icon/SocialiteLogoFill.svg" style="width:100%" name="Socialite Logo" class="logo_img"></img></a>
                             <!-- Logo designed by @mlgs -->
                         </li>
                         <li class="bold">
