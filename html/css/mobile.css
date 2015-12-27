@@ -23,7 +23,7 @@ body {
 @media screen and (max-height: 768px) {
     .logo_img {
         width: 80%;
-        margin-left:18%;
+        margin-left: 10%;
     }
 
     .logo {
