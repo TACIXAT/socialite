@@ -180,7 +180,7 @@ $first_login = first_login($mysqli);
                     <div class="col s12 center card_col h100">
                         <div id="create_card" class="card h100">
                             <div class="row">
-                                <h4>Create Node</h4>
+                                <h5>Create Node</h5>
                             </div>
                             <div class="row">
                                 <div class="col s12">

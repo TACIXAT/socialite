@@ -108,6 +108,15 @@ body {
     padding-top: 5px;
 }
 
+.create_footer {
+    position: absolute;
+    bottom: 0px;
+    width: 99%;
+    padding-right: 10px;
+}
 
+#create_card {
+    padding-top: 5px;
+}
 
 
