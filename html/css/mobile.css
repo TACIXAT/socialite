@@ -6,6 +6,16 @@ body {
     height: 100%;
 }
 
+.logo:hover {
+    background-color:#fff !important;
+}
+
+.logo {
+    height: 310px;
+    margin-bottom: 0px;
+    border-bottom: 1px solid #ddd;
+}
+
 #info_view {
     height: 100%;
 }
