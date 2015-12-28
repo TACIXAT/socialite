@@ -190,13 +190,13 @@ $first_login = first_login($mysqli);
                                         <li class="tab col s3"><a href="#create_location_div" id="create_location_tab">Location</a></li>
                                     </ul>
                                 </div>
-                                <div id="create_person_div" class="col s12">
+                                <div id="create_person_div" class="col s12 create_div">
 
                                 </div>
-                                <div id="create_event_div" class="col s12">
+                                <div id="create_event_div" class="col s12 create_div">
 
                                 </div>
-                                <div id="create_location_div" class="col s12">
+                                <div id="create_location_div" class="col s12 create_div">
 
                                 </div>
                             </div>

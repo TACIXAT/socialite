@@ -119,9 +119,9 @@ body {
     padding-top: 5px;
 }
 
-#create_location_div {
+.create_div {
     overflow: scroll;
     position: absolute;
-    bottom: 50px;
-    top: 125px;
+    bottom: 65px;
+    top: 120px;
 }
