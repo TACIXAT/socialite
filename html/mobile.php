@@ -283,7 +283,6 @@ $first_login = first_login($mysqli);
                         <div id="connect_card" class="card h100">
                             <div class="row">
                                 <h5>Mangage Connections</h5>
-                                Double click a node to remove it from the connection interface. Or click CLEAR to remove all nodes.
                             </div>
                             <div id="connect_div" class="row">
                                

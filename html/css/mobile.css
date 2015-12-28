@@ -142,3 +142,14 @@ body {
     bottom: 65px;
     top: 120px;
 }
+
+#connect_footer {
+    position: absolute;
+    bottom: 0px;
+    width: 99%;
+    padding-right: 10px;
+}
+
+#connect_card {
+    padding-top: 5px;
+}
