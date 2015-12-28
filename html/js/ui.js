@@ -2,6 +2,75 @@ var Socialite = Socialite || {};
 Socialite.UI = {};
 Socialite.UI.maps = [];
 
+Socialite.UI['buttonInit'] = function() {
+    $("#connect_button").on('click.open', function() {
+        $('#connect_modal').openModal();
+        Socialite.Graph.Connect.resize();
+        Socialite.UI.checkConnectInterface();
+    });
+
+    // if this is changed update tour.js
+    // use a namespace (open) so we can remove this specific fn
+    $("#add_button").on('click.open', function() {
+        $('#add_modal').openModal();
+        $('ul.tabs').tabs();
+        if($("#create_location_tab").hasClass('active'))
+            Socialite.UI.refreshCreateMap();
+
+        $("#create_submit_button").on('click.submit', function() {
+            var visibleType = undefined;
+            if($("#create_person_tab").hasClass("active")) {
+                visibleType = "person";
+            } else if($("#create_event_tab").hasClass("active")) {
+                visibleType = "event";
+            } else if($("#create_location_tab").hasClass("active")) {
+                visibleType = "location";
+            } 
+
+            if(visibleType == undefined) {
+                return;
+            }
+
+            var formId = "#create_" + visibleType + "_form";
+            $(formId).submit();
+        });
+    });
+
+    $("#tutorial_btn").off('click.tour');
+    $("#tutorial_btn").on('click.tour', function() {
+        Socialite.Tour.nextStep();
+        $("#help_li > ul > li > div").slideToggle(200, function() {
+            $("#help_li > ul > li").removeClass("active");
+            $("#help_li > ul > li > a").removeClass("active");
+        });
+    });
+
+    $("#search_button").click(function() {
+        $('#search_modal').openModal();
+        $('ul.tabs').tabs();
+        if($("#search_location_tab").hasClass('active'))
+            Socialite.UI.refreshSearchMap();
+
+        $("#search_submit_button").click(function() {
+            var visibleType = undefined;
+            if($("#search_person_tab").hasClass("active")) {
+                visibleType = "person";
+            } else if($("#search_event_tab").hasClass("active")) {
+                visibleType = "event";
+            } else if($("#search_location_tab").hasClass("active")) {
+                visibleType = "location";
+            } 
+
+            if(visibleType == undefined) {
+                return;
+            }
+
+            var formId = "#search_" + visibleType + "_form";
+            $(formId).submit();
+        });
+    });
+}
+
 Socialite.UI['buildEventForms'] = function() {
     var searchForm = Socialite.UI.buildSearchForm('event');
     var displayForm = Socialite.UI.buildDisplayForm('event');

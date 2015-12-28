@@ -91,6 +91,31 @@ $first_login = first_login($mysqli);
                 $("#person_display_div").show();
                 $(".view").hide();
                 $("#search_view").show();
+
+                $("#add_button").click(function() {
+                    $(".view").hide();
+                    $("#create_view").show();
+                });
+
+                $("#search_button").click(function() {
+                    $(".view").hide();
+                    $("#search_view").show();
+                });
+
+                $("#connect_button").click(function() {
+                    $(".view").hide();
+                    $("#connect_view").show();
+                });
+
+                $("#list_button").click(function() {
+                    $(".view").hide();
+                    $("#list_view").show();
+                });
+
+                $("#details_button").click(function() {
+                    $(".view").hide();
+                    $("#details_view").show();
+                });
             });
         </script>
     </head>
@@ -124,31 +149,14 @@ $first_login = first_login($mysqli);
                         <li class="bold" ondrop="Socialite.UI.connectDrop(event)" ondragover="Socialite.UI.allowDrop(event)">
                             <a id="connect_button">Connections</a>
                         </li>
-                        <li class="no-padding">
-                            <ul class="collapsible collapsible-accordion">
-                                <li>
-                                    <a class="collapsible-header menu_item">Legalities</a>
-                                    <div class="collapsible-body">
-                                        <ul>
-                                            <li><a href="/legal/tos.txt" target="_blank">Terms of Service</a></li>
-                                            <li><a href="/legal/privacy.txt" target="_blank">Privacy Policy</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
+                        <li class="bold">
+                            <a id="list_button">List</a>
                         </li>
-                        <li class="no-padding" id="help_li">
-                            <ul class="collapsible collapsible-accordion">
-                                <li>
-                                    <a class="collapsible-header menu_item">Help</a>
-                                    <div class="collapsible-body">
-                                        <ul>
-                                            <li><a id="tutorial_btn">Tutorial</a></li>
-                                            <li><a href="mailto:feedback@socialite.ooo">Email</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
+                        <li class="bold">
+                            <a id="details_button">Details</a>
+                        </li>
+                        <li class="bold">
+                            <a href="mailto:feedback@socialite.ooo">Contact</a>
                         </li>
                         <li class="bold">
                             <a id="signout_button" href="/logout.php">Sign Out</a>
@@ -157,8 +165,8 @@ $first_login = first_login($mysqli);
                 </div>
             </header>
             <div id="page_container">
-                <!-- node info -->
-                <div id="info_view" class="row view">
+                <!-- node details -->
+                <div id="details_view" class="row view">
                     <div class="col s12 center card_col container_div">
                         <div id= "display_person_div" class="card display_div">
                             
