@@ -87,8 +87,6 @@ $first_login = first_login($mysqli);
         ?>
         <script type="text/javascript">
             $(document).ready(function() {
-                // $(".display_div").hide();
-                // $("#person_display_div").show();
                 $(".view").hide();
                 $("#details_view").show();
 
@@ -122,8 +120,12 @@ $first_login = first_login($mysqli);
                     $("#details_button").click(function() {
                         $(".view").hide();
                         $("#details_view").show();
+                        $(".display_div").hide();
                         $("#display_person_div").show();
                     });
+
+                    $(".display_div").removeClass("card");
+                    $(".display_form").removeClass("card");
                 }, 1000);
             });
         </script>
