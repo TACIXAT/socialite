@@ -176,16 +176,22 @@ $first_login = first_login($mysqli);
             <div id="page_container">
                 <!-- node details -->
                 <div id="details_view" class="row view h100">
-                    <div class="col s12 center card_col container_div">
-                        <h5>Details</h5>
-                        <div id= "display_person_div" class="card display_div">
-                            
-                        </div>
-                        <div id= "display_event_div" class="card display_div">
-                            
-                        </div>
-                        <div id= "display_location_div" class="card display_div">
-                            
+                    <div class="col s12 center card_col container_div h100">
+                        <div class="card h100">
+                            <div class="row">
+                                <h5>Details</h5>
+                            </div>
+                            <div class="row">
+                                <div id= "display_person_div" class="card display_div">
+                                    
+                                </div>
+                                <div id= "display_event_div" class="card display_div">
+                                    
+                                </div>
+                                <div id= "display_location_div" class="card display_div">
+                                    
+                                </div>
+                            </div>
                         </div>
                     </div> 
                 </div>
