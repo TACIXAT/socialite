@@ -86,10 +86,10 @@ $first_login = first_login($mysqli);
             } 
         ?>
         <script type="text/javascript">
-            $(".view").hide();
-            $("#create_view").show();
             $(".display_div").hide();
             $("#person_display_div").show();
+            $(".view").hide();
+            $("#search_view").show();
         </script>
     </head>
     <body class="red">
@@ -229,13 +229,13 @@ $first_login = first_login($mysqli);
                                         <li class="tab col s3"><a href="#search_location_div" id="search_location_tab">Location</a></li>
                                     </ul>
                                 </div>
-                                <div id="search_person_div" class="col s12">
+                                <div id="search_person_div" class="col s12 search_div">
 
                                 </div>
-                                <div id="search_event_div" class="col s12">
+                                <div id="search_event_div" class="col s12 search_div">
 
                                 </div>
-                                <div id="search_location_div" class="col s12">
+                                <div id="search_location_div" class="col s12 search_div">
 
                                 </div>
                             </div>

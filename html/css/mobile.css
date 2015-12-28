@@ -108,6 +108,13 @@ body {
     padding-top: 5px;
 }
 
+.search_div {
+    overflow: scroll;
+    position: absolute;
+    bottom: 65px;
+    top: 120px;
+}
+
 .create_footer {
     position: absolute;
     bottom: 0px;
