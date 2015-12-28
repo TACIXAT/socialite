@@ -126,6 +126,8 @@ $first_login = first_login($mysqli);
 
                     $(".display_div").removeClass("card");
                     $(".display_form").removeClass("card");
+                    $(".display_div").hide();
+                    $("#display_person_div").show();
                 }, 1000);
             });
         </script>
