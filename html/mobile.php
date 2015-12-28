@@ -87,8 +87,8 @@ $first_login = first_login($mysqli);
         ?>
         <script type="text/javascript">
             $(document).ready(function() {
-                $(".display_div").hide();
-                $("#person_display_div").show();
+                // $(".display_div").hide();
+                // $("#person_display_div").show();
                 $(".view").hide();
                 $("#search_view").show();
 
