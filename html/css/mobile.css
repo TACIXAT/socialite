@@ -75,6 +75,10 @@ body {
     height: 100%;
 }
 
+.display_card {
+    padding: 5px;
+}
+
 .display_div {
     height: 100%;
 }
@@ -83,7 +87,7 @@ body {
     padding: 5px;
     position: absolute;
     width: 100%;
-    top: 0;
+    top: 40px;
     bottom: 65px;
     overflow: scroll;
 }
