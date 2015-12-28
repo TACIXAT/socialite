@@ -76,6 +76,9 @@ if(isset($_GET["confirmed"])) {
             .right_btn {
                 float: right;
             }
+            #login_tabs {
+                overflow: hidden;
+            }
         </style>
     </head>
     <body class="red">
@@ -85,7 +88,7 @@ if(isset($_GET["confirmed"])) {
                     <div id="card" class="card white s12">
                         <div>
                             <div class="col s12">
-                                <ul class="tabs">
+                                <ul id="login_tabs" class="tabs">
                                     <li class="tab col l6"><a class="active" href="#loginDiv">Login</a></li>
                                     <li class="tab col l6"><a href="#registrationDiv">Register</a></li>
                                     <li class="tab col l6"><a href="#resetDiv">Reset</a></li>
