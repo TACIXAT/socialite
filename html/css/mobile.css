@@ -89,7 +89,8 @@ body {
     width: 98%;
     top: 40px;
     bottom: 65px;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .display_form_footer {
