@@ -85,6 +85,12 @@ $first_login = first_login($mysqli);
                 echo "        <script type=\"text/javascript\" src=\"/js/tour.js\"></script>\n";
             } 
         ?>
+        <script type="text/javascript">
+            $(".view").hide();
+            $("#create_view").show();
+            $(".display_div").hide();
+            $("#person_display_div").show();
+        </script>
     </head>
     <body class="red">
         <?php if (!$logged_in) : ?>
@@ -150,21 +156,21 @@ $first_login = first_login($mysqli);
             </header>
             <div id="page_container">
                 <!-- node info -->
-                <div id="info_view" class="row hide">
+                <div id="info_view" class="row view">
                     <div class="col s12 center card_col container_div">
                         <div id= "display_person_div" class="card display_div">
                             
                         </div>
-                        <div id= "display_event_div" class="card display_div hide">
+                        <div id= "display_event_div" class="card display_div">
                             
                         </div>
-                        <div id= "display_location_div" class="card display_div hide">
+                        <div id= "display_location_div" class="card display_div">
                             
                         </div>
                     </div> 
                 </div>
                 <!-- node list -->
-                <div id="list_view" class="row hide">
+                <div id="list_view" class="row view">
                     <div class="col s12 center card_col h100">
                         <div id="list_person_div" class="card h100">
                             <ul id="node_list" class="collection list_collection h100">
@@ -176,7 +182,7 @@ $first_login = first_login($mysqli);
                     </div> 
                 </div>
                 <!-- node create -->
-                <div id="create_view" class="row h100">
+                <div id="create_view" class="row h100 view">
                     <div class="col s12 center card_col h100">
                         <div id="create_card" class="card h100">
                             <div class="row">
@@ -208,9 +214,8 @@ $first_login = first_login($mysqli);
                         </div>
                     </div>
                 </div>
-            </div>
                 <!-- node search -->
-                <div id="search_view" class="row h100 hide">
+                <div id="search_view" class="row h100 view">
                     <div class="col s12 center card_col h100">
                         <div id="search_card" class="card h100">
                             <div class="row">
