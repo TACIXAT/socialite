@@ -121,4 +121,7 @@ body {
 
 #create_location_div {
     overflow: scroll;
+    position: absolute;
+    bottom: 50px;
+    top: 125px;
 }
