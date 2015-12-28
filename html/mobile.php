@@ -86,10 +86,12 @@ $first_login = first_login($mysqli);
             } 
         ?>
         <script type="text/javascript">
-            $(".display_div").hide();
-            $("#person_display_div").show();
-            $(".view").hide();
-            $("#search_view").show();
+            $(document).ready(function() {
+                $(".display_div").hide();
+                $("#person_display_div").show();
+                $(".view").hide();
+                $("#search_view").show();
+            });
         </script>
     </head>
     <body class="red">
