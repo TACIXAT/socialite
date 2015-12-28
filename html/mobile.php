@@ -90,7 +90,7 @@ $first_login = first_login($mysqli);
                 // $(".display_div").hide();
                 // $("#person_display_div").show();
                 $(".view").hide();
-                $("#search_view").show();
+                $("#details_view").show();
 
                 setTimeout(function() {
                     $("#add_button").off("click");
@@ -122,6 +122,7 @@ $first_login = first_login($mysqli);
                     $("#details_button").click(function() {
                         $(".view").hide();
                         $("#details_view").show();
+                        $("#display_person_div").show();
                     });
                 }, 1000);
             });
@@ -174,8 +175,9 @@ $first_login = first_login($mysqli);
             </header>
             <div id="page_container">
                 <!-- node details -->
-                <div id="details_view" class="row view">
+                <div id="details_view" class="row view h100">
                     <div class="col s12 center card_col container_div">
+                        <h5>Details</h5>
                         <div id= "display_person_div" class="card display_div">
                             
                         </div>
