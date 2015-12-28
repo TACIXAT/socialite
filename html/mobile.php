@@ -88,7 +88,7 @@ $first_login = first_login($mysqli);
         <script type="text/javascript">
             $(document).ready(function() {
                 $(".view").hide();
-                $("#details_view").show();
+                $("#connect_view").show();
 
                 setTimeout(function() {
                     $("#add_button").off("click");
@@ -277,8 +277,25 @@ $first_login = first_login($mysqli);
                         </div>
                     </div>
                 </div>
-            </div>
                 <!-- node connect -->
+                <div id="connect_view" class="row h100 view">
+                    <div class="col s12 center card_col h100">
+                        <div id="connect_card" class="card h100">
+                            <div class="row">
+                                <h5>Mangage Connections</h5>
+                                Double click a node to remove it from the connection interface. Or click CLEAR to remove all nodes.
+                            </div>
+                            <div id="connect_div" class="row">
+                               
+                            </div>
+                            <div id="connect_footer" class="row">
+                                <a id="connect_clear_button" class="modal-action waves-effect waves-green btn-flat modal_left_button">Clear</a>
+                                <button id="connect_submit_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Connect</button>
+                                <a id="connect_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Done</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- <div id="add_modal" class="">
                 <div class="modal-content">
