@@ -92,30 +92,38 @@ $first_login = first_login($mysqli);
                 $(".view").hide();
                 $("#search_view").show();
 
-                $("#add_button").click(function() {
-                    $(".view").hide();
-                    $("#create_view").show();
-                });
+                setTimeout(function() {
+                    $("#add_button").off("click");
+                    $("#search_button").off("click");
+                    $("#connect_button").off("click");
+                    $("#list_button").off("click");
+                    $("#details_button").off("click");
 
-                $("#search_button").click(function() {
-                    $(".view").hide();
-                    $("#search_view").show();
-                });
+                    $("#add_button").click(function() {
+                        $(".view").hide();
+                        $("#create_view").show();
+                    });
 
-                $("#connect_button").click(function() {
-                    $(".view").hide();
-                    $("#connect_view").show();
-                });
+                    $("#search_button").click(function() {
+                        $(".view").hide();
+                        $("#search_view").show();
+                    });
 
-                $("#list_button").click(function() {
-                    $(".view").hide();
-                    $("#list_view").show();
-                });
+                    $("#connect_button").click(function() {
+                        $(".view").hide();
+                        $("#connect_view").show();
+                    });
 
-                $("#details_button").click(function() {
-                    $(".view").hide();
-                    $("#details_view").show();
-                });
+                    $("#list_button").click(function() {
+                        $(".view").hide();
+                        $("#list_view").show();
+                    });
+
+                    $("#details_button").click(function() {
+                        $(".view").hide();
+                        $("#details_view").show();
+                    });
+                }, 1000);
             });
         </script>
     </head>
