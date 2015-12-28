@@ -157,5 +157,6 @@ body {
 #connect_div {
     position: absolute;
     top: 70px;
+    width: 100%;
     bottom: 65px;
 }
