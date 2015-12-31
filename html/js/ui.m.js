@@ -454,7 +454,7 @@ Socialite.UI['listVertices'] = function(vertices) {
                 ev.stopPropagation();
             var vertex = $(this).parent().parent().data('vertex');
             Socialite.UI.resetForm(vertex['properties']['type'], 'display');
-            $(this).parent().hide('fast', function() { 
+            $(this).parent().parent().hide('fast', function() { 
                 $(this).remove();
             });
         });        
