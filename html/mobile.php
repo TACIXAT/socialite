@@ -81,7 +81,7 @@ $first_login = first_login($mysqli);
                 echo "        </script>\n";
                 echo "        <script type=\"text/javascript\" src=\"/js/api.js\"></script>\n";
                 echo "        <script type=\"text/javascript\" src=\"/js/graph.js\"></script>\n";
-                echo "        <script type=\"text/javascript\" src=\"/js/ui.js\"></script>\n";
+                echo "        <script type=\"text/javascript\" src=\"/js/ui.m.js\"></script>\n";
                 echo "        <script type=\"text/javascript\" src=\"/js/tour.js\"></script>\n";
             } 
         ?>
