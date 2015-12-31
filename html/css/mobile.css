@@ -86,8 +86,8 @@ body {
 .display_form {
     padding: 5px;
     position: absolute;
-    width: 98%;
-    top: 40px;
+    width: 97%;
+    top: 120px;
     bottom: 65px;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -96,7 +96,7 @@ body {
 .display_form_footer {
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 99%;
 }
 
 .modal_right_button {
@@ -155,17 +155,6 @@ body {
 }
 
 #connect_div {
-    position: absolute;
-    top: 70px;
-    width: 100%;
-    bottom: 65px;
-}
-
-#display_card {
-    padding-top: 5px;
-}
-
-#display_div {
     position: absolute;
     top: 70px;
     width: 100%;
