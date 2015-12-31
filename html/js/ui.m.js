@@ -387,31 +387,11 @@ Socialite.util['addConnections'] = function(vertex) {
 }
 
 Socialite.UI['listVertices'] = function(vertices) {
-    // var items = $("#connected_to_list > li").not("#title_row").get();
-    // for(var idx in items) {
-    //     var item = $(items[idx]);
-    //     if(item.data('vertex')._id == vertex._id)
-    //         return false;
-    // }
-
-    // var images = {
-    //     'person': 'person',
-    //     'event': 'schedule',
-    //     'location': 'place'
-    // }
-    // var vertexType = vertex['properties']['type'];
-
-    // // create list element
-    // var listItem = $('<li></li>');
-    // listItem.addClass('collection-item');
-    
-    // var valignDiv = $('<div></div>');
-    // valignDiv.addClass('valign-wrapper');
-
-    // var icon = $('<i></i>');
-    // icon.addClass('small');
-    // icon.addClass('material-icons');
-    // icon.text(images[vertexType]);
+    var images = {
+        'person': 'person',
+        'event': 'schedule',
+        'location': 'place'
+    }
 
     for(var idx in vertices) {
         var vertex = vertices[idx];
@@ -419,15 +399,25 @@ Socialite.UI['listVertices'] = function(vertices) {
         var vertexProperties = vertex['properties'];
         var vertexType = vertexProperties['type'];
         var id = vertex['_id'];
+    
+        var valignDiv = $('<div></div>');
+        valignDiv.addClass('valign-wrapper');
+
+        var icon = $('<i></i>');
+        icon.addClass('small');
+        icon.addClass('material-icons');
+        icon.text(images[vertexType]);
 
         var item = $("<li></li>");
         item.attr('id', vertexType + '_' + id);
         item.addClass('list_item');
         item.addClass('collection-item');
-        item.text(vertexProperties['name']);
         item.data('vertex', vertex);
         item.click(Socialite.UI.itemClick);
         item.dblclick(Socialite.UI.itemDoubleClick);
+        
+        var nameDiv = $('<div></div>');
+        nameDiv.text(vertexProperties['name']);
 
         var connectLink = $("<a></a>");
         connectLink.addClass("control_right");
@@ -455,8 +445,11 @@ Socialite.UI['listVertices'] = function(vertices) {
             });
         });        
 
-        item.append(removeLink);
-        item.append(connectLink);
+        valignDiv.append(icon);
+        valignDiv.append(nameDiv);
+        valignDiv.append(removeLink);
+        valignDiv.append(connectLink);
+        item.append(valignDiv);
 
         $("#node_list").append(item);
     }
