@@ -329,8 +329,12 @@ Socialite.UI['itemClick'] = function(event) {
     var vertex = $(this).data('vertex');
     Socialite.UI.resetForm(vertex['properties']['type'], 'display');
     Socialite.UI.displayVertex(vertex);
-    var elementId = vertex['properties']['type'] + "_" + vertex._id;
-    Socialite.UI.highlightItems(elementId);
+    var vertexType = vertex['properties']['type'];
+    var elementId = vertexType + "_" + vertex._id;
+    // Socialite.UI.highlightItems(elementId);
+    $('#display_tabs').tabs('select_tab', 'display_' + vertexType + '_div');
+    $(".view").hide();
+    $("#details_view").show();
 }
 
 Socialite.UI['highlightItems'] = function(elementId) {
