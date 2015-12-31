@@ -88,7 +88,7 @@ $first_login = first_login($mysqli);
         <script type="text/javascript">
             $(document).ready(function() {
                 $(".view").hide();
-                $("#connect_view").show();
+                $("#search_view").show();
 
                 setTimeout(function() {
                     $("#add_button").off("click");

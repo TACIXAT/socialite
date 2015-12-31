@@ -394,6 +394,8 @@ Socialite.UI['listVertices'] = function(vertices) {
     }
 
     for(var idx in vertices) {
+        var vertex = vertices[idx];
+        
         // don't add duplicates
         var items = $("#node_list > li").not(".title_row").get();
         var found = false;
@@ -407,7 +409,6 @@ Socialite.UI['listVertices'] = function(vertices) {
         if(found)
             continue;
 
-        var vertex = vertices[idx];
         Socialite.util.addConnections(vertex);
         var vertexProperties = vertex['properties'];
         var vertexType = vertexProperties['type'];
