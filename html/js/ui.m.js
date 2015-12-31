@@ -394,6 +394,19 @@ Socialite.UI['listVertices'] = function(vertices) {
     }
 
     for(var idx in vertices) {
+        // don't add duplicates
+        var items = $("#node_list > li").not(".title_row").get();
+        var found = false;
+
+        for(var idx in items) {
+            var item = $(items[idx]);
+            if(item.data('vertex')._id == vertex._id)
+                found = true;
+        }
+
+        if(found)
+            continue;
+
         var vertex = vertices[idx];
         Socialite.util.addConnections(vertex);
         var vertexProperties = vertex['properties'];
@@ -453,6 +466,37 @@ Socialite.UI['listVertices'] = function(vertices) {
 
         $("#node_list").append(item);
     }
+
+    var items = $("#node_list > li").not(".title_row").get();
+
+    items.sort(function(a, b) {
+        var typeOrder = {'person':1, 'event':2, 'location':3};
+        var vertexA = $(a).data('vertex');
+        var vertexB = $(b).data('vertex');
+        var typeA = vertexA['properties']['type'];
+        var typeB = vertexB['properties']['type'];
+        var nameA = vertexA['properties']['name'];
+        var nameB = vertexB['properties']['name'];
+        
+        if(typeOrder[typeA] < typeOrder[typeB])
+            return -1;
+        else if(typeOrder[typeA] > typeOrder[typeB])
+            return 1;
+
+        if(nameA < nameB)
+            return -1;
+        else if(nameA > nameB)
+            return 1;
+
+        return 0;
+    });
+
+    $.each(items, function(i, li){
+      $("#node_list").append(li);
+    });
+
+    $(".view").hide();
+    $("#list_view").show();
 }
 
 Socialite.UI['resetActiveTab'] = function(action) {
