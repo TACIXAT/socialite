@@ -208,7 +208,7 @@ $first_login = first_login($mysqli);
                             </div>
                             <div class="row">
                                 <div class="col s12">
-                                    <ul class="tabs">
+                                    <ul id="display_tabs" class="tabs">
                                         <li class="tab col s3"><a href="#display_person_div" id="display_person_tab" class="active">Person</a></li>
                                         <li class="tab col s3"><a href="#display_event_div" id="display_event_tab">Event</a></li>
                                         <li class="tab col s3"><a href="#display_location_div" id="display_location_tab">Location</a></li>
