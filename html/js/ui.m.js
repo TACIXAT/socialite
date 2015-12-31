@@ -332,9 +332,10 @@ Socialite.UI['itemClick'] = function(event) {
     var vertexType = vertex['properties']['type'];
     var elementId = vertexType + "_" + vertex._id;
     // Socialite.UI.highlightItems(elementId);
-    $('#display_tabs').tabs('select_tab', 'display_' + vertexType + '_div');
     $(".view").hide();
-    $("#details_view").show();
+    $("#details_view").show(0, function() {
+        $('#display_tabs').tabs('select_tab', 'display_' + vertexType + '_div'); 
+    });
 }
 
 Socialite.UI['highlightItems'] = function(elementId) {
