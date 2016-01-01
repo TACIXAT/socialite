@@ -97,9 +97,31 @@ $first_login = first_login($mysqli);
                     $("#list_button").off("click");
                     $("#details_button").off("click");
 
-                    $("#add_button").click(function() {
+                    // if this is changed update tour.js
+                    // use a namespace (open) so we can remove this specific fn
+                    $("#add_button").on('click.open', function() {
                         $(".view").hide();
-                        $("#create_view").show();
+                        $("#_view").show();
+                        if($("#create_location_tab").hasClass('active'))
+                            Socialite.UI.refreshCreateMap();
+
+                        $("#create_submit_button").on('click.submit', function() {
+                            var visibleType = undefined;
+                            if($("#create_person_tab").hasClass("active")) {
+                                visibleType = "person";
+                            } else if($("#create_event_tab").hasClass("active")) {
+                                visibleType = "event";
+                            } else if($("#create_location_tab").hasClass("active")) {
+                                visibleType = "location";
+                            } 
+
+                            if(visibleType == undefined) {
+                                return;
+                            }
+
+                            var formId = "#create_" + visibleType + "_form";
+                            $(formId).submit();
+                        });
                     });
 
                     $("#search_button").click(function() {
