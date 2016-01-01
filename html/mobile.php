@@ -101,7 +101,7 @@ $first_login = first_login($mysqli);
                     // use a namespace (open) so we can remove this specific fn
                     $("#add_button").on('click.open', function() {
                         $(".view").hide();
-                        $("#_view").show();
+                        $("#create_view").show();
                         if($("#create_location_tab").hasClass('active'))
                             Socialite.UI.refreshCreateMap();
 
