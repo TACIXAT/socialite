@@ -455,7 +455,7 @@ Socialite.UI['listVertices'] = function(vertices) {
 
         var childCount = $("#node_list").children().not('.title_row').length;
         var menuButton = $("<a></a>");
-        menuButton.html("<i class='material-icons' style='line-height: 50px;'>more_vert</i>");
+        menuButton.html("<i class='material-icons' style='line-height: 50px; color: rgba(0,0,0,0.87);'>more_vert</i>");
         menuButton.addClass("dropdown-button");
         menuButton.addClass("right");
         menuButton.attr("data-activates", "drop_" + childCount);
@@ -472,6 +472,7 @@ Socialite.UI['listVertices'] = function(vertices) {
         var connectItem = $("<li></li>");
         var connectLink = $("<a></a>");
         connectLink.text("Connect");
+        connectLink.attr("style", "color: rgba(0,0,0,0.87);");
         connectLink.on('click.connect', function(ev) {
             ev.cancelBubble = true;
             if(ev.stopPropagation) 
@@ -484,6 +485,7 @@ Socialite.UI['listVertices'] = function(vertices) {
         var removeItem = $("<li></li>");
         var removeLink = $("<a></a>");
         removeLink.text("Remove");
+        removeLink.attr("style", "color: rgba(0,0,0,0.87);");
         removeLink.click(function(ev) {
             ev.cancelBubble = true;
             if(ev.stopPropagation) 
