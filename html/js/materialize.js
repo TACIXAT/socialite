@@ -575,6 +575,8 @@ if ($) {
         left: leftPosition
       });
 
+      console.log(origin);
+      console.log(activates);
       console.log("top, voff", origin.position().top, verticalOffset);
       console.log("Calc'd", origin.position().top + verticalOffset);
 
