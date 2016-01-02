@@ -475,9 +475,8 @@ Socialite.UI['listVertices'] = function(vertices) {
             ev.cancelBubble = true;
             if(ev.stopPropagation) 
                 ev.stopPropagation();
-            var vertex = $(this).parent().parent().data('vertex');
+            var vertex = $(this).parent().parent().parent().data('vertex');
             Socialite.Graph.Connect.addNode(vertex);
-            $("#connect_button").effect("shake", {'distance': 5, 'times': 2, 'direction': 'right'});
         });
         connectItem.append(connectLink);
 
@@ -489,9 +488,9 @@ Socialite.UI['listVertices'] = function(vertices) {
             ev.cancelBubble = true;
             if(ev.stopPropagation) 
                 ev.stopPropagation();
-            var vertex = $(this).parent().parent().data('vertex');
+            var vertex = $(this).parent().parent().parent().data('vertex');
             Socialite.UI.resetForm(vertex['properties']['type'], 'display');
-            $(this).parent().parent().hide('fast', function() { 
+            $(this).parent().parent().parent().hide('fast', function() { 
                 $(this).remove();
             });
         });        
