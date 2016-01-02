@@ -425,6 +425,7 @@ Socialite.UI['listVertices'] = function(vertices) {
         var icon = $('<i></i>');
         icon.addClass('small');
         icon.addClass('material-icons');
+        icon.addClass('left');
         icon.text(images[vertexType]);
 
         var item = $("<li></li>");
@@ -438,6 +439,7 @@ Socialite.UI['listVertices'] = function(vertices) {
         var nameDiv = $('<div></div>');
         nameDiv.text(vertexProperties['name']);
         nameDiv.css('white-space', 'nowrap');
+        nameDiv.addClass('left');
 
         /*
             <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>
@@ -453,10 +455,10 @@ Socialite.UI['listVertices'] = function(vertices) {
 
         var childCount = $("#node_list").children().not('.title_row').length;
         var menuButton = $("<a></a>");
-        menuButton.html("<i class='material-icons'>more_vert</i>");
+        menuButton.html("<i class='material-icons' style='line-height: 50px;'>more_vert</i>");
         menuButton.addClass("dropdown-button");
+        menuButton.addClass("right");
         menuButton.attr("data-activates", "drop_" + childCount);
-        menuButton.css("width", "100%");
         menuButton.click(function(ev) {
             ev.cancelBubble = true;
             if(ev.stopPropagation) 
@@ -469,7 +471,6 @@ Socialite.UI['listVertices'] = function(vertices) {
 
         var connectItem = $("<li></li>");
         var connectLink = $("<a></a>");
-        connectLink.addClass("control_right");
         connectLink.text("Connect");
         connectLink.on('click.connect', function(ev) {
             ev.cancelBubble = true;
@@ -482,7 +483,6 @@ Socialite.UI['listVertices'] = function(vertices) {
 
         var removeItem = $("<li></li>");
         var removeLink = $("<a></a>");
-        removeLink.addClass("control_right");
         removeLink.text("Remove");
         removeLink.click(function(ev) {
             ev.cancelBubble = true;
