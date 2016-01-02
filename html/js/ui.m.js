@@ -420,7 +420,7 @@ Socialite.UI['listVertices'] = function(vertices) {
         var id = vertex['_id'];
     
         var valignDiv = $('<div></div>');
-        valignDiv.addClass('valign-wrapper');
+        valignDiv.addClass('list_item_div');
 
         var icon = $('<i></i>');
         icon.addClass('small');
