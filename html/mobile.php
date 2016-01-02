@@ -122,6 +122,8 @@ $first_login = first_login($mysqli);
                             var formId = "#create_" + visibleType + "_form";
                             $(formId).submit();
                         });
+
+                        $(".drag-target").trigger('click');
                     });
 
                     $("#search_button").on('click.open', function() {
@@ -148,6 +150,8 @@ $first_login = first_login($mysqli);
                             var formId = "#search_" + visibleType + "_form";
                             $(formId).submit();
                         });
+
+                        $(".drag-target").trigger('click');
                     });
 
                     $("#connect_button").on('click.open', function() {
@@ -155,11 +159,13 @@ $first_login = first_login($mysqli);
                         $("#connect_view").show();
                         Socialite.Graph.Connect.resize();
                         Socialite.UI.checkConnectInterface();
+                        $(".drag-target").trigger('click');
                     });
 
                     $("#list_button").click(function() {
                         $(".view").hide();
                         $("#list_view").show();
+                        $(".drag-target").trigger('click');
                     });
 
                     $("#details_button").click(function() {
@@ -167,6 +173,7 @@ $first_login = first_login($mysqli);
                         $("#details_view").show();
                         $(".display_div").hide();
                         $("#display_person_div").show();
+                        $(".drag-target").trigger('click');
                     });
 
                     $(".display_div").removeClass("card");
