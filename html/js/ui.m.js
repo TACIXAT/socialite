@@ -438,6 +438,29 @@ Socialite.UI['listVertices'] = function(vertices) {
         var nameDiv = $('<div></div>');
         nameDiv.text(vertexProperties['name']);
 
+        /*
+            <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>
+
+            <!-- Dropdown Structure -->
+            <ul id='dropdown1' class='dropdown-content'>
+                <li><a href="#!">one</a></li>
+                <li><a href="#!">two</a></li>
+                <li class="divider"></li>
+                <li><a href="#!">three</a></li>
+            </ul>
+        */
+
+        var menuButton = $("<a>...</a>");
+        var childCount = $("#node_list").children().not('.title_row').length;
+        menuButton.addClass("dropdown-button");
+        menuButton.attr("data-activates", "drop_" + childCount);
+        menuButton.css("width", "100%");
+
+        var dropDown = $("<ul></ul>");
+        dropDown.attr("id", "drop_" + childCount);
+        dropDown.addClass("dropdown-content");
+
+        var connectItem = $("<li></li>");
         var connectLink = $("<a></a>");
         connectLink.addClass("control_right");
         connectLink.text("Connect");
@@ -449,7 +472,9 @@ Socialite.UI['listVertices'] = function(vertices) {
             Socialite.Graph.Connect.addNode(vertex);
             $("#connect_button").effect("shake", {'distance': 5, 'times': 2, 'direction': 'right'});
         });
+        connectItem.append(connectLink);
 
+        var removeItem = $("<li></li>");
         var removeLink = $("<a></a>");
         removeLink.addClass("control_right");
         removeLink.text("Remove");
@@ -463,11 +488,15 @@ Socialite.UI['listVertices'] = function(vertices) {
                 $(this).remove();
             });
         });        
+        removeItem.append(removeLink);
+
+        dropDown.append(connectItem);
+        dropDown.append(removeItem);
 
         valignDiv.append(icon);
         valignDiv.append(nameDiv);
-        valignDiv.append(removeLink);
-        valignDiv.append(connectLink);
+        valignDiv.append(menuButton);
+        valignDiv.append(dropDown);
         item.append(valignDiv);
 
         $("#node_list").append(item);

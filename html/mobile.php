@@ -124,7 +124,7 @@ $first_login = first_login($mysqli);
                         });
                     });
 
-                    $("#search_button").click(function() {
+                    $("#search_button").on('click.open', function() {
                         $(".view").hide();
                         $("#search_view").show();
                         // $('ul.tabs').tabs();
@@ -150,9 +150,11 @@ $first_login = first_login($mysqli);
                         });
                     });
 
-                    $("#connect_button").click(function() {
+                    $("#connect_button").on('click.open', function() {
                         $(".view").hide();
                         $("#connect_view").show();
+                        Socialite.Graph.Connect.resize();
+                        Socialite.UI.checkConnectInterface();
                     });
 
                     $("#list_button").click(function() {
