@@ -569,7 +569,7 @@ if ($) {
       }
 
       // Position dropdown
-      if(origin.attr('id').indexOf('drop_menu_'))verticalOffset+=$("#node_list").scrollTop();
+      if(origin.attr('id').indexOf('drop_menu_')==0)verticalOffset+=$("#node_list").scrollTop();
       activates.css({
         position: 'absolute',
         top: origin.position().top + verticalOffset,
