@@ -579,7 +579,9 @@ if ($) {
       console.log(activates);
       console.log("offset top", offsetTop);
       console.log("top, voff", origin.position().top, verticalOffset);
+      console.log("scroll top", $("#node_list").scrollTop());
       console.log("Calc'd", origin.position().top + verticalOffset);
+      console.log("Used", origin.position().top + verticalOffset + $("#node_list").scrollTop());
 
 
       // Show dropdown

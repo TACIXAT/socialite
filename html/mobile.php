@@ -105,6 +105,7 @@ $first_login = first_login($mysqli);
                         if($("#create_location_tab").hasClass('active'))
                             Socialite.UI.refreshCreateMap();
 
+                        $("#create_submit_button").off('click.submit');
                         $("#create_submit_button").on('click.submit', function() {
                             var visibleType = undefined;
                             if($("#create_person_tab").hasClass("active")) {
@@ -133,7 +134,8 @@ $first_login = first_login($mysqli);
                         if($("#search_location_tab").hasClass('active'))
                             Socialite.UI.refreshSearchMap();
 
-                        $("#search_submit_button").click(function() {
+                        $("#search_submit_button").off('click.submit');
+                        $("#search_submit_button").on('click.submit', function() {
                             var visibleType = undefined;
                             if($("#search_person_tab").hasClass("active")) {
                                 visibleType = "person";
