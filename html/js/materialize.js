@@ -571,7 +571,7 @@ if ($) {
       // Position dropdown
       activates.css({
         position: 'absolute',
-        top: origin.position().top + verticalOffset,
+        top: origin.position().top + verticalOffset + $("#node_list").scrollTop(),
         left: leftPosition
       });
 
