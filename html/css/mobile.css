@@ -51,6 +51,11 @@ body {
     overflow: hidden !important;
 }
 
+.form_link {
+    float: right;
+    color: #9E9E9E;
+}
+
 #menu_button {
     line-height: 28px;
 }
