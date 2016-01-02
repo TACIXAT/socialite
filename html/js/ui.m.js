@@ -437,6 +437,7 @@ Socialite.UI['listVertices'] = function(vertices) {
         
         var nameDiv = $('<div></div>');
         nameDiv.text(vertexProperties['name']);
+        nameDiv.css('white-space', 'nowrap');
 
         /*
             <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>
@@ -450,11 +451,17 @@ Socialite.UI['listVertices'] = function(vertices) {
             </ul>
         */
 
-        var menuButton = $("<a><i class='material-icons'>more_vert</i></a>");
         var childCount = $("#node_list").children().not('.title_row').length;
+        var menuButton = $("<a></a>");
+        menuButton.html("<i class='material-icons'>more_vert</i>");
         menuButton.addClass("dropdown-button");
         menuButton.attr("data-activates", "drop_" + childCount);
         menuButton.css("width", "100%");
+        menuButton.click(function(ev) {
+            ev.cancelBubble = true;
+            if(ev.stopPropagation) 
+                ev.stopPropagation();
+        }); 
 
         var dropDown = $("<ul></ul>");
         dropDown.attr("id", "drop_" + childCount);
