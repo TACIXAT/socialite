@@ -51,7 +51,7 @@ body {
     overflow: hidden !important;
 }
 
-.tabs .tab a:hover {
+.tab_link:hover {
     color: #ee6e73;
 }
 

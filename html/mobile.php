@@ -240,9 +240,9 @@ $first_login = first_login($mysqli);
                             <div class="row">
                                 <div class="col s12">
                                     <ul id="display_tabs" class="tabs">
-                                        <li class="tab col s3"><a href="#display_person_div" id="display_person_tab" class="active">Person</a></li>
-                                        <li class="tab col s3"><a href="#display_event_div" id="display_event_tab">Event</a></li>
-                                        <li class="tab col s3"><a href="#display_location_div" id="display_location_tab">Location</a></li>
+                                        <li class="tab col s3"><a href="#display_person_div" id="display_person_tab" class="active tab_link">Person</a></li>
+                                        <li class="tab col s3"><a href="#display_event_div" id="display_event_tab" class="tab_link">Event</a></li>
+                                        <li class="tab col s3"><a href="#display_location_div" id="display_location_tab" class="tab_link">Location</a></li>
                                     </ul>
                                 </div>
                                 <div id= "display_person_div" class="card display_div">
@@ -280,9 +280,9 @@ $first_login = first_login($mysqli);
                             <div class="row">
                                 <div class="col s12">
                                     <ul class="tabs">
-                                        <li class="tab col s3"><a href="#create_person_div" id="create_person_tab" class="active">Person</a></li>
-                                        <li class="tab col s3"><a href="#create_event_div" id="create_event_tab">Event</a></li>
-                                        <li class="tab col s3"><a href="#create_location_div" id="create_location_tab">Location</a></li>
+                                        <li class="tab col s3"><a href="#create_person_div" id="create_person_tab" class="active tab_link">Person</a></li>
+                                        <li class="tab col s3"><a href="#create_event_div" id="create_event_tab" class="tab_link">Event</a></li>
+                                        <li class="tab col s3"><a href="#create_location_div" id="create_location_tab" class="tab_link">Location</a></li>
                                     </ul>
                                 </div>
                                 <div id="create_person_div" class="col s12 create_div">
@@ -312,9 +312,9 @@ $first_login = first_login($mysqli);
                             <div class="row">
                                 <div class="col s12">
                                     <ul class="tabs view_tabs">
-                                        <li class="tab col s3"><a href="#search_person_div" id="search_person_tab" class="active">Person</a></li>
-                                        <li class="tab col s3"><a href="#search_event_div" id="search_event_tab">Event</a></li>
-                                        <li class="tab col s3"><a href="#search_location_div" id="search_location_tab">Location</a></li>
+                                        <li class="tab col s3"><a href="#search_person_div" id="search_person_tab" class="active tab_link">Person</a></li>
+                                        <li class="tab col s3"><a href="#search_event_div" id="search_event_tab" class="tab_link">Event</a></li>
+                                        <li class="tab col s3"><a href="#search_location_div" id="search_location_tab" class="tab_link">Location</a></li>
                                     </ul>
                                 </div>
                                 <div id="search_person_div" class="col s12 search_div">
