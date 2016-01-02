@@ -462,6 +462,7 @@ Socialite.UI['listVertices'] = function(vertices) {
         menuButton.addClass("dropdown-button");
         menuButton.addClass("right");
         menuButton.attr("data-activates", "drop_" + childCount);
+        menuButton.attr("id", "drop_menu_" + childCount)
         menuButton.click(function(ev) {
             ev.cancelBubble = true;
             if(ev.stopPropagation) 
@@ -511,7 +512,7 @@ Socialite.UI['listVertices'] = function(vertices) {
         item.append(valignDiv);
 
         $("#node_list").append(item);
-        $('.dropdown-button').dropdown({
+        $("#drop_menu_" + childCount).dropdown({
             inDuration: 300,
             outDuration: 225,
             constrain_width: false, // Does not change width of dropdown to that of the activator
