@@ -31,31 +31,30 @@ Socialite.UI['buttonInit'] = function() {
         $(".drag-target").trigger('click');
     });
 
+    $("#search_submit_button").off('click.submit');
+    $("#search_submit_button").on('click.submit', function() {
+        var visibleType = undefined;
+        if($("#search_person_tab").hasClass("active")) {
+            visibleType = "person";
+        } else if($("#search_event_tab").hasClass("active")) {
+            visibleType = "event";
+        } else if($("#search_location_tab").hasClass("active")) {
+            visibleType = "location";
+        } 
+
+        if(visibleType == undefined) {
+            return;
+        }
+
+        var formId = "#search_" + visibleType + "_form";
+        $(formId).submit();
+    });
+
     $("#search_button").on('click.open', function() {
         $(".view").hide();
         $("#search_view").show();
-        // $('ul.tabs').tabs();
         if($("#search_location_tab").hasClass('active'))
             Socialite.UI.refreshSearchMap();
-
-        $("#search_submit_button").off('click.submit');
-        $("#search_submit_button").on('click.submit', function() {
-            var visibleType = undefined;
-            if($("#search_person_tab").hasClass("active")) {
-                visibleType = "person";
-            } else if($("#search_event_tab").hasClass("active")) {
-                visibleType = "event";
-            } else if($("#search_location_tab").hasClass("active")) {
-                visibleType = "location";
-            } 
-
-            if(visibleType == undefined) {
-                return;
-            }
-
-            var formId = "#search_" + visibleType + "_form";
-            $(formId).submit();
-        });
 
         $(".drag-target").trigger('click');
     });
