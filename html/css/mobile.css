@@ -52,7 +52,7 @@ body {
 }
 
 .tab_link:hover {
-    color: #ee6e73;
+    color: #ee6e73 !important;
 }
 
 .form_link {
