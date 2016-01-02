@@ -298,7 +298,6 @@ $first_login = first_login($mysqli);
                             <div class="row create_footer">
                                 <a id="create_clear_button" class="modal-action waves-effect waves-green btn-flat modal_left_button">Clear</a>
                                 <button id="create_submit_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Create</button>
-                                <a id="create_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Cancel</a>
                             </div>
                         </div>
                     </div>
@@ -331,7 +330,6 @@ $first_login = first_login($mysqli);
                             <div class="row search_footer">
                                 <a id="search_clear_button" class="modal-action waves-effect waves-green btn-flat modal_left_button">Clear</a>
                                 <button id="search_submit_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Search</button>
-                                <a id="search_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Cancel</a>
                             </div>
                         </div>
                     </div>
@@ -349,106 +347,11 @@ $first_login = first_login($mysqli);
                             <div id="connect_footer" class="row">
                                 <a id="connect_clear_button" class="modal-action waves-effect waves-green btn-flat modal_left_button">Clear</a>
                                 <button id="connect_submit_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Connect</button>
-                                <a id="connect_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Done</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <div id="add_modal" class="">
-                <div class="modal-content">
-                    <div class="row">
-                        <h4>Create Node</h4>
-                    </div>
-                    <div class="row">
-                        <div class="col s12">
-                            <ul class="tabs">
-                                <li class="tab col s3"><a href="#create_person_div" id="create_person_tab" class="active">Person</a></li>
-                                <li class="tab col s3"><a href="#create_event_div" id="create_event_tab">Event</a></li>
-                                <li class="tab col s3"><a href="#create_location_div" id="create_location_tab">Location</a></li>
-                            </ul>
-                        </div>
-                        <div id="create_person_div" class="col s12">
-                        </div>
-                        <div id="create_event_div" class="col s12">
-                        </div>
-                        <div id="create_location_div" class="col s12">
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <a id="create_clear_button" class="modal-action waves-effect waves-green btn-flat modal_left_button">Clear</a>
-                    <button id="create_submit_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Create</button>
-                    <a id="create_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Cancel</a>
-                </div>
-            </div>
-            <div id="search_modal" class="modal modal-fixed-footer">
-                <div class="modal-content">
-                    <div class="row">
-                        <h4>Search Nodes</h4>
-                    </div>
-                    <div class="row">
-                        <div class="col s12">
-                            <ul class="tabs">
-                                <li class="tab col s3"><a href="#search_person_div" id="search_person_tab" class="active">Person</a></li>
-                                <li class="tab col s3"><a href="#search_event_div" id="search_event_tab">Event</a></li>
-                                <li class="tab col s3"><a href="#search_location_div" id="search_location_tab">Location</a></li>
-                            </ul>
-                        </div>
-                        <div id="search_person_div" class="col s12">
-                        </div>
-                        <div id="search_event_div" class="col s12">
-                        </div>
-                        <div id="search_location_div" class="col s12">
-                        </div>
-                    </div>
-                    <div class="row" id="search_connected_to_div">
-                        <ul id="connected_to_list" class="collection">
-                            <li id="title_row" class="collection-item">
-                              <div><b>Connected To</b></div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <a id="search_clear_button" class="modal-action waves-effect waves-green btn-flat modal_left_button">Clear</a>
-                    <button id="search_submit_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Search</button>
-                    <a id="search_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Cancel</a>
-                </div>
-            </div>
-            <div id="connect_modal" class="modal modal-fixed-footer">
-                <div class="modal-content">
-                    <div class="row">
-                        <h4>Mangage Connections</h4>
-                        Double click a node to remove it from the connection interface. Or click CLEAR to remove all nodes.
-                    </div>
-                    <div id="connect_div" class="row">
-                       
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <a id="connect_clear_button" class="modal-action waves-effect waves-green btn-flat modal_left_button">Clear</a>
-                    <button id="connect_submit_button" class="modal-action modal-close waves-effect waves-green btn modal_right_button">Connect</button>
-                    <a id="connect_cancel_button" class="modal-action modal-close waves-effect waves-green btn-flat modal_right_button">Done</a>
-                </div>
-            </div>
-            <div id="tour_card" class="card small blue-grey lighten-1">
-                <div id="tour_card_content" class="card-content">
-                    <div id="tour_title" class="card-title white-text">Title</div>
-                    <br/>
-                    <div id="tour_content" class="white-text">Words words words!</div>
-                </div>
-                <div id="tour_action" class="card-action">
-                    <a id="tour_skip_btn" class="waves-effect waves-green btn-flat">Skip</a>
-                    <a id="tour_next_btn" class="waves-effect waves-green btn-flat">Next</a>
-                    <a id="tour_prev_btn" class="waves-effect waves-green btn-flat">Prev</a>
-                </div>
-                <div class="arrow-top arrow"></div>
-                <div class="arrow-bottom arrow"></div>
-                <div class="arrow-left arrow"></div>
-                <div class="arrow-right arrow"></div>
-            </div> -->
-
         <?php endif; ?>
     </body>
 </html>
