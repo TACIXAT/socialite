@@ -267,6 +267,9 @@ $first_login = first_login($mysqli);
                                   <div><b>Listed Nodes</b></div>
                                 </li>
                             </ul>
+                            <div class="row list_footer">
+                                <a id="list_clear_button" class="modal-action waves-effect waves-green btn-flat modal_left_button">Clear</a>
+                            </div>
                         </div>
                     </div> 
                 </div>
