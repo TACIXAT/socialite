@@ -569,13 +569,14 @@ if ($) {
       }
 
       // Position dropdown
+      if(origin.attr('id').indexOf('drop_menu_'))verticalOffset+=$("#node_list").scrollTop();
       activates.css({
         position: 'absolute',
-        top: origin.position().top + verticalOffset + $("#node_list").scrollTop(),
+        top: origin.position().top + verticalOffset,
         left: leftPosition
       });
 
-      console.log(origin);
+      console.log(origin.attr('id').indexOf('drop_menu_'));
       console.log(activates);
       console.log("offset top", offsetTop);
       console.log("top, voff", origin.position().top, verticalOffset);
