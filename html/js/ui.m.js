@@ -335,6 +335,9 @@ Socialite.UI['itemClick'] = function(event) {
     $(".view").hide();
     $("#details_view").show(0, function() {
         $('#display_tabs').tabs('select_tab', 'display_' + vertexType + '_div'); 
+        if(vertexType == "location") {
+            Socialite.UI.refreshDisplayMap();
+        }
     });
 }
 
@@ -1122,6 +1125,10 @@ Socialite.UI['refreshCreateMap'] = function() {
 
 Socialite.UI['refreshSearchMap'] = function() {
     Socialite.UI.refreshMap('#search_location_div');
+}
+
+Socialite.UI['refreshDisplayMap'] = function() {
+    Socialite.UI.refreshMap("#display_location_div");
 }
 
 Socialite.UI['refreshMap'] = function(id) {
