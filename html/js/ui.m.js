@@ -450,7 +450,7 @@ Socialite.UI['listVertices'] = function(vertices) {
             </ul>
         */
 
-        var menuButton = $("<a>...</a>");
+        var menuButton = $("<a><i class='material-icons'>more_vert</i></a>");
         var childCount = $("#node_list").children().not('.title_row').length;
         menuButton.addClass("dropdown-button");
         menuButton.attr("data-activates", "drop_" + childCount);
@@ -507,7 +507,7 @@ Socialite.UI['listVertices'] = function(vertices) {
             hover: true, // Activate on hover
             gutter: 0, // Spacing from edge
             belowOrigin: false, // Displays dropdown below the button
-            alignment: 'right' // Displays dropdown with edge aligned to the left of button
+            alignment: 'left' // Displays dropdown with edge aligned to the left of button
         });
     }
 
