@@ -575,7 +575,8 @@ if ($) {
         left: leftPosition
       });
 
-      console.log("TOP", origin.position().top + verticalOffset);
+      console.log("top, voff", origin.position().top, verticalOffset);
+      console.log("Calc'd", origin.position().top + verticalOffset);
 
 
       // Show dropdown
