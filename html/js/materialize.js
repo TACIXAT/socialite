@@ -571,9 +571,11 @@ if ($) {
       // Position dropdown
       activates.css({
         position: 'absolute',
-        top: origin.position().top,// + verticalOffset,
+        top: origin.position().top + verticalOffset,
         left: leftPosition
       });
+
+      console.log("TOP", origin.position().top + verticalOffset);
 
 
       // Show dropdown
