@@ -494,6 +494,19 @@ Socialite.UI['listVertices'] = function(vertices) {
         });
         connectItem.append(connectLink);
 
+        var neighborsItem = $("<li></li>");
+        var neighborsLink = $("<a></a>");
+        neighborsLink.text("Neighbors");
+        neighborsLink.attr("style", "color: rgba(0,0,0,0.87);");
+        neighborsLink.on('click.neighbors', function(ev) {
+            ev.cancelBubble = true;
+            if(ev.stopPropagation) 
+                ev.stopPropagation();
+            var vertex = $(this).parent().parent().parent().parent().data('vertex');
+            Socialite.API.getNeighbors(vertex['_id'], 'both', Socialite.API.neighborsDisplaySuccess);
+        });
+        neighborsItem.append(neighborsLink);
+
         var removeItem = $("<li></li>");
         var removeLink = $("<a></a>");
         removeLink.text("Remove");
@@ -511,6 +524,7 @@ Socialite.UI['listVertices'] = function(vertices) {
         removeItem.append(removeLink);
 
         dropDown.append(connectItem);
+        dropDown.append(neighborsItem);
         dropDown.append(removeItem);
 
         valignDiv.append(icon);

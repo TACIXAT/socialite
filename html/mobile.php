@@ -129,10 +129,10 @@ $first_login = first_login($mysqli);
                             <a id="details_button">Details</a>
                         </li>
                         <li class="bold">
-                            <a href="/lifegraph.php">Desktop</a>
+                            <a href="mailto:feedback@socialite.ooo">Contact</a>
                         </li>
                         <li class="bold">
-                            <a href="mailto:feedback@socialite.ooo">Contact</a>
+                            <a href="/lifegraph.php">Desktop</a>
                         </li>
                         <li class="bold">
                             <a id="signout_button" href="/logout.php">Sign Out</a>
