@@ -329,7 +329,7 @@ Socialite.UI['resetForm'] = function(id, show) {
 
     // $("#" + show + "_" + id + "_form")[0].reset();
     $(':input', selector)
-        .not(':button, :submit, :reset, :hidden')
+        .not(':button, :submit, :reset')
         .val('')
         .removeAttr('checked')
         .removeAttr('selected');
