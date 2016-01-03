@@ -113,7 +113,7 @@ $first_login = first_login($mysqli);
                             <a id="search_button">Search</a>
                         </li>
                         <li class="bold" ondrop="Socialite.UI.connectDrop(event)" ondragover="Socialite.UI.allowDrop(event)">
-                            <a id="connect_button">Connections</a>
+                            <a id="connect_button">Connect</a>
                         </li>
                         <li class="no-padding">
                             <ul class="collapsible collapsible-accordion">

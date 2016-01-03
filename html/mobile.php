@@ -114,6 +114,9 @@ $first_login = first_login($mysqli);
                             <!-- Logo designed by @mlgs -->
                         </li>
                         <li class="bold">
+                            <a id="list_button">List</a>
+                        </li>
+                        <li class="bold">
                             <a id="add_button">Add</a>
                         </li>
                         <li class="bold" ondrop="Socialite.UI.searchDrop(event)" ondragover="Socialite.UI.allowDrop(event)">
@@ -121,9 +124,6 @@ $first_login = first_login($mysqli);
                         </li>
                         <li class="bold" ondrop="Socialite.UI.connectDrop(event)" ondragover="Socialite.UI.allowDrop(event)">
                             <a id="connect_button">Connect</a>
-                        </li>
-                        <li class="bold">
-                            <a id="list_button">List</a>
                         </li>
                         <li class="bold">
                             <a id="details_button">Details</a>
