@@ -73,6 +73,14 @@ Socialite.UI['buttonInit'] = function() {
         $(".drag-target").trigger('click');
     });
 
+    $("#list_clear_button").click(function() {
+        $(".list_item").each(function() { 
+            $(this).hide('fast', function() { 
+                $(this).remove();
+            }); 
+        });
+    });
+
     $("#details_button").click(function() {
         $(".view").hide();
         $("#details_view").show();
@@ -454,18 +462,6 @@ Socialite.UI['listVertices'] = function(vertices) {
         nameDiv.text(vertexProperties['name']);
         nameDiv.css('white-space', 'nowrap');
         nameDiv.addClass('left');
-
-        /*
-            <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>
-
-            <!-- Dropdown Structure -->
-            <ul id='dropdown1' class='dropdown-content'>
-                <li><a href="#!">one</a></li>
-                <li><a href="#!">two</a></li>
-                <li class="divider"></li>
-                <li><a href="#!">three</a></li>
-            </ul>
-        */
 
         var childCount = $("#node_list").children().not('.title_row').length;
         while($("#drop_menu_" + childCount).length > 0)
