@@ -120,13 +120,16 @@ $first_login = first_login($mysqli);
                             <a id="search_button">Search</a>
                         </li>
                         <li class="bold" ondrop="Socialite.UI.connectDrop(event)" ondragover="Socialite.UI.allowDrop(event)">
-                            <a id="connect_button">Connections</a>
+                            <a id="connect_button">Connect</a>
                         </li>
                         <li class="bold">
                             <a id="list_button">List</a>
                         </li>
                         <li class="bold">
                             <a id="details_button">Details</a>
+                        </li>
+                        <li class="bold">
+                            <a href="/lifegraph.php">Desktop</a>
                         </li>
                         <li class="bold">
                             <a href="mailto:feedback@socialite.ooo">Contact</a>
