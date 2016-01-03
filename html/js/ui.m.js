@@ -473,6 +473,9 @@ Socialite.UI['listVertices'] = function(vertices) {
         */
 
         var childCount = $("#node_list").children().not('.title_row').length;
+        while($("#drop_menu_" + childCount).length > 0)
+            childCount++;
+        
         var menuButton = $("<a></a>");
         menuButton.html("<i class='material-icons' style='line-height: 50px; color: rgba(0,0,0,0.87);'>more_vert</i>");
         menuButton.addClass("dropdown-button");
