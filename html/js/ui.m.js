@@ -475,9 +475,6 @@ Socialite.UI['listVertices'] = function(vertices) {
             ev.cancelBubble = true;
             if(ev.stopPropagation) 
                 ev.stopPropagation();
-
-            var dropId = $(this).data("drop_id");  
-            Socialite.UI.hideDropdown(dropId);
         }); 
 
         var dropDown = $("<ul></ul>");
@@ -488,6 +485,7 @@ Socialite.UI['listVertices'] = function(vertices) {
         var connectLink = $("<a></a>");
         connectLink.text("Connect");
         connectLink.attr("style", "color: rgba(0,0,0,0.87);");
+        connectLink.data("drop_id", childCount);
         connectLink.on('click.connect', function(ev) {
             ev.cancelBubble = true;
             if(ev.stopPropagation) 
@@ -505,6 +503,7 @@ Socialite.UI['listVertices'] = function(vertices) {
         var neighborsLink = $("<a></a>");
         neighborsLink.text("Neighbors");
         neighborsLink.attr("style", "color: rgba(0,0,0,0.87);");
+        neighborsLink.data("drop_id", childCount);
         neighborsLink.on('click.neighbors', function(ev) {
             ev.cancelBubble = true;
             if(ev.stopPropagation) 
