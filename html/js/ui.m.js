@@ -426,6 +426,8 @@ Socialite.UI['listVertices'] = function(vertices) {
         // remove old before adding updated
         if($("#" + vertexType + "_" + vertex._id).length > 0) {
             $("#" + vertexType + "_" + vertex._id).remove();
+            Socialite.Graph.Connect.removeNode(vertex._id);
+            Socialite.Graph.Connect.addNode(vertex);
         }
 
         Socialite.util.addConnections(vertex);
