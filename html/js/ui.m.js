@@ -172,6 +172,7 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
     var typeInput = $('<input></input>');
     typeInput.attr('type', 'hidden');
     typeInput.attr('name', 'type');
+    typeInput.addClass('no_reset');
     typeInput.val(vertexType);
     createForm.append(typeInput);
 
@@ -329,7 +330,7 @@ Socialite.UI['resetForm'] = function(id, show) {
 
     // $("#" + show + "_" + id + "_form")[0].reset();
     $(':input', selector)
-        .not(':button, :submit, :reset')
+        .not(':button, :submit, :reset, .no_reset')
         .val('')
         .removeAttr('checked')
         .removeAttr('selected');
@@ -736,6 +737,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
     var typeInput = $('<input></input>');
     typeInput.attr('type', 'hidden');
     typeInput.attr('name', 'type');
+    typeInput.addClass('no_reset');
     typeInput.val(vertexType);
     displayForm.append(typeInput);
 
@@ -905,6 +907,7 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
     var typeInput = $('<input></input>');
     typeInput.attr('type', 'hidden');
     typeInput.attr('name', 'type');
+    typeInput.addClass('no_reset');
     typeInput.val(vertexType);
     searchForm.append(typeInput);
 
