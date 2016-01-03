@@ -218,6 +218,8 @@ Socialite.API['searchSuccess'] = function(data, status, xhr) {
     } else if(vertices.length > 0) {
         Socialite.UI.resetForm(vertices[0]['properties']['type'], 'search'); 
         Socialite.UI.listVertices(vertices);
+    } else if(vertices.length == 0) {
+        Materialize.toast('No results found!', 3000);
     }
 }
 

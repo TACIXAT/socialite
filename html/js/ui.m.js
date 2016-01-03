@@ -420,23 +420,15 @@ Socialite.UI['listVertices'] = function(vertices) {
 
     for(var idx in vertices) {
         var vertex = vertices[idx];
-
-        // don't add duplicates
-        var items = $("#node_list > li").not(".title_row").get();
-        var found = false;
-
-        for(var idx in items) {
-            var item = $(items[idx]);
-            if(item.data('vertex')._id == vertex._id)
-                found = true;
-        }
-
-        if(found)
-            continue;
-
-        Socialite.util.addConnections(vertex);
         var vertexProperties = vertex['properties'];
         var vertexType = vertexProperties['type'];
+
+        // remove old before adding updated
+        if($("#" + vertexType + "_" + vertex._id).length > 0) {
+            $("#" + vertexType + "_" + vertex._id).remove();
+        }
+
+        Socialite.util.addConnections(vertex);
         var id = vertex['_id'];
     
         var valignDiv = $('<div></div>');
