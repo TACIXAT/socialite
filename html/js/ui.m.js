@@ -492,7 +492,7 @@ Socialite.UI['listVertices'] = function(vertices) {
                 ev.stopPropagation();
 
             var dropId = $(this).data("drop_id");  
-            Socialite.UI.hideDropdown(dropId);
+            // Socialite.UI.hideDropdown(dropId);
 
             var vertex = $(this).parent().parent().parent().parent().data('vertex');
             Socialite.Graph.Connect.addNode(vertex);
@@ -510,7 +510,7 @@ Socialite.UI['listVertices'] = function(vertices) {
                 ev.stopPropagation();
             
             var dropId = $(this).data("drop_id");  
-            Socialite.UI.hideDropdown(dropId);
+            // Socialite.UI.hideDropdown(dropId);
 
             var vertex = $(this).parent().parent().parent().parent().data('vertex');
             Socialite.API.getNeighbors(vertex['_id'], 'both', Socialite.API.neighborsDisplaySuccess);
@@ -529,7 +529,7 @@ Socialite.UI['listVertices'] = function(vertices) {
                 ev.stopPropagation();
             
             var dropId = $(this).data("drop_id");
-            Socialite.UI.hideDropdown(dropId);
+            // Socialite.UI.hideDropdown(dropId);
 
             var vertex = $(this).parent().parent().parent().parent().data('vertex');
             Socialite.UI.resetForm(vertex['properties']['type'], 'display');
