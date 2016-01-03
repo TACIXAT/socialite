@@ -464,7 +464,7 @@ Socialite.UI['listVertices'] = function(vertices) {
         var childCount = $("#node_list").children().not('.title_row').length;
         while($("#drop_menu_" + childCount).length > 0)
             childCount++;
-        
+
         var menuButton = $("<a></a>");
         menuButton.html("<i class='material-icons' style='line-height: 50px; color: rgba(0,0,0,0.87);'>more_vert</i>");
         menuButton.addClass("dropdown-button");
@@ -475,6 +475,9 @@ Socialite.UI['listVertices'] = function(vertices) {
             ev.cancelBubble = true;
             if(ev.stopPropagation) 
                 ev.stopPropagation();
+
+            var dropId = $(this).data("drop_id");  
+            Socialite.UI.hideDropdown(dropId);
         }); 
 
         var dropDown = $("<ul></ul>");
@@ -489,6 +492,10 @@ Socialite.UI['listVertices'] = function(vertices) {
             ev.cancelBubble = true;
             if(ev.stopPropagation) 
                 ev.stopPropagation();
+
+            var dropId = $(this).data("drop_id");  
+            Socialite.UI.hideDropdown(dropId);
+
             var vertex = $(this).parent().parent().parent().parent().data('vertex');
             Socialite.Graph.Connect.addNode(vertex);
         });
@@ -502,19 +509,29 @@ Socialite.UI['listVertices'] = function(vertices) {
             ev.cancelBubble = true;
             if(ev.stopPropagation) 
                 ev.stopPropagation();
+            
+            var dropId = $(this).data("drop_id");  
+            Socialite.UI.hideDropdown(dropId);
+
             var vertex = $(this).parent().parent().parent().parent().data('vertex');
             Socialite.API.getNeighbors(vertex['_id'], 'both', Socialite.API.neighborsDisplaySuccess);
         });
         neighborsItem.append(neighborsLink);
 
+
         var removeItem = $("<li></li>");
         var removeLink = $("<a></a>");
         removeLink.text("Remove");
         removeLink.attr("style", "color: rgba(0,0,0,0.87);");
+        removeLink.data("drop_id", childCount);
         removeLink.click(function(ev) {
             ev.cancelBubble = true;
             if(ev.stopPropagation) 
                 ev.stopPropagation();
+            
+            var dropId = $(this).data("drop_id");
+            Socialite.UI.hideDropdown(dropId);
+
             var vertex = $(this).parent().parent().parent().parent().data('vertex');
             Socialite.UI.resetForm(vertex['properties']['type'], 'display');
             $(this).parent().parent().parent().parent().hide('fast', function() { 
@@ -575,6 +592,13 @@ Socialite.UI['listVertices'] = function(vertices) {
 
     $(".view").hide();
     $("#list_view").show();
+}
+
+Socialite.UI['hideDropdown'] = function(dropId) {
+    $("#drop_"+dropId).fadeOut(225);
+    $("#drop_menu_"+dropId).removeClass("active");
+    $("#drop_"+dropId).removeClass("active");
+    setTimeout(function() { $("#drop_"+dropId).css('max-height', ''); }, 225);
 }
 
 Socialite.UI['resetActiveTab'] = function(action) {
