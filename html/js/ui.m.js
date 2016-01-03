@@ -75,9 +75,7 @@ Socialite.UI['buttonInit'] = function() {
 
     $("#list_clear_button").click(function() {
         $(".list_item").each(function() { 
-            $(this).hide('fast', function() { 
-                $(this).remove();
-            }); 
+            $(this).remove();
         });
     });
 
