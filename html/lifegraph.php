@@ -170,6 +170,7 @@ $first_login = first_login($mysqli);
                 <div id="lower_row" class="row">
                     <div class="col s4 center card_col">
                         <div id="list_person_div" class="card lower_card">
+                            <div class="list_ucopy">Get started by adding or searching for some nodes <br/> from the side menu</div>
                             <ul id="person_list" class="collection list_collection">
 
                             </ul>
@@ -177,6 +178,7 @@ $first_login = first_login($mysqli);
                     </div> 
                     <div class="col s4 center card_col">
                         <div id="list_event_div" class="card lower_card">
+                            <div class="list_ucopy">Get started by adding or searching for some nodes <br/> from the side menu</div>
                             <ul id="event_list" class="collection list_collection">
                                 
                             </ul>
@@ -184,6 +186,7 @@ $first_login = first_login($mysqli);
                     </div> 
                     <div class="col s4 center card_col">
                         <div id="list_location_div" class="card lower_card">
+                            <div class="list_ucopy">Get started by adding or searching for some nodes <br/> from the side menu</div>
                             <ul id="location_list" class="collection list_collection">
 
                             </ul>
