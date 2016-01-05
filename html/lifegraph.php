@@ -259,9 +259,9 @@ $first_login = first_login($mysqli);
                 <div class="modal-content">
                     <div class="row">
                         <h4>Mangage Connections</h4>
-                        Create or search for the nodes you want to connect or disconnect. Clicking Connect from the list of nodes will add them here. 
-                        Once added you can click the CONNECT or DISCONNECT button in the lower right to create or remove connections. 
-                        This DISCONNECT button only shows up if all nodes added here are connected. 
+                        Clicking Connect from the list of nodes will add them here. 
+                        Once added you can click the CONNECT or DISCONNECT button to create or remove connections. 
+                        This DISCONNECT button only shows up if all nodes here are connected. 
                     </div>
                     <div id="connect_div" class="row">
                        
