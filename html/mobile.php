@@ -254,6 +254,8 @@ $first_login = first_login($mysqli);
                         <div id="connect_card" class="card h100">
                             <div class="row">
                                 <h5>Mangage Connections</h5>
+                                Add nodes to this interface from the list view. <br/>
+                                Then come back here to create the connections.
                             </div>
                             <div id="connect_div" class="row">
                                
