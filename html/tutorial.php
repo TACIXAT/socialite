@@ -49,12 +49,19 @@ if(isset($_GET["registered"])) {
                     <h5>Read this tutorial so you can get started right away using Socialite!</h5>
                     <div class="card">
                         <div class="card-content center">
-                            <span class="card-title grey-text text-darken-2">Create New Nodes</span>
-                            <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/view.png">
+                            <span class="card-title grey-text text-darken-2">Create Nodes</span>
+                            <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/tutorial/create.png">
                         </div>
-                        <h5>Get started by clicking Add in the sidebar to create a new node.</h5>
-                        
                     </div>
+                    <h5>Get started by clicking Add in the sidebar to create a new node.</h5>
+                    <h5>Nodes that you create or search for are displayed in the lists on the main page.</h5>
+                    <div class="card">
+                        <div class="card-content center">
+                            <span class="card-title grey-text text-darken-2">Create Nodes</span>
+                            <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/tutorial/view.png">
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
