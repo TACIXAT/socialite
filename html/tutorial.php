@@ -51,9 +51,9 @@ if(isset($_GET["registered"])) {
                         <div class="card-content center">
                             <span class="card-title grey-text text-darken-2">Create New Nodes</span>
                             <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/view.png">
-                            <h5>Get started by clicking Add in the sidebar to create a new node.</h5>
-
                         </div>
+                        <h5>Get started by clicking Add in the sidebar to create a new node.</h5>
+                        
                     </div>
                 </div>
             </div>
