@@ -78,7 +78,7 @@ if(isset($_GET["registered"])) {
                     </div>
 
                     <div class="insns">
-                        <h5>You open the connection interface by then clicking Connect in the side menu.</h5>
+                        <h5>You open the connection interface by then clicking Connect in the side menu. Clicking the CONNECT button in the lower right of the connection interface will add links between the nodes. </h5>
                     </div>
                     <div class="card">
                         <div class="card-content center">
@@ -88,7 +88,7 @@ if(isset($_GET["registered"])) {
                     </div>
 
                     <div class="insns">
-                        <h5>Clicking the CONNECT button in the lower right of the connection interface will add links between the nodes. If all nodes added to the connection interface are linked, you then have the option to disconnect them.</h5>
+                        <h5>If all nodes added to the connection interface are linked, you then have the option to disconnect them.</h5>
                     </div>
                     <div class="card">
                         <div class="card-content center">
@@ -105,6 +105,10 @@ if(isset($_GET["registered"])) {
                             <span class="card-title grey-text text-darken-2">View Nodes</span>
                             <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/tutorial/view_final.png">
                         </div>
+                    </div>
+
+                    <div class="insns">
+                        <h5>Thanks for taking the time to learn about Socialite! Reach out to dgoddard@socialite.ooo if anything is unclear!</h5>
                     </div>
                 </div>
             </div>
