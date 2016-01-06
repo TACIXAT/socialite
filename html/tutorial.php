@@ -56,8 +56,10 @@ if(isset($_GET["registered"])) {
                             <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/tutorial/create.png">
                         </div>
                     </div>
+
                     <div class="insns">
-                        <h5>Nodes that you create or search for are displayed in the lists on the main page.</h5>
+                        <h5>Nodes that you create or search for are displayed in the lists on the main page. Clicking the nodes in the list displays their info above.</h5>
+                        <h5>People are in the first column, Events in the second, and Locations in the third.</h5>
                     </div>
                     <div class="card">
                         <div class="card-content center">
@@ -66,6 +68,47 @@ if(isset($_GET["registered"])) {
                         </div>
                     </div>
 
+                    <div class="insns">
+                        <h5>Once you create nodes you must connect them. You do this by clicking Connect on the node in the list. Clicking Connect adds them to the connection interface.</h5>
+                    </div>
+                    <div class="card">
+                        <div class="card-content center">
+                            <span class="card-title grey-text text-darken-2">Connect Nodes</span>
+                            <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/tutorial/view_all.png">
+                        </div>
+                    </div>
+
+                    <div class="insns">
+                        <h5>You open the connection interface by then clicking Connect in the side menu.</h5>
+                    </div>
+                    <div class="card">
+                        <div class="card-content center">
+                            <span class="card-title grey-text text-darken-2">Connect Nodes</span>
+                            <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/tutorial/connect.png">
+                        </div>
+                    </div>
+
+                    <div class="insns">
+                        <h5>Clicking the CONNECT button in the lower right of the connection interface will add links between the nodes.</h5>
+                        <h5>People link to Events, and Events link to Locations.</h5>
+                        <h5>If all nodes added to the connection interface are linked, you then have the option to disconnect them.</h5>
+                    </div>
+                    <div class="card">
+                        <div class="card-content center">
+                            <span class="card-title grey-text text-darken-2">Connect Nodes</span>
+                            <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/tutorial/connected.png">
+                        </div>
+                    </div>
+
+                    <div class="insns">
+                        <h5>Once connected, clicking one node will highlight its neighbors. Double clicking a node will search for and list its neighbors.</h5>
+                    </div>
+                    <div class="card">
+                        <div class="card-content center">
+                            <span class="card-title grey-text text-darken-2">View Nodes</span>
+                            <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/tutorial/view_all.png">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
