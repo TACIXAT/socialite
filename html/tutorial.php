@@ -59,7 +59,6 @@ if(isset($_GET["registered"])) {
 
                     <div class="insns">
                         <h5>Nodes that you create or search for are displayed in the lists on the main page. Clicking the nodes in the list displays their info above.</h5>
-                        <h5>People are in the first column, Events in the second, and Locations in the third.</h5>
                     </div>
                     <div class="card">
                         <div class="card-content center">
@@ -89,9 +88,7 @@ if(isset($_GET["registered"])) {
                     </div>
 
                     <div class="insns">
-                        <h5>Clicking the CONNECT button in the lower right of the connection interface will add links between the nodes.</h5>
-                        <h5>People link to Events, and Events link to Locations.</h5>
-                        <h5>If all nodes added to the connection interface are linked, you then have the option to disconnect them.</h5>
+                        <h5>Clicking the CONNECT button in the lower right of the connection interface will add links between the nodes. If all nodes added to the connection interface are linked, you then have the option to disconnect them.</h5>
                     </div>
                     <div class="card">
                         <div class="card-content center">
