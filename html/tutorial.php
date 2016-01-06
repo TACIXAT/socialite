@@ -47,17 +47,23 @@ if(isset($_GET["registered"])) {
                 <div id="tutcol" class="col s12 white-text center">
                     <h1>Socialite.ooo Tutorial</h1>
                     <h5>Read this tutorial so you can get started right away using Socialite!</h5>
-                    <div class="card">
-                        <div class="card-content center">
-                            <span class="card-title grey-text text-darken-2">Create Nodes</span>
-                            <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/tutorial/create.png">
+                    <div class="insns">
+                        <h5>Get started by clicking Add in the sidebar to create a new node.</h5>
+                    </div>
+                    <div class="row s8 offset-s2">
+                        <div class="card">
+                            <div class="card-content center">
+                                <span class="card-title grey-text text-darken-2">Create Nodes</span>
+                                <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/tutorial/create.png">
+                            </div>
                         </div>
                     </div>
-                    <h5>Get started by clicking Add in the sidebar to create a new node.</h5>
-                    <h5>Nodes that you create or search for are displayed in the lists on the main page.</h5>
+                    <div class="insns">
+                        <h5>Nodes that you create or search for are displayed in the lists on the main page.</h5>
+                    </div>
                     <div class="card">
                         <div class="card-content center">
-                            <span class="card-title grey-text text-darken-2">Create Nodes</span>
+                            <span class="card-title grey-text text-darken-2">View Nodes</span>
                             <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/tutorial/view.png">
                         </div>
                     </div>
