@@ -26,15 +26,6 @@
         <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
         <script type="text/javascript" src="/js/lib/jquery-2.1.3.min.js"></script>
         <script type="text/javascript" src="/js/materialize.min.js"></script>
-        <script type="text/JavaScript">
-            $(document).ready(function(){
-<?php
-if(isset($_GET["registered"])) {
-    echo "                Materialize.toast('Read through this tutorial, then check your email to confirm your account and login!', 5000);\n";
-}
-?>
-            });
-        </script>
         <style>
             .insns {
                 margin-top: 60px;
@@ -46,7 +37,17 @@ if(isset($_GET["registered"])) {
             <div id="row" class="row s12">
                 <div class="col s8 offset-s2 white-text center">
                     <h1>User Guide</h1>
-                    <h5>Learn the features so you can get started right away using Socialite!</h5>
+        <script type="text/JavaScript">
+            $(document).ready(function(){
+<?php
+if(isset($_GET["registered"])) {
+    echo "                    <h5>We're sending you an email to confirm your account! In the meantime learn about Socialite so you can get started right away!</h5>";
+} else {
+    echo "                    <h5>Learn about Socialite's features so you can get started right away!</h5>";
+}
+?>
+            });
+        </script>
                     <div class="insns">
                         <h5>Get started by clicking Add in the sidebar to create a new node.</h5>
                     </div>
