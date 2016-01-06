@@ -3,7 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <meta property="og:title" content="Socialite User Guide" />
+        <meta property="og:url" content="https://socialite.ooo/tutorial.php" />
+        <meta property="og:image" content="https://socialite.ooo/icon/socialitefb.png" />
+        <meta property="og:description" content="A quick overview Socialite's functionality." />
+
         <link rel="apple-touch-icon" sizes="57x57" href="/icon/favicon/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="/icon/favicon/apple-touch-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="/icon/favicon/apple-touch-icon-72x72.png">
