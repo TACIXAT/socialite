@@ -78,7 +78,7 @@ if(isset($_GET["registered"])) {
                     </div>
 
                     <div class="insns">
-                        <h5>You open the connection interface by then clicking Connect in the side menu. Clicking the CONNECT button in the lower right of the connection interface will add links between the nodes. </h5>
+                        <h5>You open the connection interface by then clicking Connect in the side menu. Clicking the CONNECT button will add links between the nodes. </h5>
                     </div>
                     <div class="card">
                         <div class="card-content center">
