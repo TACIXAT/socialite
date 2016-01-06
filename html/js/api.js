@@ -228,6 +228,7 @@ Socialite.API['createSuccess'] = function(data, status, xhr) {
     if(vertex['_id'] == -1) {
         Materialize.toast(vertex['properties']['error'], 3000);;
     } else {
+        console.log(vertex['properties']['type']);
         Socialite.UI.resetForm(vertex['properties']['type'], 'create'); 
         Socialite.UI.listVertices([vertex]);
     }
