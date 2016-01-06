@@ -131,7 +131,7 @@ function regformhash(form, username, email, password, conf, invite) {
 function regSuccess(data, status, xhr) {
     var success = $.parseJSON(data);
     if("status" in success && success["status"] == "success") {
-        Materialize.toast(success['msg'], 5000);
+        window.location = "https://socialite.ooo/tutorial.php?registered=true";
         var fields = ["registration_username", "registration_email", "registration_password", "registration_confirmpwd", "registration_invite"];
         for(var idx in fields) {
             $("#" + fields[idx]).val("");
