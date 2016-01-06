@@ -103,7 +103,7 @@ if(isset($_GET["registered"])) {
                     <div class="card">
                         <div class="card-content center">
                             <span class="card-title grey-text text-darken-2">View Nodes</span>
-                            <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/tutorial/view_all.png">
+                            <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/tutorial/view_final.png">
                         </div>
                     </div>
                 </div>
