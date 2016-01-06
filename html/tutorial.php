@@ -36,13 +36,15 @@ if(isset($_GET["registered"])) {
             });
         </script>
         <style>
-
+            #tutcol {
+                
+            }
         </style>
     </head>
     <body class="red">
         <div class="container">
             <div id="row" class="row s12">
-                <div class="col white l6 offset-l3 s12">
+                <div id="tutcol" class="col s12">
                     Welcome to the tutorial!
                 </div>
             </div>
