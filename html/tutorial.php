@@ -37,8 +37,6 @@
             <div id="row" class="row s12">
                 <div class="col s8 offset-s2 white-text center">
                     <h1>User Guide</h1>
-        <script type="text/JavaScript">
-            $(document).ready(function(){
 <?php
 if(isset($_GET["registered"])) {
     echo "                    <h5>We're sending you an email to confirm your account! In the meantime learn about Socialite so you can get started right away!</h5>";
@@ -46,8 +44,6 @@ if(isset($_GET["registered"])) {
     echo "                    <h5>Learn about Socialite's features so you can get started right away!</h5>";
 }
 ?>
-            });
-        </script>
                     <div class="insns">
                         <h5>Get started by clicking Add in the sidebar to create a new node.</h5>
                     </div>
