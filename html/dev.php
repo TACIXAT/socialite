@@ -329,7 +329,7 @@
                             <div class="card">
                                 <div class="card-content center">
                                     <span class="screen_shot_title card-title grey-text text-darken-2">Pivot quickly between nodes to recall information.</span>
-                                    <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/view.png">
+                                    <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/view.png" onclick="if(useMixpanel) mixpanel.track('Screenshot Clicked (view) -dev');">
                                 </div>
                             </div>
                         </div>
@@ -339,7 +339,7 @@
                             <div class="card">
                                 <div class="card-content center">
                                     <span class="screen_shot_title card-title grey-text text-darken-2">Geo-search over an area to find a location.</span>
-                                    <img class="responsive-img materialboxed" src="/img/screens/geo.png">
+                                    <img itemprop="screenshot" class="responsive-img materialboxed" src="/img/screens/geo.png" onclick="if(useMixpanel) mixpanel.track('Screenshot Clicked (geo) -dev');">
                                 </div>
                             </div>
                         </div>
@@ -349,7 +349,7 @@
                             <div class="card">
                                 <div class="card-content center">
                                     <span class="screen_shot_title card-title grey-text text-darken-2">Link nodes together with the connection interface.</span>
-                                    <img class="responsive-img materialboxed" src="/img/screens/connect.png" onclick="if(useMixpanel) mixpanel.track('Screenshot Clicked -dev');">
+                                    <img itemprop="screenshot" class="responsive-img materialboxed" src="/img/screens/connect.png" onclick="if(useMixpanel) mixpanel.track('Screenshot Clicked (connect) -dev');">
                                 </div>
                             </div>
                         </div>
