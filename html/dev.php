@@ -188,18 +188,28 @@
 
                 $("#signup_button").click(function() {
                     $("html, body").animate({scrollTop:$("#waiting_list_div").offset().top-20}, 'slow');
+                     if(useMixpanel) 
+                        mixpanel.track('Menu Signup -dev');
                 });
                 $("#about_button").click(function() {
                     $("html, body").animate({scrollTop:$("#about_div").offset().top}, 'slow'); 
+                    if(useMixpanel) 
+                        mixpanel.track('Menu About -dev');
                 });
                 $("#features_button").click(function() {
                     $("html, body").animate({scrollTop:$("#features_div").offset().top}, 'slow'); 
+                    if(useMixpanel) 
+                        mixpanel.track('Menu Features -dev');
                 }); 
                 $("#pricing_button").click(function() {
                     $("html, body").animate({scrollTop:$("#pricing_div").offset().top}, 'slow'); 
+                    if(useMixpanel) 
+                        mixpanel.track('Menu Pricing -dev');
                 });
                 $("#contact_button").click(function() {
                     $("html, body").animate({scrollTop:$("#contact_div").offset().top}, 'slow'); 
+                    if(useMixpanel) 
+                        mixpanel.track('Menu Contact -dev');
                 });
                 
                 $("#email_link").attr("href", "mailto:feedback@socialite.ooo"); 
