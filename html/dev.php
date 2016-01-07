@@ -349,7 +349,7 @@
                             <div class="card">
                                 <div class="card-content center">
                                     <span class="screen_shot_title card-title grey-text text-darken-2">Link nodes together with the connection interface.</span>
-                                    <img class="responsive-img materialboxed" src="/img/screens/connect.png">
+                                    <img class="responsive-img materialboxed" src="/img/screens/connect.png" onclick="if(useMixpanel) mixpanel.track('Screenshot Clicked -dev');">
                                 </div>
                             </div>
                         </div>
