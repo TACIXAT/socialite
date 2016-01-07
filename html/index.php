@@ -26,26 +26,39 @@
         <meta name="msapplication-TileImage" content="/icon/favicon/mstile-144x144.png">
         <meta name="msapplication-config" content="/icon/favicon/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
-        <!--link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100' rel='stylesheet' type='text/css'-->
-        <!--Import materialize.css-->
+        <?php
+            if(!isset($_SERVER['HTTP_DNT']) || $_SERVER['HTTP_DNT'] != 1) {
+                echo "<!-- start Mixpanel -->\n";
+                echo "        <script type=\"text/javascript\">\n";
+                echo "            (function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(\".\");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;\"undefined\"!==typeof d?c=b[d]=[]:d=\"mixpanel\";c.people=c.people||[];c.toString=function(b){var a=\"mixpanel\";\"mixpanel\"!==d&&(a+=\".\"+d);b||(a+=\" (stub)\");return a};c.people.toString=function(){return c.toString(1)+\".people (stub)\"};i=\"disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user\".split(\" \");\n";
+                echo "            for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement(\"script\");a.type=\"text/javascript\";a.async=!0;a.src=\"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js\";e=f.getElementsByTagName(\"script\")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);\n";
+                echo "            mixpanel.init(\"3cfcfcdc33cbc6693645f79e38e9a292\");\n";
+                echo "        </script>\n";
+                echo "        <!-- end Mixpanel -->\n";
+                echo "        <script type=\"text/javascript\">\n";
+                echo "            useMixpanel = true;\n";
+                echo "            mixpanel.track('visited-dev');\n";
+            } else {
+                echo "<script type=\"text/javascript\">\n";
+                echo "            useMixpanel = false;\n";
+            }
+                echo "        </script>\n";
+        ?>
+
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
-        <!--Let browser know website is optimized for mobile-->
+        <!-- Optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <script type="text/javascript" src="/js/lib/jquery-2.1.3.min.js"></script>
         <script type="text/javascript" src="/js/materialize.min.js"></script>
         <style>
             body {
-                /*background-color: #f3442d;*/
                 color: #1d1d1d;
                 letter-spacing: 1px;
             }
 
             p {
                 letter-spacing: 1px;
-                /*margin-top: -15px;*/
             }
 
             .logo:hover {
@@ -122,6 +135,8 @@
         </style>
         <script type='text/javascript'>
             function signupSuccess(data, status, xhr) {
+                if(useMixpanel)
+                    mixpanel.track('Signup Success');
                 Materialize.toast('Success signing up!', 3000);
                 $('#waiting_list_input').val('');
                 $('#waiting_list_input_2').val('');
@@ -140,6 +155,8 @@
             $(document).ready(function() {
                 $(".button-collapse").sideNav();
                 $("#waiting_list_button").click(function() {
+                    if(useMixpanel)
+                        mixpanel.track('Waitlist Signup');
                     var email = $('#waiting_list_input').val();
                     if(email == undefined || email == "")
                         return false;
@@ -154,6 +171,8 @@
                 });
 
                 $("#waiting_list_button_2").click(function() {
+                    if(useMixpanel)
+                        mixpanel.track('Waitlist Signup 2');
                     var email = $('#waiting_list_input_2').val();
                     if(email == undefined || email == "")
                         return false;
@@ -169,18 +188,28 @@
 
                 $("#signup_button").click(function() {
                     $("html, body").animate({scrollTop:$("#waiting_list_div").offset().top-20}, 'slow');
+                     if(useMixpanel) 
+                        mixpanel.track('Menu Signup');
                 });
                 $("#about_button").click(function() {
                     $("html, body").animate({scrollTop:$("#about_div").offset().top}, 'slow'); 
+                    if(useMixpanel) 
+                        mixpanel.track('Menu About');
                 });
                 $("#features_button").click(function() {
                     $("html, body").animate({scrollTop:$("#features_div").offset().top}, 'slow'); 
+                    if(useMixpanel) 
+                        mixpanel.track('Menu Features');
                 }); 
                 $("#pricing_button").click(function() {
                     $("html, body").animate({scrollTop:$("#pricing_div").offset().top}, 'slow'); 
+                    if(useMixpanel) 
+                        mixpanel.track('Menu Pricing');
                 });
                 $("#contact_button").click(function() {
                     $("html, body").animate({scrollTop:$("#contact_div").offset().top}, 'slow'); 
+                    if(useMixpanel) 
+                        mixpanel.track('Menu Contact');
                 });
                 
                 $("#email_link").attr("href", "mailto:feedback@socialite.ooo"); 
@@ -310,7 +339,7 @@
                             <div class="card">
                                 <div class="card-content center">
                                     <span class="screen_shot_title card-title grey-text text-darken-2">Pivot quickly between nodes to recall information.</span>
-                                    <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/view.png">
+                                    <img itemprop="screenshot" class="z-depth-2 responsive-img materialboxed" src="/img/screens/view.png" onclick="if(useMixpanel) mixpanel.track('Screenshot Clicked (view)');">
                                 </div>
                             </div>
                         </div>
@@ -320,7 +349,7 @@
                             <div class="card">
                                 <div class="card-content center">
                                     <span class="screen_shot_title card-title grey-text text-darken-2">Geo-search over an area to find a location.</span>
-                                    <img class="responsive-img materialboxed" src="/img/screens/geo.png">
+                                    <img itemprop="screenshot" class="responsive-img materialboxed" src="/img/screens/geo.png" onclick="if(useMixpanel) mixpanel.track('Screenshot Clicked (geo)');">
                                 </div>
                             </div>
                         </div>
@@ -330,7 +359,7 @@
                             <div class="card">
                                 <div class="card-content center">
                                     <span class="screen_shot_title card-title grey-text text-darken-2">Link nodes together with the connection interface.</span>
-                                    <img class="responsive-img materialboxed" src="/img/screens/connect.png">
+                                    <img itemprop="screenshot" class="responsive-img materialboxed" src="/img/screens/connect.png" onclick="if(useMixpanel) mixpanel.track('Screenshot Clicked (connect)');">
                                 </div>
                             </div>
                         </div>
