@@ -44,13 +44,10 @@
             }
                 echo "        </script>\n";
         ?>
-        <!--link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100' rel='stylesheet' type='text/css'-->
-        <!--Import materialize.css-->
+
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
-        <!--Let browser know website is optimized for mobile-->
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <script type="text/javascript" src="/js/lib/jquery-2.1.3.min.js"></script>
         <script type="text/javascript" src="/js/materialize.min.js"></script>
