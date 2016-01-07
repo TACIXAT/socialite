@@ -39,7 +39,7 @@
     <body class="red">
         <div class="container">
             <div id="row" class="row s12">
-                <div class="col s8 offset-s2 white-text center">
+                <div class="col s12 m8 offset-m2 white-text center">
                     <h1>User Guide</h1>
 <?php
 if(isset($_GET["registered"])) {
