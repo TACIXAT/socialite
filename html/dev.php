@@ -47,20 +47,18 @@
 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
-
+        <!-- Optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <script type="text/javascript" src="/js/lib/jquery-2.1.3.min.js"></script>
         <script type="text/javascript" src="/js/materialize.min.js"></script>
         <style>
             body {
-                /*background-color: #f3442d;*/
                 color: #1d1d1d;
                 letter-spacing: 1px;
             }
 
             p {
                 letter-spacing: 1px;
-                /*margin-top: -15px;*/
             }
 
             .logo:hover {
@@ -137,6 +135,8 @@
         </style>
         <script type='text/javascript'>
             function signupSuccess(data, status, xhr) {
+                if(useMixpanel)
+                    mixpanel.track('Signup Success -dev');
                 Materialize.toast('Success signing up!', 3000);
                 $('#waiting_list_input').val('');
                 $('#waiting_list_input_2').val('');
@@ -155,6 +155,8 @@
             $(document).ready(function() {
                 $(".button-collapse").sideNav();
                 $("#waiting_list_button").click(function() {
+                    if(useMixpanel)
+                        mixpanel.track('Waitlist Signup -dev');
                     var email = $('#waiting_list_input').val();
                     if(email == undefined || email == "")
                         return false;
@@ -169,6 +171,8 @@
                 });
 
                 $("#waiting_list_button_2").click(function() {
+                    if(useMixpanel)
+                        mixpanel.track('Waitlist Signup 2 -dev');
                     var email = $('#waiting_list_input_2').val();
                     if(email == undefined || email == "")
                         return false;
