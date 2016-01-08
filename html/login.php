@@ -61,6 +61,11 @@ if(isset($_GET["confirmed"])) {
     echo "                Materialize.toast('Account confirmed! You may now log in!', 5000);\n";
 }
 ?>
+                $("#regTabLink").click(function() {
+                    if(regClick === undefined)
+                        Materialize.toast('No invite? Signup for the waiting list at https://socialite.ooo', 5000);
+                    regClick = true;
+                });
             });
         </script>
         <style>
@@ -94,7 +99,7 @@ if(isset($_GET["confirmed"])) {
                             <div class="col s12">
                                 <ul id="login_tabs" class="tabs">
                                     <li class="tab col l6"><a class="active" href="#loginDiv">Login</a></li>
-                                    <li class="tab col l6"><a href="#registrationDiv">Register</a></li>
+                                    <li class="tab col l6"><a id="regTabLink" href="#registrationDiv">Register</a></li>
                                     <li class="tab col l6"><a href="#resetDiv">Reset</a></li>
                                 </ul>
                             </div>
