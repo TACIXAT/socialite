@@ -219,26 +219,17 @@ function get_key($mysqli, $username, $email) {
     $key = "a0a8326c9a551bebd7beb3d2331275634e2a82ea";
     SparkPost::setConfig(array('key'=>$key));
     try {
-        $html = "<body>";
-        $html .= "<p><a href='/https://socialite.ooo/api/reset.php?reset_key=" . urlencode(base64_encode($reset_key));
-        $html .= "'>Follow this link to reset your password.</a></p>";
-        $html .= "<br/>";
-        $html .= "</body>";
-        $html .= "<footer>";
-        $html .= "</footer>";
-        $text = "Follow this link to reset your password:\n";
-        $text .= "https://socialite.ooo/api/reset.php?reset_key=" . urlencode(base64_encode($reset_key));
         $results = Transmission::send(array(
-            "from"=>"Socialite <donutreply@socialite.ooo>",
-            "html"=>$html,
-            "text"=>$text,
-            "subject"=>"Socialite - Password Reset",
             "recipients"=>array(
                 array(
                     "address"=>array(
                         "email"=>$email
                     )
                 )
+            ),
+            "template"=>"reset",
+            "substitutionData"=>array(
+                "RESET_KEY"=>urlencode(base64_encode($reset_key))
             ),
             "trackClicks"=>false,
             "campaign"=>"password_reset"
