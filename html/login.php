@@ -61,8 +61,9 @@ if(isset($_GET["confirmed"])) {
     echo "                Materialize.toast('Account confirmed! You may now log in!', 5000);\n";
 }
 ?>
+                regClick = false;
                 $("#regTabLink").click(function() {
-                    if(regClick === undefined)
+                    if(!regClick)
                         Materialize.toast('No invite? Signup for the waiting list at https://socialite.ooo', 5000);
                     regClick = true;
                 });
