@@ -229,7 +229,7 @@ function get_key($mysqli, $username, $email) {
             ),
             "template"=>"reset",
             "substitutionData"=>array(
-                "RESET_KEY"=>urlencode(base64_encode($reset_key))
+                "RESET_KEY"=>base64_encode($reset_key)
             ),
             "trackClicks"=>false,
             "campaign"=>"password_reset"
