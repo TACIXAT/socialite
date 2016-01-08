@@ -72,6 +72,7 @@ $first_login = first_login($mysqli);
                     echo "            mixpanel.people.set_once({'id':'" . $_SESSION['user_id'] . "', 'logins':0});\n";
                     echo "            mixpanel.people.increment('logins');\n";
                     echo "            mixpanel.identify();\n";
+                    echo "            mixpanel.track('Visited Application');\n";
                 }
                 echo "            seasurf = '" . $_SESSION['csrf_token'] . "';\n";
                 if($first_login) {
