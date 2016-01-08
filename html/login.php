@@ -62,7 +62,7 @@
                 echo "<script type=\"text/javascript\">\n";
                 echo "            useMixpanel = false;\n";
             }
-                echo "        </script>\n";
+            echo "        </script>\n";
         ?>
         <script type="text/JavaScript">
             $(document).ready(function(){

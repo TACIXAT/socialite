@@ -42,7 +42,7 @@
                 echo "<script type=\"text/javascript\">\n";
                 echo "            useMixpanel = false;\n";
             }
-                echo "        </script>\n";
+            echo "        </script>\n";
         ?>
 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

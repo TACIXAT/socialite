@@ -46,7 +46,7 @@
                 echo "<script type=\"text/javascript\">\n";
                 echo "            useMixpanel = false;\n";
             }
-                echo "        </script>\n";
+            echo "        </script>\n";
         ?>
         <style>
             .insns {
