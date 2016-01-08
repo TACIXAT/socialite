@@ -58,7 +58,6 @@
                 echo "        <!-- end Mixpanel -->\n";
                 echo "        <script type=\"text/javascript\">\n";
                 echo "            useMixpanel = true;\n";
-                echo "            mixpanel.track('Visited Login');\n";
             } else {
                 echo "<script type=\"text/javascript\">\n";
                 echo "            useMixpanel = false;\n";
@@ -72,7 +71,11 @@ if(isset($_GET["invite"]) && ctype_alnum($_GET["invite"])) {
     echo "                $('ul.tabs').tabs('select_tab', 'registrationDiv');\n";
     printf("                $('#registration_invite').val('%s');\n", $_GET["invite"]);
     echo "                $('#registration_invite').siblings().addClass('active');\n";
+    echo "                if(useMixpanel);\n";
+    echo "                    mixpanel.track('Visited Registration');\n";
 } else {
+    echo "                if(useMixpanel);\n";
+    echo "                    mixpanel.track('Visited Login');\n";
     echo "                $('ul.tabs').tabs();\n";
 }
 if(isset($_GET["confirmed"])) {
