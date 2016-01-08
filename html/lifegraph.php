@@ -69,7 +69,7 @@ $first_login = first_login($mysqli);
                     echo "            useMixpanel = false;\n";
                 } else {
                     echo "            useMixpanel = true;\n";
-                    echo "            mixpanel.people.setonce({'id':'" . $_SESSION['user_id'] . "', 'logins':0});\n";
+                    echo "            mixpanel.people.set_once({'id':'" . $_SESSION['user_id'] . "', 'logins':0});\n";
                     echo "            mixpanel.increment('logins');\n";
                     echo "            mixpanel.identify();\n";
                 }
