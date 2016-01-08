@@ -58,7 +58,7 @@
                 echo "        <!-- end Mixpanel -->\n";
                 echo "        <script type=\"text/javascript\">\n";
                 echo "            useMixpanel = true;\n";
-                echo "            mixpanel.track('visited-dev');\n";
+                echo "            mixpanel.track('Visited Login');\n";
             } else {
                 echo "<script type=\"text/javascript\">\n";
                 echo "            useMixpanel = false;\n";
