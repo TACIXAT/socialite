@@ -200,7 +200,7 @@ function get_key($mysqli, $username, $email) {
     }
     $stmt->close();
 
-    $reset_key = secure_random_string();
+    $reset_key = secure_random_string(64);
     $query = "INSERT INTO reset_keys VALUES (?, ?, ?)";
     $stmt = $mysqli->prepare($query);
     
