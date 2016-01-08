@@ -68,8 +68,10 @@ $first_login = first_login($mysqli);
                 if(isset($_SERVER['HTTP_DNT']) && $_SERVER['HTTP_DNT'] == 1) {
                     echo "            useMixpanel = false;\n";
                 } else {
-                    echo "            mixpanel.identify(" . $_SESSION['user_id'] . ");\n";
                     echo "            useMixpanel = true;\n";
+                    echo "            mixpanel.people.setonce({'id':'" . $_SESSION['user_id'] . "', 'logins':0});\n";
+                    echo "            mixpanel.increment('logins');\n";
+                    echo "            mixpanel.identify();\n";
                 }
                 echo "            seasurf = '" . $_SESSION['csrf_token'] . "';\n";
                 if($first_login) {
