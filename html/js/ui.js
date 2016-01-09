@@ -180,6 +180,11 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
         var div;
         var mapDiv;
         if(type == 'geopoint') {
+            var mapSearch = $("<input></input>");
+            searchInput.attr("id", vertexType + "_map_create_input");
+            searchInput.attr("type", "text");
+            searchInput.addClass("mapSearch");
+
             label.addClass("active");
             label.css("padding-bottom", "5px");
             input.attr("type", "hidden");
@@ -189,6 +194,8 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
             mapDiv = $('<div></div>');
             mapDiv.attr('id', vertexType + '_create_map');
             mapDiv.height(150);
+            mapDiv.data("searchId", vertexType + "_map_create_input");
+            div.append(searchInput);
             div.append(mapDiv);
         }
 
@@ -670,6 +677,11 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
         var div;
         var mapDiv;
         if(type == 'geopoint') {
+            var mapSearch = $("<input></input>");
+            searchInput.attr("id", vertexType + "_map_display_input");
+            searchInput.attr("type", "text");
+            searchInput.addClass("mapSearch");
+
             label.addClass("active");
             label.css("padding-bottom", "5px");
             input.attr("type", "hidden");
@@ -679,6 +691,8 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             mapDiv = $('<div></div>');
             mapDiv.attr('id', vertexType + '_display_map');
             mapDiv.height(150);
+            mapDiv.data("searchId", vertexType + "_map_display_input");
+            div.append(searchInput)
             div.append(mapDiv);
         }
 
@@ -823,6 +837,11 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
         var mapDiv;
         var slider;
         if(type == 'geopoint') {
+            var mapSearch = $("<input></input>");
+            searchInput.attr("id", vertexType + "_map_search_input");
+            searchInput.attr("type", "text");
+            searchInput.addClass("mapSearch");
+
             label.addClass("active");
             label.css("padding-bottom", "5px");
             input.attr("type", "hidden");
@@ -832,6 +851,8 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
             mapDiv = $('<div></div>');
             mapDiv.attr('id', vertexType + '_search_map');
             mapDiv.height(150);
+            mapDiv.data("searchId", vertexType + "_map_search_input");
+            div.append(searchInput);
             div.append(mapDiv);
 
             slider = $('<input></input>');
@@ -1069,6 +1090,7 @@ Socialite.UI['refreshMap'] = function(id) {
 Socialite.UI['addMap'] = function(div, inputId, slider) {
     var searchMap = false;
     var input = $('#' + inputId);
+    var mapSearchId = div.data('searchId');
 
     if(/_map_search_input$/.test(inputId)) {
         searchMap = true;
@@ -1105,11 +1127,48 @@ Socialite.UI['addMap'] = function(div, inputId, slider) {
         zoomControl: true
     });
 
+    var mapSearch = $("#" + mapSearchId);
+    var searchBox = new google.maps.places.SearchBox(mapSearch);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(mapSearch);
+
+
     var marker = new google.maps.Marker({
         position: latLng,
         map: map,
         title: 'Choose a location',
         draggable: true
+    });
+    
+    searchBox.addListener('places_changed', function() {
+        var places = searchBox.getPlaces();
+
+        if(places.length == 0) {
+            Materialize.toast('No maps results found for that search!', 3000);
+            return;
+        }
+
+        places.forEach(function(place) {
+            if (place.geometry.viewport) {
+                // Only geocodes have viewport.
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+        });
+        
+        map.fitBounds(bounds);
+        var latLng = map.getCenter();
+        var coords = latLng.lat().toFixed(4) + ',' + latLng.lng().toFixed(4);
+        
+        if(/_map_search_input$/.test(inputId)) {
+            var val = $(id).val();
+            val = val.split(',');
+            if(val.length == 3) 
+                coords = [coords, val[2]].join(',');
+        }
+
+        $(id).val(coords);
+        marker.setCenter(latLng);
     });
 
     Socialite.UI.maps.push(map);
@@ -1179,7 +1238,6 @@ Socialite.UI['mapFunctionInit'] = function(id) {
             val = val.split(',');
             if(val.length == 3) 
                 coords = [coords, val[2]].join(',');
-            // move circle?
         }
 
         $(id).val(coords);
