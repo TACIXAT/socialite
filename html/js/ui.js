@@ -1101,7 +1101,8 @@ Socialite.UI['addMap'] = function(div, inputId, slider) {
     var map = new google.maps.Map(div[0], {
         center: latLng,
         zoom: 11,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        zoomControl: true
     });
 
     var marker = new google.maps.Marker({
