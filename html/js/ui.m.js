@@ -593,6 +593,10 @@ Socialite.UI['listVertices'] = function(vertices) {
     $("#list_view").show();
 }
 
+Socialite.UI['showHideHint'] = function() {
+    return false;
+}
+
 Socialite.UI['hideDropdown'] = function(dropId) {
     $("#drop_"+dropId).fadeOut(225);
     $("#drop_menu_"+dropId).removeClass("active");

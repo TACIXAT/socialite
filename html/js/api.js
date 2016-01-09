@@ -284,6 +284,7 @@ Socialite.API['deleteSuccess'] = function(data, status, xhr) {
         $("#" + type + "_" + id).remove();
         Socialite.UI.resetForm(type, 'display'); 
         Socialite.Graph.Connect.removeNode(id);
+        Socialite.UI.showHideHint();
     } else {
         Materialize.toast(data['ERROR'], 3000);;
     } 
