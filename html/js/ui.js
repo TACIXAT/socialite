@@ -433,6 +433,7 @@ Socialite.UI['listVertices'] = function(vertices) {
                 ev.stopPropagation();
             var vertex = $(this).parent().data('vertex');
             Socialite.UI.resetForm(vertex['properties']['type'], 'display');
+            Socialite.UI.showHideHint();
             $(this).parent().hide('fast', function() { 
                 $(this).remove();
             });
@@ -443,6 +444,25 @@ Socialite.UI['listVertices'] = function(vertices) {
 
         $("#" + vertexType + "_list").append(item);
     }
+
+    Socialite.UI.showHideHint();
+}
+
+Socialite.UI['showHideHint'] = function() {
+    if($("#person_list").children().length > 0)
+        $("#list_person_div > .list_ucopy").hide();
+    else
+        $("#list_person_div > .list_ucopy").show();
+
+    if($("#event_list").children().length > 0)
+        $("#list_event_div > .list_ucopy").hide();
+    else
+        $("#list_event_div > .list_ucopy").show();
+
+    if($("#location_list").children().length > 0)
+        $("#list_location_div > .list_ucopy").hide();
+    else
+        $("#list_location_div > .list_ucopy").show();
 }
 
 Socialite.UI['resetActiveTab'] = function(action) {
