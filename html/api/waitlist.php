@@ -33,9 +33,6 @@ function remove($mysqli) {
         $email = $_POST["email"];
         $remove_code = $_POST["code"];
         
-        error_log($email);
-        error_log($remove_code);
-
         $query = "SELECT * FROM waiting_list WHERE email = ? AND remove_code = ?";
         $stmt = $mysqli->prepare($query);
         if(!$stmt) {
