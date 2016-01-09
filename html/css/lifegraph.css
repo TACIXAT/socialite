@@ -112,6 +112,7 @@ body {
 
 .list_item {
     text-align: left;
+    overflow: hidden;
 }
 
 .list_item:hover {
