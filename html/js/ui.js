@@ -1221,6 +1221,7 @@ Socialite.UI['centerMaps'] = function(position) {
 
 Socialite.UI['sliderFunctionInit'] = function(circle, inputId, slider) {
     return function() {
+        $(".thumb").hide();
         var radius = parseInt(slider.val());
         circle.setRadius(radius);
 
