@@ -1130,7 +1130,7 @@ Socialite.UI['addMap'] = function(div, inputId, slider) {
         zoomControl: true
     });
 
-    var mapSearch = $("#" + mapSearchId);
+    var mapSearch = $("#" + mapSearchId)[0];
     var searchBox = new google.maps.places.SearchBox(mapSearch);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(mapSearch);
 
