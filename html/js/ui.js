@@ -1165,13 +1165,13 @@ Socialite.UI['addMap'] = function(div, inputId, slider) {
         var coords = latLng.lat().toFixed(4) + ',' + latLng.lng().toFixed(4);
         
         if(/_map_search_input$/.test(inputId)) {
-            var val = $(id).val();
+            var val = $(inputId).val();
             val = val.split(',');
             if(val.length == 3) 
                 coords = [coords, val[2]].join(',');
         }
 
-        $(id).val(coords);
+        $(inputId).val(coords);
         marker.setCenter(latLng);
     });
 
