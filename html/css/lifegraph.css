@@ -261,7 +261,7 @@ body {
 }
 
 .mapSearch {
-  margin-top: 10px !important;
+  margin-top: 10px 0px 0px 10px !important;
   border: 1px solid transparent !important;
   border-radius: 2px 0 0 2px !important;
   box-sizing: border-box !important;
@@ -269,8 +269,28 @@ body {
   height: 32px !important;
   outline: none !important;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
-  background-color: rbga(255, 255, 255, 0.3) !important;
+  background-color: rbga(255, 255, 255, 0.7) !important;
+  width: 75%;
 }
+
+.mapSearch::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #333;
+}
+.mapSearch:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #333;
+   opacity:  1;
+}
+.mapSearch::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #333;
+   opacity:  1;
+}
+.mapSearch:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #333;
+}
+.mapSearch:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+  color:    #333;
+}
+
 /*a, body, input, button, select { font-family: monospace; }
 
 p { 
