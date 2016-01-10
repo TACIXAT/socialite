@@ -184,7 +184,7 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
             searchInput.attr("id", vertexType + "_map_create_input");
             searchInput.attr("type", "text");
             searchInput.addClass("mapSearch");
-            // searchInput.attr("placeholder", "Search Box");
+            searchInput.attr("placeholder", "Search Box");
 
             label.addClass("active");
             label.css("padding-bottom", "5px");
@@ -682,7 +682,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             searchInput.attr("id", vertexType + "_map_display_input");
             searchInput.attr("type", "text");
             searchInput.addClass("mapSearch");
-            // searchInput.attr("placeholder", "Search Box");
+            searchInput.attr("placeholder", "Search Box");
 
             label.addClass("active");
             label.css("padding-bottom", "5px");
@@ -843,7 +843,7 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
             searchInput.attr("id", vertexType + "_map_search_input");
             searchInput.attr("type", "text");
             searchInput.addClass("mapSearch");
-            // searchInput.attr("placeholder", "Search Box");
+            searchInput.attr("placeholder", "Search Box");
 
             label.addClass("active");
             label.css("padding-bottom", "5px");
@@ -1094,6 +1094,7 @@ Socialite.UI['addMap'] = function(div, inputId, slider) {
     var searchMap = false;
     var input = $('#' + inputId);
     var mapSearchId = div.data('searchId');
+    console.log(mapSearchId);
 
     if(/_map_search_input$/.test(inputId)) {
         searchMap = true;
