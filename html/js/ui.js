@@ -1150,6 +1150,7 @@ Socialite.UI['addMap'] = function(div, inputId, slider) {
             return;
         }
 
+        var bounds = new google.maps.LatLngBounds();
         places.forEach(function(place) {
             if (place.geometry.viewport) {
                 // Only geocodes have viewport.
