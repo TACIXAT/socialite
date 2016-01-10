@@ -1094,7 +1094,6 @@ Socialite.UI['addMap'] = function(div, inputId, slider) {
     var searchMap = false;
     var input = $('#' + inputId);
     var mapSearchId = div.data('searchId');
-    console.log(mapSearchId);
 
     if(/_map_search_input$/.test(inputId)) {
         searchMap = true;

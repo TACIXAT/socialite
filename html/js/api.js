@@ -236,6 +236,8 @@ Socialite.API['createSuccess'] = function(data, status, xhr) {
 Socialite.API['updateSuccess'] = function(data, status, xhr) {
     var vertex = $.parseJSON(data);
     if(vertex['_id'] == -1) {
+        if(vertex['properties']['error'].indexOf('Problem parsing vertex ID!') > -1)
+            vertex['properties']['error'] = 'You must create or search for a node before updating!';
         Materialize.toast(vertex['properties']['error'], 3000);
     } else {
         Socialite.UI.listVertices([vertex]);
@@ -271,18 +273,7 @@ Socialite.API['updateVertex'] = function(form) {
         'url': '/api/proxy.php',
         'data': $.param(data),
         'success': Socialite.API.updateSuccess,
-        'error': Socialite.API.updateError });
-}
-
-Socialite.API['updateError'] = function(xhr, status, error) {
-    var error = $.parseJSON(xhr.responseText);
-    if(error['status'] != 'error') {
-        Materialize.toast('An error occured! Please contact us directly!', 3000);
-    } else {
-        if(error['msg'].indexOf('Problem parsing vertex ID!') > -1)
-            error['msg'] = 'You must create or search for a node before updating!';
-        Materialize.toast(error['msg'], 3000);
-    }
+        'error': Socialite.API.genericError });
 }
 
 Socialite.API['deleteSuccess'] = function(data, status, xhr) {
