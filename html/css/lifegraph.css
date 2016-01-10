@@ -269,7 +269,7 @@ body {
   height: 32px !important;
   outline: none !important;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
-  background-color: white !important;
+  /*background-color: white !important;*/
 }
 /*a, body, input, button, select { font-family: monospace; }
 
