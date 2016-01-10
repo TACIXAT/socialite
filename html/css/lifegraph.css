@@ -291,6 +291,14 @@ body {
   color:    #555;
 }
 
+.pac-container {
+    background-color: #FFF;
+    z-index: 1004;
+    position: fixed;
+    display: inline-block;
+    float: left;
+}
+
 /*a, body, input, button, select { font-family: monospace; }
 
 p { 
