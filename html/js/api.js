@@ -271,7 +271,18 @@ Socialite.API['updateVertex'] = function(form) {
         'url': '/api/proxy.php',
         'data': $.param(data),
         'success': Socialite.API.updateSuccess,
-        'error': Socialite.API.genericError });
+        'error': Socialite.API.updateError });
+}
+
+Socialite.API['updateError'] = function(xhr, status, error) {
+    var error = $.parseJSON(xhr.responseText);
+    if(error['status'] != 'error') {
+        Materialize.toast('An error occured! Please contact us directly!', 3000);
+    } else {
+        if(error['msg'].indexOf('Problem parsing vertex ID!') > -1)
+            error['msg'] = 'You must create or search for a node before updating!';
+        Materialize.toast(error['msg'], 3000);
+    }
 }
 
 Socialite.API['deleteSuccess'] = function(data, status, xhr) {
