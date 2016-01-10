@@ -1172,7 +1172,7 @@ Socialite.UI['addMap'] = function(div, inputId, slider) {
         }
 
         $(inputId).val(coords);
-        marker.setCenter(latLng);
+        marker.setPosition(latLng);
     });
 
     Socialite.UI.maps.push(map);
