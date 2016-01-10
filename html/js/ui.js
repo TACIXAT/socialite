@@ -181,7 +181,7 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
         var mapDiv;
         if(type == 'geopoint') {
             var searchInput = $("<input></input>");
-            searchInput.attr("id", vertexType + "_map_create_input");
+            searchInput.attr("id", vertexType + "_map_search_create");
             searchInput.attr("type", "text");
             searchInput.addClass("mapSearch");
             searchInput.attr("placeholder", "Search Box");
@@ -679,7 +679,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
         var mapDiv;
         if(type == 'geopoint') {
             var searchInput = $("<input></input>");
-            searchInput.attr("id", vertexType + "_map_display_input");
+            searchInput.attr("id", vertexType + "_map_search_display");
             searchInput.attr("type", "text");
             searchInput.addClass("mapSearch");
             searchInput.attr("placeholder", "Search Box");
@@ -840,7 +840,7 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
         var slider;
         if(type == 'geopoint') {
             var searchInput = $("<input></input>");
-            searchInput.attr("id", vertexType + "_map_search_input");
+            searchInput.attr("id", vertexType + "_map_search_search");
             searchInput.attr("type", "text");
             searchInput.addClass("mapSearch");
             searchInput.attr("placeholder", "Search Box");
