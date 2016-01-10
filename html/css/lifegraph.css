@@ -274,21 +274,21 @@ body {
 }
 
 .mapSearch::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    #333;
+    color:    #666;
 }
 .mapSearch:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #333;
+   color:    #666;
    opacity:  1;
 }
 .mapSearch::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #333;
+   color:    #666;
    opacity:  1;
 }
 .mapSearch:-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    #333;
+   color:    #666;
 }
 .mapSearch:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
-  color:    #333;
+  color:    #666;
 }
 
 /*a, body, input, button, select { font-family: monospace; }
