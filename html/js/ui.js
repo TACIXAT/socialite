@@ -184,6 +184,7 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
             searchInput.attr("id", vertexType + "_map_create_input");
             searchInput.attr("type", "text");
             searchInput.addClass("mapSearch");
+            searchInput.attr("placeholder", "Search Box");
 
             label.addClass("active");
             label.css("padding-bottom", "5px");
@@ -681,6 +682,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             searchInput.attr("id", vertexType + "_map_display_input");
             searchInput.attr("type", "text");
             searchInput.addClass("mapSearch");
+            searchInput.attr("placeholder", "Search Box");
 
             label.addClass("active");
             label.css("padding-bottom", "5px");
@@ -841,6 +843,7 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
             searchInput.attr("id", vertexType + "_map_search_input");
             searchInput.attr("type", "text");
             searchInput.addClass("mapSearch");
+            searchInput.attr("placeholder", "Search Box");
 
             label.addClass("active");
             label.css("padding-bottom", "5px");
@@ -1155,7 +1158,7 @@ Socialite.UI['addMap'] = function(div, inputId, slider) {
                 bounds.extend(place.geometry.location);
             }
         });
-        
+
         map.fitBounds(bounds);
         var latLng = map.getCenter();
         var coords = latLng.lat().toFixed(4) + ',' + latLng.lng().toFixed(4);
