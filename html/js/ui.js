@@ -184,7 +184,7 @@ Socialite.UI['buildCreateForm'] = function(vertexType) {
             searchInput.attr("id", vertexType + "_map_search_create");
             searchInput.attr("type", "text");
             searchInput.addClass("mapSearch");
-            searchInput.attr("placeholder", "Search Box");
+            searchInput.attr("placeholder", "Map Quick Jump");
 
             label.addClass("active");
             label.css("padding-bottom", "5px");
@@ -682,7 +682,7 @@ Socialite.UI['buildDisplayForm'] = function(vertexType) {
             searchInput.attr("id", vertexType + "_map_search_display");
             searchInput.attr("type", "text");
             searchInput.addClass("mapSearch");
-            searchInput.attr("placeholder", "Search Box");
+            searchInput.attr("placeholder", "Map Quick Jump");
 
             label.addClass("active");
             label.css("padding-bottom", "5px");
@@ -843,7 +843,7 @@ Socialite.UI['buildSearchForm'] = function(vertexType) {
             searchInput.attr("id", vertexType + "_map_search_search");
             searchInput.attr("type", "text");
             searchInput.addClass("mapSearch");
-            searchInput.attr("placeholder", "Search Box");
+            searchInput.attr("placeholder", "Map Quick Jump");
 
             label.addClass("active");
             label.css("padding-bottom", "5px");
