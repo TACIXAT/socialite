@@ -83,7 +83,10 @@ Socialite.UI['buildLocationForms'] = function() {
     var searchForm = Socialite.UI.buildSearchForm('location');
     var displayForm = Socialite.UI.buildDisplayForm('location');
     var createForm = Socialite.UI.buildCreateForm('location');
-    navigator.geolocation.getCurrentPosition(Socialite.UI.centerMaps);
+    navigator.geolocation.getCurrentPosition(Socialite.UI.centerMaps, function(err) {
+      console.log('GEO ERROR(' + err.code + '): ' + err.message);
+      console.log(err);
+    });
 }
 
 Socialite.UI['buildPersonForms'] = function() {
