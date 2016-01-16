@@ -411,7 +411,7 @@ Socialite.UI['listVertices'] = function(vertices) {
         //     emptied.push(vertexType);
         // }
         var id = vertex['_id'];
-        if($("#" + vertexType + '_' + id).length() > 0)
+        if($("#" + vertexType + '_' + id).length > 0)
             continue;
         var item = $("<li></li>");
         item.attr('id', vertexType + '_' + id);
