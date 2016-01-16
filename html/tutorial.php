@@ -67,7 +67,7 @@ if(isset($_GET["registered"])) {
 }
 ?>
                     <div class="insns">
-                        <h5>Get started by clicking Add in the sidebar to create a new node.</h5>
+                        <h5>Get started by clicking Add in the sidebar to create a person, event, or location.</h5>
                     </div>
                     <div class="card">
                         <div class="card-content center">
@@ -77,7 +77,7 @@ if(isset($_GET["registered"])) {
                     </div>
 
                     <div class="insns">
-                        <h5>Nodes that you create or search for are displayed in the lists on the main page. Clicking the nodes in the list displays their info above.</h5>
+                        <h5>Nodes (people, events, and locations) that you create or search for are displayed in the lists on the main page. Clicking the nodes in the list displays their info above.</h5>
                     </div>
                     <div class="card">
                         <div class="card-content center">
