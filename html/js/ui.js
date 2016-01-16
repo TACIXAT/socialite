@@ -406,12 +406,13 @@ Socialite.UI['listVertices'] = function(vertices) {
         Socialite.util.addConnections(vertex);
         var vertexProperties = vertex['properties'];
         var vertexType = vertexProperties['type'];
-        if(emptied.indexOf(vertexType) < 0) {
-            $("#" + vertexType + "_list").empty();
-            emptied.push(vertexType);
-        }
+        // if(emptied.indexOf(vertexType) < 0) {
+        //     $("#" + vertexType + "_list").empty();
+        //     emptied.push(vertexType);
+        // }
         var id = vertex['_id'];
-
+        if($("#" + vertexType + '_' + id).length() > 0)
+            continue;
         var item = $("<li></li>");
         item.attr('id', vertexType + '_' + id);
         item.attr('draggable', true);
