@@ -90,7 +90,7 @@ if(isset($_GET["confirmed"])) {
                 });
 
                 $("#registration_password").on('focus', function() {
-                    Materialize.toast('8 characters minimum. Must contain at least one uppercase, one lowercase, and one number.', 5000); 
+                    Materialize.toast('8 characters minimum, with an uppercase, lowercase, and number.', 6000); 
                 });
             });
         </script>
