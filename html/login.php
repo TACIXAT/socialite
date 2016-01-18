@@ -88,6 +88,10 @@ if(isset($_GET["confirmed"])) {
                         Materialize.toast('No invite? Signup for the waiting list at https://socialite.ooo', 6000);
                     regClick = true;
                 });
+
+                $("#registration_password").on('focus', function() {
+                    Materialize.toast('8 characters minimum. Must contain at least one uppercase, one lowercase, and one number.', 5000); 
+                });
             });
         </script>
         <style>

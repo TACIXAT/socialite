@@ -81,8 +81,8 @@ function regformhash(form, username, email, password, conf, invite) {
     // Check that the password is sufficiently long (min 6 chars)
     // The check is duplicated below, but this is included to give more
     // specific guidance to the user
-    if (password.value.length < 6) {
-        Materialize.toast('Passwords must be at least 6 characters long.  Please try again', 4000);
+    if (password.value.length < 8) {
+        Materialize.toast('Passwords must be at least 8 characters long.  Please try again', 4000);
         form.password.focus();
         return false;
     }
