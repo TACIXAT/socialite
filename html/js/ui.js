@@ -411,8 +411,12 @@ Socialite.UI['listVertices'] = function(vertices) {
         //     emptied.push(vertexType);
         // }
         var id = vertex['_id'];
-        if($("#" + vertexType + '_' + id).length > 0)
+        if($("#" + vertexType + '_' + id).length > 0) {
+            $("#" + vertexType + '_' + id).text(vertexProperties['name']);
+            $("#" + vertexType + '_' + id).data('vertex', vertex);
             continue;
+        }
+
         var item = $("<li></li>");
         item.attr('id', vertexType + '_' + id);
         item.attr('draggable', true);
