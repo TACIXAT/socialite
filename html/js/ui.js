@@ -411,22 +411,24 @@ Socialite.UI['listVertices'] = function(vertices) {
         //     emptied.push(vertexType);
         // }
         var id = vertex['_id'];
+        var item = $("#" + vertexType + '_' + id);
+        var present = false;
         if($("#" + vertexType + '_' + id).length > 0) {
-            $("#" + vertexType + '_' + id).text(vertexProperties['name']);
-            $("#" + vertexType + '_' + id).data('vertex', vertex);
-            continue;
+            present = true;
+            item.text(vertexProperties['name']);
+            item.data('vertex', vertex);
+        } else {
+            item = $("<li></li>");
+            item.attr('id', vertexType + '_' + id);
+            item.attr('draggable', true);
+            item.addClass('list_item');
+            item.addClass('collection-item');
+            item.on('dragstart', Socialite.UI.dragStart);
+            item.text(vertexProperties['name']);
+            item.data('vertex', vertex);
+            item.click(Socialite.UI.itemClick);
+            item.dblclick(Socialite.UI.itemDoubleClick);
         }
-
-        var item = $("<li></li>");
-        item.attr('id', vertexType + '_' + id);
-        item.attr('draggable', true);
-        item.addClass('list_item');
-        item.addClass('collection-item');
-        item.on('dragstart', Socialite.UI.dragStart);
-        item.text(vertexProperties['name']);
-        item.data('vertex', vertex);
-        item.click(Socialite.UI.itemClick);
-        item.dblclick(Socialite.UI.itemDoubleClick);
 
         var connectLink = $("<a></a>");
         connectLink.addClass("control_right");
@@ -457,8 +459,8 @@ Socialite.UI['listVertices'] = function(vertices) {
 
         item.append(removeLink);
         item.append(connectLink);
-
-        $("#" + vertexType + "_list").append(item);
+        if(!present)
+            $("#" + vertexType + "_list").append(item);
     }
 
     Socialite.UI.showHideHint();
