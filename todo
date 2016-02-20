@@ -1,0 +1,166 @@
+Todo
+- Mobile
+    - Remove any animations and hover events
+
+- Payments
+    - Payment + callback
+    - Mark them as need to pay
+    - Corner slide in to pay now
+    - Next login must pay
+   
+- Application
+    - Connect / disconnect bulk functions
+    - Design for the empty state
+    - Make connection interface more clear
+    - User info
+    - Uppercase confirmation string
+    - Clear list button
+    - List item dropdown menu
+    - Reminders
+    - Connection nag
+
+- Bugs
+
+- Security
+    - Look over server code
+    - Minify
+
+- BSNS
+    - Amazon payments
+    - Shitcoin payments
+    - Bylaws
+    - Issue stock
+    - Organizational meeting
+
+- Testing
+    - Run through all the functionality
+
+- Beta
+    - More fields
+    - Reminders + emails
+    - Instant search (names)
+
+Done
+- Beta
+    - Geodata instant search (JK maps search)
+
+- Payments
+    - Detect user node count
+
+- Application
+    - Micro copy for password requirements
+    - Change location of display map even though everyone is wrong
+    - Change UPDATE error when nothing displayed
+    - Added quick jump sarch to maps
+    - Notify on no search results
+    - AJAX login 
+    - Login on return 
+    - Rich Snippets
+    - Screenshots on landing page
+    - Register success, clear form, switch to login
+    - AJAX registration
+    - Confirmation emails
+    - Guided tour
+    - Do Not Track
+    - Pretty emails
+    - Pretty waitlist removal
+    - Password reset
+    - Sign out
+
+- Analytics
+    - Wait list analytics
+    - Mixpanel user flow
+
+- Mobile
+   - Redirect on login
+   - Neighbor search button
+   - Desktop link in sidebar
+   - Clear listed nodes
+   - Update doesn't update connection interface
+   - Update doesn't update in list
+   - Remove from connection interface on delete
+   - Fix form resets
+   - Increment id counter until elements not found
+   - List dropdown scrolled
+   - Remove weird action buttons (Connect:Done)
+   - Menu close on button click
+   - Refresh map on details show
+   - List item CSS
+   - List item dropdown menu
+   - Details use tabs
+   - Remove
+   - Connect
+
+- On Boarding
+    - Way to invite people
+       - Invite email
+       - Code
+    - Test registration
+    - Confirmation 
+       - Confirmation page
+    - Login
+    - First time - tutorial
+
+ - Bugs
+    - List vertices handle items in list (don't simply skip)
+    - Update CSS to unbreak things caused by upgrading materialize
+    - Edge already exists error
+    - Double click load + highlight
+    - Connect interface when vertex removed from display
+    - Clear button - Add
+    - Clear button - Search
+    - Clear button - Connections
+    - Search location - Add Map
+    - Add connection, graph.js:171 (newly created doesn't return neighbor)
+
+ - Mobile
+    - Login
+    - MVP
+
+- BSNS
+    - Terms of Service
+    - Privacy Policy
+    - Register company
+
+- Security
+    - CSRF tokens
+    - Proxy.php authenticate
+    - X-Frame-Options
+    - Path relative everything
+
+- Backend
+    - Add more fields
+    - Full text search names
+
+- CSS overhaul, theme
+   - Clear displayed vertex if removed
+   - Search connected to
+   - Range searches (dates)
+   - Remove from list
+   - Date display format (Month DD, YYYY)
+   - Connect interface
+   - Edit / delete
+   - Map show / hide
+   - Nice errors
+   - Listing
+   - On click display
+   - Display / edit forms
+   - Search form
+   - Create form
+
+- Decide on price
+- Pitch Deck
+- Blog theme
+- Duplicates on lock + search
+- Nice error reporting
+- Headshot
+- Purchase SSL certificate
+- Info Video
+- Gmail for bsns
+- Landing page
+- Login by username
+- Waiting list
+- HTTPS on Tomcat
+- Copy MySQL database over
+- Temporary HTTPS on Apache
+- Add socialite as a sending domain
