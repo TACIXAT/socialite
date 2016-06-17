@@ -57,11 +57,10 @@ function formhash(form, password) {
 
 }
  
-function regformhash(form, username, email, password, conf, invite) {
+function regformhash(form, username, email, password, conf) {
      // Check each field has a value
     if (username.value == ''         || 
           email.value == ''     || 
-          invite.value == ''     || 
           password.value == ''  || 
           conf.value == '') {
  
@@ -117,7 +116,7 @@ function regformhash(form, username, email, password, conf, invite) {
     conf.value = "";
  
     // Finally submit the form. 
-    var data = {"p": p.value, "email": email.value, "username": username.value, "invite": invite.value};
+    var data = {"p": p.value, "email": email.value, "username": username.value};
     $.ajax({
         'type': 'POST',
         'url': '/login.php',
@@ -132,7 +131,7 @@ function regSuccess(data, status, xhr) {
     var success = $.parseJSON(data);
     if("status" in success && success["status"] == "success") {
         window.location = "https://socialite.ooo/tutorial.php?registered=true";
-        var fields = ["registration_username", "registration_email", "registration_password", "registration_confirmpwd", "registration_invite"];
+        var fields = ["registration_username", "registration_email", "registration_password", "registration_confirmpwd"];
         for(var idx in fields) {
             $("#" + fields[idx]).val("");
         }

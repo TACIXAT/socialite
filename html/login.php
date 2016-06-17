@@ -164,7 +164,7 @@ if(isset($_GET["confirmed"])) {
                                         <input type='text' name='invite' id='registration_invite' />
                                         <label for="registration_invite">Invite</label>
                                     </div-->
-                                    <input type="button" class="btn right_btn" value="Register" onclick="return regformhash(this.form, this.form.username, this.form.email, this.form.password, this.form.confirmpwd, this.form.invite);" /> 
+                                    <input type="button" class="btn right_btn" value="Register" onclick="return regformhash(this.form, this.form.username, this.form.email, this.form.password, this.form.confirmpwd);" /> 
                                 </form>
                             </div>
                             <div id='resetDiv' class="content_div col s12">
