@@ -131,11 +131,12 @@ function regSuccess(data, status, xhr) {
     var success = $.parseJSON(data);
     console.log(success);
     if("status" in success && success["status"] == "success") {
-        // setTimeout(function() { window.location = "https://socialite.ooo/tutorial.php?registered=true"; }, 5000);
         var fields = ["registration_username", "registration_email", "registration_password", "registration_confirmpwd"];
         for(var idx in fields) {
             $("#" + fields[idx]).val("");
         }
+        Materialize.toast('Success! Redirecting to the tutorial in 3 seconds!', 4000);
+        setTimeout(function() { window.location = "https://socialite.ooo/tutorial.php?registered=true"; }, 3000);
         //$('ul.tabs').tabs('select_tab', 'loginDiv');
     } else {
         console.log(success);
