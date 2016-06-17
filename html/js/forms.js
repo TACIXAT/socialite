@@ -131,7 +131,7 @@ function regSuccess(data, status, xhr) {
     var success = $.parseJSON(data);
     console.log(success);
     if("status" in success && success["status"] == "success") {
-        setTimeout(function() { window.location = "https://socialite.ooo/tutorial.php?registered=true"; }, 1000);
+        setTimeout(function() { window.location = "https://socialite.ooo/tutorial.php?registered=true"; }, 5000);
         var fields = ["registration_username", "registration_email", "registration_password", "registration_confirmpwd"];
         for(var idx in fields) {
             $("#" + fields[idx]).val("");
