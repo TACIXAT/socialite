@@ -129,8 +129,9 @@ function regformhash(form, username, email, password, conf) {
 
 function regSuccess(data, status, xhr) {
     var success = $.parseJSON(data);
+    console.log(success);
     if("status" in success && success["status"] == "success") {
-        window.location = "https://socialite.ooo/tutorial.php?registered=true";
+        setTimeout(function() { window.location = "https://socialite.ooo/tutorial.php?registered=true"; }, 1000);
         var fields = ["registration_username", "registration_email", "registration_password", "registration_confirmpwd"];
         for(var idx in fields) {
             $("#" + fields[idx]).val("");
