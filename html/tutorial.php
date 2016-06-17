@@ -129,6 +129,9 @@ if(isset($_GET["registered"])) {
                     <div class="insns">
                         <h5>Thanks for taking the time to learn about Socialite! Reach out to dgoddard@socialite.ooo if anything is unclear!</h5>
                     </div>
+                    <div class="insns">
+                        <h5><a href="/login.php">Click here to login!</a></h5>
+                    </div>
                 </div>
             </div>
         </div>
