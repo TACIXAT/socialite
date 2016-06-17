@@ -67,9 +67,9 @@
         <script type="text/JavaScript">
             $(document).ready(function(){
 <?php
-if(isset($_GET["invite"]) && ctype_alnum($_GET["invite"])) {
+if(isset($_GET["invite"]) || isset($_GET["register"])) {
     echo "                $('ul.tabs').tabs('select_tab', 'registrationDiv');\n";
-    printf("                $('#registration_invite').val('%s');\n", $_GET["invite"]);
+    //printf("                $('#registration_invite').val('%s');\n", $_GET["invite"]);
     echo "                $('#registration_invite').siblings().addClass('active');\n";
     echo "                if(useMixpanel);\n";
     echo "                    mixpanel.track('Visited Registration');\n";
@@ -160,10 +160,10 @@ if(isset($_GET["confirmed"])) {
                                         <input type="password" name="confirmpwd"  id="registration_confirmpwd" />
                                         <label for="registration_confirmpwd">Confirm</label>
                                     </div>
-                                    <div class="input-field">
+                                    <!--div class="input-field">
                                         <input type='text' name='invite' id='registration_invite' />
                                         <label for="registration_invite">Invite</label>
-                                    </div>
+                                    </div-->
                                     <input type="button" class="btn right_btn" value="Register" onclick="return regformhash(this.form, this.form.username, this.form.email, this.form.password, this.form.confirmpwd, this.form.invite);" /> 
                                 </form>
                             </div>

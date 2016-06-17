@@ -186,11 +186,11 @@
                         'error': genericError });
                 });
 
-                $("#signup_button").click(function() {
-                    $("html, body").animate({scrollTop:$("#waiting_list_div").offset().top-20}, 'slow');
-                     if(useMixpanel) 
-                        mixpanel.track('Menu Signup');
-                });
+                // $("#signup_button").click(function() {
+                //     $("html, body").animate({scrollTop:$("#waiting_list_div").offset().top-20}, 'slow');
+                //      if(useMixpanel) 
+                //         mixpanel.track('Menu Signup');
+                // });
                 $("#about_button").click(function() {
                     $("html, body").animate({scrollTop:$("#about_div").offset().top}, 'slow'); 
                     if(useMixpanel) 
@@ -248,7 +248,7 @@
                         <a id="login_button" href="/login.php">Login</a>
                     </li>
                     <li class="bold">
-                        <a id="signup_button">Sign Up</a>
+                        <a id="signup_button" href="/login.php?register">Sign Up</a>
                     </li>
                     <li class="bold">
                         <a id="about_button">About</a>
@@ -294,7 +294,7 @@
                     <h4>Personal Relationship Management</h4>
                 </div>
             </div>
-            <div class="row">
+            <!--div class="row">
                 <div class="col l6 offset-l3 s12">
                     <div id="waiting_list_div" class="card waiting_list_div">
                         <div class="card-content">
@@ -310,7 +310,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div-->
             <div id="about_div" class="row white-text">
                 <div class="col l8 offset-l2 s12 flow-text">
                     <h4>About</h4>
@@ -380,7 +380,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <!--div class="row">
                 <div class="col l6 offset-l3 s12">
                     <div id="waiting_list_div" class="card waiting_list_div">
                         <div class="card-content">
@@ -396,7 +396,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div-->
             <div id="contact_div" class="row white-text">
                 <div class="col l8 offset-l2 s12 flow-text">
                     <h4>Contact</h4>
